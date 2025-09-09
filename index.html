@@ -1,64 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Pragadheesh – Cybersecurity ePortfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f4f4f4;
-      color: #333;
+    :root{
+      --bg:#f4f4f4;--text:#333;--primary:#2980b9;--head:#2c3e50;
+      --ongo-bg:#e8f4fc;--ongo-border:#007acc;
+      --comp-bg:#eaf8ea;--comp-border:#28a745;
+      --upc-bg:#fff4e5;--upc-border:#ff9800;
+      --chip:#666;
     }
-
-    .hero {
-      background-image: url('header-bg.png');
-      background-size: cover;
-      background-position: center;
-      height: 220px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
+    *{box-sizing:border-box}
+    body{font-family:Arial,Helvetica,sans-serif;margin:0;background:var(--bg);color:var(--text)}
+    .hero{
+      background-image:url('header-bg.png');
+      background-size:cover;background-position:center;
+      height:220px;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center
     }
+    .hero h1{background:rgba(0,0,0,.5);padding:1rem 2rem;border-radius:8px;margin:0}
+    .container{padding:2rem;max-width:1000px;margin:0 auto}
+    .section{background:#fff;padding:1.5rem;margin-bottom:1.5rem;border-radius:8px}
+    h2{color:var(--head);margin-top:0}
+    a{color:var(--primary);text-decoration:none}
+    a:hover{text-decoration:underline}
 
-    .hero h1 {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 1rem 2rem;
-      border-radius: 8px;
+    /* Banner */
+    .banner{
+      border-left:5px solid;padding:12px 16px;margin:20px auto;border-radius:6px;
+      background:#fff;max-width:1000px
     }
+    .banner h3{margin:.25rem 0 .5rem 0}
+    .banner p{margin:.25rem 0}
+    .ongoing{background:var(--ongo-bg);border-color:var(--ongo-border)}
+    .completed{background:var(--comp-bg);border-color:var(--comp-border)}
+    .upcoming{background:var(--upc-bg);border-color:var(--upc-border)}
 
-    .container {
-      padding: 2rem;
+    /* Module list */
+    .modules{list-style:none;padding-left:0;margin:0}
+    .module{
+      display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:space-between;
+      padding:12px 0;border-bottom:1px solid #e6e6e6
     }
-
-    .section {
-      background-color: white;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
+    .module:last-child{border-bottom:none}
+    .module-title{font-weight:bold}
+    .chip{
+      display:inline-block;border:1px solid #ddd;border-radius:999px;padding:.15rem .6rem;font-size:.85rem;color:var(--chip)
     }
-
-    h2 {
-      color: #2c3e50;
-    }
-
-    a {
-      color: #2980b9;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+    .chip.ongoing{border-color:var(--ongo-border);color:var(--ongo-border);background:var(--ongo-bg)}
+    .chip.completed{border-color:var(--comp-border);color:var(--comp-border);background:var(--comp-bg)}
+    .chip.upcoming{border-color:var(--upc-border);color:var(--upc-border);background:var(--upc-bg)}
+    .dates{font-size:.9rem;color:#666}
+    .module-left{display:flex;flex-direction:column;gap:.25rem;min-width:250px}
+    .module-right{display:flex;align-items:center;gap:.5rem}
+    @media (max-width:600px){
+      .module{align-items:flex-start}
+      .module-right{margin-top:.25rem}
     }
   </style>
 </head>
 <body>
 
-  <div class="hero">
+  <div class="hero" role="img" aria-label="Header background">
     <h1>Pragadheesh Marimuthu</h1>
+  </div>
+
+  <!-- Dynamic banner -->
+  <div id="moduleBanner" class="banner upcoming" aria-live="polite">
+    <h3>Current Module</h3>
+    <p><strong id="bannerTitle">Loading…</strong></p>
+    <p id="bannerDates" class="dates"></p>
+    <p>👉 <a id="bannerLink" href="#">View e-Portfolio Progress</a></p>
+    <p id="bannerStatus"></p>
   </div>
 
   <div class="container">
@@ -73,22 +87,121 @@
 
     <div class="section">
       <h2>ePortfolio</h2>
-      <p>This website showcases my work, assessments, and learning journey across modules including:</p>
-      <ul>
-        <li><a href="launching-into-cybersecurity.html">Launching into Cybersecurity (January 2025)</a></li>
-        <li><a href="network-security.html">Network Security – Apr 2025</a></li>
-        <li><a href="secure-software-development.html">Secure Software Development – Jun 2025</a></li>
-        <li><a href="risk-management.html">Risk Management – Feb 2025</a></li>
-        <li><a href="threat-intelligence.html">Threat Intelligence – Mar 2025</a></li>
-      </ul>
+      <p>This website showcases my work, assessments, and learning journey across modules:</p>
+      <ul id="moduleList" class="modules"></ul>
     </div>
 
     <div class="section">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:pragadmms@gmail.com">pragadmms@gmail.com</a></p>
-      <p>GitHub: <a href="https://pragfolio.github.io" target="_blank">View my GitHub</a></p>
+      <p>GitHub: <a href="https://pragfolio.github.io" target="_blank" rel="noopener">View my GitHub</a></p>
     </div>
   </div>
 
+  <script>
+    // ========= EDIT THESE DATES/TITLES/LINKS =========
+    // Tip: keep ISO format YYYY-MM-DD
+    const modules = [
+      {
+        title: "Launching into Cybersecurity (Jan 2025)",
+        link: "launching-into-cybersecurity.html",
+        start: "2025-01-06", // TODO: adjust
+        end:   "2025-02-23"  // TODO: adjust
+      },
+      {
+        title: "Network Security (Apr 2025)",
+        link: "network-security.html",
+        start: "2025-04-01", // TODO: adjust
+        end:   "2025-05-19"  // TODO: adjust
+      },
+      {
+        title: "Secure Software Development (Jun 2025)",
+        link: "secure-software-development.html",
+        start: "2025-06-01", // TODO: adjust
+        end:   "2025-07-20"  // TODO: adjust
+      },
+      {
+        title: "Security & Risk Management (Jul 2025 B)",
+        link: "risk-management.html",
+        start: "2025-07-29", // cohort start (example from you)
+        end:   "2025-10-20"  // cohort end (example from you)
+      }
+    ];
+    // ========= END EDITABLE SECTION =========
+
+    const today = new Date();
+    const parse = s => new Date(s+"T00:00:00");
+    const fmt = d => d.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
+
+    function statusFor(mod){
+      const s = parse(mod.start), e = parse(mod.end);
+      if (today < s) return "upcoming";
+      if (today > e) return "completed";
+      return "ongoing";
+    }
+
+    // Build module list
+    const list = document.getElementById("moduleList");
+    modules.forEach(m=>{
+      const li = document.createElement("li");
+      li.className = "module";
+      const left = document.createElement("div");
+      left.className = "module-left";
+      const title = document.createElement("a");
+      title.className = "module-title";
+      title.href = m.link;
+      title.textContent = m.title;
+      title.rel = "noopener";
+      const dates = document.createElement("span");
+      dates.className = "dates";
+      dates.textContent = `${fmt(parse(m.start))} – ${fmt(parse(m.end))}`;
+      left.appendChild(title);
+      left.appendChild(dates);
+
+      const right = document.createElement("div");
+      right.className = "module-right";
+      const chip = document.createElement("span");
+      const st = statusFor(m);
+      chip.className = `chip ${st}`;
+      chip.textContent = st === "ongoing" ? "Ongoing"
+                        : st === "completed" ? "Completed"
+                        : "Upcoming";
+      right.appendChild(chip);
+
+      li.appendChild(left);
+      li.appendChild(right);
+      list.appendChild(li);
+    });
+
+    // Choose banner module: ongoing > next upcoming > last completed
+    const ongoing = modules.filter(m=>statusFor(m)==="ongoing");
+    const upcoming = modules.filter(m=>statusFor(m)==="upcoming").sort((a,b)=>parse(a.start)-parse(b.start));
+    const completed = modules.filter(m=>statusFor(m)==="completed").sort((a,b)=>parse(b.end)-parse(a.end));
+
+    const bannerEl = document.getElementById("moduleBanner");
+    const bTitle = document.getElementById("bannerTitle");
+    const bDates = document.getElementById("bannerDates");
+    const bLink = document.getElementById("bannerLink");
+    const bStatus = document.getElementById("bannerStatus");
+
+    let chosen, label, cls;
+    if (ongoing.length){
+      chosen = ongoing[0]; label = "🚀 Ongoing – In Progress"; cls = "ongoing";
+    } else if (upcoming.length){
+      chosen = upcoming[0]; label = "📅 Upcoming Module"; cls = "upcoming";
+    } else if (completed.length){
+      chosen = completed[0]; label = "✅ Last Completed"; cls = "completed";
+    } else {
+      // Fallback (no modules configured)
+      chosen = {title:"No modules configured", link:"#", start:"", end:""}; label = ""; cls="upcoming";
+    }
+
+    bannerEl.classList.remove("ongoing","completed","upcoming");
+    bannerEl.classList.add(cls);
+    bTitle.textContent = chosen.title;
+    bDates.textContent = (chosen.start && chosen.end) ? `${fmt(parse(chosen.start))} – ${fmt(parse(chosen.end))}` : "";
+    bLink.href = chosen.link || "#";
+    bStatus.textContent = `Status: ${label}`;
+  </script>
 </body>
 </html>
