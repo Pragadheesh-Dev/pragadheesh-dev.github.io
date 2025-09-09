@@ -2,201 +2,284 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Security & Risk Management (Jul 2025 B) – ePortfolio</title>
+  <title>Security Risk Management – ePortfolio | Pragadheesh</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ePortfolio for the Security Risk Management module (Units 1–6): definitions of risk, RMP, qualitative vs quantitative assessment, user participation, threat modelling (STRIDE, DREAD, attack trees, PASTA), and security standards (GDPR, PCI-DSS, ISO 27000).">
   <style>
     :root{
-      --bg:#f6f7f9; --card:#ffffff; --ink:#1f2937; --muted:#6b7280;
-      --brand:#2563eb; --brand-weak:#e0e7ff; --ok:#16a34a; --warn:#d97706;
-      --pill:#eef2ff; --border:#e5e7eb;
+      --bg:#0b1220; --card:#111a2b; --muted:#a9b7d0; --accent:#4ea1ff; --accent-2:#7ee787;
+      --border:#1d2740; --shadow:rgba(0,0,0,.35);
     }
     *{box-sizing:border-box}
     body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;
-      background:var(--bg); color:var(--ink); line-height:1.55;
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      background:radial-gradient(1200px 600px at 20% -10%, #112148 0%, #0b1220 60%);
+      color:#e6eefc;
     }
-    .wrap{max-width:1000px; margin:auto; padding:24px}
-    .hero{
-      background:#0f172a url('header-bg.png') center/cover no-repeat;
-      color:#fff; padding:40px 24px; border-radius:14px; margin-bottom:20px;
+    header{
+      padding:56px 24px 32px; text-align:center; position:relative; overflow:hidden;
     }
-    .breadcrumbs{font-size:14px; opacity:.9}
-    .breadcrumbs a{color:#fff; text-decoration:underline}
-    h1{margin:.25rem 0 0; font-size:28px}
-    .status-pill{
-      display:inline-flex; gap:.5rem; align-items:center; background:var(--pill);
-      color:#3730a3; border-radius:999px; padding:6px 10px; font-size:12px; margin-top:10px;
+    header h1{margin:0 0 8px; font-size:2rem; letter-spacing:.3px}
+    header p{margin:0; color:var(--muted)}
+    .pill{
+      display:inline-flex; gap:.5rem; align-items:center; padding:.35rem .75rem; border-radius:999px;
+      background:rgba(78,161,255,.14); color:var(--accent); font-size:.875rem; border:1px solid rgba(78,161,255,.35)
     }
-    .grid{display:grid; gap:16px; grid-template-columns:1fr}
-    @media (min-width:880px){ .grid{grid-template-columns: 1.2fr .8fr} }
-    .card{
-      background:var(--card); border:1px solid var(--border);
-      padding:18px; border-radius:12px;
+    .wrap{max-width:1000px; margin:0 auto; padding:0 20px 64px}
+    nav.quick{
+      background:rgba(17,26,43,.7); border:1px solid var(--border); border-radius:14px;
+      padding:14px; margin:-28px auto 24px; backdrop-filter: blur(8px);
+      position:sticky; top:0; z-index:10;
     }
-    h2{margin:0 0 10px; font-size:22px}
-    h3{margin:18px 0 8px; font-size:18px}
-    p{margin:6px 0 12px}
-    a{color:var(--brand); text-decoration:none}
-    a:hover{text-decoration:underline}
-    .unit{border-left:4px solid var(--brand); padding-left:12px; margin:16px 0}
-    .note{font-size:14px; color:var(--muted); background:#fafafa; border:1px dashed var(--border); padding:10px; border-radius:8px}
-    .tag{font-size:12px; padding:3px 8px; border-radius:999px; border:1px solid var(--border); color:#374151; background:#fff; display:inline-block}
-    .ok{color:#065f46; border-color:#34d399}
-    .warn{color:#92400e; border-color:#f59e0b}
-    ul{margin:8px 0 12px 18px}
-    .list-plain{list-style:none; padding:0; margin:0}
-    .list-plain li{padding:6px 0; border-bottom:1px solid var(--border)}
-    .list-plain li:last-child{border-bottom:0}
-    .footer{font-size:12px; color:var(--muted); text-align:center; margin:18px 0}
-    .btn{
-      display:inline-block; padding:8px 12px; border-radius:8px; border:1px solid var(--border);
-      text-decoration:none; font-size:14px; background:#fff;
+    nav.quick .row{
+      display:flex; flex-wrap:wrap; gap:8px;
     }
-    .btn-primary{background:var(--brand); color:#fff; border-color:var(--brand)}
-    .kb{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background:#f3f4f6; padding:2px 6px; border-radius:6px}
+    nav.quick a{
+      text-decoration:none; color:#d9e7ff; background:#0e1729; border:1px solid var(--border);
+      padding:8px 12px; border-radius:10px; font-size:.92rem;
+    }
+    nav.quick a:hover{border-color:#2a3b64; background:#101c33}
+    section{
+      background:linear-gradient(180deg, rgba(21,33,58,.7), rgba(14,22,39,.7));
+      border:1px solid var(--border); border-radius:16px; padding:20px; margin:18px 0;
+      box-shadow:0 8px 24px var(--shadow);
+    }
+    h2{margin:0 0 10px; font-size:1.35rem}
+    h3{margin:18px 0 8px; font-size:1.05rem; color:var(--accent-2)}
+    p, li{color:#d6e2ff; line-height:1.6}
+    ul{margin:8px 0 0 22px}
+    .meta{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+    .chip{font-size:.84rem; color:#b9c7e6; background:#0f1a30; border:1px solid var(--border); padding:4px 8px; border-radius:999px}
+    .callout{
+      border-left:3px solid var(--accent); background:rgba(78,161,255,.08); padding:12px 14px; border-radius:8px; margin-top:10px
+    }
+    .list-inline{display:flex; flex-wrap:wrap; gap:10px; margin:8px 0}
+    .tag{background:#0f1a2a; border:1px solid var(--border); color:#bcd2ff; padding:6px 10px; border-radius:999px; font-size:.85rem}
+    a{color:#7ab8ff}
+    footer{color:#9fb2d8; text-align:center; padding:18px 0 32px}
+    @media (max-width:640px){
+      header h1{font-size:1.6rem}
+      nav.quick{position:static; margin:8px 0 24px}
+    }
   </style>
 </head>
 <body>
+  <header>
+    <div class="pill">Module ePortfolio • Security Risk Management</div>
+    <h1>Security Risk Management</h1>
+    <p>Units 1–6 • MSc Cybersecurity – University of Essex Online</p>
+  </header>
+
   <div class="wrap">
-    <!-- HERO -->
-    <div class="hero">
-      <div class="breadcrumbs"><a href="index.html">Home</a> • Security & Risk Management</div>
-      <h1>Security &amp; Risk Management (Jul 2025 B)</h1>
-      <div class="status-pill">📌 Up to Unit 6 • Ongoing</div>
-      <p style="margin-top:12px; opacity:.9">Evidence & artefacts covering Units 1–6. Assessment 1 submitted; e-portfolio in progress.</p>
-    </div>
 
-    <div class="grid">
-      <!-- MAIN COLUMN -->
-      <main>
-        <div class="card">
-          <h2>Module Overview</h2>
-          <p>This module develops practical skills in identifying threats, modelling risks, understanding compliance standards (GDPR, PCI-DSS, ISO 27001), and linking mitigations to business impact.</p>
-          <ul>
-            <li><strong>Team Project:</strong> Risk identification &amp; modelling artefacts.</li>
-            <li><strong>Collaborative Discussion 1:</strong> Industry 4.0 risks &amp; literature synthesis.</li>
-            <li><strong>Seminars:</strong> Threat modelling, AI in risk, and standards — reviewed <em>via official recordings</em>.</li>
-          </ul>
-        </div>
+    <nav class="quick" aria-label="Quick navigation">
+      <div class="row">
+        <a href="#overview">Module Overview</a>
+        <a href="#unit1">Unit 1: Intro to SRM</a>
+        <a href="#unit2">Unit 2: Users & Assessments</a>
+        <a href="#unit3">Unit 3: Threat Modelling Intro</a>
+        <a href="#unit4">Unit 4: Threat Modelling Practice</a>
+        <a href="#unit5">Unit 5: Standards in Industry</a>
+        <a href="#unit6">Unit 6: Practical Standards</a>
+        <a href="#artefacts">Team & Artefacts</a>
+        <a href="#reflection">Reflection (U1–U6)</a>
+      </div>
+    </nav>
 
-        <!-- UNITS -->
-        <div class="card">
-          <h2>Units 1–6 Evidence</h2>
+    <!-- Overview -->
+    <section id="overview">
+      <h2>Module Overview</h2>
+      <div class="meta">
+        <span class="chip">Tutor recordings reviewed (seminars attended via recording)</span>
+        <span class="chip">ePortfolio hosted on GitHub Pages</span>
+      </div>
+      <p>
+        This ePortfolio documents my work for <em>Security Risk Management</em> through Units 1–6:
+        foundations of risk, the Risk Management Process (RMP), qualitative vs quantitative assessments
+        and user participation, threat modelling methods (STRIDE, DREAD, attack trees, PASTA),
+        and security standards (GDPR, PCI-DSS, ISO 27000 family). It also captures formative activities,
+        seminar prep, team artefacts, and a reflective summary.
+      </p>
+      <div class="list-inline" aria-label="Skills">
+        <span class="tag">Critical thinking</span>
+        <span class="tag">Risk analysis</span>
+        <span class="tag">Threat modelling</span>
+        <span class="tag">Standards & compliance</span>
+        <span class="tag">Teamwork</span>
+        <span class="tag">Professional writing</span>
+      </div>
+    </section>
 
-          <div class="unit" id="u1">
-            <h3>Unit 1 — Foundations &amp; Team Setup</h3>
-            <p>Set up e-portfolio section, formed team, and posted the initial contribution for Collaborative Discussion 1.</p>
-            <ul>
-              <li><span class="tag ok">Done</span> Group contract agreed &amp; emailed to tutor.</li>
-              <li><span class="tag ok">Done</span> Initial post: Industry 4.0 definition &amp; real-world risk examples.</li>
-            </ul>
-            <a class="btn" href="#artefacts">Jump to artefacts</a>
-          </div>
+    <!-- Unit 1 -->
+    <section id="unit1">
+      <h2>Unit 1: An Introduction to Security and Risk Management</h2>
+      <div class="meta">
+        <span class="chip">Lecturecast • 1 hr</span>
+        <span class="chip">Reading • 7 hrs</span>
+        <span class="chip">Formative activities</span>
+      </div>
+      <h3>Focus</h3>
+      <p>
+        Definitions of risk and Security & Risk Management (SRM); threats vs vulnerabilities; the Risk
+        Management Process (RMP); qualitative and quantitative assessment basics; common standards and when
+        they apply.
+      </p>
+      <h3>Intended Learning</h3>
+      <ul>
+        <li>Discuss definitions of risk and SRM concepts.</li>
+        <li>Explain how to assess, qualify, mitigate risks; outline qualitative vs quantitative approaches.</li>
+        <li>List common security & risk standards and select appropriate ones for a scenario.</li>
+      </ul>
+      <div class="callout">
+        <strong>Discussion 1 (begins U1):</strong> Posted initial response on Industry 4.0,
+        risk categories, and literature triangulation (Hancock et&nbsp;al., Kovaitė &amp; Stankevičienė, +1 supporting/contrasting paper).
+      </div>
+    </section>
 
-          <div class="unit" id="u2">
-            <h3>Unit 2 — User Participation &amp; AI in Risk</h3>
-            <p>Peer responses posted and workshop paper (Spears &amp; Barki, 2010) reviewed for qualitative/quantitative alignment; drafted notes on how AI analytics supports risk prediction and BCP.</p>
-            <p class="note">Seminar note: I did not attend live. I reviewed the <strong>official seminar recording</strong> posted by the tutor and captured key insights in my notes and artefacts.</p>
-          </div>
+    <!-- Unit 2 -->
+    <section id="unit2">
+      <h2>Unit 2: Users, Assessments and the Risk Management Process</h2>
+      <div class="meta">
+        <span class="chip">Reading • 4 hrs</span>
+        <span class="chip">Seminar activity</span>
+        <span class="chip">Discussion peer responses</span>
+      </div>
+      <h3>Focus</h3>
+      <p>
+        Deep dive into the RMP, the impact of assessment type (qualitative vs quantitative),
+        and the role of user participation in risk identification, analysis, and treatment.
+        Based on Spears &amp; Barki (2010), plus seminar questions on AI-powered analytics for
+        risk prediction and continuity.
+      </p>
+      <h3>Intended Learning</h3>
+      <ul>
+        <li>Differentiate qualitative vs quantitative assessments and their benefits/trade-offs.</li>
+        <li>Explain how user participation shapes RMP outcomes and mitigations.</li>
+        <li>Reflect on implications of recommended controls.</li>
+      </ul>
+      <div class="callout">
+        <strong>Seminar recording:</strong> Prepared answers on mixed-methods assessment,
+        AI analytics integration beyond NLP, and multi-tech AI stacks in enterprise risk.
+      </div>
+    </section>
 
-          <div class="unit" id="u3">
-            <h3>Unit 3 — Discussion Synthesis</h3>
-            <p>Published the 300-word summary post integrating my initial view, peer feedback, and readings across Units 1–3.</p>
-            <ul>
-              <li><span class="tag ok">Done</span> Summary post uploaded to forum and saved to portfolio.</li>
-            </ul>
-          </div>
+    <!-- Unit 3 -->
+    <section id="unit3">
+      <h2>Unit 3: Introduction to Threat Modelling and Management</h2>
+      <div class="meta">
+        <span class="chip">Lecturecast • 1 hr</span>
+        <span class="chip">Reading • 5 hrs</span>
+        <span class="chip">Discussion summary post</span>
+      </div>
+      <h3>Focus</h3>
+      <p>
+        Threats vs vulnerabilities; survey of threat modelling techniques (STRIDE, DREAD, attack trees)
+        and hybrid approaches like PASTA; when to combine frameworks and how cookbooks/guides inform selection.
+      </p>
+      <h3>Intended Learning</h3>
+      <ul>
+        <li>Describe multiple threat modelling techniques and selection criteria.</li>
+        <li>Advise technique choice for specific contexts; identify when to hybridise.</li>
+      </ul>
+      <div class="callout">
+        <strong>Discussion 1 (U3 wrap):</strong> Submitted a 300-word summary synthesising my initial post,
+        peer feedback, and content across Units 1–3.
+      </div>
+    </section>
 
-          <div class="unit" id="u4">
-            <h3>Unit 4 — Threat Modelling Practice</h3>
-            <p>Applied STRIDE (+ DREAD scoring) and attack-tree thinking to the Jbair et&nbsp;al. (2022) CPS case. Built a small 2D matrix: STRIDE categories × DREAD (impact/likelihood) to prioritise mitigations.</p>
-            <p class="note">Seminar note: Covered via <strong>recording</strong>. The worksheet answers in my artefacts reflect what I implemented after watching the session.</p>
-          </div>
+    <!-- Unit 4 -->
+    <section id="unit4">
+      <h2>Unit 4: Application of Threat Modelling and Management Techniques</h2>
+      <div class="meta">
+        <span class="chip">Reading • 8 hrs</span>
+        <span class="chip">Formative activities • 6 hrs</span>
+        <span class="chip">Seminar exercises</span>
+      </div>
+      <h3>Focus</h3>
+      <p>
+        Practical threat modelling guided by the Threat Modelling Manifesto, OWASP cookbook, and MITRE ATT&CK.
+        Built models with STRIDE/DREAD, attack trees, and referenced CVSS where relevant.
+      </p>
+      <h3>Workshop (Jbair et&nbsp;al., 2022)</h3>
+      <ul>
+        <li><em>Key CPS elements &amp; interdependencies</em> and why they matter for accurate analysis.</li>
+        <li><em>Entry points &amp; vulnerabilities</em> in cyber-physical energy systems; practical challenges.</li>
+        <li><em>Scenario-specific metrics</em> for prioritisation; mapping to targeted countermeasures.</li>
+      </ul>
+      <div class="callout">
+        Prepared answers and discussed via seminar recording; captured notes and tables in artefacts.
+      </div>
+    </section>
 
-          <div class="unit" id="u5">
-            <h3>Unit 5 — GDPR Case Study</h3>
-            <p>Individually analysed a Data Protection Commission case (2014–2018) and answered:</p>
-            <ul>
-              <li>Specific GDPR article(s) involved</li>
-              <li>Resolution/outcome</li>
-              <li>Mitigations I would implement as an IS Manager</li>
-            </ul>
-            <p>Saved notes and references in the artefacts section.</p>
-          </div>
+    <!-- Unit 5 -->
+    <section id="unit5">
+      <h2>Unit 5: An Introduction to Security and Risk Standards in Industry and the Enterprise</h2>
+      <div class="meta">
+        <span class="chip">Lecturecast • 1 hr</span>
+        <span class="chip">Reading • 2 hrs</span>
+        <span class="chip">GDPR case study (ePortfolio)</span>
+      </div>
+      <h3>Focus</h3>
+      <p>
+        Industry and enterprise standards—where they fit in risk assessments/designs; selecting appropriate
+        standards for scenarios (e.g., GDPR, PCI-DSS, ISO 27000 family).
+      </p>
+      <h3>e-Portfolio Activity – GDPR Case Study</h3>
+      <ul>
+        <li>Aspect addressed, resolution pathway, and mitigation steps as an Information Security Manager.</li>
+        <li>Team discussion captured; my write-up saved as an artefact.</li>
+      </ul>
+    </section>
 
-          <div class="unit" id="u6">
-            <h3>Unit 6 — Standards in Practice</h3>
-            <p>Mapped the assessment organisation against GDPR, PCI-DSS, and considered HIPAA scope. Produced a lightweight evaluation checklist and recommendations.</p>
-            <p class="note">Seminar note: Reviewed the <strong>recorded session</strong>. My checklist and recommendations were finalised after watching the recording and reading linked guidance.</p>
-            <ul>
-              <li><span class="tag ok">Done</span> Assessment 1 (Risk Identification Report) submitted.</li>
-              <li><span class="tag warn">In progress</span> Portfolio polishing up to Unit 6.</li>
-            </ul>
-          </div>
-        </div>
+    <!-- Unit 6 -->
+    <section id="unit6">
+      <h2>Unit 6: The Practical Implications of Security and Risk Standards</h2>
+      <div class="meta">
+        <span class="chip">Reading • 2 hrs</span>
+        <span class="chip">Seminar activity • 3 hrs</span>
+        <span class="chip">Assessment submitted (Risk Identification Report)</span>
+      </div>
+      <h3>Focus</h3>
+      <p>
+        Applying GDPR/PCI-DSS/ISO 27000 in practice; evaluating an organisation against applicable standards,
+        verification approaches, recommendations, and clearly stated assumptions.
+      </p>
+      <div class="callout">
+        <strong>Status:</strong> Assessment submitted. Seminar attended via recording; notes included in artefacts.
+      </div>
+    </section>
 
-        <!-- ARTEFACTS -->
-        <div class="card" id="artefacts">
-          <h2>Key Artefacts</h2>
-          <ul class="list-plain">
-            <li><strong>CD1 – Initial / Peer / Summary Posts</strong> — screenshots &amp; text excerpts (saved locally; will add public summaries).</li>
-            <li><strong>Threat-Model Matrix</strong> — STRIDE × DREAD table and attack-tree sketch for CPS case.</li>
-            <li><strong>GDPR Case Study Notes</strong> — article mapping, resolution timeline, and mitigations.</li>
-            <li><strong>Standards Checklist</strong> — GDPR/PCI-DSS evaluation list and recommendations.</li>
-            <li><strong>Team Meeting Notes</strong> — decisions, actions, and links to shared docs.</li>
-          </ul>
-          <p class="note">Where artefacts contain sensitive or student-only content (e.g., forum screenshots), I will include <em>summaries/redacted views</em> here and keep full evidence in a private folder. Public page links will point to non-sensitive extracts.</p>
-        </div>
+    <!-- Artefacts -->
+    <section id="artefacts">
+      <h2>Team &amp; Artefacts (U1–U6)</h2>
+      <ul>
+        <li>Team contract and meeting notes (Unit 1).</li>
+        <li>Collaborative Discussion 1: initial post, two peer responses, final summary (Units 1–3).</li>
+        <li>Threat modelling tables/diagrams (Unit 4) and seminar Q&amp;A notes.</li>
+        <li>GDPR Case Study write-up (Unit 5).</li>
+        <li>Security standards evaluation checklist &amp; recommendations (Unit 6).</li>
+      </ul>
+      <p><em>Note:</em> Seminar participation completed via tutor recordings; attendance reflected in notes.</p>
+    </section>
 
-        <!-- REFLECTION -->
-        <div class="card" id="reflection">
-          <h2>Reflective Piece (LO1–LO4)</h2>
-          <p><em>Guidance limit applies to the reflection only.</em> Draft highlights:</p>
-          <ul>
-            <li><strong>Engagement mode:</strong> I couldn’t attend live seminars, so I relied on the <strong>official recordings</strong>. This limited real-time discussion, but I compensated through deeper literature review and active contributions to the collaborative discussion.</li>
-            <li><strong>Risk thinking:</strong> Combining <span class="kb">STRIDE</span> (categorical) with <span class="kb">DREAD</span> (scoring) helped me translate qualitative threats into prioritised actions; attack trees clarified feasible paths.</li>
-            <li><strong>Standards lens:</strong> Mapping GDPR/PCI-DSS early influenced design choices (e.g., third-party payment providers, data minimisation, retention policies).</li>
-            <li><strong>Next steps:</strong> Build a small spreadsheet to calculate risk scores and track mitigations; expand the standards checklist into a repeatable mini-audit.</li>
-          </ul>
-        </div>
+    <!-- Reflection -->
+    <section id="reflection">
+      <h2>Reflective Summary (Units 1–6)</h2>
+      <p>
+        Across Units 1–3 I moved from foundation concepts to method selection: distinguishing risk
+        definitions, weighing qualitative vs quantitative assessments, and appreciating how user participation
+        surfaces operational realities that impact the RMP. In Units 4–6, hands-on modelling (STRIDE/DREAD/attack
+        trees/PASTA) and compliance framing (GDPR, PCI-DSS, ISO 27000) helped me connect technical threats to
+        business standards and control requirements. Watching seminar recordings let me pause/rewind complex
+        sections and translate them into actionable artefacts. Key improvements ahead: deepen CVSS scoring
+        practice, prototype hybrid modelling templates for repeatable analysis, and maintain a live standards
+        checklist tied to business context and data flows.
+      </p>
+    </section>
 
-        <div class="footer">© 2025 Pragadheesh Marimuthu • MSc Cybersecurity (UoEO)</div>
-      </main>
-
-      <!-- SIDEBAR -->
-      <aside>
-        <div class="card">
-          <h3>Module Meta</h3>
-          <ul>
-            <li><strong>Start–End:</strong> 29 Jul – 20 Oct 2025</li>
-            <li><strong>Status:</strong> Units 1–6 captured</li>
-            <li><strong>Team:</strong> Risk Identification Project</li>
-          </ul>
-          <a class="btn" href="index.html">← Back to Home</a>
-        </div>
-
-        <div class="card">
-          <h3>Learning Outcomes</h3>
-          <ul>
-            <li>Analyse risks, threats &amp; vulnerabilities</li>
-            <li>Synthesise intel from multiple sources</li>
-            <li>Select &amp; apply appropriate methodologies</li>
-            <li>Address legal, social, ethical, professional issues</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Professional Skills (PDP)</h3>
-          <ul>
-            <li>Time management &amp; resilience</li>
-            <li>Critical analysis &amp; problem-solving</li>
-            <li>Communication &amp; teamwork</li>
-            <li>Digital &amp; research skills</li>
-          </ul>
-        </div>
-      </aside>
-    </div>
+    <footer>
+      © 2025 Pragadheesh Marimuthu • Security Risk Management ePortfolio
+    </footer>
   </div>
 </body>
 </html>
