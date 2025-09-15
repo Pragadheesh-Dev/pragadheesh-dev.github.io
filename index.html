@@ -23,17 +23,40 @@
     a{color:#7ab8ff; text-decoration:none}
     a:hover{text-decoration:underline}
 
-    /* Hero */
-    .hero{
-      background-image:url('header-bg.png');
-      background-size:cover; background-position:center;
-      height:220px; display:flex; align-items:center; justify-content:center;
-      text-align:center; position:relative; overflow:hidden;
-      border-bottom:1px solid var(--border);
-    }
-    .hero h1{
-      background:rgba(0,0,0,.45); padding:1rem 2rem; border-radius:10px; margin:0;
-    }
+   .hero{
+  background-image:
+    linear-gradient(180deg, rgba(5,10,20,.35), rgba(5,10,20,.65)),
+    url('header-bg.png');
+  background-size:cover;
+  background-position:center;
+  height:280px;               /* was 220px – gives a more cinematic feel */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+
+.hero h1{
+  margin:0;
+  padding:1rem 2rem;
+  border-radius:12px;
+  background:rgba(10,16,28,.35);         /* subtler glass look */
+  backdrop-filter: blur(2px);
+  font-weight:700;
+  font-size:clamp(1.6rem, 4.2vw, 2.8rem); /* responsive sizing */
+  line-height:1.15;
+  text-shadow:0 6px 22px rgba(0,0,0,.45); /* better contrast on busy images */
+  border:1px solid rgba(255,255,255,.08);
+}
+
+/* Tweak for small screens */
+@media (max-width:640px){
+  .hero{ height:220px; }
+  .hero h1{ padding:.8rem 1.25rem; border-radius:10px; }
+}
 
     /* Container/sections */
     .container{padding:2rem; max-width:1000px; margin:0 auto}
@@ -100,9 +123,7 @@
 </head>
 <body>
 
-  <div class="hero" role="img" aria-label="Header background">
-    <h1>Pragadheesh Marimuthu</h1>
-  </div>
+<div class="hero" role="img" aria-label="Pragadheesh Marimuthu"></div>
 
   <!-- Dynamic banner -->
   <div id="moduleBanner" class="banner upcoming" aria-live="polite">
