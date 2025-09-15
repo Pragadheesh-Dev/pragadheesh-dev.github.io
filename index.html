@@ -24,6 +24,15 @@
     a{color:#7ab8ff; text-decoration:none}
     a:hover{text-decoration:underline}
 
+    .hero {
+  opacity: 0;
+  animation: fadeInHero 1.6s ease-in-out forwards;
+}
+
+@keyframes fadeInHero {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
    .hero{
   background-image:
     linear-gradient(180deg, rgba(5,10,20,.35), rgba(5,10,20,.65)),
@@ -66,6 +75,8 @@
     p{color:#d6e2ff; line-height:1.65}
 
     /* Banner */
+
+    
     .banner{
       border:1px solid var(--border); border-left:5px solid var(--accent);
       padding:14px 18px; margin:20px auto; border-radius:12px;
@@ -75,7 +86,16 @@
     .banner h3{margin:.2rem 0 .4rem 0; color:#d9e7ff}
     .banner p{margin:.2rem 0}
     .banner.upcoming{border-left-color:var(--upc-border)}
-    .banner.ongoing{border-left-color:var(--ongo-border)}
+    .banner.ongoing{border-left-color:var(--ongo-border)
+                   }
+    /* Glow effect for Current Module banner */
+.banner.ongoing {
+  box-shadow: 0 0 12px rgba(78,161,255,0.4), 0 4px 20px rgba(0,0,0,0.25);
+  transition: box-shadow 0.4s ease-in-out;
+}
+.banner.ongoing:hover {
+  box-shadow: 0 0 18px rgba(78,161,255,0.65), 0 6px 28px rgba(0,0,0,0.35);
+}
     .banner.completed{border-left-color:var(--comp-border)}
     .dates{font-size:.92rem; color:var(--muted)}
     .status-chip{
