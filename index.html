@@ -25,13 +25,13 @@
     a:hover{text-decoration:underline}
 
    .hero {
-  background-image:
+ background-image:
     linear-gradient(180deg, rgba(5,10,20,.35), rgba(5,10,20,.65)),
     url('header-bg.png');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  height: 220px;                 /* default height for desktop */
+  background-size: cover;          /* keeps a nice fill */
+  background-position: center top; /* anchors from the top so name stays visible */
+  background-repeat: no-repeat;    /* no repeated tiles */
+  height: 240px;                   /* adjust this to control vertical space */
   display: flex;
   align-items: center;
   justify-content: center;
