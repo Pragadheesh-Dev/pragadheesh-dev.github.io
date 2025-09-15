@@ -4,60 +4,98 @@
   <meta charset="UTF-8" />
   <title>Pragadheesh – Cybersecurity ePortfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pragadheesh Marimuthu – MSc Cybersecurity ePortfolio: modules, artefacts, and reflections." />
   <style>
     :root{
-      --bg:#f4f4f4;--text:#333;--primary:#2980b9;--head:#2c3e50;
-      --ongo-bg:#e8f4fc;--ongo-border:#007acc;
-      --comp-bg:#eaf8ea;--comp-border:#28a745;
-      --upc-bg:#fff4e5;--upc-border:#ff9800;
-      --chip:#666;
+      --bg:#0b1220; --panel:#0e1729; --text:#e6eefc; --muted:#a9b7d0;
+      --accent:#4ea1ff; --accent-2:#7ee787; --border:#1d2740; --shadow:rgba(0,0,0,.35);
+      --chip:#bcd2ff;
+      --ongo-bg:rgba(78,161,255,.12); --ongo-border:#4ea1ff;
+      --comp-bg:rgba(126,231,135,.12); --comp-border:#7ee787;
+      --upc-bg:rgba(255,200,0,.10); --upc-border:#ffc107;
     }
-    *{box-sizing:border-box}
-    body{font-family:Arial,Helvetica,sans-serif;margin:0;background:var(--bg);color:var(--text)}
+    *{box-sizing:border-box; scroll-behavior:smooth}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      background:radial-gradient(1200px 600px at 20% -10%, #112148 0%, #0b1220 60%);
+      color:var(--text);
+    }
+    a{color:#7ab8ff; text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Hero */
     .hero{
       background-image:url('header-bg.png');
-      background-size:cover;background-position:center;
-      height:220px;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center
+      background-size:cover; background-position:center;
+      height:220px; display:flex; align-items:center; justify-content:center;
+      text-align:center; position:relative; overflow:hidden;
+      border-bottom:1px solid var(--border);
     }
-    .hero h1{background:rgba(0,0,0,.5);padding:1rem 2rem;border-radius:8px;margin:0}
-    .container{padding:2rem;max-width:1000px;margin:0 auto}
-    .section{background:#fff;padding:1.5rem;margin-bottom:1.5rem;border-radius:8px}
-    h2{color:var(--head);margin-top:0}
-    a{color:var(--primary);text-decoration:none}
-    a:hover{text-decoration:underline}
+    .hero h1{
+      background:rgba(0,0,0,.45); padding:1rem 2rem; border-radius:10px; margin:0;
+    }
+
+    /* Container/sections */
+    .container{padding:2rem; max-width:1000px; margin:0 auto}
+    .section{
+      background:linear-gradient(180deg, rgba(21,33,58,.7), rgba(14,22,39,.7));
+      border:1px solid var(--border); border-radius:16px; padding:1.5rem; margin-bottom:1.2rem;
+      box-shadow:0 8px 24px var(--shadow);
+    }
+    h2{color:#d9e7ff; margin:0 0 .6rem}
+    p{color:#d6e2ff; line-height:1.65}
 
     /* Banner */
     .banner{
-      border-left:5px solid;padding:12px 16px;margin:20px auto;border-radius:6px;
-      background:#fff;max-width:1000px
+      border:1px solid var(--border); border-left:5px solid var(--accent);
+      padding:14px 18px; margin:20px auto; border-radius:12px;
+      background:linear-gradient(180deg, rgba(21,33,58,.7), rgba(14,22,39,.7));
+      max-width:1000px; box-shadow:0 8px 24px var(--shadow);
     }
-    .banner h3{margin:.25rem 0 .5rem 0}
-    .banner p{margin:.25rem 0}
-    .ongoing{background:var(--ongo-bg);border-color:var(--ongo-border)}
-    .completed{background:var(--comp-bg);border-color:var(--comp-border)}
-    .upcoming{background:var(--upc-bg);border-color:var(--upc-border)}
+    .banner h3{margin:.2rem 0 .4rem 0; color:#d9e7ff}
+    .banner p{margin:.2rem 0}
+    .banner.upcoming{border-left-color:var(--upc-border)}
+    .banner.ongoing{border-left-color:var(--ongo-border)}
+    .banner.completed{border-left-color:var(--comp-border)}
+    .dates{font-size:.92rem; color:var(--muted)}
+    .status-chip{
+      display:inline-flex; align-items:center; gap:.45rem; font-size:.9rem; font-weight:600;
+      padding:.25rem .6rem; border-radius:999px; border:1px solid var(--border); color:var(--chip);
+      background:#0f1a30; margin-left:.4rem;
+    }
 
     /* Module list */
-    .modules{list-style:none;padding-left:0;margin:0}
+    .modules{list-style:none; padding-left:0; margin:0}
     .module{
-      display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:space-between;
-      padding:12px 0;border-bottom:1px solid #e6e6e6
+      display:flex; flex-wrap:wrap; gap:.6rem; align-items:center; justify-content:space-between;
+      padding:12px 8px; border-bottom:1px dashed #203257; transition:transform .15s ease;
     }
     .module:last-child{border-bottom:none}
-    .module-title{font-weight:bold}
+    .module:hover{transform:translateX(3px)}
+    .module-title{font-weight:700; color:#dfeafe}
     .chip{
-      display:inline-block;border:1px solid #ddd;border-radius:999px;padding:.15rem .6rem;font-size:.85rem;color:var(--chip)
+      display:inline-block; border:1px solid var(--border); border-radius:999px;
+      padding:.18rem .65rem; font-size:.85rem; color:var(--chip); background:#0f1a30;
     }
-    .chip.ongoing{border-color:var(--ongo-border);color:var(--ongo-border);background:var(--ongo-bg)}
-    .chip.completed{border-color:var(--comp-border);color:var(--comp-border);background:var(--comp-bg)}
-    .chip.upcoming{border-color:var(--upc-border);color:var(--upc-border);background:var(--upc-bg)}
-    .dates{font-size:.9rem;color:#666}
-    .module-left{display:flex;flex-direction:column;gap:.25rem;min-width:250px}
-    .module-right{display:flex;align-items:center;gap:.5rem}
+    .chip.ongoing{border-color:var(--ongo-border); color:var(--ongo-border); background:var(--ongo-bg)}
+    .chip.completed{border-color:var(--comp-border); color:var(--comp-border); background:var(--comp-bg)}
+    .chip.upcoming{border-color:var(--upc-border); color:var(--upc-border); background:var(--upc-bg)}
+    .module-left{display:flex; flex-direction:column; gap:.25rem; min-width:250px}
+    .module-right{display:flex; align-items:center; gap:.5rem}
     @media (max-width:600px){
       .module{align-items:flex-start}
       .module-right{margin-top:.25rem}
     }
+
+    footer{color:#9fb2d8; text-align:center; padding:20px 0 34px}
+
+    /* Back-to-Top */
+    #backToTop{
+      display:none; position:fixed; bottom:24px; right:24px; z-index:99;
+      background:var(--accent); color:#fff; border:none; border-radius:50%;
+      padding:12px 16px; cursor:pointer; font-size:16px; box-shadow:0 4px 8px var(--shadow);
+    }
+    #backToTop:hover{filter:brightness(1.05)}
   </style>
 </head>
 <body>
@@ -68,16 +106,18 @@
 
   <!-- Dynamic banner -->
   <div id="moduleBanner" class="banner upcoming" aria-live="polite">
-    <h3>Current Module</h3>
+    <h3>Current Module
+      <span id="statusChip" class="status-chip">Loading…</span>
+    </h3>
     <p><strong id="bannerTitle">Loading…</strong></p>
     <p id="bannerDates" class="dates"></p>
     <p>👉 <a id="bannerLink" href="#">View e-Portfolio Progress</a></p>
-    <p id="bannerStatus"></p>
   </div>
 
   <div class="container">
-    <div class="section">
-      <p><strong>MSc Cybersecurity | University of Essex Online</strong></p>
+    <div class="section" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <p style="margin:0"><strong>MSc Cybersecurity | University of Essex Online</strong></p>
+      <span class="status-chip" title="Featured">Security Risk Management highlighted</span>
     </div>
 
     <div class="section">
@@ -98,40 +138,26 @@
     </div>
   </div>
 
+  <footer>
+    © 2025 Pragadheesh Marimuthu • Cybersecurity ePortfolio
+  </footer>
+
+  <!-- Back-to-Top -->
+  <button id="backToTop" title="Back to Top">↑</button>
+
   <script>
     // ========= EDIT THESE DATES/TITLES/LINKS =========
-    // Tip: keep ISO format YYYY-MM-DD
     const modules = [
-      {
-        title: "Launching into Cybersecurity (Jan 2025)",
-        link: "launching-into-cybersecurity.html",
-        start: "2025-01-06", // TODO: adjust
-        end:   "2025-02-23"  // TODO: adjust
-      },
-      {
-        title: "Network Security (Apr 2025)",
-        link: "network-security.html",
-        start: "2025-04-01", // TODO: adjust
-        end:   "2025-05-19"  // TODO: adjust
-      },
-      {
-        title: "Secure Software Development (Jun 2025)",
-        link: "secure-software-development.html",
-        start: "2025-06-01", // TODO: adjust
-        end:   "2025-07-20"  // TODO: adjust
-      },
-      {
-        title: "Security & Risk Management (Jul 2025 B)",
-        link: "security-risk-management.html",
-        start: "2025-07-29", // cohort start (example from you)
-        end:   "2025-10-20"  // cohort end (example from you)
-      }
+      { title: "Launching into Cybersecurity (Jan 2025)", link: "launching-into-cybersecurity.html", start: "2025-01-06", end: "2025-02-23" },
+      { title: "Network Security (Apr 2025)",              link: "network-security.html",             start: "2025-04-01", end: "2025-05-19" },
+      { title: "Secure Software Development (Jun 2025)",   link: "secure-software-development.html",  start: "2025-06-01", end: "2025-07-20" },
+      { title: "Security & Risk Management (Jul 2025 B)",  link: "security-risk-management.html",     start: "2025-07-29", end: "2025-10-20" }
     ];
     // ========= END EDITABLE SECTION =========
 
     const today = new Date();
-    const parse = s => new Date(s+"T00:00:00");
-    const fmt = d => d.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
+    const parse = s => new Date(s + "T00:00:00");
+    const fmt = d => d.toLocaleDateString(undefined, {year:'numeric', month:'short', day:'numeric'});
 
     function statusFor(mod){
       const s = parse(mod.start), e = parse(mod.end);
@@ -145,35 +171,31 @@
     modules.forEach(m=>{
       const li = document.createElement("li");
       li.className = "module";
+
       const left = document.createElement("div");
       left.className = "module-left";
       const title = document.createElement("a");
       title.className = "module-title";
-      title.href = m.link;
+      title.href = m.link; title.rel = "noopener";
       title.textContent = m.title;
-      title.rel = "noopener";
       const dates = document.createElement("span");
       dates.className = "dates";
       dates.textContent = `${fmt(parse(m.start))} – ${fmt(parse(m.end))}`;
-      left.appendChild(title);
-      left.appendChild(dates);
+      left.appendChild(title); left.appendChild(dates);
 
       const right = document.createElement("div");
       right.className = "module-right";
       const chip = document.createElement("span");
       const st = statusFor(m);
       chip.className = `chip ${st}`;
-      chip.textContent = st === "ongoing" ? "Ongoing"
-                        : st === "completed" ? "Completed"
-                        : "Upcoming";
+      chip.textContent = st === "ongoing" ? "Ongoing" : st === "completed" ? "Completed" : "Upcoming";
       right.appendChild(chip);
 
-      li.appendChild(left);
-      li.appendChild(right);
+      li.appendChild(left); li.appendChild(right);
       list.appendChild(li);
     });
 
-    // Choose banner module: ongoing > next upcoming > last completed
+    // Choose banner module
     const ongoing = modules.filter(m=>statusFor(m)==="ongoing");
     const upcoming = modules.filter(m=>statusFor(m)==="upcoming").sort((a,b)=>parse(a.start)-parse(b.start));
     const completed = modules.filter(m=>statusFor(m)==="completed").sort((a,b)=>parse(b.end)-parse(a.end));
@@ -182,17 +204,16 @@
     const bTitle = document.getElementById("bannerTitle");
     const bDates = document.getElementById("bannerDates");
     const bLink = document.getElementById("bannerLink");
-    const bStatus = document.getElementById("bannerStatus");
+    const statusChip = document.getElementById("statusChip");
 
     let chosen, label, cls;
     if (ongoing.length){
-      chosen = ongoing[0]; label = "🚀 Ongoing – In Progress"; cls = "ongoing";
+      chosen = ongoing[0]; label = "🚀 Ongoing"; cls = "ongoing";
     } else if (upcoming.length){
-      chosen = upcoming[0]; label = "📅 Upcoming Module"; cls = "upcoming";
+      chosen = upcoming[0]; label = "📅 Upcoming"; cls = "upcoming";
     } else if (completed.length){
-      chosen = completed[0]; label = "✅ Last Completed"; cls = "completed";
+      chosen = completed[0]; label = "✅ Completed"; cls = "completed";
     } else {
-      // Fallback (no modules configured)
       chosen = {title:"No modules configured", link:"#", start:"", end:""}; label = ""; cls="upcoming";
     }
 
@@ -201,7 +222,14 @@
     bTitle.textContent = chosen.title;
     bDates.textContent = (chosen.start && chosen.end) ? `${fmt(parse(chosen.start))} – ${fmt(parse(chosen.end))}` : "";
     bLink.href = chosen.link || "#";
-    bStatus.textContent = `Status: ${label}`;
+    statusChip.textContent = label;
+
+    // Back-to-Top
+    const backToTopBtn = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    backToTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
   </script>
 </body>
 </html>
