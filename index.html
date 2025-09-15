@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="preload" href="header-bg.png" as="image">
   <meta charset="UTF-8" />
   <title>Pragadheesh – Cybersecurity ePortfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,16 +27,12 @@
    .hero{
   background-image:
     linear-gradient(180deg, rgba(5,10,20,.35), rgba(5,10,20,.65)),
-    url('header-bg.png');
+    url('header-bg.png');  /* now uses the new file */
   background-size:cover;
   background-position:center;
-  height:280px;               /* was 220px – gives a more cinematic feel */
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
+  height:280px;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; position:relative; overflow:hidden;
   border-bottom:1px solid var(--border);
 }
 
