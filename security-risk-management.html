@@ -103,6 +103,21 @@
 .pdf-frame{
   border:1px solid var(--border); border-radius:12px; box-shadow:0 8px 24px var(--shadow);
 }
+
+    .jump-link {
+  font-size: 0.9rem;
+  margin-left: 12px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #7ab8ff;
+  background: rgba(78,161,255,.1);
+  border: 1px solid rgba(78,161,255,.3);
+  transition: background 0.2s;
+}
+.jump-link:hover {
+  background: rgba(78,161,255,.25);
+}
   </style>
 </head>
 <body>
@@ -274,43 +289,39 @@
     </section>
 
     <!-- Unit 6 -->
-    <section id="unit6">
-      <h2>Unit 6: The Practical Implications of Security and Risk Standards</h2>
-      <div class="meta">
-        <span class="chip">Reading • 2 hrs</span>
-        <span class="chip">Seminar activity • 3 hrs</span>
-        <span class="chip">Assessment submitted (Risk Identification Report)</span>
-      </div>
-      <h3>Focus</h3>
-      <p>
-        Applying GDPR/PCI-DSS/ISO 27000 in practice; evaluating an organisation against applicable standards,
-        verification approaches, recommendations, and clearly stated assumptions.
-      </p>
-      <div class="callout">
-        <strong>Status:</strong> Assessment submitted. Seminar attended via recording; notes included in artefacts.
-      </div>
-    </section>
-<!-- Unit 6: Report Viewer -->
-<section id="unit6-report">
-  <h2>Unit 6: Risk Identification Report (Submitted)</h2>
+<section id="unit6">
+  <h2>
+    Unit 6: The Practical Implications of Security and Risk Standards
+    <a href="#unit6-report" class="jump-link">Jump to Report ↓</a>
+  </h2>
+  <div class="meta">
+    <span class="chip">Reading • 2 hrs</span>
+    <span class="chip">Seminar activity • 3 hrs</span>
+    <span class="chip">Assessment submitted (Risk Identification Report)</span>
+  </div>
+  <h3>Focus</h3>
   <p>
-    View or download my submitted report:
-    <a href="Unit6-Risk-Identification-Report.pdf" target="_blank" class="btn">Open in new tab</a>
-    <a href="Unit6-Risk-Identification-Report.pdf" download class="btn btn-ghost">Download PDF</a>
+    Applying GDPR/PCI-DSS/ISO 27000 in practice; evaluating an organisation against applicable standards,
+    verification approaches, recommendations, and clearly stated assumptions.
   </p>
+  <div class="callout">
+    <strong>Status:</strong> Assessment submitted. Seminar attended via recording; notes included in artefacts.
+  </div>
 
-  <!-- Inline viewer (PDF will render here if the browser supports it) -->
-  <iframe
-    src="Unit6-Risk-Identification-Report.pdf"
-    width="100%"
-    height="650"
-    class="pdf-frame"
-    title="Unit 6 – Risk Identification Report (PDF)"
-  ></iframe>
-
-  <p style="color:#a9b7d0; font-size:.92rem; margin-top:10px">
-    Tip: If the embedded viewer doesn’t load in your browser, use “Open in new tab” above.
-  </p>
+  <!-- Embedded Report -->
+  <div id="unit6-report" style="margin-top:20px;">
+    <iframe
+      src="Unit6-Risk-Identification-Report.pdf"
+      width="100%"
+      height="650"
+      class="pdf-frame"
+      style="border:1px solid #2a3b64;border-radius:10px"
+      title="Unit 6 – Risk Identification Report"
+    ></iframe>
+    <p style="color:#a9b7d0; font-size:.92rem; margin-top:10px">
+      Tip: Use the PDF controls to zoom, print, or save a copy.
+    </p>
+  </div>
 </section>
 
     
