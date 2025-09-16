@@ -119,35 +119,76 @@
   background: rgba(78,161,255,.25);
 }
     /* Collapsible case study (Unit 5) */
-details.accordion{
-  margin-top:12px;
-  border:1px solid var(--border);
-  border-radius:12px;
-  background:linear-gradient(180deg, rgba(21,33,58,.6), rgba(14,22,39,.6));
-  box-shadow:0 6px 16px var(--shadow);
-  padding:10px 14px;
+/* Pulse animation for the glowing effect */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 12px rgba(78,161,255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(126,231,135, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(78,161,255, 0.6);
+  }
 }
-details.accordion summary{
-  cursor:pointer;
-  font-weight:700;
-  color:#dfeafe;
-  list-style:none;
-  outline:none;
+
+/* Styling for the toggle button */
+details.accordion summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: #fff;
+  list-style: none;
+  outline: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #4ea1ff, #1e80e0);
+  box-shadow: 0 0 12px rgba(78,161,255, 0.6);
+  display: inline-block;
+  transition: 0.3s ease;
+  margin-top: 10px;
+  animation: pulseGlow 2.5s infinite; /* Pulse effect */
+  border: none;
 }
-details.accordion summary::-webkit-details-marker{ display:none; }
-details.accordion summary::after{
-  content:"▸";
-  margin-left:.45rem;
-  color:var(--accent);
-  font-weight:700;
+
+/* Hover effect */
+details.accordion summary:hover {
+  box-shadow: 0 0 20px rgba(126,231,135, 1);
+  transform: scale(1.02);
 }
-details.accordion[open] summary::after{ content:"▾"; }
-details.accordion .cs{ margin-top:10px; color:#d6e2ff; }
-details.accordion .cs h4{ margin:.4rem 0 .2rem; color:var(--accent-2); font-size:1.02rem; }
-details.accordion .cs p, details.accordion .cs li{ line-height:1.6; }
+
+/* Arrow icons */
+details.accordion summary::after {
+  content: " ▸";
+  margin-left: 0.5rem;
+  color: #fff;
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+details.accordion[open] summary::after {
+  content: " ▾";
+}
+
+/* Remove pulse after first click */
+details.accordion.clicked summary {
+  animation: none;
+  box-shadow: none;
+}
   </style>
 </head>
-<body>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const accordions = document.querySelectorAll("details.accordion");
+    accordions.forEach(acc => {
+      acc.addEventListener("toggle", () => {
+        if (acc.open) {
+          acc.classList.add("clicked");
+        }
+      });
+    });
+  });
+</script>
+  <body>
   <header>
     <div class="pill">Module ePortfolio • Security Risk Management</div>
     <h1>Security Risk Management</h1>
