@@ -649,28 +649,80 @@ details.accordion.clicked summary {
 </section>
 
     <!-- Unit 4 -->
-    <section id="unit4">
-      <h2>Unit 4: Application of Threat Modelling and Management Techniques</h2>
-      <div class="meta">
-        <span class="chip">Reading • 8 hrs</span>
-        <span class="chip">Formative activities • 6 hrs</span>
-        <span class="chip">Seminar exercises</span>
-      </div>
-      <h3>Focus</h3>
-      <p>
-        Practical threat modelling guided by the Threat Modelling Manifesto, OWASP cookbook, and MITRE ATT&CK.
-        Built models with STRIDE/DREAD, attack trees, and referenced CVSS where relevant.
-      </p>
-      <h3>Workshop (Jbair et&nbsp;al., 2022)</h3>
+<section id="unit4">
+  <h2>Unit 4: Application of Threat Modelling and Management Techniques</h2>
+  <div class="meta">
+    <span class="chip">Seminar exercises</span>
+    <span class="chip">Hands-on artefacts</span>
+  </div>
+
+  <h3>Focus</h3>
+  <p>
+    Practical threat modelling guided by the Threat Modelling Manifesto, OWASP cookbook, and MITRE ATT&CK.
+    Built models with STRIDE/DREAD, attack trees, and referenced CVSS where relevant.
+  </p>
+
+  <h3>Workshop (Jbair et&nbsp;al., 2022)</h3>
+  <ul>
+    <li><em>Key CPS elements &amp; interdependencies</em> and why they matter for accurate analysis.</li>
+    <li><em>Entry points &amp; vulnerabilities</em> in cyber-physical energy systems; practical challenges.</li>
+    <li><em>Scenario-specific metrics</em> for prioritisation; mapping to targeted countermeasures.</li>
+  </ul>
+
+  <div class="callout">
+    Prepared answers and discussed via seminar recording; captured notes and tables in artefacts.
+  </div>
+
+  <!-- Artefacts -->
+  <h3>e-Portfolio Artefacts (Unit 4)</h3>
+  <ul>
+    <li>STRIDE table on selected data-flow diagram (DFD) components.</li>
+    <li>Attack tree for “unauthorised data exfiltration” goal.</li>
+    <li>DREAD/CVSS scoring sheet + prioritised control suggestions.</li>
+    <li>Seminar notes: modelling pitfalls, scope boundaries, and traceability tips.</li>
+  </ul>
+
+  <!-- Collapsibles -->
+  <details class="accordion" style="margin-top:10px;">
+    <summary>📑 View STRIDE model (DFD excerpt)</summary>
+    <div class="callout" style="margin-top:10px">
+      <p><strong>What’s included:</strong> trust boundaries, processes, data stores, and flows; mapped threats per STRIDE with example mitigations.</p>
+      <p><a href="unit4-stride-table.pdf" target="_blank" rel="noopener" class="btn">Open PDF</a>
+         <a href="unit4-stride-table.pdf" download class="btn btn-ghost">Download</a></p>
+    </div>
+  </details>
+
+  <details class="accordion" style="margin-top:10px;">
+    <summary>🌳 View attack tree (exfiltration scenario)</summary>
+    <div class="callout" style="margin-top:10px">
+      <p>Root goal → sub-goals (credential abuse / supply-chain implant / misconfig) → leaf actions with preconditions.</p>
+      <p><a href="unit4-attack-tree.svg" target="_blank" rel="noopener" class="btn">Open SVG</a>
+         <a href="unit4-attack-tree.svg" download class="btn btn-ghost">Download</a></p>
+    </div>
+  </details>
+
+  <details class="accordion" style="margin-top:10px;">
+    <summary>📊 Risk scoring (DREAD/CVSS) &amp; controls</summary>
+    <div class="callout" style="margin-top:10px">
+      <p>Scored top threats; mapped to controls (zero-trust network segmentation, hardening baselines, secret rotation, egress monitoring).</p>
+      <p><a href="unit4-risk-scoring.xlsx" class="btn">Download XLSX</a>
+         <a href="unit4-risk-scoring.pdf" class="btn btn-ghost">PDF version</a></p>
+    </div>
+  </details>
+
+  <details class="accordion" style="margin-top:10px;">
+    <summary>🗒️ Seminar notes (key takeaways)</summary>
+    <div class="callout" style="margin-top:10px">
       <ul>
-        <li><em>Key CPS elements &amp; interdependencies</em> and why they matter for accurate analysis.</li>
-        <li><em>Entry points &amp; vulnerabilities</em> in cyber-physical energy systems; practical challenges.</li>
-        <li><em>Scenario-specific metrics</em> for prioritisation; mapping to targeted countermeasures.</li>
+        <li><strong>Traceability:</strong> keep a line from business impact → threat → control (helps stakeholders).</li>
+        <li><strong>Scope first:</strong> model bounded slices; avoid “boil the ocean” diagrams.</li>
+        <li><strong>Abuse cases:</strong> for each user story, write at least one misuse/abuse story.</li>
+        <li><strong>Validate:</strong> threat-hunt your own model with ATT&amp;CK techniques to find gaps.</li>
       </ul>
-      <div class="callout">
-        Prepared answers and discussed via seminar recording; captured notes and tables in artefacts.
-      </div>
-    </section>
+      <p><a href="unit4-seminar-notes.txt" class="btn btn-ghost">Download raw notes (.txt)</a></p>
+    </div>
+  </details>
+</section>
     
  <!-- Unit 5 -->
  <section id="unit5">
