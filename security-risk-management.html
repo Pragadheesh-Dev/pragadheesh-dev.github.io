@@ -886,7 +886,6 @@ details.accordion.clicked summary {
 <section id="unit6">
   <h2>
     Unit 6: Practical Implications of Security and Risk Standards
-    <a href="#unit6-report" class="jump-link">Jump to Report ↓</a>
   </h2>
 
   <div class="meta">
@@ -898,7 +897,7 @@ details.accordion.clicked summary {
   <h3>Focus</h3>
   <p>
     This unit focused on applying <strong>security and risk standards</strong> such as GDPR, PCI-DSS,
-    and the ISO 27000 family in real organisational settings. It emphasised assessing compliance
+    and the ISO 27000 family within real organisational settings. It emphasised assessing compliance
     maturity, developing verification checklists, and providing <strong>actionable recommendations</strong>
     based on identified risks and control gaps.
   </p>
@@ -908,8 +907,28 @@ details.accordion.clicked summary {
     Seminar attended via recording; notes included below.
   </div>
 
-  <!-- Report viewer / mobile button -->
-  <div id="unit6-report" style="margin-top:20px;">
+  <!-- Project summary + reveal button -->
+  <h3>Team Project Overview</h3>
+  <p>
+    For Assessment 1, our team conducted a <strong>Risk Identification Report</strong> for the
+    <em>Pampered Pets</em> organisation, a small business exploring digital transformation.  
+    The goal was to evaluate both its current security posture and the proposed digitalisation process,
+    identify associated threats and vulnerabilities, and recommend mitigations aligned with recognised
+    standards such as <strong>ISO 27001</strong>, <strong>GDPR</strong>, and <strong>PCI-DSS</strong>.
+  </p>
+  <p>
+    The report combined <strong>qualitative and quantitative risk assessment</strong> approaches, 
+    integrating threat modelling, control mapping, and compliance verification to ensure realistic,
+    prioritised recommendations for the business.  
+    <strong>Click below</strong> to view the full Risk Identification Report.
+  </p>
+
+  <div style="text-align:center; margin-top:15px;">
+    <button id="toggleU6Report" class="btn-glow">📄 View Report</button>
+  </div>
+
+  <!-- Hidden viewer -->
+  <div id="unit6-report" style="margin-top:20px; display:none;">
     <iframe
       src="Unit6-Risk-Identification-Report.pdf"
       width="100%"
@@ -931,16 +950,25 @@ details.accordion.clicked summary {
     <p style="color:#a9b7d0; font-size:.92rem; margin-top:10px">
       Tip: On mobile, use “Open Report in New Tab” for full zoom and share controls.
     </p>
-
-    <noscript>
-      <p><a href="Unit6-Risk-Identification-Report.pdf" target="_blank" rel="noopener">Open the report</a></p>
-    </noscript>
   </div>
+
+  <script>
+    document.getElementById("toggleU6Report").addEventListener("click", function () {
+      const report = document.getElementById("unit6-report");
+      if (report.style.display === "none") {
+        report.style.display = "block";
+        this.textContent = "🔒 Hide Report Viewer";
+      } else {
+        report.style.display = "none";
+        this.textContent = "📄 View Report";
+      }
+    });
+  </script>
 
   <!-- e-Portfolio Artefacts -->
   <h3>e-Portfolio Artefacts (Unit 6)</h3>
   <ul>
-    <li>Final team Risk Identification Report (Pampered Pets case study).</li>
+    <li>Final team Risk Identification Report (<em>Pampered Pets</em> case study).</li>
     <li>Security standards evaluation checklist mapping GDPR, PCI-DSS and ISO 27001 controls.</li>
     <li>Seminar notes summarising discussion on audit readiness and continuous compliance.</li>
   </ul>
@@ -950,18 +978,19 @@ details.accordion.clicked summary {
     <div class="callout" style="margin-top:10px">
       <p>
         The <strong>Unit 6 seminar – Security Standards</strong> translated theoretical frameworks into 
-        <em>practical risk management actions</em>. The tutor emphasised that GDPR, PCI-DSS and ISO 27001 
-        should work as interconnected controls within a single governance model rather than separate checklists.
+        <em>practical risk-management actions</em>. The tutor emphasised that GDPR, PCI-DSS and ISO 27001 
+        should function as interconnected components of a single governance model rather than isolated checklists.
       </p>
       <p>
-        Discussion focused on the need for documented policies, regular audits, and <strong>evidence-based compliance</strong>.
-        Examples of audit failures were analysed, showing how inadequate data-processing agreements and weak access controls 
-        violated GDPR Articles 5 and 32. The session also linked risk registers and control matrices to ISO 27001 Annex A clauses, 
-        highlighting their role in continuous improvement and stakeholder trust.
+        Discussion centred on the importance of documented policies, regular audits, and
+        <strong>evidence-based compliance</strong>. Real audit-failure examples highlighted how inadequate
+        data-processing agreements and weak access controls breached GDPR Articles 5 and 32. The class also mapped 
+        risk registers to ISO 27001 Annex A clauses to show how these underpin continuous improvement 
+        and stakeholder assurance.
       </p>
       <p>
-        Overall, the seminar reinforced that strong risk management depends on a <em>culture of compliance</em>—where policy, 
-        technology and people work together to build sustainable security resilience.
+        Overall, the seminar reinforced that mature risk management depends on a 
+        <em>culture of compliance</em>—where policy, technology, and people align to build sustainable security resilience.
       </p>
     </div>
   </details>
