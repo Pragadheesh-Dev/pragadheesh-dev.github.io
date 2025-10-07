@@ -1143,6 +1143,142 @@ details.accordion.clicked summary {
     </div>
   </details>
 </section>
+    <!-- Unit 8 -->
+<section id="unit8">
+  <h2>Unit 8: Implementing Quantitative Risk Models</h2>
+
+  <div class="meta">
+    <span class="chip">Reading • 8 hrs</span>
+    <span class="chip">Formative activity • 4 hrs</span>
+    <span class="chip">Collaborative Discussion 2 (Peer Responses)</span>
+    <span class="chip">Seminar (Quantitative Modelling Workshop)</span>
+  </div>
+
+  <h3>Focus</h3>
+  <p>
+    This unit builds on the concepts introduced in Unit 7 by applying <strong>Quantitative Risk Modelling (QRM)</strong> 
+    techniques to practical cybersecurity scenarios. It demonstrates how to use <em>Monte Carlo simulations</em> 
+    and <em>Bayesian reasoning</em> to model risk probability and uncertainty in decision-making.  
+    Students implement and interpret models that quantify expected losses and the sensitivity of results to variable changes.  
+    The unit also explores how <strong>Exploit Prediction Scoring System (EPSS)</strong> and 
+    <strong>Stakeholder-Specific Vulnerability Categorisation (SSVC)</strong> can complement each other 
+    in vulnerability prioritisation frameworks.
+  </p>
+
+  <h3>Intended Learning</h3>
+  <ul>
+    <li>Apply Monte Carlo and Bayesian methods to simulate and analyse security risks.</li>
+    <li>Interpret probabilistic outputs and communicate findings to technical and business audiences.</li>
+    <li>Evaluate the strengths and weaknesses of combining CVSS, EPSS, and SSVC in risk-based decision-making.</li>
+    <li>Reflect on transparency, assumptions, and limitations of quantitative models in practice.</li>
+  </ul>
+
+  <!-- Collaborative Discussion 2 (Peer Responses) -->
+  <h3>Collaborative Discussion 2 – Peer Responses (Units 7–9)</h3>
+
+  <details class="accordion" style="margin-top:8px;">
+    <summary style="cursor:pointer;color:#7ab8ff">💬 Peer Response 1 – to Omar Bwanakheir Omar</summary>
+    <div class="callout" style="margin-top:10px">
+      <p>
+        You gave a clear and well-balanced summary of the main weaknesses of CVSS highlighted by Spring et al. (2021), 
+        especially the lack of context and the issue of static scoring.  
+        I agree that vulnerability management is not just about technical severity but also about timing, available resources, 
+        and how the system is used in the real world.  
+        The inconsistencies noted by Allodi and Massacci (2012) show that even experienced assessors can score the same vulnerability 
+        differently, making CVSS less reliable for consistent decision-making.
+      </p>
+      <p>
+        I liked how you explained the advantages of SSVC. Using decision trees that consider factors such as exploitation activity, 
+        mission impact, and system exposure makes the approach more practical and transparent. It also fits with ISO/IEC 27005, 
+        which promotes ongoing risk reassessment as conditions change (Aven and Thekdi, 2024).
+      </p>
+      <p>
+        One idea that could strengthen your argument is to mention how SSVC might be used alongside data-based models like EPSS. 
+        This combination could help organisations not only prioritise based on context but also consider the real probability 
+        of exploitation. Overall, your post gives a strong case for replacing CVSS with SSVC and shows how context-aware methods 
+        can support better risk-based decisions.
+      </p>
+      <p><strong>References:</strong><br>
+        Aven, T. and Thekdi, S. (2024) <i>Risk Science: An Introduction</i>. 2nd edn. Oxford: Routledge.<br>
+        Spring, J.M. et al. (2021) ‘Prioritizing vulnerability response: A stakeholder-specific vulnerability categorization (version 2.0)’, Carnegie Mellon University.
+      </p>
+    </div>
+  </details>
+
+  <details class="accordion" style="margin-top:10px;">
+    <summary style="cursor:pointer;color:#7ab8ff">💬 Peer Response 2 – to Matthew Banks</summary>
+    <div class="callout" style="margin-top:10px">
+      <p>
+        Your post gives a very comprehensive overview of how CVSS has evolved and why version 4.0 was introduced. 
+        I found it interesting that you mentioned how around 30% of users still do not consult the CVSS user guide, 
+        as noted by Wunder et al. (2024). That really highlights how much human error and inconsistent application 
+        continue to affect the system even after multiple revisions. I also agree that although CVSS v4 introduces 
+        contextual and supplemental metrics, its usefulness still depends on the user’s familiarity with the framework, 
+        which limits its effectiveness (Aggarwal, 2023).
+      </p>
+      <p>
+        Your suggestion to combine CVSS v4 with the Exploit Prediction Scoring System (EPSS) is very practical. 
+        As you noted, Tan et al. (2025) found that the two systems measure different dimensions of vulnerability management. 
+        Combining them could provide both a technical severity rating and a data-driven likelihood of exploitation, 
+        aligning with Aven and Thekdi (2024)’s view that quantitative and qualitative methods should complement each other 
+        for balanced risk evaluation.
+      </p>
+      <p>
+        Overall, your post successfully acknowledges that CVSS remains deeply embedded in industry practices 
+        while recognising the need for improvement. Your balanced perspective between tradition and innovation 
+        reflects a realistic understanding of how vulnerability management evolves in practice.
+      </p>
+      <p><strong>References:</strong><br>
+        Aven, T. and Thekdi, S. (2024) <i>Risk Science: An Introduction</i>. 2nd edn. Oxford: Routledge.<br>
+        Banks, M. (2025) Initial Post. University of Essex Online Discussion Forum.
+      </p>
+    </div>
+  </details>
+
+  <!-- Seminar summary -->
+  <h3>Seminar Summary – Quantitative Modelling Workshop (Parts 1 &amp; 2)</h3>
+  <div class="callout">
+    <p>
+      The seminar extended the Unit 7 discussion into practical implementation of quantitative risk models.  
+      In Part 1, participants examined how <strong>Monte Carlo simulation</strong> can estimate probability 
+      distributions of project or system risk outcomes. The tutor demonstrated how selecting proper variable ranges 
+      and sample sizes affects the accuracy of results and highlighted the importance of validating model assumptions 
+      using historical data or expert judgment.
+    </p>
+    <p>
+      In Part 2, the focus shifted to <strong>Bayesian updating</strong> and real-time model refinement. 
+      Students learned how new evidence—such as updated threat intelligence or vulnerability scans—can dynamically 
+      alter probability estimates. The discussion connected these principles with industry frameworks like ISO 27005 
+      and NIST SP 800-30, emphasising iterative assessment and transparency. 
+      The seminar concluded with a short exercise comparing CVSS, EPSS, and SSVC outputs, 
+      showing how combined metrics offer a more robust approach to modern vulnerability prioritisation.
+    </p>
+  </div>
+
+  <!-- e-Portfolio artefacts -->
+  <h3>e-Portfolio Artefacts (Unit 8)</h3>
+  <ul>
+    <li>Two peer responses (Collaborative Discussion 2 – Omar and Matthew Banks).</li>
+    <li>Seminar notes from Quantitative Modelling Workshop Parts 1 &amp; 2.</li>
+    <li>Reflections on combining CVSS, EPSS and SSVC for improved risk quantification.</li>
+    <li>Conceptual outline of Bayesian updating model (no files uploaded).</li>
+  </ul>
+
+  <details class="accordion" style="margin-top:10px;">
+    <summary>🪞 Reflection on Unit 8</summary>
+    <div class="callout" style="margin-top:10px">
+      <p>
+        Engaging in the peer discussions and seminar exercises helped me connect the theory of quantitative models 
+        with their application. Responding to peers reinforced my understanding that no single scoring framework 
+        can capture the full picture of risk. Quantitative methods like Monte Carlo and Bayesian analysis 
+        add statistical rigour, while systems such as SSVC and EPSS add contextual intelligence. 
+        This unit emphasised that combining both analytical and stakeholder-specific perspectives leads 
+        to more balanced and defensible risk decisions. It also improved my confidence in interpreting 
+        probability distributions and communicating findings in business-relevant terms.
+      </p>
+    </div>
+  </details>
+</section>
         <!-- Artefacts -->
     <section id="artefacts">
       <h2>Team &amp; Artefacts (U1–U6)</h2>
