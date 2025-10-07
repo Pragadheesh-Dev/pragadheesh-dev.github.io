@@ -787,58 +787,101 @@ details.accordion.clicked summary {
 </section>
     
  <!-- Unit 5 -->
- <section id="unit5">
-  <h2>Unit 5: An Introduction to Security and Risk Standards in Industry and the Enterprise</h2>
+<section id="unit5">
+  <h2>Unit 5: Security and Risk Standards in Industry and the Enterprise</h2>
   <div class="meta">
-    <span class="chip">Lecturecast • 1 hr</span>
-    <span class="chip">Reading • 2 hrs</span>
-    <span class="chip">GDPR Case Study • Completed</span>
+    <span class="chip">Lecturecast</span>
+    <span class="chip">Reading</span>
+    <span class="chip">GDPR Case Study – Completed</span>
   </div>
 
   <h3>Focus</h3>
   <p>
-    Industry and enterprise standards—where they fit in risk assessments/designs; selecting appropriate
-    standards for scenarios (e.g., GDPR, PCI-DSS, ISO 27000 family).
+    This unit introduced key <strong>security and risk standards</strong> that shape enterprise-level
+    assessments and compliance planning. It explored the <strong>GDPR, PCI-DSS</strong>, and the
+    <strong>ISO/IEC 27000 family</strong> as reference frameworks for managing information security,
+    data privacy, and operational resilience.
+    The aim was to evaluate how standards translate into practical controls and risk-management
+    processes within different organisational contexts.
   </p>
 
   <h3>e-Portfolio Activity – GDPR Case Study</h3>
   <div class="callout">
-    <strong>Case Study:</strong> Disclosure of CCTV footage from a direct provision centre (2018).  
-    The case involved the alleged disclosure of personal data via CCTV footage at a State-run accommodation centre.
+    <strong>Case Study:</strong> Alleged disclosure of CCTV footage from a State-run accommodation centre
+    (2018). The incident involved the unauthorised sharing of identifiable video data, prompting an
+    investigation by the Irish Data Protection Commission (DPC).
   </div>
 
-  <details class="accordion">
-    <summary>View Case Study analysis</summary>
-    <div class="cs">
-      <h4>Specific GDPR Aspect Addressed</h4>
+  <details class="accordion" style="margin-top:10px;">
+    <summary>📘 View Case Study Analysis</summary>
+    <div class="cs" style="margin-top:10px;">
+      <h4>Specific GDPR Articles and Issues</h4>
       <p>
-        The Data Protection Commission (DPC) identified breaches of the Data Protection Acts 1988 and 2003:
+        The DPC determined breaches under the <em>Data Protection Acts 1988 & 2003</em> (now aligned with the GDPR),
+        highlighting failures to maintain lawful processing and adequate safeguards:
       </p>
       <ul>
-        <li><strong>Section 4:</strong> Failure to respond to an access request within 40 days.</li>
-        <li><strong>Section 2(1)(d):</strong> Lack of adequate security measures to prevent unauthorised disclosure.</li>
-        <li><strong>Section 2C(2) &amp; 2C(3):</strong> No written agreement between the controller (RIA) and processor (Aramark) defining data-handling obligations.</li>
+        <li><strong>Section 4:</strong> No timely response to the subject’s access request (exceeding 40 days).</li>
+        <li><strong>Section 2(1)(d):</strong> Insufficient security measures to prevent unauthorised disclosure.</li>
+        <li><strong>Sections 2C(2) & 2C(3):</strong> Absence of a written processor agreement between the
+            <em>Reception and Integration Agency (RIA)</em> and <em>Aramark</em>, breaching Article 28 GDPR
+            principles of controller–processor responsibility.</li>
       </ul>
 
-      <h4>Resolution</h4>
+      <h4>Findings and Outcome</h4>
       <p>
-        The DPC found that both the RIA and Aramark failed in their duty of care by not implementing sufficient security controls or clear procedures for data transmission.
-        Although it could not be proven whether the footage reached the radio station, the absence of documented policies, contracts, and staff awareness led to infringements of the complainant’s data protection rights.
+        Both entities failed to demonstrate accountability or implement risk-based technical and
+        organisational measures. The DPC concluded that unclear roles, lack of encryption, and missing
+        audit trails directly violated data-minimisation and integrity principles.
+        Although the footage’s external transmission could not be proven, the systemic absence of policy
+        controls and documentation was itself deemed a GDPR violation.
       </p>
 
-      <h4>Steps as Information Security Manager</h4>
+      <h4>Recommended Remediation (as Information Security Manager)</h4>
       <ul>
-        <li>Enforce written Data Processing Agreements with all processors defining security obligations.</li>
-        <li>Implement strict access controls, encryption, and secure transfer methods for personal data.</li>
-        <li>Ensure GDPR access request timelines are always met.</li>
-        <li>Create clear policies for CCTV usage, data storage, and network transfers.</li>
-        <li>Conduct staff awareness training on GDPR compliance and incident reporting.</li>
-        <li>Perform regular audits to identify risks and gaps in data protection practices.</li>
+        <li>Formalise <strong>Data-Processing Agreements (DPAs)</strong> defining controller and processor duties.</li>
+        <li>Adopt <strong>role-based access control</strong> (RBAC), CCTV encryption, and secure transfer protocols.</li>
+        <li>Implement <strong>incident-response playbooks</strong> and <strong>subject-access workflows</strong> to meet statutory timelines.</li>
+        <li>Provide <strong>GDPR awareness training</strong> to all staff and contractors handling personal data.</li>
+        <li>Schedule <strong>periodic internal audits</strong> and <strong>data-flow mapping</strong> to verify ongoing compliance.</li>
       </ul>
+
+      <h4>Reflection</h4>
+      <p>
+        This case reinforced the importance of aligning everyday operational practices with formal standards.
+        It demonstrated that compliance is not only legal adherence but a foundation for <em>trust,
+        accountability, and organisational resilience</em>. The exercise also deepened understanding of
+        how frameworks like GDPR intersect with ISO 27001’s continuous-improvement model to strengthen
+        governance maturity.
+      </p>
+    </div>
+  </details>
+
+  <!-- Artefacts -->
+  <h3>e-Portfolio Artefacts (Unit 5)</h3>
+  <ul>
+    <li>GDPR case study analysis: disclosure of CCTV footage at a State-run facility.</li>
+    <li>Mapping table linking GDPR principles with ISO 27001 clauses and PCI-DSS controls.</li>
+    <li>Summary notes on enterprise risk standards and governance alignment.</li>
+  </ul>
+
+  <details class="accordion" style="margin-top:10px;">
+    <summary>📄 View GDPR–ISO 27001–PCI-DSS mapping (excerpt)</summary>
+    <div class="callout" style="margin-top:10px">
+      <p><strong>Example alignment:</strong></p>
+      <ul>
+        <li><strong>GDPR Art. 5 (Integrity & Confidentiality)</strong> → <em>ISO 27001 A.8.2 Information Classification</em> → <em>PCI-DSS Req. 3 & 4 (Data Protection and Encryption)</em></li>
+        <li><strong>GDPR Art. 24 (Accountability)</strong> → <em>ISO 27001 A.5.1 Management Direction for Information Security</em></li>
+        <li><strong>GDPR Art. 32 (Security of Processing)</strong> → <em>ISO 27001 A.12.6 Technical Vulnerability Management</em></li>
+      </ul>
+      <p>
+        This demonstrates how compliance frameworks complement one another — GDPR provides legal obligations,
+        ISO 27001 offers a management-system structure, and PCI-DSS enforces technical safeguards for payment data.
+      </p>
     </div>
   </details>
 </section>
-    <!-- Unit 6 -->
+    
 <!-- Unit 6 -->
 <section id="unit6">
   <h2>
