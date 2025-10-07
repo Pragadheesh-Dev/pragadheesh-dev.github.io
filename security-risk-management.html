@@ -554,28 +554,99 @@ details.accordion.clicked summary {
 </section>
 
     <!-- Unit 3 -->
-    <section id="unit3">
-      <h2>Unit 3: Introduction to Threat Modelling and Management</h2>
-      <div class="meta">
-        <span class="chip">Lecturecast • 1 hr</span>
-        <span class="chip">Reading • 5 hrs</span>
-        <span class="chip">Discussion summary post</span>
+<section id="unit3">
+  <h2>Unit 3: Introduction to Threat Modelling and Management</h2>
+  <div class="meta">
+    <span class="chip">Threat modelling frameworks</span>
+    <span class="chip">Collaborative Discussion 1 – Summary</span>
+    <span class="chip">e-Portfolio artefact</span>
+  </div>
+
+  <h3>Focus</h3>
+  <p>
+    This unit clarified the difference between threats and vulnerabilities and introduced core threat-modelling
+    approaches such as <strong>STRIDE</strong>, <strong>DREAD</strong>, <strong>attack trees</strong> and the hybrid
+    <strong>PASTA</strong> method. Emphasis was placed on how each framework supports systematic risk identification,
+    analysis, and mitigation planning.
+  </p>
+
+  <h3>Intended Learning</h3>
+  <ul>
+    <li>Describe multiple threat-modelling techniques and selection criteria.</li>
+    <li>Recommend and justify a technique (or hybrid) for a given scenario.</li>
+  </ul>
+
+  <h3>e-Portfolio Artefact</h3>
+  <div class="callout">
+    <ul style="margin:0;">
+      <li><strong>Collaborative Discussion 1 – Summary Post (Units 1–3)</strong> combining my initial post, peer feedback, and readings.</li>
+      <li>Reflection on how threat-modelling connects to Industry 4.0 risks and the earlier RMP concepts.</li>
+    </ul>
+
+    <details class="accordion" style="margin-top:12px;">
+      <summary>📝 View Discussion 1 – Summary Post (U1–U3)</summary>
+      <div style="margin-top:10px;">
+        <p>
+          When I first read <em>Kovaitė and Stankevičienė (2019)</em>, what stood out to me was how Industry 4.0 is not just
+          about automation but about creating fully connected, data-driven systems using IoT, AI and big data. In my initial
+          post I used examples like IoT sensors for predictive maintenance, because they clearly show how technology can
+          improve efficiency. I also felt the risks were just as important, particularly cybersecurity and supply-chain
+          issues. The Colonial Pipeline ransomware attack (2021) showed how one breach can cause widespread disruption,
+          and the semiconductor shortages during COVID-19 highlighted how supply chains can stall production across
+          industries (Frank et al., 2019).
+        </p>
+        <p>
+          The feedback I received helped me expand on these points. Marina added more detail on cybersecurity, pointing to
+          <em>Culot et al. (2019)</em>, who recommend layered defences such as network segmentation and intrusion detection.
+          She also suggested supply-chain diversification and predictive analytics (<em>Oztemel and Gursev, 2020</em>),
+          which made me think more about proactive planning.
+        </p>
+        <p>
+          In responding to Miriam and Tenny, I linked their ideas back to what we covered in Units 1 and 2. Miriam’s
+          comparison of the FARE method with Li’s (2024) fuzzy MCDM approach reminded me that the type of risk assessment
+          used — whether qualitative or quantitative — makes a big difference. <em>Spears and Barki (2010)</em> also
+          discuss this in relation to user participation in the Risk Management Process. Tenny’s focus on SME challenges
+          connected well with the idea that involving staff and stakeholders is essential for making risk-management
+          processes work in practice.
+        </p>
+        <p>
+          Finally, Unit 3’s introduction to threat modelling such as STRIDE and PASTA showed me how risks can be mapped
+          in a structured way. Overall, the discussion made me realise that adopting Industry 4.0 is not only about having
+          advanced technology but also about building resilience through risk assessment, planning, and involving people
+          at every stage.
+        </p>
+
+        <h4 style="margin-top:14px;">References</h4>
+        <p>
+          Culot, G., Fattori, F., Podrecca, M. and Sartor, M. (2019) ‘Addressing Industry 4.0 cybersecurity challenges’, 
+          <i>IEEE Engineering Management Review</i>, 47(3), pp. 79–86.<br>
+          Frank, A.G., Dalenogare, L.S. and Ayala, N.F. (2019) ‘Industry 4.0 technologies: Implementation patterns in manufacturing companies’, 
+          <i>International Journal of Production Economics</i>, 210, pp. 15–26.<br>
+          Kovaitė, K. and Stankevičienė, J. (2019) ‘Risks of digitalisation of business models’, <i>Business: Theory and Practice</i>, 20, pp. 317–326.<br>
+          Li, X. (2024) ‘Navigating digital transformation: a risk-based approach for Industry 4.0 innovation’, 
+          <i>Journal of Enterprise Information Management</i>, 37(5), pp. 1271–1293.<br>
+          Oztemel, E. and Gursev, S. (2020) ‘Literature review of Industry 4.0 and related technologies’, 
+          <i>Journal of Intelligent Manufacturing</i>, 31(1), pp. 127–182.<br>
+          Spears, J.L. and Barki, H. (2010) ‘User participation in information systems security risk management’, 
+          <i>MIS Quarterly</i>, 34(3), pp. 503–522.
+        </p>
       </div>
-      <h3>Focus</h3>
-      <p>
-        Threats vs vulnerabilities; survey of threat modelling techniques (STRIDE, DREAD, attack trees)
-        and hybrid approaches like PASTA; when to combine frameworks and how cookbooks/guides inform selection.
-      </p>
-      <h3>Intended Learning</h3>
-      <ul>
-        <li>Describe multiple threat modelling techniques and selection criteria.</li>
-        <li>Advise technique choice for specific contexts; identify when to hybridise.</li>
-      </ul>
-      <div class="callout">
-        <strong>Discussion 1 (U3 wrap):</strong> Submitted a 300-word summary synthesising my initial post,
-        peer feedback, and content across Units 1–3.
-      </div>
-    </section>
+    </details>
+    <!-- Quick framework chooser -->
+<details class="accordion" style="margin-top:12px;">
+  <summary>🧭 Quick chooser: Which method when?</summary>
+  <div style="margin-top:10px;">
+    <ul>
+      <li><strong>Need fast coverage for a new system?</strong> Start with STRIDE on DFDs to spot category gaps.</li>
+      <li><strong>Need to compare alternatives or prioritise risks?</strong> Add DREAD (or CVSS-style) scoring to rank by impact.</li>
+      <li><strong>Need to explain attacker pathways?</strong> Build Attack Trees to map goals → sub-goals → leaves.</li>
+      <li><strong>Need business-to-control traceability?</strong> Use PASTA to link business impacts to technical controls.</li>
+      <li><strong>Complex projects?</strong> Hybrid: STRIDE → DREAD → Attack Trees, wrapped in a PASTA lifecycle.</li>
+    </ul>
+  </div>
+</details>
+  </div>
+</section>
 
     <!-- Unit 4 -->
     <section id="unit4">
