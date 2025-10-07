@@ -674,54 +674,116 @@ details.accordion.clicked summary {
   </div>
 
   <!-- Artefacts -->
-  <h3>e-Portfolio Artefacts (Unit 4)</h3>
-  <ul>
-    <li>STRIDE table on selected data-flow diagram (DFD) components.</li>
-    <li>Attack tree for “unauthorised data exfiltration” goal.</li>
-    <li>DREAD/CVSS scoring sheet + prioritised control suggestions.</li>
-    <li>Seminar notes: modelling pitfalls, scope boundaries, and traceability tips.</li>
-  </ul>
+<h3>e-Portfolio Artefacts</h3>
+<ul>
+  <li>Conceptual STRIDE table applied on a simplified CPS data-flow diagram.</li>
+  <li>Attack tree illustrating “unauthorised data exfiltration” scenario.</li>
+  <li>DREAD-based risk scoring with prioritised control recommendations.</li>
+  <li>Seminar notes: modelling pitfalls, scope boundaries, and traceability tips.</li>
+</ul>
 
-  <!-- Collapsibles -->
-  <details class="accordion" style="margin-top:10px;">
-    <summary>📑 View STRIDE model (DFD excerpt)</summary>
-    <div class="callout" style="margin-top:10px">
-      <p><strong>What’s included:</strong> trust boundaries, processes, data stores, and flows; mapped threats per STRIDE with example mitigations.</p>
-      <p><a href="unit4-stride-table.pdf" target="_blank" rel="noopener" class="btn">Open PDF</a>
-         <a href="unit4-stride-table.pdf" download class="btn btn-ghost">Download</a></p>
-    </div>
-  </details>
+<!-- Collapsibles -->
+<details class="accordion" style="margin-top:10px;">
+  <summary>🧩 STRIDE Threat Model (Conceptual Overview)</summary>
+  <div class="callout" style="margin-top:10px;">
+    <p>
+      This artefact conceptually maps the six STRIDE categories across key system
+      elements—sensors, controllers, gateways, and cloud dashboards—based on the 
+      <em>Jbair et al. (2022)</em> CPS scenario.
+    </p>
+    <ul>
+      <li><strong>Spoofing:</strong> Fake IoT devices mimicking authorised sensors.</li>
+      <li><strong>Tampering:</strong> Manipulation of telemetry packets en route to the cloud.</li>
+      <li><strong>Repudiation:</strong> Missing audit logs preventing traceability.</li>
+      <li><strong>Information Disclosure:</strong> Plain-text MQTT traffic exposing sensitive data.</li>
+      <li><strong>Denial of Service:</strong> Flooding gateway nodes to disrupt message queues.</li>
+      <li><strong>Elevation of Privilege:</strong> Misconfigured cloud roles exploited for admin access.</li>
+    </ul>
+    <p>
+      Findings were used to identify critical trust boundaries and design stronger 
+      access control and encryption strategies.
+    </p>
+  </div>
+</details>
 
-  <details class="accordion" style="margin-top:10px;">
-    <summary>🌳 View attack tree (exfiltration scenario)</summary>
-    <div class="callout" style="margin-top:10px">
-      <p>Root goal → sub-goals (credential abuse / supply-chain implant / misconfig) → leaf actions with preconditions.</p>
-      <p><a href="unit4-attack-tree.svg" target="_blank" rel="noopener" class="btn">Open SVG</a>
-         <a href="unit4-attack-tree.svg" download class="btn btn-ghost">Download</a></p>
-    </div>
-  </details>
+<details class="accordion" style="margin-top:10px;">
+  <summary>🌳 Attack Tree (Exfiltration Scenario)</summary>
+  <div class="callout" style="margin-top:10px;">
+    <p>
+      The conceptual attack tree visualises possible adversary paths to achieve the goal 
+      <em>“Exfiltrate sensitive operational data.”</em>
+    </p>
+    <ul>
+      <li>Exploit weak authentication → steal valid credentials.</li>
+      <li>Inject malicious firmware via supply-chain compromise.</li>
+      <li>Exploit misconfigured network shares to extract datasets.</li>
+    </ul>
+    <p>
+      Each leaf node maps to recommended mitigations such as MFA enforcement, 
+      firmware integrity validation, and network segmentation.
+    </p>
+  </div>
+</details>
 
-  <details class="accordion" style="margin-top:10px;">
-    <summary>📊 Risk scoring (DREAD/CVSS) &amp; controls</summary>
-    <div class="callout" style="margin-top:10px">
-      <p>Scored top threats; mapped to controls (zero-trust network segmentation, hardening baselines, secret rotation, egress monitoring).</p>
-      <p><a href="unit4-risk-scoring.xlsx" class="btn">Download XLSX</a>
-         <a href="unit4-risk-scoring.pdf" class="btn btn-ghost">PDF version</a></p>
-    </div>
-  </details>
+<details class="accordion" style="margin-top:10px;">
+  <summary>📊 DREAD Risk Scoring (Illustrative Table)</summary>
+  <div class="callout" style="margin-top:10px;">
+    <p>
+      DREAD scoring was applied to rank threats by average severity (scale 1–10).  
+      High-impact items guided control priorities for resilience and data integrity.
+    </p>
+    <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+      <thead>
+        <tr style="background:#0f1a30;color:#7ee787;">
+          <th style="padding:6px;border:1px solid #1d2740;">Threat</th>
+          <th style="padding:6px;border:1px solid #1d2740;">Damage</th>
+          <th style="padding:6px;border:1px solid #1d2740;">Reproducibility</th>
+          <th style="padding:6px;border:1px solid #1d2740;">Exploitability</th>
+          <th style="padding:6px;border:1px solid #1d2740;">Affected Users</th>
+          <th style="padding:6px;border:1px solid #1d2740;">Discoverability</th>
+          <th style="padding:6px;border:1px solid #1d2740;">Average</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:6px;border:1px solid #1d2740;">Gateway DoS</td>
+          <td style="padding:6px;">8</td><td style="padding:6px;">6</td>
+          <td style="padding:6px;">7</td><td style="padding:6px;">9</td>
+          <td style="padding:6px;">5</td><td style="padding:6px;">7.0</td>
+        </tr>
+        <tr>
+          <td style="padding:6px;border:1px solid #1d2740;">Data Tampering</td>
+          <td style="padding:6px;">7</td><td style="padding:6px;">5</td>
+          <td style="padding:6px;">6</td><td style="padding:6px;">8</td>
+          <td style="padding:6px;">6</td><td style="padding:6px;">6.4</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:6px;">
+      Threats averaging &gt; 7 were categorised as high-priority and mapped to controls such as 
+      network segmentation, secret rotation, and anomaly detection.
+    </p>
+  </div>
+</details>
 
-  <details class="accordion" style="margin-top:10px;">
-    <summary>🗒️ Seminar notes (key takeaways)</summary>
-    <div class="callout" style="margin-top:10px">
-      <ul>
-        <li><strong>Traceability:</strong> keep a line from business impact → threat → control (helps stakeholders).</li>
-        <li><strong>Scope first:</strong> model bounded slices; avoid “boil the ocean” diagrams.</li>
-        <li><strong>Abuse cases:</strong> for each user story, write at least one misuse/abuse story.</li>
-        <li><strong>Validate:</strong> threat-hunt your own model with ATT&amp;CK techniques to find gaps.</li>
-      </ul>
-      <p><a href="unit4-seminar-notes.txt" class="btn btn-ghost">Download raw notes (.txt)</a></p>
-    </div>
-  </details>
+<details class="accordion" style="margin-top:10px;">
+  <summary>🗒️ Seminar Notes (Key Takeaways)</summary>
+  <div class="callout" style="margin-top:10px;">
+    <p>
+      The seminar on <em>Risk Identification and Modelling – Case Study</em> explored 
+      threat-modelling applications in cyber-physical systems. 
+      Discussions drew on <strong>Jbair et al. (2022)</strong> and emphasised how 
+      combining <strong>STRIDE</strong> and <strong>attack-tree</strong> methods 
+      enhances visibility of interdependencies and supports prioritised mitigations.
+    </p>
+    <p>
+      Key points included identifying system entry points, defining scenario-specific 
+      metrics, and ensuring traceability between threats, controls, and business impacts.  
+      Collaboration between technical and managerial stakeholders was highlighted as 
+      vital for realistic, actionable risk models.
+    </p>
+  </div>
+</details>
 </section>
     
  <!-- Unit 5 -->
