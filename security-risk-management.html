@@ -1549,94 +1549,76 @@ details.accordion.clicked summary {
 
   <h3>Focus</h3>
   <p>
-    Reviewing emerging SRM trends across economics, AI/automation, cloud/DRaaS, and standards evolution.
-    We weigh benefits/limits, discuss drivers of change, and assess which trends are likely to shape near-term practice.
+    This unit reviewed <strong>emerging trends</strong> in Security and Risk Management (SRM), including 
+    automation, AI, cloud resilience, and economic theory. It examined the opportunities and 
+    challenges these trends introduce, helping translate forward-looking insight into 
+    <em>evidence-based SRM strategy</em>.
   </p>
 
   <h3>Intended Learning</h3>
   <ul>
-    <li>Describe key emerging trends in security and risk management.</li>
-    <li>Explain their potential research and practice impact.</li>
-    <li>Recommend which trends will be most influential and why.</li>
+    <li>Identify and evaluate key SRM trends and their business impact.</li>
+    <li>Apply quantitative analysis to inform continuity and DR design.</li>
+    <li>Recommend which trend will be most influential in the next five years.</li>
   </ul>
 
   <div class="callout">
-    <strong>Assessment 2 (Executive Summary) – Submitted:</strong> Quantifies supply-chain and operational risks for
-    <em>Pampered Pets Ltd</em> using Monte Carlo and Bayesian reasoning, and proposes a cloud-native DRaaS strategy
-    (active-active, sub-minute RTO/RPO, multi-cloud to mitigate vendor lock-in) aligned to ISO 22301/27031/27005.
+    <strong>Assessment 2 – Executive Summary (Submitted):</strong>
+    Quantitative modelling of <em>Pampered Pets Ltd</em> digitalisation risks using Monte Carlo 
+    and Bayesian analysis, followed by a <strong>cloud-native DRaaS architecture</strong> design with 
+    sub-minute RTO/RPO and mitigation of vendor lock-in under ISO 22301 and 27031.
   </div>
 
   <h3>e-Portfolio Artefact</h3>
-  <ul>
-    <li>Executive Summary (Individual Project): quantitative risk modelling + BC/DR design.</li>
-  </ul>
+  <p>
+    The artefact demonstrates applied modelling of supply-chain and automation risks, 
+    translating data-driven insights into business-continuity strategy.
+  </p>
 
-  <!-- Report intro + button -->
-  <div id="u11-report-intro" style="margin:10px 0 6px;">
-    <p style="margin:0 0 10px;">
-      This report summarises risks from digitalisation (supplier reliability, transport delays, automated-warehouse downtime),
-      presents simulation results (e.g., OTD distribution, sensitivity), and prioritises mitigations (dual sourcing, predictive
-      maintenance, logistics redundancy) with a DRaaS architecture for resilience.
-    </p>
-    <a href="#u11-viewer" class="btn" id="u11-open-btn">📄 View Executive Summary</a>
-    <a href="Executive%20Summary.pdf" download class="btn btn-ghost" style="margin-left:8px;">⬇︎ Download PDF</a>
+  <div style="text-align:left; margin:12px 0;">
+    <button id="toggle-u11-report" class="btn-glow">📄 View Executive Summary</button>
+    <a href="Executive%20Summary.pdf" download class="btn btn-ghost" style="margin-left:8px;">
+      ⬇︎ Download PDF
+    </a>
   </div>
 
-  <!-- Hidden viewer: appears after clicking the button -->
-  <div id="u11-viewer" style="display:none; margin-top:12px;">
+  <!-- Hidden PDF viewer -->
+  <div id="u11-report" style="display:none; margin-top:14px;">
     <iframe
       src="Executive%20Summary.pdf"
       width="100%"
-      height="650"
+      height="700"
       title="Unit 11 – Executive Summary"
-      class="desktop-only"
-      style="border:1px solid #2a3b64;border-radius:10px"
+      style="border-radius:10px;"
     ></iframe>
-
-    <div class="mobile-only" style="text-align:center; margin-top:10px;">
-      <a href="Executive%20Summary.pdf" target="_blank" rel="noopener" class="btn-glow">
-        📄 Open Report in New Tab
-      </a>
-      <div style="margin-top:8px;">
-        <a href="Executive%20Summary.pdf" download class="btn-ghost">⬇︎ Download PDF</a>
-      </div>
-      <p style="color:#a9b7d0; font-size:.92rem; margin-top:10px">
-        Tip: On mobile, use “Open Report in New Tab” for full zoom and share controls.
-      </p>
-    </div>
-
-    <noscript>
-      <p><a href="Executive%20Summary.pdf" target="_blank" rel="noopener">Open the report</a></p>
-    </noscript>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("toggle-u11-report");
+      const viewer = document.getElementById("u11-report");
+      btn.addEventListener("click", () => {
+        const visible = viewer.style.display === "block";
+        viewer.style.display = visible ? "none" : "block";
+        btn.textContent = visible ? "📄 View Executive Summary" : "📘 Hide Executive Summary";
+        if (!visible) viewer.scrollIntoView({behavior:"smooth", block:"start"});
+      });
+    });
+  </script>
 
   <h3>Reflection</h3>
   <p>
-    This unit tied trend-spotting to implementable architecture choices. I learned to translate “trend lists” into
-    <em>prioritised capabilities</em> (e.g., DRaaS, zero-trust, multi-cloud portability) and to support them with
-    <em>quantified</em> evidence. Building the Executive Summary sharpened my habit of pairing Monte Carlo outputs
-    (mean, spread, P10–P90, sensitivity) with <em>business-facing</em> decisions: supplier diversification SLAs, buffer-stock
-    thresholds, and recovery tiers with explicit RTO/RPO. The biggest takeaway: future-proof SRM isn’t prediction;
-    it’s <em>iterative adaptation</em>—continuously updating assumptions (Bayesian), testing failover paths, and aligning with
-    ISO 22301/27031 so that new tech (AI/analytics, orchestration) improves <em>measured</em> resilience rather than just
-    adding complexity.
+    Through this unit and the Executive Summary project, I learned how <strong>quantitative modelling</strong> 
+    and <strong>future-trend analysis</strong> complement each other. Monte Carlo and Bayesian techniques 
+    revealed the uncertainty behind supply-chain reliability, while trend research on AI, 
+    automation, and multi-cloud adoption helped me design realistic, testable recovery solutions.  
+    I now see that anticipating the future of SRM is less about prediction and more about 
+    <em>adaptive validation</em> — continuously refining assumptions, auditing DRaaS performance, 
+    and aligning metrics with evolving standards like ISO 22301 and 27031.  
+    This iterative mindset strengthened both my analytical and strategic confidence 
+    in designing resilient systems for real-world organisations.
   </p>
 </section>
-
-<script>
-  // Unit 11 viewer toggle (opens on click, left-aligned like others)
-  document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("u11-open-btn");
-    const viewer = document.getElementById("u11-viewer");
-    if (btn && viewer) {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        viewer.style.display = "block";
-        viewer.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    }
-  });
-</script>
   
         <!-- Artefacts -->
     <section id="artefacts">
