@@ -1295,101 +1295,120 @@ details.accordion.clicked summary {
   <div class="meta">
     <span class="chip">Reading</span>
     <span class="chip">Formative activity</span>
-    <span class="chip">Collaborative Discussion 2 (Summary due in Unit 9)</span>
+    <span class="chip">Collaborative Discussion 2 (Summary Post)</span>
   </div>
 
   <h3>Focus</h3>
   <p>
-    Connecting Security Risk Management to <strong>Business Continuity (BC)</strong> and <strong>Disaster Recovery (DR)</strong>:
-    perform a Business Impact Analysis (BIA), define <strong>RTO</strong>/<strong>RPO</strong> for critical services, and select recovery
-    strategies (hot/warm/cold sites, cloud failover/DRaaS). Consider supplier strategy (single vs multi), lock-in,
-    resilience, and network security implications.
+    This unit links <strong>Security Risk Management (SRM)</strong> with <strong>Business Continuity (BC)</strong> 
+    and <strong>Disaster Recovery (DR)</strong> planning. It introduces <em>Business Impact Analysis (BIA)</em>, 
+    <em>Recovery Time Objective (RTO)</em> and <em>Recovery Point Objective (RPO)</em> concepts, and explores 
+    recovery strategies such as hot/warm/cold sites, DRaaS, and hybrid cloud resilience. Students also examine 
+    supplier risk, vendor lock-in, and cost–resilience trade-offs that influence continuity decisions.
   </p>
 
   <h3>Intended Learning</h3>
   <ul>
-    <li>Structure a <strong>BIA</strong> that identifies critical processes, dependencies, and impact over time.</li>
-    <li>Set justifiable <strong>RTO</strong> (time to recover) and <strong>RPO</strong> (acceptable data loss) targets.</li>
-    <li>Match systems to appropriate <strong>DR strategies</strong> (hot/warm/cold; active/active; DRaaS).</li>
-    <li>Explain trade-offs: <em>cost ↔ resilience</em>, <em>latency ↔ consistency</em>, <em>lock-in ↔ simplicity</em>.</li>
+    <li>Conduct a <strong>BIA</strong> to identify critical business processes, dependencies, and acceptable downtime.</li>
+    <li>Define justified <strong>RTO</strong> and <strong>RPO</strong> targets aligned with business priorities.</li>
+    <li>Select appropriate <strong>DR strategies</strong> based on cost, complexity, and regulatory needs.</li>
+    <li>Understand the relationship between quantitative risk analysis and continuity planning.</li>
   </ul>
 
   <div class="callout">
-    <strong>Key definitions:</strong>
-    <ul style="margin-top:6px">
-      <li><strong>BIA:</strong> identifies critical services, tolerable downtime, and impact thresholds.</li>
-      <li><strong>RTO:</strong> target time to restore a service after disruption.</li>
-      <li><strong>RPO:</strong> maximum tolerable data loss (in time) at restore.</li>
-    </ul>
+    <strong>Key takeaway:</strong> BC/DR is not merely a technical exercise—it transforms quantified risks 
+    into <em>operational recovery priorities</em>. Effective plans depend on cross-team collaboration, 
+    tested procedures, and accurate impact analysis.
   </div>
 
   <h3>e-Portfolio Artefacts (Unit 9)</h3>
   <ul>
-    <li>Mini-BIA for three services (criticality, dependencies, impact window).</li>
-    <li>RTO/RPO matrix with rationale.</li>
-    <li>Recovery strategy shortlist (with pros/cons and assumptions).</li>
-    <li>Short reflection (80–120 words) on BC/DR trade-offs for your context.</li>
+    <li>Mini-BIA covering three critical business services with dependencies and downtime thresholds.</li>
+    <li>RTO/RPO decision matrix and justifications for each service.</li>
+    <li>Summary of recovery strategies (hot/warm/cold, DRaaS) with assumptions and constraints.</li>
+    <li>Collaborative Discussion 2 – Summary Post (Units 7–9).</li>
   </ul>
 
-  <!-- Collapsibles -->
   <details class="accordion" style="margin-top:10px;">
-    <summary>🧭 Mini-BIA (sample)</summary>
+    <summary>📊 Mini-BIA Example</summary>
     <div class="callout" style="margin-top:10px">
-      <p><strong>Services:</strong> Customer Portal (Web), Payments API, Identity (IdP)</p>
+      <p><strong>Services:</strong> Customer Portal, Payments Gateway, Identity Provider.</p>
       <ul>
-        <li><strong>Customer Portal:</strong> Criticality = High; Dependencies = CDN, App, DB, IdP; Impact = revenue/SLAs within 2h.</li>
-        <li><strong>Payments API:</strong> Criticality = Critical; Dependencies = PSP, DB, KMS; Impact = immediate revenue loss; compliance risk.</li>
-        <li><strong>Identity (IdP):</strong> Criticality = High; Dependencies = HSM/KMS, Directory; Impact = auth failures across estate.</li>
+        <li><strong>Customer Portal:</strong> High criticality – downtime affects reputation and sales.</li>
+        <li><strong>Payments Gateway:</strong> Critical – direct revenue loss within minutes.</li>
+        <li><strong>Identity Provider (IdP):</strong> High – failure impacts all dependent services.</li>
       </ul>
-      <p><em>Impact window:</em> revenue, customer trust, regulatory exposure increase non-linearly after 2–4 hours.</p>
+      <p><em>Observation:</em> cascading dependencies highlight need for integrated continuity planning.</p>
     </div>
   </details>
 
   <details class="accordion" style="margin-top:10px;">
-    <summary>⏱️ RTO/RPO matrix (example)</summary>
+    <summary>⏱️ RTO/RPO Matrix (sample)</summary>
     <div class="callout" style="margin-top:10px">
       <ul>
-        <li><strong>Payments API:</strong> RTO ≤ 30m • RPO ≤ 5m (requires synchronous or near-sync replication; runbooks pre-tested).</li>
-        <li><strong>Identity (IdP):</strong> RTO ≤ 60m • RPO ≤ 10m (multi-region replicas; key escrow; break-glass accounts).</li>
-        <li><strong>Customer Portal:</strong> RTO ≤ 2h • RPO ≤ 15m (stateless front ends; warm standby DB).</li>
+        <li><strong>Payments Gateway:</strong> RTO = 30 min | RPO = 5 min</li>
+        <li><strong>Identity Provider:</strong> RTO = 60 min | RPO = 10 min</li>
+        <li><strong>Customer Portal:</strong> RTO = 2 h | RPO = 15 min</li>
       </ul>
-      <p><em>Rationale:</em> ranked by revenue/availability coupling and compliance exposure.</p>
+      <p><em>Rationale:</em> prioritised by financial impact, dependency chain, and regulatory exposure.</p>
     </div>
   </details>
 
   <details class="accordion" style="margin-top:10px;">
-    <summary>🛡️ Recovery strategy shortlist</summary>
+    <summary>🛡️ Recovery Strategy Options</summary>
     <div class="callout" style="margin-top:10px">
       <ul>
-        <li><strong>Active/Active (multi-region):</strong> + lowest RTO/RPO; – highest cost/complexity.</li>
-        <li><strong>Warm standby (hot data, cold compute):</strong> + balanced cost; – RTO in tens of minutes.</li>
-        <li><strong>DRaaS (cloud failover):</strong> + operational simplicity; – potential provider lock-in and egress costs.</li>
-        <li><strong>Cold site:</strong> + lowest cost; – longest RTO; test discipline critical.</li>
+        <li><strong>Active/Active multi-region:</strong> + fastest recovery | – highest cost.</li>
+        <li><strong>Warm standby (replicated DB, idle compute):</strong> + cost-effective | – moderate RTO.</li>
+        <li><strong>DRaaS (cloud failover):</strong> + simple deployment | – vendor lock-in risk.</li>
+        <li><strong>Cold site:</strong> + low cost | – long RTO, manual rebuild effort.</li>
       </ul>
-      <p><em>Assumptions:</em> IaC for rebuilds, automated runbooks, periodic failover tests, immutable backups with isolation.</p>
     </div>
   </details>
 
-  <!-- Collaborative Discussion 2: Summary -->
   <h3>Collaborative Discussion 2 – Summary (Units 7–9)</h3>
-  <p>
-    This wrap-up connects quantitative scoring critiques (Unit 7–8) to BC/DR priorities: replacing “score-only”
-    thinking with <strong>actionable recovery targets</strong> and decision trees (e.g., SSVC + EPSS) that drive which
-    services recover first and how often data must be captured.
-  </p>
-  <details style="margin-top:8px">
-    <summary style="cursor:pointer;color:#7ab8ff">View my Summary Post</summary>
-    <div class="callout" style="margin-top:10px">
-      <!-- Paste your final summary text here -->
-      <p><em>Placeholder:</em> Add your Unit 7–9 summary post here to complete the discussion thread.</p>
+  <details style="margin-top:8px;">
+    <summary style="cursor:pointer;color:#7ab8ff;">View my Summary Post</summary>
+    <div class="callout" style="margin-top:10px;">
+      <p><strong>Summary Post</strong><br>
+      <em>by Pragadheesh Marimuthu – Tuesday, 7 October 2025, 7:47 AM</em></p>
+      <p>
+        Although I reviewed the readings and forum threads throughout Units 7 to 9, I took some time to organise 
+        my thoughts and decided to post my complete responses together after understanding the topic more clearly. 
+        This approach allowed me to reflect holistically on how quantitative risk models and vulnerability scoring 
+        systems interact in practice. Reading Spring et al. (2021) reshaped my view of the Common Vulnerability Scoring System (CVSS). 
+        I realised that the framework’s static nature and subjective scoring create limitations that can misrepresent 
+        real-world risk (Sabottke, Suciu and Dumitraș, 2015). My initial post argued that the Stakeholder-Specific Vulnerability Categorisation (SSVC) 
+        offers a more adaptive and transparent alternative by considering each stakeholder’s context, aligning 
+        closely with ISO/IEC 27005 principles of continuous risk assessment (Aven and Thekdi, 2024).
+      </p>
+      <p>
+        Engaging with peers helped me see the wider implications of these systems. Omar’s post deepened my 
+        understanding of how SSVC’s decision trees allow for flexible, role-based prioritisation of vulnerabilities. 
+        Matthew’s analysis, however, reminded me that CVSS remains deeply embedded in industry standards and that 
+        version 4.0 introduces useful improvements through environmental and supplemental metrics. His suggestion to combine 
+        CVSS v4 with the Exploit Prediction Scoring System (EPSS) highlighted how integrating predictive and traditional models 
+        can lead to more accurate vulnerability management.
+      </p>
+      <p>
+        Reflecting on the discussion as a whole, I learned that there is no single perfect model for assessing risk. A balanced approach 
+        that combines empirical data, contextual awareness, and adaptive evaluation methods provides the most realistic foundation 
+        for effective cybersecurity decision-making.
+      </p>
+      <h4>References</h4>
+      <ul>
+        <li>Aven, T. and Thekdi, S. (2024) <em>Risk Science: An Introduction.</em> 2nd edn. Oxford: Routledge.</li>
+        <li>Sabottke, C., Suciu, O. and Dumitraș, T. (2015) ‘Vulnerability disclosure in the age of social media: Exploiting Twitter for predicting real-world exploits’, <em>24th USENIX Security Symposium</em>, pp. 1041–1056.</li>
+        <li>Spring, J.M., Hatleback, E., Householder, A., Manion, A. and Shick, D. (2021) ‘Time to change the CVSS?’, <em>IEEE Security & Privacy</em>, 19(2), pp. 74–78.</li>
+      </ul>
     </div>
   </details>
 
   <h3>Reflection</h3>
   <p>
-    Translating risk into BC/DR targets clarified that <strong>RTO/RPO are business decisions</strong> informed by
-    technical constraints. The biggest shift was prioritising <em>recoverability evidence</em>—tested runbooks,
-    immutable backups, and replication metrics—over theoretical scores alone.
+    This unit demonstrated how <strong>quantitative insights</strong> from earlier weeks directly inform <strong>continuity priorities</strong>. 
+    By linking vulnerability scoring with recovery objectives, I learned to convert analytical findings into 
+    measurable operational outcomes such as tested RTOs, verified backups, and tiered recovery sequences.
   </p>
 </section>
     
