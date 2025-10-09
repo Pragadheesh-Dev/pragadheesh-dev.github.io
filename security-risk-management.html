@@ -1289,6 +1289,110 @@ details.accordion.clicked summary {
     </div>
   </details>
 </section>
+<!-- Unit 9 -->
+<section id="unit9">
+  <h2>Unit 9: Business Continuity & Disaster Recovery Foundations</h2>
+  <div class="meta">
+    <span class="chip">Reading</span>
+    <span class="chip">Formative activity</span>
+    <span class="chip">Collaborative Discussion 2 (Summary due in Unit 9)</span>
+  </div>
+
+  <h3>Focus</h3>
+  <p>
+    Connecting Security Risk Management to <strong>Business Continuity (BC)</strong> and <strong>Disaster Recovery (DR)</strong>:
+    perform a Business Impact Analysis (BIA), define <strong>RTO</strong>/<strong>RPO</strong> for critical services, and select recovery
+    strategies (hot/warm/cold sites, cloud failover/DRaaS). Consider supplier strategy (single vs multi), lock-in,
+    resilience, and network security implications.
+  </p>
+
+  <h3>Intended Learning</h3>
+  <ul>
+    <li>Structure a <strong>BIA</strong> that identifies critical processes, dependencies, and impact over time.</li>
+    <li>Set justifiable <strong>RTO</strong> (time to recover) and <strong>RPO</strong> (acceptable data loss) targets.</li>
+    <li>Match systems to appropriate <strong>DR strategies</strong> (hot/warm/cold; active/active; DRaaS).</li>
+    <li>Explain trade-offs: <em>cost ↔ resilience</em>, <em>latency ↔ consistency</em>, <em>lock-in ↔ simplicity</em>.</li>
+  </ul>
+
+  <div class="callout">
+    <strong>Key definitions:</strong>
+    <ul style="margin-top:6px">
+      <li><strong>BIA:</strong> identifies critical services, tolerable downtime, and impact thresholds.</li>
+      <li><strong>RTO:</strong> target time to restore a service after disruption.</li>
+      <li><strong>RPO:</strong> maximum tolerable data loss (in time) at restore.</li>
+    </ul>
+  </div>
+
+  <h3>e-Portfolio Artefacts (Unit 9)</h3>
+  <ul>
+    <li>Mini-BIA for three services (criticality, dependencies, impact window).</li>
+    <li>RTO/RPO matrix with rationale.</li>
+    <li>Recovery strategy shortlist (with pros/cons and assumptions).</li>
+    <li>Short reflection (80–120 words) on BC/DR trade-offs for your context.</li>
+  </ul>
+
+  <!-- Collapsibles -->
+  <details class="accordion" style="margin-top:10px;">
+    <summary>🧭 Mini-BIA (sample)</summary>
+    <div class="callout" style="margin-top:10px">
+      <p><strong>Services:</strong> Customer Portal (Web), Payments API, Identity (IdP)</p>
+      <ul>
+        <li><strong>Customer Portal:</strong> Criticality = High; Dependencies = CDN, App, DB, IdP; Impact = revenue/SLAs within 2h.</li>
+        <li><strong>Payments API:</strong> Criticality = Critical; Dependencies = PSP, DB, KMS; Impact = immediate revenue loss; compliance risk.</li>
+        <li><strong>Identity (IdP):</strong> Criticality = High; Dependencies = HSM/KMS, Directory; Impact = auth failures across estate.</li>
+      </ul>
+      <p><em>Impact window:</em> revenue, customer trust, regulatory exposure increase non-linearly after 2–4 hours.</p>
+    </div>
+  </details>
+
+  <details class="accordion" style="margin-top:10px;">
+    <summary>⏱️ RTO/RPO matrix (example)</summary>
+    <div class="callout" style="margin-top:10px">
+      <ul>
+        <li><strong>Payments API:</strong> RTO ≤ 30m • RPO ≤ 5m (requires synchronous or near-sync replication; runbooks pre-tested).</li>
+        <li><strong>Identity (IdP):</strong> RTO ≤ 60m • RPO ≤ 10m (multi-region replicas; key escrow; break-glass accounts).</li>
+        <li><strong>Customer Portal:</strong> RTO ≤ 2h • RPO ≤ 15m (stateless front ends; warm standby DB).</li>
+      </ul>
+      <p><em>Rationale:</em> ranked by revenue/availability coupling and compliance exposure.</p>
+    </div>
+  </details>
+
+  <details class="accordion" style="margin-top:10px;">
+    <summary>🛡️ Recovery strategy shortlist</summary>
+    <div class="callout" style="margin-top:10px">
+      <ul>
+        <li><strong>Active/Active (multi-region):</strong> + lowest RTO/RPO; – highest cost/complexity.</li>
+        <li><strong>Warm standby (hot data, cold compute):</strong> + balanced cost; – RTO in tens of minutes.</li>
+        <li><strong>DRaaS (cloud failover):</strong> + operational simplicity; – potential provider lock-in and egress costs.</li>
+        <li><strong>Cold site:</strong> + lowest cost; – longest RTO; test discipline critical.</li>
+      </ul>
+      <p><em>Assumptions:</em> IaC for rebuilds, automated runbooks, periodic failover tests, immutable backups with isolation.</p>
+    </div>
+  </details>
+
+  <!-- Collaborative Discussion 2: Summary -->
+  <h3>Collaborative Discussion 2 – Summary (Units 7–9)</h3>
+  <p>
+    This wrap-up connects quantitative scoring critiques (Unit 7–8) to BC/DR priorities: replacing “score-only”
+    thinking with <strong>actionable recovery targets</strong> and decision trees (e.g., SSVC + EPSS) that drive which
+    services recover first and how often data must be captured.
+  </p>
+  <details style="margin-top:8px">
+    <summary style="cursor:pointer;color:#7ab8ff">View my Summary Post</summary>
+    <div class="callout" style="margin-top:10px">
+      <!-- Paste your final summary text here -->
+      <p><em>Placeholder:</em> Add your Unit 7–9 summary post here to complete the discussion thread.</p>
+    </div>
+  </details>
+
+  <h3>Reflection</h3>
+  <p>
+    Translating risk into BC/DR targets clarified that <strong>RTO/RPO are business decisions</strong> informed by
+    technical constraints. The biggest shift was prioritising <em>recoverability evidence</em>—tested runbooks,
+    immutable backups, and replication metrics—over theoretical scores alone.
+  </p>
+</section>
+    
         <!-- Artefacts -->
     <section id="artefacts">
       <h2>Team &amp; Artefacts (U1–U6)</h2>
