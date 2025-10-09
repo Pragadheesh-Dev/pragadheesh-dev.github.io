@@ -1329,6 +1329,7 @@ details.accordion.clicked summary {
     <li>Collaborative Discussion 2 – Summary Post (Units 7–9).</li>
   </ul>
 
+  <!-- Collapsibles -->
   <details class="accordion" style="margin-top:10px;">
     <summary>📊 Mini-BIA Example</summary>
     <div class="callout" style="margin-top:10px">
@@ -1366,50 +1367,83 @@ details.accordion.clicked summary {
     </div>
   </details>
 
+  <!-- Collaborative Discussion 2: Summary -->
   <h3>Collaborative Discussion 2 – Summary (Units 7–9)</h3>
-  <details style="margin-top:8px;">
-    <summary style="cursor:pointer;color:#7ab8ff;">View my Summary Post</summary>
-    <div class="callout" style="margin-top:10px;">
-      <p><strong>Summary Post</strong><br>
-      <em>by Pragadheesh Marimuthu – Tuesday, 7 October 2025, 7:47 AM</em></p>
-      <p>
-        Although I reviewed the readings and forum threads throughout Units 7 to 9, I took some time to organise 
-        my thoughts and decided to post my complete responses together after understanding the topic more clearly. 
-        This approach allowed me to reflect holistically on how quantitative risk models and vulnerability scoring 
-        systems interact in practice. Reading Spring et al. (2021) reshaped my view of the Common Vulnerability Scoring System (CVSS). 
-        I realised that the framework’s static nature and subjective scoring create limitations that can misrepresent 
-        real-world risk (Sabottke, Suciu and Dumitraș, 2015). My initial post argued that the Stakeholder-Specific Vulnerability Categorisation (SSVC) 
-        offers a more adaptive and transparent alternative by considering each stakeholder’s context, aligning 
-        closely with ISO/IEC 27005 principles of continuous risk assessment (Aven and Thekdi, 2024).
-      </p>
-      <p>
-        Engaging with peers helped me see the wider implications of these systems. Omar’s post deepened my 
-        understanding of how SSVC’s decision trees allow for flexible, role-based prioritisation of vulnerabilities. 
-        Matthew’s analysis, however, reminded me that CVSS remains deeply embedded in industry standards and that 
-        version 4.0 introduces useful improvements through environmental and supplemental metrics. His suggestion to combine 
-        CVSS v4 with the Exploit Prediction Scoring System (EPSS) highlighted how integrating predictive and traditional models 
-        can lead to more accurate vulnerability management.
-      </p>
-      <p>
-        Reflecting on the discussion as a whole, I learned that there is no single perfect model for assessing risk. A balanced approach 
-        that combines empirical data, contextual awareness, and adaptive evaluation methods provides the most realistic foundation 
-        for effective cybersecurity decision-making.
-      </p>
-      <h4>References</h4>
-      <ul>
-        <li>Aven, T. and Thekdi, S. (2024) <em>Risk Science: An Introduction.</em> 2nd edn. Oxford: Routledge.</li>
-        <li>Sabottke, C., Suciu, O. and Dumitraș, T. (2015) ‘Vulnerability disclosure in the age of social media: Exploiting Twitter for predicting real-world exploits’, <em>24th USENIX Security Symposium</em>, pp. 1041–1056.</li>
-        <li>Spring, J.M., Hatleback, E., Householder, A., Manion, A. and Shick, D. (2021) ‘Time to change the CVSS?’, <em>IEEE Security & Privacy</em>, 19(2), pp. 74–78.</li>
-      </ul>
-    </div>
-  </details>
+  <p>
+    This wrap-up connects quantitative scoring critiques (Units 7–8) to BC/DR priorities, replacing “score-only”
+    thinking with <strong>actionable recovery targets</strong> and decision trees (SSVC + EPSS) that drive 
+    service recovery order and data capture frequency.
+  </p>
+
+  <div style="text-align:center; margin:12px 0;">
+    <a href="#unit9-summary" class="btn-glow">📘 View My Summary Post</a>
+  </div>
+
+  <!-- Hidden summary section revealed by anchor -->
+  <div id="unit9-summary" class="callout" style="margin-top:15px; border-left:4px solid #7ab8ff; padding:12px;">
+    <p><strong>Summary Post</strong><br>
+    <em>by Pragadheesh Marimuthu – Tuesday, 7 October 2025, 7:47 AM</em></p>
+
+    <p>
+      Although I reviewed the readings and forum threads throughout Units 7 to 9, I took some time to organise 
+      my thoughts and decided to post my complete responses together after understanding the topic more clearly. 
+      This approach allowed me to reflect holistically on how quantitative risk models and vulnerability scoring 
+      systems interact in practice. Reading Spring et al. (2021) reshaped my view of the Common Vulnerability Scoring System (CVSS). 
+      I realised that the framework’s static nature and subjective scoring create limitations that can misrepresent 
+      real-world risk (Sabottke, Suciu and Dumitraș, 2015). My initial post argued that the Stakeholder-Specific Vulnerability Categorisation (SSVC) 
+      offers a more adaptive and transparent alternative by considering each stakeholder’s context, aligning 
+      closely with ISO/IEC 27005 principles of continuous risk assessment (Aven and Thekdi, 2024).
+    </p>
+
+    <p>
+      Engaging with peers helped me see the wider implications of these systems. Omar’s post deepened my 
+      understanding of how SSVC’s decision trees allow for flexible, role-based prioritisation of vulnerabilities. 
+      Matthew’s analysis, however, reminded me that CVSS remains deeply embedded in industry standards and that 
+      version 4.0 introduces useful improvements through environmental and supplemental metrics. His suggestion to combine 
+      CVSS v4 with the Exploit Prediction Scoring System (EPSS) highlighted how integrating predictive and traditional models 
+      can lead to more accurate vulnerability management.
+    </p>
+
+    <p>
+      Reflecting on the discussion as a whole, I learned that there is no single perfect model for assessing risk. A balanced approach 
+      that combines empirical data, contextual awareness, and adaptive evaluation methods provides the most realistic foundation 
+      for effective cybersecurity decision-making.
+    </p>
+
+    <h4>References</h4>
+    <ul>
+      <li>Aven, T. and Thekdi, S. (2024) <em>Risk Science: An Introduction.</em> 2nd edn. Oxford: Routledge.</li>
+      <li>Sabottke, C., Suciu, O. and Dumitraș, T. (2015) ‘Vulnerability disclosure in the age of social media: Exploiting Twitter for predicting real-world exploits’, <em>24th USENIX Security Symposium</em>, pp. 1041–1056.</li>
+      <li>Spring, J.M., Hatleback, E., Householder, A., Manion, A. and Shick, D. (2021) ‘Time to change the CVSS?’, <em>IEEE Security & Privacy</em>, 19(2), pp. 74–78.</li>
+    </ul>
+  </div>
 
   <h3>Reflection</h3>
-  <p>
-    This unit demonstrated how <strong>quantitative insights</strong> from earlier weeks directly inform <strong>continuity priorities</strong>. 
-    By linking vulnerability scoring with recovery objectives, I learned to convert analytical findings into 
-    measurable operational outcomes such as tested RTOs, verified backups, and tiered recovery sequences.
-  </p>
+<p>
+  This unit reinforced how <strong>quantitative risk modelling</strong> from earlier weeks directly supports 
+  <strong>Business Continuity and Disaster Recovery (BC/DR)</strong> planning. I learned that the accuracy of continuity strategies 
+  depends on translating analytical results — such as vulnerability likelihoods and impact scores — into 
+  <em>operational recovery metrics</em> like RTO and RPO. Reading and forum engagement helped me understand that 
+  frameworks such as <strong>CVSS</strong> and <strong>SSVC</strong> are not isolated scoring systems, but vital 
+  inputs for prioritising which business processes, assets, or services should recover first after a disruption. 
+</p>
+
+<p>
+  Peer discussions also shaped my appreciation of how <strong>context and stakeholder roles</strong> influence recovery decisions. 
+  For example, I realised that a single numerical score cannot represent the unique recovery requirements of 
+  suppliers, operators, or asset owners. Combining quantitative indicators with context-driven approaches 
+  such as SSVC or EPSS creates a more balanced recovery strategy that reflects both <em>probability</em> and <em>practical urgency</em>. 
+  This perspective aligns closely with the <strong>ISO/IEC 27005</strong> emphasis on iterative, evidence-based 
+  risk treatment. 
+</p>
+
+<p>
+  Overall, Unit 9 taught me to view BC/DR not as an isolated phase but as the <strong>actionable extension 
+  of the risk management process</strong>. Effective continuity planning integrates analytical rigour, 
+  stakeholder communication, and real-world testing. The ability to connect vulnerability data to tangible 
+  recovery priorities — such as backup validation, dependency mapping, and documented response playbooks — 
+  is what transforms theoretical risk models into sustainable resilience practices.
+</p>
 </section>
     
         <!-- Artefacts -->
