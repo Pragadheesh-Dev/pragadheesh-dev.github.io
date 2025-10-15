@@ -1742,15 +1742,19 @@ details.accordion.clicked summary {
       }
     });
   </script>
-    <!-- Final Submission Document -->
+      <!-- Final Submission Document Toggle -->
   <h3>End-of-Module Reflection Document</h3>
   <p>
-    The complete final submission (<strong>endofmodulereflection.pdf</strong>) has been uploaded to the main branch of this
-    e-portfolio. It compiles all unit artefacts, learning evidence, and the 1 000-word reflective analysis required for
-    Assessment 3. The document can be viewed below within the embedded PDF viewer.
+    The complete final submission (<strong>endofmodulereflection.pdf</strong>) is uploaded in the main branch of this
+    e-portfolio. It compiles all artefacts, learning evidence, and the 1 000-word reflective analysis for
+    Assessment 3. Click the button below to view or hide the document.
   </p>
 
   <div style="text-align:left; margin:12px 0;">
+    <button id="toggle-u12-pdf" class="btn-glow">📄 View End-of-Module Reflection Document</button>
+  </div>
+
+  <div id="u12-pdf-viewer" style="display:none; margin-top:14px;">
     <iframe
       src="endofmodulereflection.pdf"
       width="100%"
@@ -1758,8 +1762,25 @@ details.accordion.clicked summary {
       style="border:1px solid #ccc; border-radius:8px;"
     ></iframe>
   </div>
-</section></section>
-  
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const pdfBtn = document.getElementById("toggle-u12-pdf");
+      const pdfBox = document.getElementById("u12-pdf-viewer");
+
+      if (pdfBtn && pdfBox) {
+        pdfBtn.addEventListener("click", () => {
+          const open = pdfBox.style.display === "block";
+          pdfBox.style.display = open ? "none" : "block";
+          pdfBtn.textContent = open
+            ? "📄 View End-of-Module Reflection Document"
+            : "📕 Hide End-of-Module Reflection Document";
+          if (!open) pdfBox.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
+    });
+  </script>
+</section>
 <!-- End of Module Celebration -->
 <section id="module-complete">
   <div style="
