@@ -1692,28 +1692,55 @@ details.accordion.clicked summary {
     });
   </script>
 
-  <h3>Reflection</h3>
-  <p>
-    Completing this module has given me a <strong>comprehensive perspective on the interconnected layers of SRM</strong> —
-    from identifying threats and assessing risks to modelling probabilities and designing recovery solutions.
-    I learned that effective security management balances <em>technical precision</em> with <em>strategic adaptability</em>.
-    Through early units, I built foundational understanding of qualitative and quantitative approaches; mid-module,
-    I applied frameworks like <strong>STRIDE</strong>, <strong>CVSS</strong>, and <strong>SSVC</strong> to contextualise real-world risk;
-    and in later units, I integrated <strong>Monte Carlo simulations</strong>, <strong>Bayesian logic</strong>, and <strong>DRaaS architectures</strong>
-    to produce actionable continuity plans.
-  </p>
-  <p>
-    The collaborative discussions improved my ability to critique vulnerability scoring systems and appreciate
-    the value of combining predictive analytics (EPSS, AI-driven forecasting) with stakeholder-specific judgment.
-    The assessments reinforced professional skills — from analytical documentation in the <em>Executive Summary</em>
-    to reflective synthesis in this e-Portfolio.
-  </p>
-  <p>
-    Overall, this journey taught me that the future of SRM relies not just on advanced technology but on
-    <strong>evidence-based adaptability</strong>, <strong>cross-disciplinary communication</strong>, and
-    <strong>continuous learning</strong>. The ability to quantify uncertainty while remaining ethically and strategically
-    aware will be central to my professional growth as a cybersecurity specialist.
-  </p>
+  <!-- Final Reflection (toggle) -->
+  <h3>Final Reflection</h3>
+  <div style="text-align:left; margin:12px 0;">
+    <button id="toggle-u12-reflection" class="btn-glow">📘 View Final Reflection</button>
+  </div>
+
+  <div id="u12-reflection" style="display:none; margin-top:14px;">
+    <div class="callout" style="border-left:4px solid #7ab8ff; padding:12px;">
+      <h4 style="margin-top:0">End-of-Module Reflection (Units 1–12)</h4>
+
+      <p><strong>What changed for me</strong> — I began this module thinking of SRM as mainly control selection and compliance. By working unit-by-unit, I now see SRM as a decision system that links <em>context</em> (assets, users, business goals) with <em>evidence</em> (models, data, standards) and <em>action</em> (controls, continuity, assurance). That shift—from artefacts to outcomes—has been the biggest learning.</p>
+
+      <p><strong>Foundations (U1–U3)</strong> — Clarifying threats vs. vulnerabilities and stepping through the RMP gave me a common language. User participation (Spears &amp; Barki) reframed “users” from residual risk to risk <em>sensors</em>. Threat-modelling (STRIDE/DREAD/attack trees/PASTA) taught me to start broad (categories on DFDs), then deepen (paths, pre-conditions) and finally tie back to business impacts.</p>
+
+      <p><strong>Practice &amp; standards (U4–U6)</strong> — Applying the Threat Modelling Manifesto and OWASP cookbook improved traceability from threat → control. Standards (GDPR/PCI-DSS/ISO 2700x) anchored controls in verifiable expectations. Comparing my Unit 6 status report to later work highlighted how assumptions must be stated explicitly if others are to trust the analysis.</p>
+
+      <p><strong>Quantification &amp; critique (U7–U8)</strong> — Moving to quantitative risk (Monte Carlo/Bayesian ideas) forced me to declare distributions, sources and uncertainty. The CVSS vs. SSVC debate taught me that a single number can hide context; decision trees plus data (e.g., EPSS) often communicate priority better. Peer dialogue strengthened my ability to defend assumptions and blend qualitative judgment with quantitative evidence.</p>
+
+      <p><strong>Resilience in action (U9–U10)</strong> — Business continuity &amp; DR closed the loop: probabilities and impact estimates must drive RTO/RPO, replication tiers, failover design and vendor lock-in choices. “Quantify → design → verify” became a practical rhythm: use model outputs to set targets, then test those targets against operational reality.</p>
+
+      <p><strong>Futures &amp; synthesis (U11–U12)</strong> — Scanning trends made me weigh AI-assisted detection, zero-trust architectures, software supply-chain assurance, cloud portability and governance automation. The useful lesson: trends matter only insofar as they change <em>assurance stories</em>—how we evidence that risk is known, controlled and recoverable.</p>
+
+      <p><strong>My contribution &amp; growth</strong> — I consistently documented assumptions, mapped threats to controls, and converted scores into continuity objectives. Collaborations (discussions and team artefacts) improved my structure and clarity—writing for stakeholders, not just specialists. Ethically, I’m more deliberate about communicating model limits and avoiding false precision.</p>
+
+      <p><strong>So what? (insights)</strong> — Numbers don’t remove uncertainty; they reveal it. Frameworks aren’t ends; they’re lenses. The strongest outcomes combined stakeholder-specific decisions (SSVC), empirical signals (exploit likelihood), and standard-aligned controls, all tied to RTO/RPO and auditing.</p>
+
+      <p><strong>Now what? (next steps)</strong> — Professionally, I’ll keep a living risk notebook, expand Python-based simulations, practice Bayesian updates for changing conditions, and align work to ISO 27005/NIST guidance. Practically, I’ll lead with: (1) explicit assumptions, (2) decision trees plus data, (3) measurable continuity targets, and (4) evidence of control effectiveness.</p>
+
+      <p><strong>Closing thought</strong> — This module reframed SRM as an evidence-based, people-centred, outcomes-oriented practice. The value isn’t a perfect score; it’s a defensible decision that stands up to change.</p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // existing seminar toggle already on the page
+
+      // Unit 12 reflection toggle
+      const refBtn = document.getElementById("toggle-u12-reflection");
+      const refBox = document.getElementById("u12-reflection");
+      if (refBtn && refBox) {
+        refBtn.addEventListener("click", () => {
+          const open = refBox.style.display === "block";
+          refBox.style.display = open ? "none" : "block";
+          refBtn.textContent = open ? "📘 View Final Reflection" : "📕 Hide Final Reflection";
+          if (!open) refBox.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
+    });
+  </script>
 </section>
   
 <!-- End of Module Celebration -->
