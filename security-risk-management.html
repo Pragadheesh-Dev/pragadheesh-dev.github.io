@@ -421,7 +421,6 @@ details.accordion.clicked summary {
 </details>
 </div>
 </section>
-</section>
 
     <!-- Unit 2 -->
 <section id="unit2">
@@ -1668,12 +1667,25 @@ details.accordion.clicked summary {
     adapt to emerging technologies and evolving threats.
   </p>
 </div>
-
+<details class="accordion" style="margin-top:12px;">
+  <summary>🖼️ Seminar 12 – Slide Outline (evidence of engagement)</summary>
+  <div class="callout" style="margin-top:10px;">
+    <ol style="margin:0;">
+      <li><strong>Title:</strong> Most Influential SRM Trend (2026–2031)</li>
+      <li><strong>Context:</strong> Post-U11 synthesis (AI ops, zero-trust, SBOM, governance automation)</li>
+      <li><strong>Position:</strong> Assurance-centric AI automation (detection + control verification)</li>
+      <li><strong>Evidence:</strong> EPSS + SSVC synergy; DR test telemetry; supply-chain attestation</li>
+      <li><strong>Implications:</strong> Metrics → RTO/RPO proofs; auditability; lock-in mitigation</li>
+      <li><strong>Recommendations:</strong> Pilot AI-assisted verification; codify decision trees; DR drills</li>
+    </ol>
+  </div>
+</details>
   
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const btn = document.getElementById("toggle-u12-seminar");
-      const notes = document.getElementById("u12-seminar-notes");
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("toggle-u12-seminar");
+    const notes = document.getElementById("u12-seminar-notes");
+    if (btn && notes) {
       btn.addEventListener("click", () => {
         const visible = notes.style.display === "block";
         notes.style.display = visible ? "none" : "block";
@@ -1682,8 +1694,9 @@ details.accordion.clicked summary {
           : "📘 Hide Seminar Notes";
         if (!visible) notes.scrollIntoView({ behavior: "smooth", block: "start" });
       });
-    });
-  </script>
+    }
+  });
+</script>
 
   <!-- Final Reflection (toggle) -->
   <h3>Final Reflection</h3>
@@ -1691,32 +1704,18 @@ details.accordion.clicked summary {
     <button id="toggle-u12-reflection" class="btn-glow">📘 View Final Reflection</button>
   </div>
 
-  <div id="u12-reflection" style="display:none; margin-top:14px;">
-    <div class="callout" style="border-left:4px solid #7ab8ff; padding:12px;">
-  <h4 style="margin-top:0">End-of-Module Reflection (Units 1–12)</h4>
-
-  <p><strong>What changed for me</strong> — Entering this module, I saw Security and Risk Management (SRM) primarily as compliance and control verification. Over twelve units, I learned that SRM is far broader: an adaptive discipline that aligns uncertainty with organisational goals through evidence, collaboration, and continuous learning. This transformation was gradual but profound—moving from merely identifying risks to understanding <em>why</em> and <em>how</em> decisions about them matter.</p>
-
-  <p><strong>Foundations and user participation (Units 1–3)</strong> — The early units introduced the risk management process, clarifying key terms like threats, vulnerabilities, impact, and likelihood. Spears &amp; Barki (2010) particularly shifted my perspective on user participation: users are not simply risk factors but vital informants who reveal operational realities unseen in technical data. This changed how I approached subsequent modelling work. Understanding qualitative versus quantitative assessments also helped me see why contextual judgment is essential even when numerical tools exist. The first collaborative discussion strengthened my academic writing and allowed me to engage with diverse interpretations of the RMP, improving my ability to argue constructively and synthesize perspectives.</p>
-
-  <p><strong>Threat modelling and standard alignment (Units 4–6)</strong> — Practical application of STRIDE, DREAD, and PASTA made me appreciate the balance between structured logic and creative thinking. Mapping threat vectors using Data Flow Diagrams revealed interdependencies I had missed before. Integrating ISO 27005, GDPR, and PCI-DSS illustrated that standards are not restrictive checklists but enablers of measurable accountability. Completing the team report in Unit 6 reinforced project discipline—planning tasks, sharing artefacts, and consolidating writing styles. Reviewing tutor feedback taught me the importance of being both descriptive and inferential: presenting data and then drawing meaningful conclusions. This feedback loop became foundational to my later work.</p>
-
-  <p><strong>Quantitative risk modelling and critical evaluation (Units 7–8)</strong> — Learning quantitative methods through Monte Carlo simulation and Bayesian reasoning was a turning point. The process of defining input ranges, assumptions, and probability distributions made me realise that quantitative rigour demands transparency, not complexity. My initial struggle with spreadsheets and convergence results gradually evolved into confidence as I understood how simulation results approximate real uncertainty. Analysing Spring et al. (2021) and Gallon (2019) changed my view of the Common Vulnerability Scoring System (CVSS). I had once treated CVSS as an objective metric; now I see it as a communication tool limited by human interpretation. Discussing Stakeholder-Specific Vulnerability Categorisation (SSVC) with peers further clarified the value of contextualised decision trees that respect stakeholder diversity while preserving analytical integrity.</p>
-
-  <p><strong>From probability to continuity (Units 9–10)</strong> — Business Continuity and Disaster Recovery (BC/DR) connected risk quantification to operational resilience. Understanding RTO and RPO made me see how numbers turn into design constraints. Drafting a DR plan with a one-minute RTO and RPO showed me that resilience is a business strategy as much as a technical one. Exploring Disaster Recovery-as-a-Service (DRaaS) raised practical questions around vendor lock-in, hybrid cloud architectures, and legal obligations. The seminar recordings with Dr Adrian Euler reinforced that DR design must anticipate not just technical failures but human coordination, resource prioritisation, and post-incident verification. This holistic view solidified my understanding that SRM maturity depends on culture as much as controls.</p>
-
-  <p><strong>Analytical integration and future-oriented thinking (Units 11–12)</strong> — Preparing the Executive Summary for Unit 11 was the most demanding yet rewarding task. I synthesised the entire module: modelling probabilities, interpreting outputs, evaluating mitigations, and designing a DR solution that balanced feasibility with compliance. Comparing this with the Unit 6 team report highlighted measurable progress—from descriptive analysis to predictive justification. The quantitative approach added credibility to my recommendations, demonstrating to stakeholders how probability can guide resource allocation. Unit 12’s forward-looking focus helped me connect academic learning with industry evolution. Examining AI-assisted detection, zero-trust models, and governance automation taught me that trends are valuable only when linked to assurance—how we prove that risk is known, managed, and recoverable.</p>
-
-  <p><strong>Collaboration and professional development</strong> — Working within a dispersed virtual team taught me the value of communication etiquette, transparent task tracking, and constructive feedback. Even asynchronous collaboration mirrored professional cybersecurity environments where distributed teams coordinate via documentation rather than constant meetings. I learned to express complex technical content succinctly and align my tone with academic and managerial audiences. These transferable skills—clarity, diplomacy, and precision—will be critical in real-world risk reporting. Engaging with peers’ interpretations of frameworks like CVSS and SSVC sharpened my argumentation skills and taught me to critique ideas respectfully while maintaining analytical rigour.</p>
-
-  <p><strong>Emotional and behavioural insight</strong> — At the beginning, I felt intimidated by quantitative analysis and unsure about balancing multiple assignments. Over time, the module structure encouraged iterative reflection; successively completing small artefacts built confidence. I found satisfaction in connecting theory to measurable outcomes, especially when simulation results aligned with intuition. Feedback from tutors and peers transformed anxiety into curiosity—learning to view confusion as an indicator of growth rather than weakness. Professionally, I noticed a change in my mindset: I now approach uncertainty with curiosity rather than avoidance, asking “What assumptions am I making?” before forming conclusions.</p>
-
-  <p><strong>Critical synthesis (So What)</strong> — The core insight of this module is that numbers do not eliminate uncertainty—they express it transparently. True maturity in SRM lies in linking data-driven tools with human judgment. I realised that good risk communication converts complexity into clarity without losing nuance. I also learned that ethical responsibility is central: overstating certainty can mislead decision-makers. Recognising my accountability as a cybersecurity professional, I aim to ensure every recommendation is evidence-based, reproducible, and aligned with both technical and moral standards. This ethical reflexivity represents one of my strongest personal developments.</p>
-
-  <p><strong>Future application (Now What)</strong> — Going forward, I intend to maintain a continuous learning log similar to this e-portfolio. I plan to explore advanced risk simulation through Python and R, pursue certifications in ISO 31000 or FAIR, and integrate Bayesian updating into enterprise risk dashboards. I also aim to apply SSVC-style decision trees in real assessments to make risk prioritisation auditable and stakeholder-specific. In professional settings, I will emphasise transparent communication, visual analytics, and post-incident learning reviews to ensure that risk management remains adaptive and human-centred.</p>
-
-  <p><strong>Closing thought</strong> — Completing this module has transformed my view of Security and Risk Management from a static compliance activity to a living system of reflection, measurement, and resilience. I have gained the technical knowledge, analytical discipline, and ethical awareness to evaluate risks comprehensively and communicate them effectively. This end-of-module reflection symbolises not the conclusion but the foundation of an ongoing professional philosophy: that informed, ethical, and evidence-based adaptability is the cornerstone of modern cybersecurity practice.</p>
-</div></div>
+  <div class="callout" style="border-left:4px solid #7ab8ff; padding:12px;">
+  <h4 style="margin-top:0">End-of-Module Reflection (Abstract)</h4>
+  <p>
+    Over twelve units I moved from checklist security to an evidence-led SRM practice that connects threat
+    modelling, probabilistic analysis, and continuity engineering. Early units built shared language and user-centred
+    risk discovery; mid-module, STRIDE/PASTA and critiques of CVSS pushed me toward SSVC/EPSS for context-aware
+    decisions; later, Monte Carlo and Bayesian reasoning grounded DR objectives (RTO/RPO) in quantified uncertainty.
+    The outcome is a repeatable approach: state assumptions, model uncertainty, validate via BC/DR tests, and
+    communicate decisions transparently to stakeholders. Read the full 1,000-word reflection below.
+  </p>
+  <a href="#u12-pdf-viewer" class="btn-ghost">Jump to Full Reflection PDF ↓</a>
+</div>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -1746,7 +1745,10 @@ details.accordion.clicked summary {
   <div style="text-align:left; margin:12px 0;">
     <button id="toggle-u12-pdf" class="btn-glow">📄 View End-of-Module Reflection Document</button>
   </div>
-
+<div style="text-align:left; margin:12px 0;">
+  <button id="toggle-u12-pdf" class="btn-glow">📄 View End-of-Module Reflection Document</button>
+  <a href="endofmodulereflection.pdf" download class="btn btn-ghost" style="margin-left:8px;">⬇︎ Download PDF</a>
+</div>
   <div id="u12-pdf-viewer" style="display:none; margin-top:14px;">
     <iframe
       src="endofmodulereflection.pdf"
@@ -1755,6 +1757,13 @@ details.accordion.clicked summary {
       style="border:1px solid #ccc; border-radius:8px;"
     ></iframe>
   </div>
+  <iframe
+  src="endofmodulereflection.pdf"
+  width="100%"
+  height="700"
+  title="End-of-Module Reflection PDF"
+  style="border:1px solid #ccc; border-radius:8px;"
+></iframe>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
