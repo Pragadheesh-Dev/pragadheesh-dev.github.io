@@ -1717,69 +1717,78 @@ details.accordion.clicked summary {
   <a href="#u12-pdf-viewer" class="btn-ghost">Jump to Full Reflection PDF ↓</a>
 </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // existing seminar toggle already on the page
-
-      // Unit 12 reflection toggle
-      const refBtn = document.getElementById("toggle-u12-reflection");
-      const refBox = document.getElementById("u12-reflection");
-      if (refBtn && refBox) {
-        refBtn.addEventListener("click", () => {
-          const open = refBox.style.display === "block";
-          refBox.style.display = open ? "none" : "block";
-          refBtn.textContent = open ? "📘 View Final Reflection" : "📕 Hide Final Reflection";
-          if (!open) refBox.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
-      }
-    });
-  </script>
-      <!-- Final Submission Document Toggle -->
-  <h3>End-of-Module Reflection Document</h3>
+  <<!-- Final Reflection (Abstract) -->
+<div class="callout" style="border-left:4px solid #7ab8ff; padding:12px;">
+  <h4 style="margin-top:0">End-of-Module Reflection (Abstract)</h4>
   <p>
-    The complete final submission (<strong>endofmodulereflection.pdf</strong>) is uploaded in the main branch of this
-    e-portfolio. It compiles all artefacts, learning evidence, and the 1 000-word reflective analysis for
-    Assessment 3. Click the button below to view or hide the document.
+    Over twelve units I moved from checklist security to an evidence-led SRM practice that connects threat
+    modelling, probabilistic analysis, and continuity engineering. Early units built shared language and user-centred
+    risk discovery; mid-module, STRIDE/PASTA and critiques of CVSS pushed me toward SSVC/EPSS for context-aware
+    decisions; later, Monte Carlo and Bayesian reasoning grounded DR objectives (RTO/RPO) in quantified uncertainty.
+    The outcome is a repeatable approach: state assumptions, model uncertainty, validate via BC/DR tests, and
+    communicate decisions transparently to stakeholders. Read the full 1,000-word reflection below.
   </p>
+  <a href="#u12-pdf-viewer" class="btn-ghost">Jump to Full Reflection PDF ↓</a>
+</div>
 
- 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const refBtn = document.getElementById("toggle-u12-reflection");
+    const refBox = document.getElementById("u12-reflection");
+    if (refBtn && refBox) {
+      refBtn.addEventListener("click", () => {
+        const open = refBox.style.display === "block";
+        refBox.style.display = open ? "none" : "block";
+        refBtn.textContent = open
+          ? "📘 View Final Reflection"
+          : "📕 Hide Final Reflection";
+        if (!open)
+          refBox.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  });
+</script>
+
+<!-- Final Submission Document Toggle -->
+<h3>End-of-Module Reflection Document</h3>
+<p>
+  The complete final submission (<strong>endofmodulereflection.pdf</strong>) is uploaded in the main branch of this
+  e-portfolio. It compiles all artefacts, learning evidence, and the 1 000-word reflective analysis for
+  Assessment 3. Click the button below to view or hide the document.
+</p>
+
 <div style="text-align:left; margin:12px 0;">
   <button id="toggle-u12-pdf" class="btn-glow">📄 View End-of-Module Reflection Document</button>
   <a href="endofmodulereflection.pdf" download class="btn btn-ghost" style="margin-left:8px;">⬇︎ Download PDF</a>
 </div>
-  <div id="u12-pdf-viewer" style="display:none; margin-top:14px;">
-    <iframe
-      src="endofmodulereflection.pdf"
-      width="100%"
-      height="700px"
-      style="border:1px solid #ccc; border-radius:8px;"
-    ></iframe>
-  </div>
+
+<div id="u12-pdf-viewer" style="display:none; margin-top:14px;">
   <iframe
-  src="endofmodulereflection.pdf"
-  width="100%"
-  height="700"
-  title="End-of-Module Reflection PDF"
-  style="border:1px solid #ccc; border-radius:8px;"
-></iframe>
+    src="endofmodulereflection.pdf"
+    width="100%"
+    height="700"
+    title="End-of-Module Reflection PDF"
+    style="border:1px solid #ccc; border-radius:8px;"
+  ></iframe>
+</div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const pdfBtn = document.getElementById("toggle-u12-pdf");
-      const pdfBox = document.getElementById("u12-pdf-viewer");
-
-      if (pdfBtn && pdfBox) {
-        pdfBtn.addEventListener("click", () => {
-          const open = pdfBox.style.display === "block";
-          pdfBox.style.display = open ? "none" : "block";
-          pdfBtn.textContent = open
-            ? "📄 View End-of-Module Reflection Document"
-            : "📕 Hide End-of-Module Reflection Document";
-          if (!open) pdfBox.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
-      }
-    });
-  </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const pdfBtn = document.getElementById("toggle-u12-pdf");
+    const pdfBox = document.getElementById("u12-pdf-viewer");
+    if (pdfBtn && pdfBox) {
+      pdfBtn.addEventListener("click", () => {
+        const open = pdfBox.style.display === "block";
+        pdfBox.style.display = open ? "none" : "block";
+        pdfBtn.textContent = open
+          ? "📄 View End-of-Module Reflection Document"
+          : "📕 Hide End-of-Module Reflection Document";
+        if (!open)
+          pdfBox.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  });
+</script>
 </section>
 <!-- End of Module Celebration -->
 <section id="module-complete">
