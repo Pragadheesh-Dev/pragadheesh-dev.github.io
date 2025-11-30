@@ -1,778 +1,1211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Option B - Enhanced Layout -->
   <meta charset="UTF-8" />
-  <title>Secure Systems Architecture - ePortfolio | Pragadheesh</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Module ePortfolio for Secure Systems Architecture (Oct 2025) – MSc Cybersecurity, University of Essex Online. Covers operating systems, distributed systems, cloud architecture patterns, security controls, resilience and reflective practice." />
+  <title>Secure Systems Architecture - ePortfolio (Units 1–6)</title>
+
   <style>
-    :root{
-      --bg:#0b1220; --card:#111a2b; --muted:#a9b7d0; --accent:#4ea1ff; --accent-2:#7ee787;
-      --border:#1d2740; --shadow:rgba(0,0,0,.35);
-    }
-    *{box-sizing:border-box; scroll-behavior:smooth;}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      background:radial-gradient(1200px 600px at 20% -10%, #112148 0%, #0b1220 60%);
-      color:#e6eefc;
-    }
-    header{
-      padding:56px 24px 32px;
-      text-align:center;
-      position:relative;
-      overflow:hidden;
-    }
-    header h1{margin:0 0 8px; font-size:2rem; letter-spacing:.3px;}
-    header p{margin:0; color:var(--muted);}
-    .pill{
-      display:inline-flex; gap:.5rem; align-items:center; padding:.35rem .75rem; border-radius:999px;
-      background:rgba(78,161,255,.14); color:var(--accent); font-size:.875rem; border:1px solid rgba(78,161,255,.35);
-    }
-    .wrap{max-width:1000px; margin:0 auto; padding:0 20px 64px;}
-    nav.quick{
-      background:rgba(17,26,43,.7);
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:14px;
-      margin:-28px auto 24px;
-      backdrop-filter:blur(8px);
-      position:sticky;
-      top:0;
-      z-index:10;
-    }
-    nav.quick .row{
-      display:flex; flex-wrap:wrap; gap:8px;
-    }
-    nav.quick a{
-      text-decoration:none;
-      color:#d9e7ff;
-      background:#0e1729;
-      border:1px solid var(--border);
-      padding:8px 12px;
-      border-radius:10px;
-      font-size:.92rem;
-      transition:background .3s, border-color .3s;
-    }
-    nav.quick a:hover,
-    nav.quick a.active{
-      border-color:#2a3b64;
-      background:#1a2947;
-    }
-    .home-btn{
-      background:var(--accent);
-      color:#fff !important;
-      font-weight:600;
-      border-color:rgba(78,161,255,.65);
-    }
-    .home-btn:hover{
-      background:#1e80e0;
-    }
-    section{
-      background:linear-gradient(180deg, rgba(21,33,58,.7), rgba(14,22,39,.7));
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:20px;
-      margin:18px 0;
-      box-shadow:0 8px 24px var(--shadow);
-    }
-    h2{margin:0 0 10px; font-size:1.35rem;}
-    h3{margin:18px 0 8px; font-size:1.05rem; color:var(--accent-2);}
-    p, li{color:#d6e2ff; line-height:1.6;}
-    ul{margin:8px 0 0 22px;}
-    .meta{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-bottom:10px;
-    }
-    .chip{
-      font-size:.84rem;
-      color:#b9c7e6;
-      background:#0f1a30;
-      border:1px solid var(--border);
-      padding:4px 8px;
-      border-radius:999px;
-    }
-    .callout{
-      border-left:3px solid var(--accent);
-      background:rgba(78,161,255,.08);
-      padding:12px 14px;
-      border-radius:8px;
-      margin-top:10px;
-    }
-    .list-inline{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin:8px 0;
-    }
-    .tag{
-      background:#0f1a2a;
-      border:1px solid var(--border);
-      color:#bcd2ff;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:.85rem;
-    }
-    a{color:#7ab8ff;}
-    footer{
-      color:#9fb2d8;
-      text-align:center;
-      padding:18px 0 32px;
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1120;
+      --card: #020617;
+      --border-subtle: rgba(148, 163, 184, 0.3);
+      --accent: #22d3ee;
+      --accent-soft: rgba(56, 189, 248, 0.1);
+      --accent-strong: #06b6d4;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --danger: #f97373;
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.85);
+      --shadow-subtle: 0 10px 30px rgba(15, 23, 42, 0.7);
+      --nav-height: 72px;
+      --max-width: 1120px;
     }
 
-    /* Buttons */
-    .btn,
-    .btn-ghost,
-    .btn-glow{
-      display:inline-block;
-      padding:8px 12px;
-      border-radius:8px;
-      text-decoration:none;
-      font-size:.92rem;
-      cursor:pointer;
-    }
-    .btn{
-      background:#4ea1ff;
-      color:#0b1220;
-      font-weight:600;
-      border:1px solid rgba(78,161,255,.65);
-      transition:filter .2s;
-    }
-    .btn:hover{filter:brightness(1.05);}
-    .btn-ghost{
-      background:transparent;
-      color:#e6eefc;
-      border:1px solid #1d2740;
-    }
-    .btn-ghost:hover{background:#122341;}
-    .btn-glow{
-      background:#4ea1ff;
-      color:#fff;
-      box-shadow:0 0 14px rgba(78,161,255,.85);
-      font-weight:600;
-      border:1px solid rgba(78,161,255,.8);
-      transition:transform .2s, box-shadow .2s, filter .2s;
-    }
-    .btn-glow:hover{
-      transform:translateY(-1px);
-      filter:brightness(1.05);
-      box-shadow:0 0 18px rgba(78,161,255,1);
+    * {
+      box-sizing: border-box;
     }
 
-    /* Accordion / details */
-    details.accordion summary{
-      cursor:pointer;
-      font-weight:600;
-      list-style:none;
-      outline:none;
-      display:inline-block;
-      margin-top:10px;
-    }
-    details.accordion summary::-webkit-details-marker{display:none;}
-
-    /* Pulse animation for the first click hint (reusing SRM style) */
-    @keyframes pulseGlow {
-      0% { box-shadow:0 0 12px rgba(78,161,255,.6); }
-      50% { box-shadow:0 0 20px rgba(126,231,135,.8); }
-      100%{ box-shadow:0 0 12px rgba(78,161,255,.6); }
-    }
-    details.accordion summary.btn-glow{
-      animation:pulseGlow 2.5s infinite;
-    }
-    details.accordion.clicked summary.btn-glow{
-      animation:none;
-      box-shadow:0 0 14px rgba(78,161,255,.5);
+    html, body {
+      margin: 0;
+      padding: 0;
     }
 
-    /* Tables */
-    table{
-      border-collapse:collapse;
-      width:100%;
-    }
-    th, td{
-      border:1px solid #2f3a55;
-      padding:8px;
-      text-align:left;
-      font-size:.92rem;
-    }
-    thead tr{
-      background:#1d2740;
-      color:#e6eefc;
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 40%, #020617 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Back-to-top */
-    #backToTop{
-      display:none;
-      position:fixed;
-      bottom:24px;
-      right:24px;
-      z-index:99;
-      background:var(--accent);
-      color:#fff;
-      border:none;
-      border-radius:50%;
-      padding:12px 16px;
-      cursor:pointer;
-      font-size:16px;
-      box-shadow:0 4px 8px var(--shadow);
-      transition:background .3s;
-    }
-    #backToTop:hover{background:#1e80e0;}
-
-    /* Skip link */
-    .skip-link{
-      position:absolute;
-      left:-9999px;
-      top:auto;
-      width:1px;
-      height:1px;
-      overflow:hidden;
-    }
-    .skip-link:focus{
-      position:fixed;
-      left:16px;
-      top:16px;
-      width:auto;
-      height:auto;
-      padding:8px 12px;
-      background:#1a3b6e;
-      color:#fff;
-      border-radius:6px;
-      z-index:1000;
-      outline:2px solid #7ee787;
+    a {
+      color: var(--accent);
+      text-decoration: none;
     }
 
-    :focus-visible{
-      outline:2px solid var(--accent-2);
-      outline-offset:2px;
-      border-radius:4px;
+    a:hover {
+      text-decoration: underline;
     }
 
-    /* Desktop / mobile PDF view */
-    .desktop-only{display:block;}
-    .mobile-only{display:none;}
-    @media (max-width:768px){
-      header h1{font-size:1.6rem;}
-      nav.quick{position:static; margin:8px 0 24px;}
-      .desktop-only{display:none !important;}
-      .mobile-only{display:block !important;}
+    .page-shell {
+      min-height: 100vh;
+      color: var(--text-main);
+    }
+
+    /* Top nav */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.85),
+        transparent 100%
+      );
+      border-bottom: 1px solid rgba(30, 64, 175, 0.5);
+    }
+
+    .top-nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: 1px solid rgba(94, 234, 212, 0.6);
+      background:
+        radial-gradient(circle at 20% 20%, #e0f2fe 0, transparent 55%),
+        radial-gradient(circle at 80% 80%, #22d3ee 0, transparent 60%),
+        #020617;
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.9),
+        0 0 25px rgba(56, 189, 248, 0.65);
+    }
+
+    .brand-text-main {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .brand-text-sub {
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .tag-pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 60%);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .tag-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 99px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 20px 16px 64px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.9fr) minmax(260px, 0.95fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 960px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Hero / header card */
+    .hero-card {
+      border-radius: 28px;
+      padding: 24px 22px 22px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.16), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(94, 234, 212, 0.21), transparent 60%),
+        linear-gradient(to bottom right, #020617, #020617);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 20px;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-size: clamp(24px, 3vw, 30px);
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+      margin: 0 0 6px;
+    }
+
+    .hero-title span {
+      color: var(--accent-strong);
+    }
+
+    .hero-subtitle {
+      margin: 0 0 10px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 10px 0 0;
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .hero-meta-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 99px;
+      background: rgba(148, 163, 184, 0.8);
+    }
+
+    .hero-orbit {
+      position: absolute;
+      inset: -40%;
+      opacity: 0.5;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(56, 189, 248, 0.3), transparent 55%),
+        radial-gradient(circle at 100% 40%, rgba(59, 130, 246, 0.25), transparent 60%),
+        radial-gradient(circle at 20% 100%, rgba(45, 212, 191, 0.25), transparent 55%);
+      mix-blend-mode: screen;
+    }
+
+    .hero-fg-ring {
+      position: absolute;
+      right: -40px;
+      top: -30px;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.95),
+        0 0 90px rgba(34, 211, 238, 0.75);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .hero-fg-ring::before {
+      content: "";
+      position: absolute;
+      inset: 18%;
+      border-radius: inherit;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      box-shadow: 0 0 40px rgba(59, 130, 246, 0.65);
+    }
+
+    .hero-fg-ring::after {
+      content: "";
+      position: absolute;
+      inset: 39%;
+      border-radius: inherit;
+      background: radial-gradient(circle, rgba(15, 23, 42, 0.9), transparent 70%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Quick nav */
+    .quick-nav {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9));
+      box-shadow: var(--shadow-subtle);
+      padding: 8px 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .quick-nav-label {
+      padding: 4px 10px;
+      color: var(--text-soft);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .quick-link {
+      border-radius: 999px;
+      padding: 6px 10px;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .quick-link:hover {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(148, 163, 184, 0.6);
+      text-decoration: none;
+    }
+
+    .quick-link span {
+      opacity: 0.9;
+    }
+
+    .quick-link-primary {
+      background: radial-gradient(circle at top left, rgba(34, 211, 238, 0.18), rgba(15, 23, 42, 0.95));
+      border-color: rgba(56, 189, 248, 0.7);
+      color: var(--accent-strong);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.95),
+        0 0 24px rgba(56, 189, 248, 0.75);
+    }
+
+    .quick-link-primary span {
+      font-weight: 600;
+    }
+
+    /* Section + cards */
+    section {
+      margin-bottom: 26px;
+    }
+
+    .section-heading {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .section-kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at top left, rgba(30, 64, 175, 0.28), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(8, 47, 73, 0.75), #020617);
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-subtle);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.65), transparent 55%);
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.95);
+      white-space: nowrap;
+    }
+
+    .pill-soft {
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .pill-accent {
+      border-color: rgba(45, 212, 191, 0.75);
+      color: var(--accent-strong);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), rgba(15, 23, 42, 0.98));
+      box-shadow: 0 0 24px rgba(34, 211, 238, 0.7);
+    }
+
+    .unit-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    .unit-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .unit-meta-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 99px;
+      background: rgba(148, 163, 184, 0.8);
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .card-body p {
+      margin: 0 0 6px;
+    }
+
+    .card-body ul {
+      margin: 6px 0 4px 18px;
+      padding: 0;
+      list-style: disc;
+    }
+
+    .card-body li {
+      margin-bottom: 3px;
+    }
+
+    .subheading {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-soft);
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    /* Assessment cards */
+    .assessment-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.3), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.98));
+      padding: 18px 16px 16px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .assessment-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(15, 23, 42, 0.7), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .assessment-header {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .assessment-title {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .assessment-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    .assessment-meta {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .assessment-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .assessment-body {
+      position: relative;
+      z-index: 1;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 7px 13px;
+      font-size: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.98);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      background: rgba(15, 23, 42, 0.94);
+      border-color: rgba(226, 232, 240, 0.9);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      border-color: rgba(56, 189, 248, 0.9);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0.98));
+      color: var(--accent-strong);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.95),
+        0 0 26px rgba(56, 189, 248, 0.75);
+      font-weight: 600;
+    }
+
+    .btn-secondary {
+      color: var(--text-muted);
+    }
+
+    .btn-icon {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    /* Sidebar / right column */
+    .sidebar-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background:
+        radial-gradient(circle at top, rgba(30, 64, 175, 0.5), transparent 60%),
+        radial-gradient(circle at bottom, rgba(15, 23, 42, 0.92), #020617);
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 16px;
+      position: sticky;
+      top: calc(var(--nav-height) + 14px);
+    }
+
+    @media (max-width: 960px) {
+      .sidebar-card {
+        position: static;
+      }
+    }
+
+    .sidebar-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    .sidebar-body {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .sidebar-body p {
+      margin: 0 0 6px;
+    }
+
+    .sidebar-list {
+      margin: 0;
+      padding-left: 16px;
+    }
+
+    .sidebar-list li {
+      margin-bottom: 4px;
+    }
+
+    .mini-metadata {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-soft);
+      margin-top: 10px;
+    }
+
+    .footer-note {
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-top: 12px;
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
+      padding-top: 8px;
+    }
+
+    /* Scroll */
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
-
 <body>
-<a href="#overview" class="skip-link">Skip to content</a>
+<div class="page-shell">
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <div class="brand">
+        <div class="brand-logo"></div>
+        <div>
+          <div class="brand-text-main">Secure Systems Architecture</div>
+          <div class="brand-text-sub">MSc Cyber Security - University of Essex Online</div>
+        </div>
+      </div>
 
-<div class="wrap">
-  <header>
-    <div class="pill">Module ePortfolio • Secure Systems Architecture</div>
-    <h1>Secure Systems Architecture</h1>
-    <p>October 2025 • MSc Cybersecurity – University of Essex Online</p>
+      <div class="tag-pill">
+        <span class="tag-pill-dot"></span>
+        <span>Units 1 - 6 ePortfolio</span>
+      </div>
+    </div>
   </header>
 
-  <nav class="quick" aria-label="Quick navigation">
-    <div class="row">
-      <a href="index.html" class="home-btn">🏠 Home</a>
-      <a href="#overview">Module Overview</a>
-      <a href="#unit1">Unit 1: Foundations</a>
-      <a href="#unit2">Unit 2: OS & Isolation</a>
-      <a href="#unit3">Unit 3: Architecture Design (Group)</a>
-      <a href="#unit4">Unit 4: Distributed & Cloud Patterns</a>
-      <a href="#unit5">Unit 5: Resilience & Observability</a>
-      <a href="#unit6">Unit 6: Final Project & Reflection</a>
-      <a href="#artefacts">Team & Artefacts</a>
-      <a href="#reflection">Reflection (U1–U6)</a>
+  <main>
+    <!-- MAIN COLUMN -->
+    <div>
+      <!-- Hero -->
+      <section id="overview">
+        <div class="hero-card">
+          <div class="hero-orbit"></div>
+          <div class="hero-fg-ring"></div>
+          <div class="hero-content">
+            <div class="hero-badge-row">
+              <span class="pill-soft pill">Module: Secure Systems Architecture (SSA)</span>
+              <span class="pill-soft pill">Cohort: Oct 2025</span>
+            </div>
+            <h1 class="hero-title">
+              Secure Systems Architecture <span>ePortfolio</span>
+            </h1>
+            <p class="hero-subtitle">
+              Curated learning journal for Units 1 to 6, connecting core operating systems concepts,
+              distributed systems, and secure architecture modelling with practical work and assessments.
+            </p>
+            <div class="hero-meta-row">
+              <span><span class="hero-meta-dot"></span> Student: Pragadheesh Marimuthu</span>
+              <span><span class="hero-meta-dot"></span> Tutor: Kundai Sai</span>
+              <span><span class="hero-meta-dot"></span> Assessments: Team Project, Individual Project, Reflective Piece</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Nav -->
+        <div class="quick-nav">
+          <div class="quick-nav-label">Jump to</div>
+          <a href="#units" class="quick-link quick-link-primary"><span>Units 1 - 6</span></a>
+          <a href="#unit-1" class="quick-link"><span>Unit 1</span></a>
+          <a href="#unit-2" class="quick-link"><span>Unit 2</span></a>
+          <a href="#unit-3" class="quick-link"><span>Unit 3</span></a>
+          <a href="#unit-4" class="quick-link"><span>Unit 4</span></a>
+          <a href="#unit-5" class="quick-link"><span>Unit 5</span></a>
+          <a href="#unit-6" class="quick-link"><span>Unit 6</span></a>
+          <a href="#assessments" class="quick-link"><span>Assessments</span></a>
+          <a href="#reflection" class="quick-link"><span>Reflection</span></a>
+        </div>
+      </section>
+
+      <!-- UNITS -->
+      <section id="units">
+        <div class="section-heading">
+          <h2 class="section-title">Units 1 - 6</h2>
+          <span class="section-kicker">Learning snapshots and artefacts</span>
+        </div>
+
+        <!-- Unit 1 -->
+        <section id="unit-1">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-header-row">
+                <h3 class="card-title">Unit 1: Introduction to Operating Systems and Secure Systems Architecture</h3>
+                <span class="pill-soft pill">Foundations</span>
+              </div>
+              <div class="unit-meta">
+                <span><span class="unit-meta-dot"></span> Focus: OS fundamentals, process isolation, secure design</span>
+                <span><span class="unit-meta-dot"></span> Mode: Lecturecast + core reading</span>
+              </div>
+              <div class="card-body">
+                <p>
+                  Unit 1 set the conceptual foundation for the module by revisiting how operating systems
+                  manage resources (CPU, memory, storage, I/O) and how these mechanisms influence security.
+                  This included process and thread models, scheduling, virtual memory, and how isolation
+                  boundaries underpin secure architectures.
+                </p>
+                <p>
+                  At an architectural level, the unit contrasted monolithic kernels, microkernels,
+                  modular designs and cloud-native stacks, and discussed how design choices
+                  affect attack surface and resilience. This directly feeds into later units
+                  on distributed systems and formal modelling.
+                </p>
+
+                <div class="subheading">Key takeaways</div>
+                <ul>
+                  <li>Security requirements must be designed into OS-level abstractions (processes, users, permissions) rather than bolted on later.</li>
+                  <li>Threats such as privilege escalation, TOCTOU, and insecure IPC often exploit weak boundaries between components.</li>
+                  <li>Secure systems architecture sits at the intersection of OS design, networking, and formal reasoning about behaviour.</li>
+                </ul>
+
+                <div class="subheading">Representative artefacts</div>
+                <ul>
+                  <li>Concept map linking OS components (scheduler, MMU, filesystem) to typical threat categories.</li>
+                  <li>Short write-up comparing monolithic vs microkernel designs from a security perspective.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Unit 2 -->
+        <section id="unit-2">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-header-row">
+                <h3 class="card-title">Unit 2: Modelling and Socket Programming</h3>
+                <span class="pill-soft pill">Networked systems</span>
+              </div>
+              <div class="unit-meta">
+                <span><span class="unit-meta-dot"></span> Focus: Threat modelling and basic client-server sockets</span>
+                <span><span class="unit-meta-dot"></span> Seminar highlight: Attack-defense trees using ADTool</span>
+              </div>
+              <div class="card-body">
+                <p>
+                  Alongside practical socket programming, the seminar introduced
+                  <strong>attack-defense trees</strong> and the ADTool as a way of modelling security scenarios
+                  for networked systems. The worked example used a small home Wi-Fi network with laptops and a smart TV.
+                </p>
+                <p>
+                  The attacker&apos;s <em>root goal</em> was defined as compromising the home network. This was then
+                  decomposed into child goals such as compromising the router, the smart TV, or a laptop. Each
+                  attack path was expanded into specific techniques (weak Wi-Fi passwords, default credentials,
+                  malware via USB), and paired with explicit defender countermeasures (WPA3, changing default
+                  passwords, disabling autorun, antivirus).
+                </p>
+
+                <div class="subheading">Seminar - ADTool and quantitative attributes</div>
+                <ul>
+                  <li>Built an attack-defense tree in ADTool from scratch, defining the root goal <em>“compromise network”</em> and child nodes.</li>
+                  <li>Used AND/OR operators to express whether multiple conditions must hold or whether any one path is sufficient for compromise.</li>
+                  <li>Attached quantitative attributes such as probability of success, cost, time to attack, and skill levels for attacker and defender.</li>
+                  <li>Explored how strengthening countermeasures (for example, WPA3 and disabling autorun) reduced the overall compromise probability for the network.</li>
+                </ul>
+
+                <div class="subheading">Representative artefacts</div>
+                <ul>
+                  <li>ADTool model of a home Wi-Fi network, including attacker goals and defender nodes.</li>
+                  <li>Short note describing how probability assignments at the leaves propagate to an overall network compromise likelihood.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Unit 3 -->
+        <section id="unit-3">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-header-row">
+                <h3 class="card-title">Unit 3: Systems Engineering and Modelling</h3>
+                <span class="pill-soft pill">Team project context</span>
+              </div>
+              <div class="unit-meta">
+                <span><span class="unit-meta-dot"></span> Focus: Requirements, SysML/UML, and architectural models</span>
+                <span><span class="unit-meta-dot"></span> Assessment link: Development Team Project</span>
+              </div>
+              <div class="card-body">
+                <p>
+                  Unit 3 brought systems engineering discipline into the module. It focused on translating
+                  stakeholder requirements into structured models (for example, context diagrams, use-case
+                  diagrams, logical component views) and tracing these into secure design decisions.
+                </p>
+                <p>
+                  The team project used these techniques to define the architecture of a secure system,
+                  document assumptions and threats, and reason about how design choices influence risk.
+                </p>
+
+                <div class="subheading">Key themes</div>
+                <ul>
+                  <li>Requirements engineering and acceptance criteria for secure systems.</li>
+                  <li>Trade-offs between usability, performance, and security in architecture decisions.</li>
+                  <li>Using diagrams and models to support both technical reasoning and non-technical communication.</li>
+                </ul>
+
+                <div class="subheading">Representative artefacts</div>
+                <ul>
+                  <li>Team architectural diagrams and narrative from <em>Assessment 1 - Development Team Project</em>.</li>
+                  <li>Peer evaluation reflections on collaboration, communication, and task distribution.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Unit 4 -->
+        <section id="unit-4">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-header-row">
+                <h3 class="card-title">Unit 4: Modelling of Distributed Systems</h3>
+                <span class="pill-soft pill">QoS and scientific framing</span>
+              </div>
+              <div class="unit-meta">
+                <span><span class="unit-meta-dot"></span> Focus: QoS metrics, NGN traffic engineering, teleological IS design</span>
+                <span><span class="unit-meta-dot"></span> Seminar highlight: “Is cybersecurity a science?”</span>
+              </div>
+              <div class="card-body">
+                <p>
+                  The Unit 4 seminar centred on two core readings: a paper on
+                  <strong>Quality of Service performance analysis</strong> for next-generation wireless sensor networks,
+                  and a paper on a <strong>teleological approach to information system design</strong>.
+                </p>
+
+                <div class="subheading">QoS in next-generation networks</div>
+                <ul>
+                  <li>Defined QoS in terms of availability, bandwidth, latency, jitter, and packet loss for real-time traffic.</li>
+                  <li>Discussed challenges from IoT scale, multimedia traffic, and constrained bandwidth.</li>
+                  <li>Reviewed existing models such as best effort, IntServ (resource reservation) and DiffServ (differentiated services).</li>
+                  <li>Summarised the proposed edge-based model that classifies traffic into Assured Forwarding (video), Expedited Forwarding (voice) and Best Effort (data), using weighted round-robin scheduling and adaptive buffers.</li>
+                </ul>
+
+                <div class="subheading">Teleological approach & explainability</div>
+                <ul>
+                  <li>Introduced teleosemantics and the idea that system design should be grounded in <em>purpose</em> and <em>function</em>.</li>
+                  <li>Defined the four elements: producer (designer), produced artefact (system), consumer (user), and purpose (use goal).</li>
+                  <li>Connected the framework to reliability, explainability, accountability and <strong>explainable AI</strong> in security-critical systems.</li>
+                </ul>
+
+                <div class="subheading">Seminar discussion: Is cybersecurity a science?</div>
+                <ul>
+                  <li>Used the Science Council definition of science as evidence-based, systematic, and repeatable.</li>
+                  <li>Mapped scientific characteristics (observation, experimentation, induction, repetition, critical analysis, verification) onto cybersecurity practices.</li>
+                  <li>Reflected on how penetration testing, incident response, and secure coding can follow a scientific method, while still leaving space for human creativity and “art”.</li>
+                </ul>
+
+                <div class="subheading">Representative artefacts</div>
+                <ul>
+                  <li>Short summary contrasting IntServ, DiffServ and the proposed QoS model for NGNs.</li>
+                  <li>Notes on how teleological design principles could improve transparency in future secure architectures.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Unit 5 -->
+        <section id="unit-5">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-header-row">
+                <h3 class="card-title">Unit 5: Current and Future Challenges of Operating Systems and Distributed Systems</h3>
+                <span class="pill-soft pill">Trends & challenges</span>
+              </div>
+              <div class="unit-meta">
+                <span><span class="unit-meta-dot"></span> Focus: Emerging OS / distributed systems threats</span>
+                <span><span class="unit-meta-dot"></span> Preparation: Feeding into formal vs automated testing debate</span>
+              </div>
+              <div class="card-body">
+                <p>
+                  Unit 5 looked ahead at the evolving landscape of operating systems and distributed systems:
+                  containerisation, serverless workloads, edge computing, ubiquitous IoT, and the complexity of
+                  heterogeneous platforms.
+                </p>
+                <p>
+                  The unit linked these trends to new attack surfaces (for example, supply chain compromise,
+                  multi-tenant isolation failures, configuration sprawl) and to the need for stronger assurance
+                  methods, which then set up the Unit 6 debate on formal modelling and automated testing.
+                </p>
+
+                <div class="subheading">Key themes</div>
+                <ul>
+                  <li>Complexity as a security risk in multi-layered architectures.</li>
+                  <li>Observability, logging, and monitoring as essential components of secure distributed design.</li>
+                  <li>Where traditional OS security models struggle in highly distributed, ephemeral environments.</li>
+                </ul>
+
+                <div class="subheading">Representative artefacts</div>
+                <ul>
+                  <li>Short note comparing on-prem OS security concerns with cloud-native container and serverless deployments.</li>
+                  <li>Threat list for an example microservices system, mapped to OS and network layers.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Unit 6 -->
+        <section id="unit-6">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-header-row">
+                <h3 class="card-title">Unit 6: Formal Modelling vs. Automated Testing</h3>
+                <span class="pill-soft pill">Assurance methods</span>
+              </div>
+              <div class="unit-meta">
+                <span><span class="unit-meta-dot"></span> Focus: Formal methods, automated testing and trade-offs</span>
+                <span><span class="unit-meta-dot"></span> Seminar highlight: Debate framing + assignment guidance</span>
+              </div>
+              <div class="card-body">
+                <p>
+                  The final seminar for the module framed a structured comparison between
+                  <strong>formal modelling</strong> and <strong>automated testing</strong>, drawing directly on the
+                  Unit 6 content and on the individual project work.
+                </p>
+
+                <div class="subheading">Formal modelling</div>
+                <ul>
+                  <li>Defined as the use of rigorous mathematical models to specify and verify software systems (Jones, 1986).</li>
+                  <li>Key components:
+                    <ul>
+                      <li><em>Formal specification</em> – using mathematics to capture system requirements and desired properties.</li>
+                      <li><em>Formal verification</em> – proving that an implementation satisfies those specifications.</li>
+                      <li><em>Automated program generation</em> – generating code from mathematical models in some approaches.</li>
+                    </ul>
+                  </li>
+                  <li>Advantages:
+                    <ul>
+                      <li>Eliminates ambiguity in requirements and specifications.</li>
+                      <li>Enables proofs of correctness for critical properties.</li>
+                      <li>Forces deeper understanding of system inputs, outputs and state space.</li>
+                    </ul>
+                  </li>
+                  <li>Limitations: high complexity and expertise required, scalability challenges, and cost that is usually only justified for safety or mission-critical systems.</li>
+                </ul>
+
+                <div class="subheading">Automated testing</div>
+                <ul>
+                  <li>Uses scripts and tools to automatically execute test cases that a human tester would otherwise perform manually.</li>
+                  <li>Motivated by high-profile failures where insufficient testing led to serious incidents (for example, aviation and infrastructure failures).</li>
+                  <li>Benefits:
+                    <ul>
+                      <li>Supports rapid regression testing and higher test coverage.</li>
+                      <li>Reduces human error and frees developer time for design and review.</li>
+                      <li>Enables frequent, repeatable tests integrated into CI/CD pipelines.</li>
+                    </ul>
+                  </li>
+                  <li>Limitations: cannot fully automate all test types, cannot guarantee 100 per cent coverage, and may produce false positives or false negatives.</li>
+                </ul>
+
+                <div class="subheading">Seminar perspective and assignment link</div>
+                <ul>
+                  <li>The seminar emphasised that formal modelling and automated testing are complementary, not mutually exclusive.</li>
+                  <li>Formal methods are powerful but expensive; automated testing is pragmatic and essential for fast-moving projects.</li>
+                  <li>The individual project applied these ideas in practice through code, vulnerability analysis, and documentation capped at 1,300 words.</li>
+                </ul>
+
+                <div class="subheading">Representative artefacts</div>
+                <ul>
+                  <li>Discussion notes weighing formal proofs vs. extensive automated testing for different system criticality levels.</li>
+                  <li>Code, test outputs, and documentation from the individual project in Assessment 2.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- ASSESSMENTS -->
+      <section id="assessments">
+        <div class="section-heading">
+          <h2 class="section-title">Assessments</h2>
+          <span class="section-kicker">Team project, individual project, reflection</span>
+        </div>
+
+        <!-- Assessment 1 -->
+        <section id="assessment-1">
+          <article class="assessment-card">
+            <div class="assessment-header">
+              <div class="assessment-title">Assessment 1 - Development Team Project</div>
+              <div class="assessment-badges">
+                <span class="pill-accent pill">Team work</span>
+                <span class="pill-soft pill">Architecture &amp; modelling</span>
+              </div>
+            </div>
+            <div class="assessment-meta">
+              <span><span class="unit-meta-dot"></span> Type: Group system design + individual peer review</span>
+              <span><span class="unit-meta-dot"></span> Timing: Early in module (around Unit 3)</span>
+            </div>
+            <div class="assessment-body">
+              <p>
+                This assessment focused on working as a development team to design and document a secure system.
+                It combined architectural modelling, justification of design decisions, and an evaluation of how
+                effectively the team collaborated. The peer review component captured individual contributions,
+                communication and support within the group.
+              </p>
+
+              <div class="subheading">Submitted artefacts</div>
+              <ul>
+                <li><strong>Team design report</strong> – architecture, threat considerations, and design rationale.</li>
+                <li><strong>Peer evaluation</strong> – reflections on team dynamics, strengths and areas to improve.</li>
+              </ul>
+
+              <div class="button-row">
+                <!-- TODO: replace href values with your actual hosted URLs or relative paths -->
+                <a class="btn btn-primary" href="files/Assessment-1-Team-Development.pdf" target="_blank" rel="noopener">
+                  <span class="btn-icon">📄</span>
+                  <span>View team project (PDF)</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Assessment 2 -->
+        <section id="assessment-2">
+          <article class="assessment-card">
+            <div class="assessment-header">
+              <div class="assessment-title">Assessment 2 - Individual Project</div>
+              <div class="assessment-badges">
+                <span class="pill-accent pill">Individual work</span>
+                <span class="pill-soft pill">Secure coding &amp; testing</span>
+              </div>
+            </div>
+            <div class="assessment-meta">
+              <span><span class="unit-meta-dot"></span> Type: Code, tests and 1,300-word justification report</span>
+              <span><span class="unit-meta-dot"></span> Timing: End of module (around Unit 6)</span>
+            </div>
+            <div class="assessment-body">
+              <p>
+                The individual project brought together the technical and analytical elements of the module.
+                It required producing secure code, running testing and analysis tools, and documenting
+                vulnerabilities, mitigations and remaining risks within a strict 1,300-word limit.
+              </p>
+
+              <div class="subheading">Submitted artefacts</div>
+              <ul>
+                <li><strong>Project report (1,300 words)</strong> – vulnerability identification, mitigations deployed, remaining risks and justification.</li>
+                <li><strong>Source code &amp; tests</strong> – implementation plus evidence from testing tools and suites.</li>
+                <li><strong>README</strong> – clear instructions for setting up and running the model, aimed at someone other than the original author.</li>
+              </ul>
+
+              <div class="button-row">
+                <!-- TODO: update href values to match your file locations -->
+                <a class="btn btn-primary" href="files/Assessment-2-1300Words-Report-File.pdf" target="_blank" rel="noopener">
+                  <span class="btn-icon">📄</span>
+                  <span>View report (PDF)</span>
+                </a>
+                <a class="btn btn-secondary" href="files/Assessment-2-README.md" target="_blank" rel="noopener">
+                  <span class="btn-icon">📄</span>
+                  <span>View README (MD)</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Assessment 3 -->
+        <section id="assessment-3">
+          <article class="assessment-card">
+            <div class="assessment-header">
+              <div class="assessment-title">Assessment 3 - Reflective Piece</div>
+              <div class="assessment-badges">
+                <span class="pill-accent pill">Reflection</span>
+                <span class="pill-soft pill">Professional development</span>
+              </div>
+            </div>
+            <div class="assessment-meta">
+              <span><span class="unit-meta-dot"></span> Type: Individual reflective submission</span>
+              <span><span class="unit-meta-dot"></span> Linked to: Learning and performance across Assessments 1 &amp; 2</span>
+            </div>
+            <div class="assessment-body">
+              <p>
+                The reflective piece stepped back from the technical detail and focused on learning, growth and
+                future goals. It captured what went well in the team and individual projects, what could be improved,
+                and how the module shaped ongoing development as a cyber security practitioner.
+              </p>
+
+              <div class="subheading">Submitted artefact</div>
+              <ul>
+                <li><strong>Reflective essay</strong> – structured reflection on technical skills, teamwork, time management and next steps.</li>
+              </ul>
+
+              <div class="button-row">
+                <!-- TODO: update href to match where you host this file -->
+                <a class="btn btn-primary" href="files/Assessment-3-Reflective-Piece.pdf" target="_blank" rel="noopener">
+                  <span class="btn-icon">📄</span>
+                  <span>View reflective piece (PDF)</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <!-- REFLECTION -->
+      <section id="reflection">
+        <div class="section-heading">
+          <h2 class="section-title">Module Reflection</h2>
+          <span class="section-kicker">From operating systems to assured architectures</span>
+        </div>
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-body">
+              <p>
+                Across Units 1 to 6, the Secure Systems Architecture module linked low-level operating system
+                details with high-level architectural decisions, distributed systems behaviour, and formal
+                assurance methods. The seminar content on ADTool, QoS, teleological design and formal modelling
+                tied theory directly to practice in the assessments.
+              </p>
+              <p>
+                The progression from understanding OS internals, through modelling and threat analysis, to
+                thinking about scientific method and proof, has reinforced the idea that secure architecture
+                is not a single tool or diagram. It is a way of thinking: being explicit about assumptions,
+                modelling adversaries, gathering evidence and choosing the right mix of formal methods and
+                pragmatic automated testing for each system&apos;s risk profile.
+              </p>
+              <p>
+                The three assessments – team project, individual project and reflective piece – created a full
+                loop: applying concepts in a group setting, demonstrating individual technical capability, and then
+                critically reflecting on the entire journey. This ePortfolio page collects those elements in a single
+                place for future reference and for building on in later modules.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-  </nav>
 
-  <!-- Overview -->
-  <section id="overview">
-    <h2>Module Overview</h2>
-    <div class="meta">
-      <span class="chip">Module completed (Oct–Nov 2025)</span>
-      <span class="chip">Group Project + Individual Project</span>
-      <span class="chip">ePortfolio hosted on GitHub Pages</span>
-    </div>
+    <!-- SIDEBAR -->
+    <aside>
+      <div class="sidebar-card">
+        <div class="sidebar-title">How to use this page</div>
+        <div class="sidebar-body">
+          <p>
+            This Option B enhanced layout is designed as a compact, print-friendly summary of the
+            <strong>Secure Systems Architecture</strong> module.
+          </p>
+          <ul class="sidebar-list">
+            <li>Use the <strong>jump links</strong> at the top to move between units and assessments.</li>
+            <li>Each <strong>unit card</strong> summarises the main concepts, seminar highlights and example artefacts.</li>
+            <li>The <strong>assessment cards</strong> provide quick links to the submitted files (update the href paths when you upload them to your site or repository).</li>
+          </ul>
 
-    <p>
-      This ePortfolio captures my learning journey through the <em>Secure Systems Architecture</em> module.
-      The module builds from core operating-system and distributed-systems concepts to secure design of
-      cloud-native applications and resilient architectures. It connects theory with practice by asking
-      students to design and evaluate an end-to-end system, justify architectural choices, and reflect on
-      their professional growth.
-    </p>
+          <p class="mini-metadata">
+            Units included:
+            <br />
+            Unit 1 - Introduction to Operating Systems and Secure Systems Architecture
+            <br />
+            Unit 2 - Modelling and Socket Programming
+            <br />
+            Unit 3 - Systems Engineering and Modelling
+            <br />
+            Unit 4 - Modelling of Distributed Systems
+            <br />
+            Unit 5 - Current and Future Challenges of Operating Systems and Distributed Systems
+            <br />
+            Unit 6 - Formal Modelling vs. Automated Testing
+          </p>
 
-    <p>
-      Across the six units I moved from revisiting OS fundamentals such as processes, isolation and access
-      control to reasoning about microservices, APIs, data flows, and failure modes in distributed systems.
-      A central theme of the module is that security is not a final add-on but a structural property shaped
-      by patterns, dependencies, and trade-offs. The group project and individual project both required
-      me to apply these ideas in a realistic scenario and explain my decisions clearly for non-technical
-      stakeholders.
-    </p>
-
-    <div class="list-inline" aria-label="Skills">
-      <span class="tag">Secure systems design</span>
-      <span class="tag">Operating-system concepts</span>
-      <span class="tag">Distributed systems & APIs</span>
-      <span class="tag">Cloud architecture patterns</span>
-      <span class="tag">Threat modelling & data flows</span>
-      <span class="tag">Resilience & fault tolerance</span>
-      <span class="tag">Team collaboration</span>
-      <span class="tag">Reflective practice</span>
-    </div>
-
-    <div class="callout">
-      <strong>Core text:</strong> Brown, K., Woolf, R. and Yoder, J. (2025) <em>Cloud Application Architecture Patterns</em>.
-      This book supported many of the pattern and trade-off discussions in later units.
-    </div>
-  </section>
-
-  <!-- Unit 1 -->
-  <section id="unit1">
-    <h2>Unit 1: Introduction to Secure Systems Architecture</h2>
-    <div class="meta">
-      <span class="chip">Lecturecast</span>
-      <span class="chip">Reading</span>
-      <span class="chip">Formative activity</span>
-    </div>
-
-    <h3>Focus</h3>
-    <p>
-      Unit 1 introduced the idea of systems architecture as a set of <strong>design decisions</strong>
-      about components, boundaries, communication paths, and controls. We revisited basic concepts such
-      as layers, trust zones, interfaces, and threat surfaces and linked them to security principles
-      like least privilege, defence in depth, and secure defaults.
-    </p>
-
-    <h3>Intended Learning</h3>
-    <ul>
-      <li>Describe what a systems architecture is and why it matters for security and resilience.</li>
-      <li>Explain how trust boundaries, tiers, and interfaces shape the attack surface.</li>
-      <li>Identify early design choices that can improve or weaken security later.</li>
-    </ul>
-
-    <h3>e-Portfolio Artefacts</h3>
-    <div class="callout">
-      <ul style="margin:0;">
-        <li>Initial notes mapping a simple three-tier web application and its trust boundaries.</li>
-        <li>Short written reflection on how design decisions made at architecture level influence everyday security tasks.</li>
-        <li>Sketch of a basic layered model (client, edge, application, data) annotated with security controls.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Unit 2 -->
-  <section id="unit2">
-    <h2>Unit 2: Operating Systems, Isolation and Access Control</h2>
-    <div class="meta">
-      <span class="chip">Lecturecast</span>
-      <span class="chip">Seminar activity</span>
-    </div>
-
-    <h3>Focus</h3>
-    <p>
-      This unit focused on how operating systems provide <strong>isolation</strong> and <strong>resource control</strong>.
-      We looked at processes, threads, memory protection, file permissions and scheduling, then related these concepts
-      to containers and virtual machines. The unit linked OS features to higher level architecture concerns such as
-      multi-tenancy and noisy neighbours in shared environments.
-    </p>
-
-    <h3>Intended Learning</h3>
-    <ul>
-      <li>Explain how processes, threads and virtual memory contribute to isolation.</li>
-      <li>Describe how access control mechanisms (users, groups, ACLs) are used to enforce policy.</li>
-      <li>Relate OS-level abstractions to container and virtualisation technologies used in modern architectures.</li>
-    </ul>
-
-    <h3>e-Portfolio Artefacts</h3>
-    <div class="callout">
-      <ul style="margin:0;">
-        <li>Short comparison table of processes vs threads and containers vs virtual machines.</li>
-        <li>Notes from the seminar on how poor process isolation or misconfigured permissions can lead to privilege escalation.</li>
-        <li>Mini exercise mapping OS controls (for example file permissions) to architecture decisions (for example log storage, secrets handling).</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Unit 3 -->
-  <section id="unit3">
-    <h2>Unit 3: Architecture Design Project (Group Work)</h2>
-    <div class="meta">
-      <span class="chip">Group Project</span>
-      <span class="chip">Peer review</span>
-      <span class="chip">Seminar support</span>
-    </div>
-
-    <h3>Focus</h3>
-    <p>
-      Unit 3 introduced the <strong>group project</strong> where our team designed and documented a secure systems
-      architecture for a given scenario. The emphasis was on drawing clear diagrams, identifying trust boundaries,
-      defining data flows and justifying design decisions with reference to security principles and patterns.
-    </p>
-
-    <h3>Assessment 1: Group Project + Peer Review</h3>
-    <p>
-      As a team we produced a design document and supporting artefacts. A separate peer review captured how each
-      member contributed to planning, communication, and delivery.
-    </p>
-
-    <div class="callout">
-      <strong>Status:</strong> Group project submitted and peer review completed.
-    </div>
-
-    <h3>Embedded Group Report</h3>
-    <p>
-      The final group architecture report is included here as evidence. The document explains the problem, the
-      proposed architecture, design decisions, and how security requirements are met.
-    </p>
-
-    <div style="text-align:left; margin-top:12px;">
-      <button id="toggle-u3-report" class="btn-glow">📄 View Group Architecture Report</button>
-      <a href="SecureSystemsArchitecture-GroupReport.pdf" download class="btn-ghost" style="margin-left:8px;">
-        ⬇︎ Download PDF
-      </a>
-    </div>
-
-    <div id="u3-report" style="margin-top:20px; display:none;">
-      <iframe
-        src="SecureSystemsArchitecture-GroupReport.pdf"
-        width="100%"
-        height="650"
-        title="Unit 3 – Group Architecture Report"
-        class="desktop-only"
-        style="border:1px solid #2a3b64; border-radius:10px;"
-      ></iframe>
-
-      <div class="mobile-only" style="text-align:center; margin-top:10px;">
-        <a href="SecureSystemsArchitecture-GroupReport.pdf" target="_blank" rel="noopener" class="btn-glow">
-          📄 Open Report in New Tab
-        </a>
-        <div style="margin-top:8px;">
-          <a href="SecureSystemsArchitecture-GroupReport.pdf" download class="btn-ghost">⬇︎ Download PDF</a>
+          <p class="footer-note">
+            Note: update the file links under each assessment to point to your actual hosting location
+            (for example, GitHub, your website, or VLE storage). The current paths are placeholders
+            aligned with your uploaded filenames.
+          </p>
         </div>
       </div>
-
-      <p style="color:#a9b7d0; font-size:.92rem; margin-top:10px;">
-        Tip: On mobile, use “Open Report in New Tab” for full zoom and share controls.
-      </p>
-    </div>
-
-    <h3>e-Portfolio Artefacts (Unit 3)</h3>
-    <div class="callout">
-      <ul style="margin:0;">
-        <li>Final group architecture report (PDF embedded above).</li>
-        <li>Updated system architecture diagram showing components, data flows and trust boundaries.</li>
-        <li>Peer review form describing individual contributions and team-working reflections.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Unit 4 -->
-  <section id="unit4">
-    <h2>Unit 4: Distributed Systems and Cloud Architecture Patterns</h2>
-    <div class="meta">
-      <span class="chip">Reading</span>
-      <span class="chip">Pattern exercises</span>
-      <span class="chip">Formative work</span>
-    </div>
-
-    <h3>Focus</h3>
-    <p>
-      Unit 4 deepened the focus on <strong>distributed systems</strong> and <strong>cloud architecture patterns</strong>.
-      We discussed concepts like latency, consistency, replication and partitioning and connected them to patterns such as
-      gateways, microservices, queues and event-driven designs. Security considerations included how identity, secrets and
-      policies are enforced across many small services instead of a single monolith.
-    </p>
-
-    <h3>Intended Learning</h3>
-    <ul>
-      <li>Describe key trade-offs in distributed systems such as consistency versus availability.</li>
-      <li>Recognise common cloud patterns and how they affect security and observability.</li>
-      <li>Relate design patterns to threat modelling and control placement across services.</li>
-    </ul>
-
-    <h3>e-Portfolio Artefacts (Unit 4)</h3>
-    <div class="callout">
-      <ul style="margin:0;">
-        <li>Pattern-mapping notes linking selected patterns from the core text to the module project scenario.</li>
-        <li>Revised architecture sketch incorporating message queues or APIs for clearer separation of concerns.</li>
-        <li>Short written commentary on how pattern choice can reduce or increase attack surface.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Unit 5 -->
-  <section id="unit5">
-    <h2>Unit 5: Resilience, Monitoring and Observability</h2>
-    <div class="meta">
-      <span class="chip">Seminar (recording)</span>
-      <span class="chip">Formative activity</span>
-      <span class="chip">Support for Individual Project</span>
-    </div>
-
-    <h3>Focus</h3>
-    <p>
-      This unit linked architecture design to <strong>resilience</strong> and <strong>observability</strong>.
-      We explored patterns such as timeouts, retries, bulkheads and circuit breakers and discussed how logging,
-      metrics and traces provide feedback about system health. The unit acted as a bridge between high-level design
-      and the more detailed reasoning needed for the individual project.
-    </p>
-
-    <h3>Intended Learning</h3>
-    <ul>
-      <li>Explain how resilience patterns protect systems from cascading failures.</li>
-      <li>Outline what effective monitoring and observability look like for a distributed system.</li>
-      <li>Connect resilience and observability to risk management and service level objectives.</li>
-    </ul>
-
-    <h3>Seminar Notes</h3>
-    <div class="callout">
-      <p>
-        The seminar reinforced that a secure architecture must also be observable. We looked at how failures, slow
-        dependencies and configuration issues show up in metrics or logs and how these signals link back to design
-        choices. There was also discussion of how to justify architecture decisions in written assignments by
-        referring to specific patterns and trade-offs instead of only describing the final diagram.
-      </p>
-    </div>
-
-    <h3>e-Portfolio Artefacts (Unit 5)</h3>
-    <div class="callout">
-      <ul style="margin:0;">
-        <li>Notes on resilience patterns and how they would apply to the module project scenario.</li>
-        <li>List of suggested metrics and logs for critical services in the architecture.</li>
-        <li>Outline of how to argue for resilience and monitoring design choices in the individual project report.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Unit 6 -->
-  <section id="unit6">
-    <h2>Unit 6: Individual Project and Reflective Practice</h2>
-    <div class="meta">
-      <span class="chip">Individual Project</span>
-      <span class="chip">Reflective section</span>
-      <span class="chip">Module completed</span>
-    </div>
-
-    <h3>Focus</h3>
-    <p>
-      The final unit centred on the <strong>individual project</strong>, where each student produced a written
-      report and reflection based on their understanding of secure systems architecture. The work consolidated
-      ideas from all previous units and required a clear line from requirements and threats through to patterns,
-      controls and operational considerations.
-    </p>
-
-    <h3>Assessment 2: Individual Project + Reflection</h3>
-    <p>
-      My submission combined a structured architecture explanation with justification of patterns and controls,
-      plus a reflective section on what I learned about designing secure systems and working with others on the
-      group project.
-    </p>
-
-    <div class="callout">
-      <strong>Status:</strong> Individual project and reflection submitted.
-    </div>
-
-    <div style="text-align:left; margin:12px 0;">
-      <button id="toggle-u6-report" class="btn-glow">📄 View Individual Project Report</button>
-      <a href="SecureSystemsArchitecture-IndividualProject.pdf" download class="btn-ghost" style="margin-left:8px;">
-        ⬇︎ Download PDF
-      </a>
-    </div>
-
-    <div id="u6-report" style="display:none; margin-top:14px;">
-      <iframe
-        src="SecureSystemsArchitecture-IndividualProject.pdf"
-        width="100%"
-        height="700"
-        title="Unit 6 – Individual Project"
-        class="desktop-only"
-        style="border:1px solid #ccc; border-radius:10px;"
-      ></iframe>
-
-      <div class="mobile-only" style="text-align:center; margin-top:10px;">
-        <a href="SecureSystemsArchitecture-IndividualProject.pdf" target="_blank" rel="noopener" class="btn-glow">
-          📄 Open Report in New Tab
-        </a>
-        <div style="margin-top:8px;">
-          <a href="SecureSystemsArchitecture-IndividualProject.pdf" download class="btn-ghost">⬇︎ Download PDF</a>
-        </div>
-      </div>
-    </div>
-
-    <details class="accordion" style="margin-top:14px;">
-      <summary class="btn-glow">🪞 Reflection Snapshot</summary>
-      <div class="callout" style="margin-top:10px;">
-        <p>
-          Writing the individual report helped me see how architecture decisions, OS concepts and resilience
-          patterns all connect. I had to be explicit about assumptions, show how the design addresses threats,
-          and admit where trade-offs still exist. The reflection also made me more honest about my strengths
-          and weaknesses in teamwork and technical writing. It reinforced that good architecture is not just
-          about drawing diagrams but about telling a clear, defensible story of how the system will behave
-          under normal and adverse conditions.
-        </p>
-      </div>
-    </details>
-  </section>
-
-  <!-- Artefacts (summary) -->
-  <section id="artefacts">
-    <h2>Team and Artefacts (U1–U6)</h2>
-    <div
-      style="
-        background:#0f1d38;
-        color:#eaf3ff;
-        padding:24px 20px;
-        border-radius:12px;
-        box-shadow:0 0 15px rgba(0,0,0,0.25);
-        margin-top:16px;
-      "
-    >
-      <ul style="line-height:1.65; max-width:950px; margin:auto; text-align:justify;">
-        <li>
-          <strong>Unit 1:</strong> Introductory notes and first architecture sketches showing layers and trust boundaries.
-        </li>
-        <li>
-          <strong>Unit 2:</strong> Comparison tables and notes linking OS isolation and permissions to secure deployment choices.
-        </li>
-        <li>
-          <strong>Unit 3:</strong> Group architecture report, diagram set and peer review, capturing collaborative design decisions.
-        </li>
-        <li>
-          <strong>Unit 4:</strong> Pattern mapping and updated diagrams reflecting distributed and cloud-native patterns.
-        </li>
-        <li>
-          <strong>Unit 5:</strong> Resilience and observability notes including suggested metrics and logging approaches.
-        </li>
-        <li>
-          <strong>Unit 6:</strong> Individual project report and reflective section, summarising learning and professional development.
-        </li>
-      </ul>
-
-      <p style="margin-top:14px; font-size:.95rem; color:#a9b7d0;">
-        Where full files are not embedded, this section provides concise descriptions so that markers can
-        see how evidence across the module connects.
-      </p>
-    </div>
-  </section>
-
-  <!-- Reflection -->
-  <section id="reflection">
-    <h2>Reflective Summary (Units 1–6)</h2>
-    <p>
-      At the start of this module I mostly thought about security in terms of individual controls such as
-      firewalls, permissions or encryption settings. By the end I understood that these controls only make
-      sense inside a clear architecture that defines what the system does, where trust boundaries sit and
-      how components interact.
-    </p>
-    <p>
-      The early units refreshed core systems topics and made it easier to reason about isolation,
-      resource management and access control. The group project forced me to step back and think at diagram
-      level, which helped when discussing design with other people instead of jumping straight into
-      configuration details. Later units added more depth around distributed systems, patterns and resilience,
-      so I could see why certain designs are easier to observe, scale and secure.
-    </p>
-    <p>
-      The individual project and reflection gave me space to put everything together. I had to justify why
-      the architecture should look a certain way, acknowledge trade-offs and show how it would be operated
-      and monitored in reality. Going forward I want to:
-    </p>
-    <ol>
-      <li>Keep practising drawing clear architecture diagrams with explicit trust boundaries.</li>
-      <li>Explain security decisions in terms of patterns and trade-offs instead of only listing controls.</li>
-      <li>Link architecture decisions to resilience, monitoring and risk management rather than treating them separately.</li>
-      <li>Continue improving my technical writing so that architecture documents are readable for both technical and non-technical audiences.</li>
-    </ol>
-    <p>
-      Overall, <em>Secure Systems Architecture</em> has made me more confident about discussing design, not just
-      implementation, and has given me a clearer mental model for how secure, resilient systems fit together.
-    </p>
-  </section>
-
-  <footer>
-    © 2025 Pragadheesh Marimuthu • Secure Systems Architecture ePortfolio
-  </footer>
+    </aside>
+  </main>
 </div>
-
-<!-- Back-to-Top -->
-<button id="backToTop" type="button" aria-label="Back to Top" title="Back to Top">↑</button>
-
-<script>
-  // Toggle accordions "clicked" state
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("details.accordion").forEach(acc => {
-      acc.addEventListener("toggle", () => {
-        if (acc.open) acc.classList.add("clicked");
-      });
-    });
-
-    // Group report toggle
-    const u3Btn = document.getElementById("toggle-u3-report");
-    const u3Box = document.getElementById("u3-report");
-    if (u3Btn && u3Box) {
-      u3Btn.addEventListener("click", () => {
-        const open = u3Box.style.display === "block";
-        u3Box.style.display = open ? "none" : "block";
-        u3Btn.textContent = open
-          ? "📄 View Group Architecture Report"
-          : "📕 Hide Group Architecture Report";
-        if (!open) u3Box.scrollIntoView({ behavior:"smooth", block:"start" });
-      });
-    }
-
-    // Individual project toggle
-    const u6Btn = document.getElementById("toggle-u6-report");
-    const u6Box = document.getElementById("u6-report");
-    if (u6Btn && u6Box) {
-      u6Btn.addEventListener("click", () => {
-        const open = u6Box.style.display === "block";
-        u6Box.style.display = open ? "none" : "block";
-        u6Btn.textContent = open
-          ? "📄 View Individual Project Report"
-          : "📕 Hide Individual Project Report";
-        if (!open) u6Box.scrollIntoView({ behavior:"smooth", block:"start" });
-      });
-    }
-
-    // Back-to-top button
-    const backToTopBtn = document.getElementById("backToTop");
-    const showBackToTop = () => {
-      if (window.scrollY > 300) backToTopBtn.style.display = "block";
-      else backToTopBtn.style.display = "none";
-    };
-    showBackToTop();
-    window.addEventListener("scroll", showBackToTop, { passive:true });
-    backToTopBtn.addEventListener("click", () => {
-      const smooth = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
-      window.scrollTo({ top:0, behavior:smooth ? "smooth" : "auto" });
-    });
-
-    // Active nav highlighting like SRM page
-    const navLinks = Array.from(document.querySelectorAll("nav.quick a[href^='#']"));
-    const sections = navLinks
-      .map(a => document.querySelector(a.getAttribute("href")))
-      .filter(Boolean);
-
-    const linkFor = id => navLinks.find(a => a.getAttribute("href") === "#" + id);
-
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const id = entry.target.id;
-        const link = linkFor(id);
-        if (!link) return;
-        if (entry.isIntersecting) {
-          navLinks.forEach(l => { l.classList.remove("active"); l.removeAttribute("aria-current"); });
-          link.classList.add("active");
-          link.setAttribute("aria-current", "true");
-        }
-      });
-    }, { rootMargin:"-40% 0px -55% 0px", threshold:0 });
-
-    sections.forEach(sec => io.observe(sec));
-  });
-</script>
 </body>
 </html>
