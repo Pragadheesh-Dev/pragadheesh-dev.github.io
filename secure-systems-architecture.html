@@ -644,6 +644,16 @@
     html {
       scroll-behavior: smooth;
     }
+.quick-link-home {
+  border: 1px solid var(--accent);
+  background: rgba(78,161,255,0.12);
+  font-weight: 600;
+}
+.quick-link-home:hover {
+  background: rgba(78,161,255,0.18);
+  transform: translateX(3px);
+}
+    
   </style>
 </head>
 <body>
@@ -695,17 +705,31 @@
 
         <!-- Quick Nav -->
         <div class="quick-nav">
-          <div class="quick-nav-label">Jump to</div>
-          <a href="#units" class="quick-link quick-link-primary"><span>Units 1 - 6</span></a>
-          <a href="#unit-1" class="quick-link"><span>Unit 1</span></a>
-          <a href="#unit-2" class="quick-link"><span>Unit 2</span></a>
-          <a href="#unit-3" class="quick-link"><span>Unit 3</span></a>
-          <a href="#unit-4" class="quick-link"><span>Unit 4</span></a>
-          <a href="#unit-5" class="quick-link"><span>Unit 5</span></a>
-          <a href="#unit-6" class="quick-link"><span>Unit 6</span></a>
-          <a href="#assessments" class="quick-link"><span>Assessments</span></a>
-          <a href="#reflection" class="quick-link"><span>Reflection</span></a>
-        </div>
+
+  <!-- Home Button (Standalone) -->
+  <a href="index.html" class="quick-link quick-link-home">
+    <span>🏠 Home</span>
+  </a>
+
+  <!-- Main Jump-To Label -->
+  <div class="quick-nav-label">Jump to</div>
+
+  <!-- Unit Navigation -->
+  <a href="#units" class="quick-link quick-link-primary"><span>Units 1 - 6</span></a>
+  <a href="#unit-1" class="quick-link"><span>Unit 1</span></a>
+  <a href="#unit-2" class="quick-link"><span>Unit 2</span></a>
+  <a href="#unit-3" class="quick-link"><span>Unit 3</span></a>
+  <a href="#unit-4" class="quick-link"><span>Unit 4</span></a>
+  <a href="#unit-5" class="quick-link"><span>Unit 5</span></a>
+  <a href="#unit-6" class="quick-link"><span>Unit 6</span></a>
+
+  <!-- Assessments -->
+  <a href="#assessments" class="quick-link"><span>Assessments</span></a>
+
+  <!-- Reflection -->
+  <a href="#reflection" class="quick-link"><span>Reflection</span></a>
+
+</div>
       </section>
 
       <!-- UNITS -->
