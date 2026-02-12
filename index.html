@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Pragadheesh – Cybersecurity ePortfolio</title>
+  <title>Pragadheesh Marimuthu – Cybersecurity Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Pragadheesh Marimuthu – MSc Cybersecurity ePortfolio: modules, artefacts, and reflections." />
+  <meta name="description" content="Pragadheesh Marimuthu – Cybersecurity Portfolio: professional journey, skills, certifications, projects, and academic module artefacts (University of Essex Online)." />
   <link rel="canonical" href="https://pragfolio.github.io/">
   <link rel="icon" href="favicon.ico">
   <meta name="theme-color" content="#0b1220">
@@ -12,234 +12,658 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Pragadheesh – Cybersecurity ePortfolio">
-  <meta property="og:description" content="MSc Cybersecurity ePortfolio: modules, artefacts, and reflections.">
+  <meta property="og:title" content="Pragadheesh Marimuthu – Cybersecurity Portfolio">
+  <meta property="og:description" content="Professional portfolio + academic artefacts: journey, skills, certifications, projects, and modules.">
   <meta property="og:url" content="https://pragfolio.github.io/">
   <meta property="og:image" content="https://pragfolio.github.io/header-bg.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Pragadheesh – Cybersecurity ePortfolio">
-  <meta name="twitter:description" content="MSc Cybersecurity ePortfolio: modules, artefacts, and reflections.">
+  <meta name="twitter:title" content="Pragadheesh Marimuthu – Cybersecurity Portfolio">
+  <meta name="twitter:description" content="Professional portfolio + academic artefacts: journey, skills, certifications, projects, and modules.">
   <meta name="twitter:image" content="https://pragfolio.github.io/header-bg.png">
 
   <link rel="preload" href="header-bg.png" as="image" fetchpriority="high">
 
   <style>
-    :root {
-      --bg:#0b1220; --panel:#0e1729; --text:#e6eefc; --muted:#a9b7d0;
-      --accent:#4ea1ff; --accent-2:#7ee787; --border:#1d2740; --shadow:rgba(0,0,0,.35);
+    :root{
+      --bg:#0b1220; --panel:#0e1729; --panel-2:#0f1a30;
+      --text:#e6eefc; --muted:#a9b7d0;
+      --accent:#4ea1ff; --accent-2:#7ee787; --warn:#ffc107;
+      --border:#1d2740; --shadow:rgba(0,0,0,.35);
       --chip:#bcd2ff;
+
       --ongo-bg:rgba(78,161,255,.12); --ongo-border:#4ea1ff;
       --comp-bg:rgba(126,231,135,.12); --comp-border:#7ee787;
       --upc-bg:rgba(255,200,0,.10); --upc-border:#ffc107;
     }
-    * { box-sizing:border-box; scroll-behavior:smooth; }
-    body {
+
+    *{ box-sizing:border-box; scroll-behavior:smooth; }
+    body{
       margin:0;
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      background:radial-gradient(1200px 600px at 20% -10%, #112148 0%, #0b1220 60%);
+      background:radial-gradient(1200px 700px at 15% -10%, #112148 0%, #0b1220 60%);
       color:var(--text);
     }
-    a { color:#7ab8ff; text-decoration:none; }
-    a:hover { text-decoration:underline; }
+    a{ color:#7ab8ff; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    /* Accessibility */
+    a:focus-visible, button:focus-visible {
+      outline:3px solid var(--accent);
+      outline-offset:2px;
+      border-radius:8px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *{ animation:none !important; transition:none !important; }
+    }
+
+    /* Visually hidden */
+    .sr-only{
+      position:absolute !important; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+    .sr-only-focusable:focus{
+      position: static !important;
+      width:auto; height:auto;
+      margin:10px; padding:10px 12px;
+      background:var(--panel-2); color:#fff;
+      border:1px solid var(--border);
+      border-radius:12px;
+      box-shadow:0 2px 8px var(--shadow);
+      display:inline-block;
+    }
+
+    /* Top Nav */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background:rgba(11,18,32,.72);
+      border-bottom:1px solid rgba(29,39,64,.7);
+    }
+    .topbar-inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:12px 18px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .brand{
+      display:flex; flex-direction:column; gap:2px;
+      min-width:220px;
+    }
+    .brand .name{ font-weight:800; letter-spacing:.2px; }
+    .brand .tag{ color:var(--muted); font-size:.92rem; }
+    nav ul{
+      list-style:none; margin:0; padding:0;
+      display:flex; flex-wrap:wrap; gap:10px;
+      align-items:center;
+    }
+    nav a{
+      display:inline-flex;
+      padding:8px 10px;
+      border:1px solid transparent;
+      border-radius:999px;
+      color:#d8e6ff;
+      font-weight:600;
+      font-size:.95rem;
+      transition:transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    nav a:hover{
+      text-decoration:none;
+      transform:translateY(-1px);
+      border-color:rgba(78,161,255,.35);
+      background:rgba(15,26,48,.6);
+    }
+    .nav-cta{
+      border-color:rgba(78,161,255,.45) !important;
+      background:rgba(78,161,255,.10) !important;
+    }
 
     /* Hero */
-    .hero {
+    .hero{
       background-image:
-        linear-gradient(180deg, rgba(5,10,20,.35), rgba(5,10,20,.65)),
+        linear-gradient(180deg, rgba(5,10,20,.45), rgba(5,10,20,.85)),
         url('header-bg.png');
       background-size:cover;
       background-position:center;
-      height:280px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
       border-bottom:1px solid var(--border);
     }
-    @media (max-width:900px){ .hero{height:240px; background-position:center 40%;} }
-    @media (max-width:600px){ .hero{height:200px; background-position:center 50%;} }
+    .hero-inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:44px 18px 22px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:end;
+    }
+    @media (max-width:900px){
+      .hero-inner{ grid-template-columns:1fr; padding-top:34px; }
+    }
+    .hero h1{
+      margin:0;
+      font-size:2.15rem;
+      letter-spacing:.2px;
+      line-height:1.15;
+    }
+    .hero p{
+      margin:.6rem 0 0;
+      color:#d6e2ff;
+      line-height:1.6;
+      max-width:62ch;
+    }
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(29,39,64,.9);
+      background:rgba(15,26,48,.75);
+      color:#e6eefc;
+      font-weight:700;
+      box-shadow:0 10px 24px rgba(0,0,0,.20);
+      transition:transform .12s ease, filter .12s ease, border-color .12s ease;
+    }
+    .btn:hover{ text-decoration:none; transform:translateY(-1px); border-color:rgba(78,161,255,.35); }
+    .btn.primary{
+      background:rgba(78,161,255,.16);
+      border-color:rgba(78,161,255,.55);
+    }
 
     /* Container */
-    main.container {
-      padding:2rem;
-      max-width:1000px;
+    main.container{
+      max-width:1100px;
       margin:0 auto;
-    }
-    .section {
-      background:linear-gradient(180deg, rgba(21,33,58,.7), rgba(14,22,39,.7));
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:1.5rem;
-      margin-bottom:1.2rem;
-      box-shadow:0 8px 24px var(--shadow);
-    }
-    h2 { color:#d9e7ff; margin:0 0 .6rem; }
-    p { color:#d6e2ff; line-height:1.65; }
-
-    /* Banner */
-    .banner {
-      border:1px solid var(--border);
-      border-left:5px solid var(--accent);
-      padding:14px 18px;
-      margin:20px auto;
-      border-radius:12px;
-      background:linear-gradient(180deg, rgba(21,33,58,.7), rgba(14,22,39,.7));
-      max-width:1000px;
-      box-shadow:0 8px 24px var(--shadow);
-    }
-    .banner h3 { margin:.2rem 0 .4rem 0; color:#d9e7ff; }
-    .banner p { margin:.2rem 0; }
-    .banner.upcoming { border-left-color:var(--upc-border); }
-    .banner.ongoing { border-left-color:var(--ongo-border);
-      box-shadow:0 0 12px rgba(78,161,255,0.4), 0 4px 20px rgba(0,0,0,0.25);
-      transition:box-shadow 0.4s ease-in-out;
-    }
-    .banner.ongoing:hover {
-      box-shadow:0 0 18px rgba(78,161,255,0.65), 0 6px 28px rgba(0,0,0,0.35);
-    }
-    .banner.completed { border-left-color:var(--comp-border); }
-
-    .dates { font-size:.92rem; color:var(--muted); }
-    .status-chip {
-      display:inline-flex; align-items:center; gap:.45rem;
-      font-size:.9rem; font-weight:600;
-      padding:.25rem .6rem; border-radius:999px;
-      border:1px solid var(--border);
-      color:var(--chip); background:#0f1a30;
-      margin-left:.4rem;
+      padding:18px 18px 32px;
     }
 
-    /* Module list */
-    .modules { list-style:none; padding-left:0; margin:0; }
-    .module {
-      display:flex; flex-wrap:wrap; gap:.6rem;
-      align-items:center; justify-content:space-between;
-      padding:12px 8px; border-bottom:1px dashed #203257;
-      transition:transform .15s ease;
+    /* Sections */
+    .section{
+      background:linear-gradient(180deg, rgba(21,33,58,.65), rgba(14,22,39,.75));
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:18px;
+      margin:14px 0;
+      box-shadow:0 10px 28px var(--shadow);
     }
-    .module:last-child{border-bottom:none}
-    .module:hover{transform:translateX(3px)}
-    .module-title{font-weight:700; color:#dfeafe}
-    .chip {
-      display:inline-block;
+    .section h2{ margin:0 0 .55rem; color:#d9e7ff; }
+    .section p{ margin:.5rem 0; color:#d6e2ff; line-height:1.68; }
+    .muted{ color:var(--muted); }
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width:900px){ .grid-2{ grid-template-columns:1fr; } }
+
+    /* Chips / tags */
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .chip{
+      display:inline-flex; align-items:center;
       border:1px solid var(--border);
       border-radius:999px;
-      padding:.18rem .65rem;
-      font-size:.85rem;
+      padding:.22rem .7rem;
+      font-size:.88rem;
       color:var(--chip);
-      background:#0f1a30;
+      background:rgba(15,26,48,.75);
     }
     .chip.ongoing{border-color:var(--ongo-border); color:var(--ongo-border); background:var(--ongo-bg)}
     .chip.completed{border-color:var(--comp-border); color:var(--comp-border); background:var(--comp-bg)}
     .chip.upcoming{border-color:var(--upc-border); color:var(--upc-border); background:var(--upc-bg)}
+
+    /* Highlight cards */
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:10px;
+    }
+    @media (max-width:1000px){ .cards{ grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width:650px){ .cards{ grid-template-columns: 1fr; } }
+    .card{
+      background:rgba(15,26,48,.65);
+      border:1px solid rgba(29,39,64,.85);
+      border-radius:16px;
+      padding:14px;
+      box-shadow:0 8px 18px rgba(0,0,0,.25);
+    }
+    .card h3{ margin:0 0 .35rem; color:#e2eeff; font-size:1.05rem; }
+    .card p{ margin:.35rem 0 0; color:#d6e2ff; }
+    .card .meta{ margin-top:10px; color:var(--muted); font-size:.92rem; }
+
+    /* Timeline */
+    .timeline{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:10px;
+      margin-top:10px;
+    }
+    @media (max-width:950px){ .timeline{ grid-template-columns:1fr 1fr; } }
+    @media (max-width:520px){ .timeline{ grid-template-columns:1fr; } }
+    .t-item{
+      border:1px solid rgba(29,39,64,.85);
+      background:rgba(15,26,48,.65);
+      border-radius:16px;
+      padding:14px;
+    }
+    .t-item .yr{ color:#b9ccf5; font-weight:800; }
+    .t-item .ttl{ margin-top:6px; font-weight:800; color:#e2eeff; }
+    .t-item .desc{ margin-top:6px; color:#d6e2ff; line-height:1.6; }
+
+    /* Banner (dynamic module banner) */
+    .banner{
+      border:1px solid var(--border);
+      border-left:5px solid var(--accent);
+      padding:14px 18px;
+      margin:14px 0;
+      border-radius:16px;
+      background:linear-gradient(180deg, rgba(21,33,58,.65), rgba(14,22,39,.75));
+      box-shadow:0 10px 28px var(--shadow);
+    }
+    .banner h3{ margin:.2rem 0 .4rem 0; color:#d9e7ff; }
+    .banner p{ margin:.2rem 0; }
+    .banner.upcoming{ border-left-color:var(--upc-border); }
+    .banner.ongoing{
+      border-left-color:var(--ongo-border);
+      box-shadow:0 0 14px rgba(78,161,255,0.35), 0 10px 28px rgba(0,0,0,.25);
+      transition:box-shadow .25s ease;
+    }
+    .banner.ongoing:hover{ box-shadow:0 0 20px rgba(78,161,255,0.55), 0 12px 34px rgba(0,0,0,.32); }
+    .banner.completed{ border-left-color:var(--comp-border); }
+    .dates{ font-size:.92rem; color:var(--muted); }
+
+    .status-chip{
+      display:inline-flex; align-items:center; gap:.45rem;
+      font-size:.9rem; font-weight:700;
+      padding:.25rem .6rem; border-radius:999px;
+      border:1px solid var(--border);
+      color:var(--chip); background:rgba(15,26,48,.75);
+      margin-left:.4rem;
+    }
+
+    /* Module list */
+    .modules{ list-style:none; padding-left:0; margin:0; }
+    .module{
+      display:flex; flex-wrap:wrap; gap:.6rem;
+      align-items:center; justify-content:space-between;
+      padding:12px 8px;
+      border-bottom:1px dashed #203257;
+      transition:transform .15s ease;
+    }
+    .module:last-child{border-bottom:none}
+    .module:hover{transform:translateX(3px)}
+    .module-title{font-weight:800; color:#dfeafe}
     .module-left{display:flex; flex-direction:column; gap:.25rem; min-width:250px}
     .module-right{display:flex; align-items:center; gap:.5rem}
-    @media (max-width:600px){.module{align-items:flex-start}.module-right{margin-top:.25rem}}
+    @media (max-width:600px){ .module{align-items:flex-start}.module-right{margin-top:.25rem} }
 
-    footer{color:#9fb2d8; text-align:center; padding:20px 0 34px}
+    /* Footer */
+    footer{
+      color:#9fb2d8;
+      text-align:center;
+      padding:22px 0 34px;
+    }
 
     /* Back-to-Top */
-    #backToTop {
+    #backToTop{
       display:none; position:fixed; bottom:24px; right:24px; z-index:99;
       background:var(--accent); color:#fff;
       border:none; border-radius:50%;
-      padding:12px 16px; cursor:pointer; font-size:16px;
-      box-shadow:0 4px 8px var(--shadow);
+      width:44px; height:44px;
+      cursor:pointer; font-size:18px;
+      box-shadow:0 8px 18px rgba(0,0,0,.35);
     }
-    #backToTop:hover { filter:brightness(1.05); }
+    #backToTop:hover{ filter:brightness(1.05); }
 
-    /* Accessibility + reduced motion */
-    a:focus-visible, button:focus-visible {
-      outline:3px solid #4ea1ff;
-      outline-offset:2px;
-      border-radius:6px;
+    /* Small helpers */
+    .divider{ height:1px; background:rgba(29,39,64,.8); margin:12px 0; border-radius:99px; }
+    .kpi{
+      display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;
     }
-    @media (prefers-reduced-motion: reduce) {
-      * { animation:none !important; transition:none !important; }
-      .banner.ongoing:hover { box-shadow:0 0 12px rgba(78,161,255,0.4), 0 4px 20px rgba(0,0,0,0.25); }
+    .kpi .pill{
+      padding:10px 12px;
+      border:1px solid rgba(29,39,64,.85);
+      border-radius:16px;
+      background:rgba(15,26,48,.65);
+      min-width:180px;
+      flex: 1 1 180px;
     }
-
-    /* Visually hidden for accessibility */
-    .sr-only {
-      position:absolute !important;
-      width:1px; height:1px; padding:0; margin:-1px;
-      overflow:hidden; clip:rect(0,0,0,0);
-      white-space:nowrap; border:0;
-    }
-    .sr-only-focusable:focus {
-      position: static !important;
-      width: auto; height: auto;
-      margin:8px; padding:8px 10px;
-      background:#0f1a30; color:#fff;
-      border:1px solid var(--border);
-      border-radius:8px;
-      box-shadow:0 2px 6px var(--shadow);
-    }
+    .kpi .pill .big{ font-size:1.05rem; font-weight:900; }
+    .kpi .pill .small{ color:var(--muted); margin-top:4px; font-size:.92rem; }
   </style>
 </head>
 
 <body>
   <a href="#main" class="sr-only sr-only-focusable">Skip to content</a>
 
-  <div class="hero" role="img" aria-label="Pragadheesh Marimuthu">
-    <h1 class="sr-only">Pragadheesh Marimuthu — Cybersecurity ePortfolio</h1>
-  </div>
+  <header class="topbar" role="banner">
+    <div class="topbar-inner">
+      <div class="brand" aria-label="Site identity">
+        <div class="name">Pragadheesh Marimuthu</div>
+        <div class="tag">MSc Cybersecurity (2025–Present) • Pune, India</div>
+      </div>
 
-  <!-- Dynamic banner -->
-  <div id="moduleBanner" class="banner upcoming" aria-live="polite">
-    <h3>Current Module <span id="statusChip" class="status-chip">Loading…</span></h3>
-    <p><strong id="bannerTitle">Loading…</strong></p>
-    <p id="bannerDates" class="dates"></p>
-    <p>👉 <a id="bannerLink" href="#">View e-Portfolio Progress</a></p>
-  </div>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#journey">Journey</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#certs">Certifications</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#academic">Academic</a></li>
+          <li><a class="nav-cta" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Hero section">
+    <div class="hero-inner">
+      <div>
+        <h1>Cybersecurity Portfolio</h1>
+        <p>
+          I’m <strong>Pragadheesh Marimuthu</strong>, a cybersecurity postgraduate building structured skills across
+          secure architecture, risk management, and defensive security. This site combines my professional journey,
+          certifications and tool exposure, projects, and academic module artefacts.
+        </p>
+
+        <div class="hero-actions" role="group" aria-label="Primary actions">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="#academic">View Academic Portfolio</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="kpi" aria-label="Quick profile highlights">
+        <div class="pill">
+          <div class="big">MSc Cybersecurity</div>
+          <div class="small">University of Essex Online (2025–Present)</div>
+        </div>
+        <div class="pill">
+          <div class="big">BCA</div>
+          <div class="small">Lovely Professional University (2016–2021)</div>
+        </div>
+        <div class="pill">
+          <div class="big">CEH v10</div>
+          <div class="small">Earned 2021 (not currently active)</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <main id="main" class="container" role="main">
-    <div class="section" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-      <p style="margin:0"><strong>MSc Cybersecurity | University of Essex Online</strong></p>
-      <span class="status-chip" title="Completed Module">Completed Module: Secure Systems Architecture (Oct 2025)</span>
-    </div>
 
-    <div class="section">
-      <h2>About Me</h2>
-      <p>My name is <strong>Pragadheesh Marimuthu</strong>, and I’m pursuing an MSc in Cybersecurity at the University of Essex Online. I completed my undergraduate degree in Computer Applications in India, then spent about three years working in multiple MNCs in operations and support roles. Most of that work involved customer support across different services, with limited hands-on technical scope.</p>
-      <p>Over time I became more drawn to cybersecurity. I’ve always enjoyed learning about networking protocols and troubleshooting systems, and I previously completed the CEHv10 certification (now expired), which gave me my first structured introduction to ethical hacking and security concepts.</p>
-      <p>After three years in industry I took a break to upskill and focus on building a career in cybersecurity. This ePortfolio documents that journey. It brings together what I’m learning across modules, including risk management, secure software development, and network security, and shows how I’m developing the skills needed to become a cybersecurity professional.</p>
-    </div>
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h2>About</h2>
+      <div class="grid-2">
+        <div>
+          <p>
+            My name is <strong>Pragadheesh Marimuthu</strong>. I’m originally from Tamil Nadu, India, and currently based in
+            <strong>Pune, India</strong>. I’m pursuing an <strong>MSc in Cybersecurity</strong> at the University of Essex Online
+            (started January 2025).
+          </p>
+          <p>
+            My early career included customer operations and support roles across UK and US markets, where I built strong habits
+            around troubleshooting, SLA-driven communication, and handling sensitive customer contexts. I later shifted toward
+            more technical support exposure and dedicated time to upskilling toward cybersecurity.
+          </p>
+        </div>
+        <div>
+          <p class="muted"><strong>What you’ll find here</strong></p>
+          <div class="chips" aria-label="Site contents">
+            <span class="chip">Professional Journey</span>
+            <span class="chip">Skills & Tool Exposure</span>
+            <span class="chip">Certifications</span>
+            <span class="chip">Projects & Write-ups</span>
+            <span class="chip">Academic Portfolio (Modules)</span>
+          </div>
 
-    <div class="section">
-      <h2>ePortfolio</h2>
-      <p>This website showcases my work, assessments, and learning journey across modules:</p>
-      <ul id="moduleList" class="modules"></ul>
-    </div>
+          <div class="divider"></div>
 
-    <div class="section">
+          <p class="muted"><strong>Why Cybersecurity</strong></p>
+          <p>
+            Since secondary school, I’ve been curious about how computers and networks work beneath the surface—how systems communicate,
+            where weaknesses can exist, and how threats spread. That curiosity grew into a sustained interest in security concepts such as
+            network defence, malware behaviour, and attack techniques. Today, my MSc helps translate that early interest into structured,
+            risk-aware, and professionally grounded cybersecurity knowledge.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY / TIMELINE -->
+    <section id="journey" class="section">
+      <h2>Professional Journey</h2>
+      <p class="muted">A simplified timeline (year-based) to keep the focus on growth and capability.</p>
+
+      <div class="timeline" role="list">
+        <div class="t-item" role="listitem">
+          <div class="yr">2016 – 2021</div>
+          <div class="ttl">BCA • Computing Foundation</div>
+          <div class="desc">
+            Built fundamentals in computing and software concepts. Final academic cycle extended due to COVID-era exam scheduling adjustments.
+          </div>
+        </div>
+        <div class="t-item" role="listitem">
+          <div class="yr">2021 – 2022</div>
+          <div class="ttl">Customer Operations • Global Enterprises</div>
+          <div class="desc">
+            Chat-based support across UK/US services. Strengthened structured communication, KPI discipline, and systematic troubleshooting.
+          </div>
+        </div>
+        <div class="t-item" role="listitem">
+          <div class="yr">2022 – 2024</div>
+          <div class="ttl">Technical Support • Startup Environment</div>
+          <div class="desc">
+            Supported technical issue resolution and learned how support processes operate inside a smaller, fast-moving team.
+          </div>
+        </div>
+        <div class="t-item" role="listitem">
+          <div class="yr">2025 – Present</div>
+          <div class="ttl">MSc Cybersecurity • University of Essex Online</div>
+          <div class="desc">
+            Developing depth in security architecture, risk management, threat modelling, and resilient design with academic artefacts.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <p class="muted">A practical mix of cybersecurity foundations, tooling exposure, and professional strengths.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Security Domains</h3>
+          <div class="chips">
+            <span class="chip">Threat Modelling</span>
+            <span class="chip">Risk Management</span>
+            <span class="chip">Secure Architecture</span>
+            <span class="chip">Network Security</span>
+            <span class="chip">Secure Development</span>
+            <span class="chip">BC/DR Concepts</span>
+          </div>
+          <div class="meta">Aligned with MSc modules and portfolio artefacts.</div>
+        </div>
+
+        <div class="card">
+          <h3>Professional Strengths</h3>
+          <div class="chips">
+            <span class="chip">Troubleshooting</span>
+            <span class="chip">Incident-style Triage</span>
+            <span class="chip">KPI / SLA Discipline</span>
+            <span class="chip">Customer Communication</span>
+            <span class="chip">Documentation</span>
+            <span class="chip">Continuous Learning</span>
+          </div>
+          <div class="meta">Built through support environments and academic delivery.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certs" class="section">
+      <h2>Certifications & Training</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Certified Ethical Hacker (CEH v10)</h3>
+          <p>
+            Earned in 2021. Introduced structured ethical hacking concepts across reconnaissance, vulnerability analysis,
+            web security basics, and common security tooling.
+          </p>
+          <p class="muted"><strong>Status:</strong> Not currently active (focus shifted toward postgraduate specialization and long-term academic depth).</p>
+        </div>
+
+        <div class="card">
+          <h3>CEH v10 Training Completion</h3>
+          <p>
+            Koenig Solutions: CEH v10 training completion certificate. Reinforced methodologies and lab-driven exposure.
+          </p>
+          <p class="muted"><strong>Focus:</strong> scanning, enumeration, web testing basics, and structured attack workflows.</p>
+        </div>
+
+        <div class="card">
+          <h3>Additional Learning</h3>
+          <p>
+            CodeRed completion certificates: CCPA, Android Security, Internet Security.
+            Udemy: Python for Penetration Testers (completion).
+          </p>
+          <p class="muted"><strong>Purpose:</strong> targeted learning + practical reinforcement.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <h3 style="margin:0 0 .35rem; color:#e2eeff;">Security Tool Exposure (from CEH + labs)</h3>
+      <p class="muted" style="margin-top:0">Tool exposure is presented as experience areas, not as “expert-level” claims.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Network & Recon</h3>
+          <div class="chips">
+            <span class="chip">Nmap</span>
+            <span class="chip">Wireshark</span>
+            <span class="chip">Netcat</span>
+            <span class="chip">WHOIS / DNS Tools</span>
+            <span class="chip">Maltego</span>
+            <span class="chip">Recon-ng</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Web / Password / Frameworks</h3>
+          <div class="chips">
+            <span class="chip">Burp Suite</span>
+            <span class="chip">OWASP ZAP</span>
+            <span class="chip">SQLmap</span>
+            <span class="chip">Metasploit</span>
+            <span class="chip">Hydra</span>
+            <span class="chip">John the Ripper</span>
+            <span class="chip">Aircrack-ng</span>
+            <span class="chip">Kali Linux</span>
+            <span class="chip">Python (automation basics)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <p class="muted">
+        Add your strongest case studies here. Keep them practical (problem → approach → output → what it demonstrates).
+        For now, these are placeholders you can replace with real links.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Threat Model / Risk Assessment</h3>
+          <p>Academic or personal case study: identify assets, threats, mitigations, and residual risk.</p>
+          <p class="meta">Link: <a href="#" aria-disabled="true">Add repo / page</a></p>
+        </div>
+        <div class="card">
+          <h3>Secure Architecture Write-up</h3>
+          <p>Architecture diagram + controls rationale + security trade-offs.</p>
+          <p class="meta">Link: <a href="#" aria-disabled="true">Add repo / page</a></p>
+        </div>
+        <div class="card">
+          <h3>Python Security Automation</h3>
+          <p>Small scripts for recon / log parsing / workflow automation (documented and safe).</p>
+          <p class="meta">Link: <a href="#" aria-disabled="true">Add repo / page</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACADEMIC -->
+    <section id="academic" class="section">
+      <h2>Academic Portfolio (Modules)</h2>
+      <p>
+        This section hosts my MSc module artefacts, reflections, and assessments (University of Essex Online).
+        Each module page documents learning outcomes and evidence of work completed.
+      </p>
+
+      <!-- Dynamic banner (kept from your original) -->
+      <div id="moduleBanner" class="banner upcoming" aria-live="polite">
+        <h3>Current Module <span id="statusChip" class="status-chip">Loading…</span></h3>
+        <p><strong id="bannerTitle">Loading…</strong></p>
+        <p id="bannerDates" class="dates"></p>
+        <p>👉 <a id="bannerLink" href="#">Open module portfolio</a></p>
+      </div>
+
+      <ul id="moduleList" class="modules" aria-label="Module list"></ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:pragadmms@gmail.com">pragadmms@gmail.com</a></p>
-      <p>GitHub: <a href="https://pragfolio.github.io" target="_blank" rel="noopener">View my GitHub</a></p>
-    </div>
+      <p>
+        Email: <a href="mailto:pragadmms@gmail.com">pragadmms@gmail.com</a>
+      </p>
+      <p>
+        GitHub: <a href="https://pragfolio.github.io" target="_blank" rel="noopener">pragfolio.github.io</a>
+      </p>
+      <p class="muted">
+        Preferred: email for collaboration, internship opportunities, or academic discussions.
+      </p>
+    </section>
+
   </main>
 
   <footer>
-    © 2025 Pragadheesh Marimuthu • Cybersecurity ePortfolio
+    © <span id="yearNow"></span> Pragadheesh Marimuthu • Cybersecurity Portfolio
   </footer>
 
-  <!-- Back-to-Top -->
-  <button id="backToTop" title="Back to Top">↑</button>
+  <button id="backToTop" title="Back to Top" aria-label="Back to Top">↑</button>
 
   <script>
-const modules = [
-  { title: "Launching into Cybersecurity (Jan 2025)", link: "launching-into-cybersecurity.html", start: "2025-01-06", end: "2025-02-23" },
-  { title: "Network Security (Apr 2025)", link: "network-security.html", start: "2025-04-01", end: "2025-05-19" },
-  { title: "Secure Software Development (Jun 2025)", link: "secure-software-development.html", start: "2025-06-01", end: "2025-07-20" },
-  { title: "Security & Risk Management (Jul 2025 B)", link: "security-risk-management.html", start: "2025-07-29", end: "2025-10-20" },
-  { title: "Secure Systems Architecture (Oct 2025)", link: "secure-systems-architecture.html", start: "2025-10-21", end: "2025-12-01" }
-];
+    // ======= Academic modules (keep your engine, just moved under #academic) =======
+    const modules = [
+      { title: "Launching into Cybersecurity (Jan 2025)", link: "launching-into-cybersecurity.html", start: "2025-01-06", end: "2025-02-23" },
+      { title: "Network Security (Apr 2025)", link: "network-security.html", start: "2025-04-01", end: "2025-05-19" },
+      { title: "Secure Software Development (Jun 2025)", link: "secure-software-development.html", start: "2025-06-01", end: "2025-07-20" },
+      { title: "Security & Risk Management (Jul 2025 B)", link: "security-risk-management.html", start: "2025-07-29", end: "2025-10-20" },
+      { title: "Secure Systems Architecture (Oct 2025)", link: "secure-systems-architecture.html", start: "2025-10-21", end: "2025-12-01" }
+      // Add your next modules here when ready
+    ];
 
     const today = new Date();
     const parse = s => new Date(s + "T00:00:00");
     const fmt = d => d.toLocaleDateString(undefined, { year:'numeric', month:'short', day:'numeric' });
+
     const statusFor = mod => {
       const s = parse(mod.start), e = parse(mod.end);
       if (today < s) return "upcoming";
@@ -247,33 +671,43 @@ const modules = [
       return "ongoing";
     };
 
+    // Render list
     const list = document.getElementById("moduleList");
-    modules.forEach(m => {
-      const li = document.createElement("li");
-      li.className = "module";
-      const left = document.createElement("div");
-      left.className = "module-left";
-      const title = document.createElement("a");
-      title.className = "module-title";
-      title.href = m.link; title.rel = "noopener";
-      title.textContent = m.title;
-      const dates = document.createElement("span");
-      dates.className = "dates";
-      dates.textContent = `${fmt(parse(m.start))} – ${fmt(parse(m.end))}`;
-      left.append(title, dates);
+    if (list) {
+      modules.forEach(m => {
+        const li = document.createElement("li");
+        li.className = "module";
 
-      const right = document.createElement("div");
-      right.className = "module-right";
-      const chip = document.createElement("span");
-      const st = statusFor(m);
-      chip.className = `chip ${st}`;
-      chip.textContent = st === "ongoing" ? "Ongoing" : st === "completed" ? "Completed" : "Upcoming";
-      right.appendChild(chip);
+        const left = document.createElement("div");
+        left.className = "module-left";
 
-      li.append(left, right);
-      list.appendChild(li);
-    });
+        const title = document.createElement("a");
+        title.className = "module-title";
+        title.href = m.link;
+        title.rel = "noopener";
+        title.textContent = m.title;
 
+        const dates = document.createElement("span");
+        dates.className = "dates";
+        dates.textContent = `${fmt(parse(m.start))} – ${fmt(parse(m.end))}`;
+
+        left.append(title, dates);
+
+        const right = document.createElement("div");
+        right.className = "module-right";
+
+        const chip = document.createElement("span");
+        const st = statusFor(m);
+        chip.className = `chip ${st}`;
+        chip.textContent = st === "ongoing" ? "Ongoing" : st === "completed" ? "Completed" : "Upcoming";
+
+        right.appendChild(chip);
+        li.append(left, right);
+        list.appendChild(li);
+      });
+    }
+
+    // Banner selection
     const ongoing = modules.filter(m => statusFor(m) === "ongoing");
     const upcoming = modules.filter(m => statusFor(m) === "upcoming").sort((a,b)=>parse(a.start)-parse(b.start));
     const completed = modules.filter(m => statusFor(m) === "completed").sort((a,b)=>parse(b.end)-parse(a.end));
@@ -293,6 +727,7 @@ const modules = [
 
       bannerEl.classList.remove("ongoing","completed","upcoming");
       bannerEl.classList.add(cls);
+
       bTitle.textContent = chosen.title;
       bDates.textContent = (chosen.start && chosen.end) ? `${fmt(parse(chosen.start))} – ${fmt(parse(chosen.end))}` : "";
       bLink.href = chosen.link || "#";
@@ -302,9 +737,16 @@ const modules = [
     // Back-to-Top
     const backToTopBtn = document.getElementById("backToTop");
     window.addEventListener("scroll", () => {
+      if (!backToTopBtn) return;
       backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
     });
-    backToTopBtn.addEventListener("click", () => window.scrollTo({ top:0, behavior:"smooth" }));
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener("click", () => window.scrollTo({ top:0, behavior:"smooth" }));
+    }
+
+    // Footer year
+    const yearNow = document.getElementById("yearNow");
+    if (yearNow) yearNow.textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
