@@ -1,1 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Option B - Enhanced Layout -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Human Factor - ePortfolio (Units 1–6)</title>
 
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1120;
+      --card: #020617;
+      --border-subtle: rgba(148, 163, 184, 0.3);
+      --accent: #22d3ee;
+      --accent-soft: rgba(56, 189, 248, 0.1);
+      --accent-strong: #06b6d4;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.85);
+      --shadow-subtle: 0 10px 30px rgba(15, 23, 42, 0.7);
+      --nav-height: 72px;
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 40%, #020617 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .page-shell {
+      min-height: 100vh;
+      color: var(--text-main);
+    }
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.85),
+        transparent 100%
+      );
+      border-bottom: 1px solid rgba(30, 64, 175, 0.5);
+    }
+
+    .top-nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: 1px solid rgba(94, 234, 212, 0.6);
+      background:
+        radial-gradient(circle at 20% 20%, #e0f2fe 0, transparent 55%),
+        radial-gradient(circle at 80% 80%, #22d3ee 0, transparent 60%),
+        #020617;
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.9),
+        0 0 25px rgba(56, 189, 248, 0.65);
+    }
+
+    .brand-text-main {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .brand-text-sub {
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .tag-pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 60%);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .tag-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 99px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 20px 16px 64px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.9fr) minmax(260px, 0.95fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 960px) {
+      main { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .hero-card {
+      border-radius: 28px;
+      padding: 24px 22px 22px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.16), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(94, 234, 212, 0.21), transparent 60%),
+        linear-gradient(to bottom right, #020617, #020617);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 20px;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-size: clamp(24px, 3vw, 30px);
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+      margin: 0 0 6px;
+    }
+
+    .hero-title span { color: var(--accent-strong); }
+
+    .hero-subtitle {
+      margin: 0 0 10px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 10px 0 0;
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .hero-meta-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 99px;
+      background: rgba(148, 163, 184, 0.8);
+    }
+
+    .hero-orbit {
+      position: absolute;
+      inset: -40%;
+      opacity: 0.5;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(56, 189, 248, 0.3), transparent 55%),
+        radial-gradient(circle at 100% 40%, rgba(59, 130, 246, 0.25), transparent 60%),
+        radial-gradient(circle at 20% 100%, rgba(45, 212, 191, 0.25), transparent 55%);
+      mix-blend-mode: screen;
+    }
+
+    .hero-fg-ring {
+      position: absolute;
+      right: -40px;
+      top: -30px;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.95),
+        0 0 90px rgba(34, 211, 238, 0.75);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .hero-fg-ring::before {
+      content: "";
+      position: absolute;
+      inset: 18%;
+      border-radius: inherit;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      box-shadow: 0 0 40px rgba(59, 130, 246, 0.65);
+    }
+
+    .hero-fg-ring::after {
+      content: "";
+      position: absolute;
+      inset: 39%;
+      border-radius: inherit;
+      background: radial-gradient(circle, rgba(15, 23, 42, 0.9), transparent 70%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .quick-nav {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9));
+      box-shadow: var(--shadow-subtle);
+      padding: 8px 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .quick-nav-label {
+      padding: 4px 10px;
+      color: var(--text-soft);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .quick-link {
+      border-radius: 999px;
+      padding: 6px 10px;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .quick-link:hover {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(148, 163, 184, 0.6);
+      text-decoration: none;
+    }
+
+    .quick-link-primary {
+      background: radial-gradient(circle at top left, rgba(34, 211, 238, 0.18), rgba(15, 23, 42, 0.95));
+      border-color: rgba(56, 189, 248, 0.7);
+      color: var(--accent-strong);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.95),
+        0 0 24px rgba(56, 189, 248, 0.75);
+    }
+
+    .quick-link-home {
+      border: 1px solid var(--accent);
+      background: rgba(78,161,255,0.12);
+      font-weight: 600;
+    }
+
+    .quick-link-home:hover {
+      background: rgba(78,161,255,0.18);
+      transform: translateX(3px);
+    }
+
+    section { margin-bottom: 26px; }
+
+    .section-heading {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .section-kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at top left, rgba(30, 64, 175, 0.28), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(8, 47, 73, 0.75), #020617);
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-subtle);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.65), transparent 55%);
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.95);
+      white-space: nowrap;
+    }
+
+    .pill-soft { background: rgba(15, 23, 42, 0.8); }
+
+    .pill-accent {
+      border-color: rgba(45, 212, 191, 0.75);
+      color: var(--accent-strong);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), rgba(15, 23, 42, 0.98));
+      box-shadow: 0 0 24px rgba(34, 211, 238, 0.7);
+    }
+
+    .unit-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    .unit-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .unit-meta-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 99px;
+      background: rgba(148, 163, 184, 0.8);
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .card-body p { margin: 0 0 6px; }
+
+    .card-body ul {
+      margin: 6px 0 4px 18px;
+      padding: 0;
+      list-style: disc;
+    }
+
+    .card-body li { margin-bottom: 3px; }
+
+    .subheading {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-soft);
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    .assessment-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.3), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.98));
+      padding: 18px 16px 16px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .assessment-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(15, 23, 42, 0.7), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .assessment-header {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .assessment-title {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .assessment-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    .assessment-meta {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .assessment-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .assessment-body {
+      position: relative;
+      z-index: 1;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 7px 13px;
+      font-size: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.98);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      background: rgba(15, 23, 42, 0.94);
+      border-color: rgba(226, 232, 240, 0.9);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      border-color: rgba(56, 189, 248, 0.9);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0.98));
+      color: var(--accent-strong);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.95),
+        0 0 26px rgba(56, 189, 248, 0.75);
+      font-weight: 600;
+    }
+
+    .btn-secondary { color: var(--text-muted); }
+
+    .btn-icon {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .sidebar-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background:
+        radial-gradient(circle at top, rgba(30, 64, 175, 0.5), transparent 60%),
+        radial-gradient(circle at bottom, rgba(15, 23, 42, 0.92), #020617);
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 16px;
+      position: sticky;
+      top: calc(var(--nav-height) + 14px);
+    }
+
+    @media (max-width: 960px) {
+      .sidebar-card { position: static; }
+    }
+
+    .sidebar-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    .sidebar-body {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .sidebar-body p { margin: 0 0 6px; }
+
+    .sidebar-list {
+      margin: 0;
+      padding-left: 16px;
+    }
+
+    .sidebar-list li { margin-bottom: 4px; }
+
+    .mini-metadata {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-soft);
+      margin-top: 10px;
+    }
+
+    .footer-note {
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-top: 12px;
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
+      padding-top: 8px;
+    }
+
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      padding: 10px 14px;
+      font-size: 20px;
+      border: none;
+      border-radius: 8px;
+      background: #111827;
+      color: white;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+
+    #scrollTopBtn:hover { background: #1f2937; }
+  </style>
+</head>
+
+<body>
+<div class="page-shell">
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <div class="brand">
+        <div class="brand-logo"></div>
+        <div>
+          <div class="brand-text-main">The Human Factor</div>
+          <div class="brand-text-sub">MSc Cyber Security - University of Essex Online</div>
+        </div>
+      </div>
+
+      <div class="tag-pill">
+        <span class="tag-pill-dot"></span>
+        <span>Units 1 - 6 ePortfolio</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div>
+      <section id="overview">
+        <div class="hero-card">
+          <div class="hero-orbit"></div>
+          <div class="hero-fg-ring"></div>
+          <div class="hero-content">
+            <div class="hero-badge-row">
+              <span class="pill-soft pill">Module: The Human Factor</span>
+              <span class="pill-soft pill">Cohort: Jan 2026</span>
+            </div>
+
+            <h1 class="hero-title">
+              The Human Factor <span>ePortfolio</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              Curated learning journal for Units 1 to 6, exploring human behaviour, usable security,
+              privacy by design, organisational culture, ethics, and risk communication within cyber security.
+            </p>
+
+            <div class="hero-meta-row">
+              <span><span class="hero-meta-dot"></span> Student: Pragadheesh Marimuthu</span>
+              <span><span class="hero-meta-dot"></span> Assessments: Individual Essay, Peer Review, Individual Presentation</span>
+              <span><span class="hero-meta-dot"></span> Theme: Socio-technical cyber security</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="quick-nav">
+          <a href="index.html" class="quick-link quick-link-home">
+            <span>🏠 Home</span>
+          </a>
+
+          <div class="quick-nav-label">Jump to</div>
+
+          <a href="#units" class="quick-link quick-link-primary"><span>Units 1 - 6</span></a>
+          <a href="#unit-1" class="quick-link"><span>Unit 1</span></a>
+          <a href="#unit-2" class="quick-link"><span>Unit 2</span></a>
+          <a href="#unit-3" class="quick-link"><span>Unit 3</span></a>
+          <a href="#unit-4" class="quick-link"><span>Unit 4</span></a>
+          <a href="#unit-5" class="quick-link"><span>Unit 5</span></a>
+          <a href="#unit-6" class="quick-link"><span>Unit 6</span></a>
+          <a href="#assessments" class="quick-link"><span>Assessments</span></a>
+          <a href="#reflection" class="quick-link"><span>Reflection</span></a>
+        </div>
+      </section>
+
+      <section id="units">
+        <div class="section-heading">
+          <h2 class="section-title">Units 1 - 6</h2>
+          <span class="section-kicker">Learning snapshots and artefacts</span>
+        </div>
+
+        <section id="unit-1">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-header-row">
+                <h3 class="card-title">Unit 1: Human Factors and Cyber Security</h3>
+                <span class="pill-soft pill">Foundations</span>
+              </div>
+
+              <div class="unit-meta">
+                <span><span class="unit-meta-dot"></span> Focus: Human behaviour, breach causes, insider threats</span>
+                <span><span class="unit-meta-dot"></span> Mode: Lecturecast + reading + case study</span>
+              </div>
+
+              <div class="card-body">
+                <p>
+                  Unit 1 introduced the wider role of human factors in cyber security. It positioned human behaviour
+                  as a major determinant of success or failure in information systems, especially as organisations
+                  increasingly rely on connected systems, cloud platforms, and IoT technologies.
+                </p>
+                <p>
+                  The unit examined how security failures are not always caused by technical weakness alone.
+                  Human limitations, social engineering, poor awareness, insider threats, accidental insider
+                  behaviour, and organisational pressures can all increase cyber risk.
+                </p>
+
+                <div class="subheading">Key takeaways</div>
+                <ul>
+                  <li>Humans are often described as the “weakest link”, but this must be understood in context rather than as simple blame.</li>
+                  <li>Human capabilities and limitations should influence how security systems are designed.</li>
+                  <li>Insider threats include both malicious insiders and accidental insiders who create risk through mistakes or poor judgement.</li>
+                </ul>
+
+                <div class="subheading">Representative artefacts</div>
+                <ul>
+                  <li>Case study review on social engineering and phishing resilience.</li>
+                  <li>Initial notes on how human behaviour shapes organisational cyber risk.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="unit-2">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-header-row">
+                <h3 class="card-title">Unit 2: Human Behaviour and Security Implications</h3>
+                <span class="pill-soft pill">Behaviour analysis</span>
+              </div>
+
+              <div class="unit-meta">
+                <span><span class="unit-meta-dot"></span> Focus: Human limitations, user groups, behaviour patterns</span>
+                <span><span class="unit-meta-dot"></span> Seminar: Human behaviours and system security</span>
+              </div>
+
+              <div class="card-body">
+                <p>
+                  Unit 2 built on the introductory concepts by analysing how human behaviour, capabilities,
+                  limitations, and user-group patterns affect security. The unit focused on how security solutions
+                  should be designed with realistic user behaviour in mind.
+                </p>
+                <p>
+                  The formative essay outline activity helped prepare the structure for the Unit 3 essay by encouraging
+                  early identification of critical human factors and their implications in a local start-up context.
+                </p>
+
+                <div class="subheading">Key takeaways</div>
+                <ul>
+                  <li>Security design must account for cognitive limits, stress, workload, and user decision-making patterns.</li>
+                  <li>Different user groups may create different kinds of risk depending on role, access level, and behaviour.</li>
+                  <li>Understanding behaviour is necessary before designing usable and effective security controls.</li>
+                </ul>
+
+                <div class="subheading">Representative artefacts</div>
+                <ul>
+                  <li>Essay outline preparation for the Unit 3 individual essay.</li>
+                  <li>Peer discussion and feedback on Unit 1 case study summaries.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="unit-3">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-header-row">
+                <h3 class="card-title">Unit 3: Mental Models and Privacy by Design</h3>
+                <span class="pill-soft pill">Essay assessment</span>
+              </div>
+
+              <div class="unit-meta">
+                <span><span class="unit-meta-dot"></span> Focus: Mental models, privacy by design, accessibility</span>
+                <span><span class="unit-meta-dot"></span> Assessment link: Individual Essay</span>
+              </div>
+
+              <div class="card-body">
+                <p>
+                  Unit 3 introduced mental models, privacy by design, privacy by default, contextual design, and
+                  accessibility within usable security. It showed how users and designers may understand the same
+                  system differently, creating misalignment between system intention and user behaviour.
+                </p>
+                <p>
+                  The individual essay required a critical analysis of three human factors that a local start-up
+                  should consider as part of its IT security strategy. The essay focused on analysis and implications,
+                  not solutions.
+                </p>
+
+                <div class="subheading">Essay focus</div>
+                <ul>
+                  <li>Cognitive overload and decision fatigue.</li>
+                  <li>Misaligned mental models between users and security systems.</li>
+                  <li>Behavioural disengagement in privacy and data practices.</li>
+                </ul>
+
+                <div class="subheading">Key takeaways</div>
+                <ul>
+                  <li>Mental models shape how users interpret system behaviour and security prompts.</li>
+                  <li>Privacy by design and by default reduce reliance on users making repeated complex privacy decisions.</li>
+                  <li>Accessibility is part of usable security because inaccessible controls can create exclusion and risky workarounds.</li>
+                </ul>
+
+                <div class="subheading">Representative artefacts</div>
+                <ul>
+                  <li>Individual Essay: <em>A Critical Analysis of Human Factors Influencing Cyber Security Risk in a Local Start-Up Organisation</em>.</li>
+                  <li>Turnitin submission record and essay posting preparation for peer review.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="unit-4">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-header-row">
+                <h3 class="card-title">Unit 4: Usable Security Design by Default</h3>
+                <span class="pill-soft pill">Peer review</span>
+              </div>
+
+              <div class="unit-meta">
+                <span><span class="unit-meta-dot"></span> Focus: Usable design planning, privacy by default, case study evaluation</span>
+                <span><span class="unit-meta-dot"></span> Assessment link: Peer Review Submission</span>
+              </div>
+
+              <div class="card-body">
+                <p>
+                  Unit 4 focused on planning usable security design projects. It explored how design methods,
+                  privacy by design principles, and contextual design approaches can be applied to practical
+                  security problems.
+                </p>
+                <p>
+                  The peer review assessment required posting the Unit 3 essay for review and providing constructive
+                  feedback on two peer essays. This developed critical evaluation, academic tone, and the ability to
+                  identify strengths, weaknesses, and possible measures in human-factor security analysis.
+                </p>
+
+                <div class="subheading">Peer review themes</div>
+                <ul>
+                  <li>Social engineering susceptibility and cognitive bias.</li>
+                  <li>Unintentional insider threats and security fatigue.</li>
+                  <li>Socio-technical framing of security risks in start-up environments.</li>
+                  <li>Need for constructive, specific, and academically grounded feedback.</li>
+                </ul>
+
+                <div class="subheading">Representative artefacts</div>
+                <ul>
+                  <li>Essay forum post with Turnitin ID.</li>
+                  <li>Peer Review Submission containing Review 1 and Review 2.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="unit-5">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-header-row">
+                <h3 class="card-title">Unit 5: Ethics and Organisational Issues</h3>
+                <span class="pill-soft pill">Security culture</span>
+              </div>
+
+              <div class="unit-meta">
+                <span><span class="unit-meta-dot"></span> Focus: Organisational culture, ethics, legal requirements, GenAI</span>
+                <span><span class="unit-meta-dot"></span> Activity: Presentation outline</span>
+              </div>
+
+              <div class="card-body">
+                <p>
+                  Unit 5 moved from individual users to organisational and ethical issues. It examined how culture,
+                  leadership, behavioural models, mental models, legal requirements, and ethical considerations
+                  influence usable security design.
+                </p>
+                <p>
+                  The unit also considered emerging issues, including how the adoption of generative AI affects
+                  organisational procedures and cyber security expectations. The presentation outline activity
+                  prepared the structure for the final assessment.
+                </p>
+
+                <div class="subheading">Key themes</div>
+                <ul>
+                  <li>Positive security culture depends on organisational norms, leadership behaviour, and reinforcement.</li>
+                  <li>Mental models can be used as risk communication tools to explain security issues more clearly.</li>
+                  <li>Ethical security design must balance protection with autonomy, transparency, and proportionality.</li>
+                  <li>Generative AI introduces new challenges around procedure, accountability, user behaviour, and trust.</li>
+                </ul>
+
+                <div class="subheading">Representative artefacts</div>
+                <ul>
+                  <li>Individual Presentation Outline: <em>Designing Usable and Ethical Security Strategies for a Local Start-Up</em>.</li>
+                  <li>Notes on security culture, ethical monitoring, and privacy-aware design.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="unit-6">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-header-row">
+                <h3 class="card-title">Unit 6: Behaviour Analysis for Positive Security and Risk Communication</h3>
+                <span class="pill-soft pill">Final presentation</span>
+              </div>
+
+              <div class="unit-meta">
+                <span><span class="unit-meta-dot"></span> Focus: Behavioural models, metaphors, risk communication</span>
+                <span><span class="unit-meta-dot"></span> Assessment link: Individual Presentation</span>
+              </div>
+
+              <div class="card-body">
+                <p>
+                  Unit 6 focused on using behavioural models, mental models, and metaphors to develop effective
+                  cyber security risk communication strategies. It connected the earlier human-factor analysis
+                  with practical strategies for improving organisational security culture.
+                </p>
+                <p>
+                  The final assessment required a 10-minute recorded presentation with transcript. The presentation
+                  developed solutions to the human-factor issues identified in the Unit 3 essay, including social
+                  and ethical considerations.
+                </p>
+
+                <div class="subheading">Presentation strategy</div>
+                <ul>
+                  <li>Reduce cognitive overload through security-by-default configuration and alert prioritisation.</li>
+                  <li>Align user mental models through contextual onboarding and clearer security prompts.</li>
+                  <li>Re-engage privacy practices through privacy-by-design, data minimisation, and meaningful consent.</li>
+                  <li>Build sustainable security culture through leadership, social reinforcement, nudging, and ethical governance.</li>
+                </ul>
+
+                <div class="subheading">Representative artefacts</div>
+                <ul>
+                  <li>Final PowerPoint presentation.</li>
+                  <li>Transcript and citations supporting the oral presentation.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section id="assessments">
+        <div class="section-heading">
+          <h2 class="section-title">Assessments</h2>
+          <span class="section-kicker">Essay, peer review, presentation</span>
+        </div>
+
+        <section id="assessment-1">
+          <article class="assessment-card">
+            <div class="assessment-header">
+              <div class="assessment-title">Assessment 1 - Individual Essay</div>
+              <div class="assessment-badges">
+                <span class="pill-accent pill">40%</span>
+                <span class="pill-soft pill">Critical analysis</span>
+              </div>
+            </div>
+
+            <div class="assessment-meta">
+              <span><span class="unit-meta-dot"></span> Unit 3</span>
+              <span><span class="unit-meta-dot"></span> 800 words</span>
+              <span><span class="unit-meta-dot"></span> Topic: Human factors in a local start-up</span>
+            </div>
+
+            <div class="assessment-body">
+              <p>
+                The essay critically analysed three human factors that influence cyber security risk in a local
+                start-up organisation: cognitive overload and decision fatigue, misaligned mental models between
+                users and security systems, and behavioural disengagement in privacy and data practices.
+              </p>
+
+              <div class="subheading">Submitted artefact</div>
+              <ul>
+                <li><strong>Individual Essay</strong> – critical analysis of human factors as strategic risk drivers in a socio-technical start-up environment.</li>
+              </ul>
+
+              <div class="button-row">
+                <a class="btn btn-primary" href="Individual Essay_Pragadheesh_Marimuthu.pdf" target="_blank" rel="noopener">
+                  <span class="btn-icon">📄</span>
+                  <span>View essay (PDF)</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section id="assessment-2">
+          <article class="assessment-card">
+            <div class="assessment-header">
+              <div class="assessment-title">Assessment 2 - Peer Review Submission</div>
+              <div class="assessment-badges">
+                <span class="pill-accent pill">20%</span>
+                <span class="pill-soft pill">Academic feedback</span>
+              </div>
+            </div>
+
+            <div class="assessment-meta">
+              <span><span class="unit-meta-dot"></span> Unit 4</span>
+              <span><span class="unit-meta-dot"></span> Two reviews, 400 words total</span>
+              <span><span class="unit-meta-dot"></span> Assessor Turnitin ID: 2879043988</span>
+            </div>
+
+            <div class="assessment-body">
+              <p>
+                The peer review task required constructive feedback on two peer essays. The reviews focused on
+                social engineering susceptibility, unintentional insider threats, security fatigue, cognitive overload,
+                organisational culture, and socio-technical risk.
+              </p>
+
+              <div class="subheading">Submitted artefact</div>
+              <ul>
+                <li><strong>Peer Review Submission</strong> – two academic reviews with specific, constructive feedback and Harvard-style references.</li>
+              </ul>
+
+              <div class="button-row">
+                <a class="btn btn-primary" href="Peer Review Submission.pdf" target="_blank" rel="noopener">
+                  <span class="btn-icon">📄</span>
+                  <span>View peer review (PDF)</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section id="assessment-3">
+          <article class="assessment-card">
+            <div class="assessment-header">
+              <div class="assessment-title">Assessment 3 - Individual Presentation</div>
+              <div class="assessment-badges">
+                <span class="pill-accent pill">40%</span>
+                <span class="pill-soft pill">Strategy &amp; ethics</span>
+              </div>
+            </div>
+
+            <div class="assessment-meta">
+              <span><span class="unit-meta-dot"></span> Unit 6</span>
+              <span><span class="unit-meta-dot"></span> 10-minute recorded presentation + transcript</span>
+              <span><span class="unit-meta-dot"></span> Topic: Usable and ethical security strategies</span>
+            </div>
+
+            <div class="assessment-body">
+              <p>
+                The final presentation proposed usable and ethical security strategies for a local start-up using
+                a socio-technical approach. It developed solutions to the issues identified in the essay, including
+                cognitive overload, mental model mismatch, privacy disengagement, organisational culture, and
+                ethical governance.
+              </p>
+
+              <div class="subheading">Submitted artefacts</div>
+              <ul>
+                <li><strong>Presentation slides</strong> – visual support for the recorded presentation.</li>
+                <li><strong>Transcript</strong> – oral content with citations and references.</li>
+              </ul>
+
+              <div class="button-row">
+                <a class="btn btn-primary" href="Individual Presentation_Pragadheesh.pdf" target="_blank" rel="noopener">
+                  <span class="btn-icon">📊</span>
+                  <span>View presentation (PDF)</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <section id="reflection">
+        <div class="section-heading">
+          <h2 class="section-title">Module Reflection</h2>
+          <span class="section-kicker">From technical security to socio-technical security</span>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-body">
+              <p>
+                The Human Factor module helped me move beyond a purely technical view of cyber security. Across
+                Units 1 to 6, the module showed that cyber risk often emerges from the interaction between people,
+                technology, organisational pressure, culture, and system design.
+              </p>
+              <p>
+                The most important learning point for me was that users should not simply be blamed as the “weakest
+                link”. In many cases, poor security behaviour is shaped by cognitive overload, unclear system feedback,
+                confusing privacy choices, weak organisational culture, or controls that do not match how people
+                actually work.
+              </p>
+              <p>
+                The assessments created a clear progression. The essay analysed the human factors that create risk;
+                the peer review developed my ability to evaluate other arguments critically; and the final presentation
+                required me to propose realistic, ethical, and usable security strategies for a local start-up context.
+              </p>
+              <p>
+                This module is also relevant to my blue-team and SOC career direction. SOC analysts regularly deal
+                with phishing, insider risk, user behaviour, alert fatigue, access misuse, and suspicious activity.
+                Understanding the human side of security helps me interpret incidents more realistically and avoid
+                treating every alert as a purely technical event.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <aside>
+      <div class="sidebar-card">
+        <div class="sidebar-title">How to use this page</div>
+
+        <div class="sidebar-body">
+          <p>
+            This page summarises my completed work for <strong>The Human Factor</strong> module.
+            It is structured as a compact ePortfolio record of learning, assessments, and reflection.
+          </p>
+
+          <ul class="sidebar-list">
+            <li>Use the <strong>jump links</strong> to move between units and assessments.</li>
+            <li>Each <strong>unit card</strong> summarises the main concepts and representative artefacts.</li>
+            <li>The <strong>assessment cards</strong> link to the submitted essay, peer review, and presentation files.</li>
+          </ul>
+
+          <p class="mini-metadata">
+            Units included:
+            <br />
+            Unit 1 - Human Factors and Cyber Security
+            <br />
+            Unit 2 - Human Behaviour and Security Implications
+            <br />
+            Unit 3 - Mental Models and Privacy by Design
+            <br />
+            Unit 4 - Usable Security Design by Default
+            <br />
+            Unit 5 - Ethics and Organisational Issues
+            <br />
+            Unit 6 - Behaviour Analysis and Risk Communication
+          </p>
+
+          <p class="footer-note">
+            Note: update the file links under each assessment if your uploaded PDF/PPTX filenames differ in GitHub.
+          </p>
+        </div>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<button id="scrollTopBtn" title="Go to top">↑</button>
+
+<script>
+  const scrollBtn = document.getElementById("scrollTopBtn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollBtn.style.opacity = "1";
+      scrollBtn.style.pointerEvents = "auto";
+    } else {
+      scrollBtn.style.opacity = "0";
+      scrollBtn.style.pointerEvents = "none";
+    }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+</body>
+</html>
