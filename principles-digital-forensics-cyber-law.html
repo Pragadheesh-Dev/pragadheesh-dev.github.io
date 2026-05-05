@@ -1,229 +1,957 @@
-<!-- HERO -->
-<section id="overview">
-  <div class="hero-card">
-    <div class="hero-orbit"></div>
-    <div class="hero-fg-ring"></div>
-    <div class="hero-content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Option B - Enhanced Layout -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Principles of Digital Forensics and Cyber Law - ePortfolio</title>
 
-      <div class="hero-badge-row">
-        <span class="pill-soft pill">Module: Principles of Digital Forensics & Cyber Law</span>
-        <span class="pill-soft pill">Cohort: Apr 2026</span>
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1120;
+      --card: #020617;
+      --border-subtle: rgba(148, 163, 184, 0.3);
+      --accent: #22d3ee;
+      --accent-soft: rgba(56, 189, 248, 0.1);
+      --accent-strong: #06b6d4;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --text-soft: #6b7280;
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.85);
+      --shadow-subtle: 0 10px 30px rgba(15, 23, 42, 0.7);
+      --nav-height: 72px;
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 40%, #020617 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .page-shell {
+      min-height: 100vh;
+      color: var(--text-main);
+    }
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.85),
+        transparent 100%
+      );
+      border-bottom: 1px solid rgba(30, 64, 175, 0.5);
+    }
+
+    .top-nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: 1px solid rgba(94, 234, 212, 0.6);
+      background:
+        radial-gradient(circle at 20% 20%, #e0f2fe 0, transparent 55%),
+        radial-gradient(circle at 80% 80%, #22d3ee 0, transparent 60%),
+        #020617;
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.9),
+        0 0 25px rgba(56, 189, 248, 0.65);
+    }
+
+    .brand-text-main {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .brand-text-sub {
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .tag-pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 60%);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .tag-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 99px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 20px 16px 64px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.9fr) minmax(260px, 0.95fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 960px) {
+      main { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .hero-card {
+      border-radius: 28px;
+      padding: 24px 22px 22px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.16), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(94, 234, 212, 0.21), transparent 60%),
+        linear-gradient(to bottom right, #020617, #020617);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 20px;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-size: clamp(24px, 3vw, 30px);
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+      margin: 0 0 6px;
+    }
+
+    .hero-title span { color: var(--accent-strong); }
+
+    .hero-subtitle {
+      margin: 0 0 10px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 10px 0 0;
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .hero-meta-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 99px;
+      background: rgba(148, 163, 184, 0.8);
+    }
+
+    .hero-orbit {
+      position: absolute;
+      inset: -40%;
+      opacity: 0.5;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(56, 189, 248, 0.3), transparent 55%),
+        radial-gradient(circle at 100% 40%, rgba(59, 130, 246, 0.25), transparent 60%),
+        radial-gradient(circle at 20% 100%, rgba(45, 212, 191, 0.25), transparent 55%);
+      mix-blend-mode: screen;
+    }
+
+    .hero-fg-ring {
+      position: absolute;
+      right: -40px;
+      top: -30px;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.95),
+        0 0 90px rgba(34, 211, 238, 0.75);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .hero-fg-ring::before {
+      content: "";
+      position: absolute;
+      inset: 18%;
+      border-radius: inherit;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      box-shadow: 0 0 40px rgba(59, 130, 246, 0.65);
+    }
+
+    .hero-fg-ring::after {
+      content: "";
+      position: absolute;
+      inset: 39%;
+      border-radius: inherit;
+      background: radial-gradient(circle, rgba(15, 23, 42, 0.9), transparent 70%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .quick-nav {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9));
+      box-shadow: var(--shadow-subtle);
+      padding: 8px 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .quick-nav-label {
+      padding: 4px 10px;
+      color: var(--text-soft);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .quick-link {
+      border-radius: 999px;
+      padding: 6px 10px;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .quick-link:hover {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(148, 163, 184, 0.6);
+      text-decoration: none;
+    }
+
+    .quick-link-primary {
+      background: radial-gradient(circle at top left, rgba(34, 211, 238, 0.18), rgba(15, 23, 42, 0.95));
+      border-color: rgba(56, 189, 248, 0.7);
+      color: var(--accent-strong);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.95),
+        0 0 24px rgba(56, 189, 248, 0.75);
+    }
+
+    .quick-link-home {
+      border: 1px solid var(--accent);
+      background: rgba(78,161,255,0.12);
+      font-weight: 600;
+    }
+
+    .quick-link-home:hover {
+      background: rgba(78,161,255,0.18);
+      transform: translateX(3px);
+    }
+
+    section { margin-bottom: 26px; }
+
+    .section-heading {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .section-kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at top left, rgba(30, 64, 175, 0.28), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(8, 47, 73, 0.75), #020617);
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-subtle);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.65), transparent 55%);
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.95);
+      white-space: nowrap;
+    }
+
+    .pill-soft { background: rgba(15, 23, 42, 0.8); }
+
+    .pill-accent {
+      border-color: rgba(45, 212, 191, 0.75);
+      color: var(--accent-strong);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), rgba(15, 23, 42, 0.98));
+      box-shadow: 0 0 24px rgba(34, 211, 238, 0.7);
+    }
+
+    .unit-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    .unit-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .unit-meta-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 99px;
+      background: rgba(148, 163, 184, 0.8);
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .card-body p { margin: 0 0 6px; }
+
+    .card-body ul {
+      margin: 6px 0 4px 18px;
+      padding: 0;
+      list-style: disc;
+    }
+
+    .card-body li { margin-bottom: 3px; }
+
+    .subheading {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-soft);
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    .assessment-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.3), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.98));
+      padding: 18px 16px 16px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .assessment-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(15, 23, 42, 0.7), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .assessment-header {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .assessment-title {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .assessment-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    .assessment-meta {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .assessment-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .assessment-body {
+      position: relative;
+      z-index: 1;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 7px 13px;
+      font-size: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.98);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      background: rgba(15, 23, 42, 0.94);
+      border-color: rgba(226, 232, 240, 0.9);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      border-color: rgba(56, 189, 248, 0.9);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0.98));
+      color: var(--accent-strong);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.95),
+        0 0 26px rgba(56, 189, 248, 0.75);
+      font-weight: 600;
+    }
+
+    .sidebar-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background:
+        radial-gradient(circle at top, rgba(30, 64, 175, 0.5), transparent 60%),
+        radial-gradient(circle at bottom, rgba(15, 23, 42, 0.92), #020617);
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 16px;
+      position: sticky;
+      top: calc(var(--nav-height) + 14px);
+    }
+
+    @media (max-width: 960px) {
+      .sidebar-card { position: static; }
+    }
+
+    .sidebar-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    .sidebar-body {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .sidebar-body p { margin: 0 0 6px; }
+
+    .sidebar-list {
+      margin: 0;
+      padding-left: 16px;
+    }
+
+    .sidebar-list li { margin-bottom: 4px; }
+
+    .mini-metadata {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-soft);
+      margin-top: 10px;
+    }
+
+    .footer-note {
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-top: 12px;
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
+      padding-top: 8px;
+    }
+
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      padding: 10px 14px;
+      font-size: 20px;
+      border: none;
+      border-radius: 8px;
+      background: #111827;
+      color: white;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+
+    #scrollTopBtn:hover { background: #1f2937; }
+  </style>
+</head>
+
+<body>
+<div class="page-shell">
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <div class="brand">
+        <div class="brand-logo"></div>
+        <div>
+          <div class="brand-text-main">Digital Forensics & Cyber Law</div>
+          <div class="brand-text-sub">MSc Cyber Security - University of Essex Online</div>
+        </div>
       </div>
 
-      <h1 class="hero-title">
-        Digital Forensics & Cyber Law <span>ePortfolio</span>
-      </h1>
-
-      <p class="hero-subtitle">
-        Ongoing learning journal documenting foundational concepts in digital forensics,
-        legal systems, and the role of evidence in cyber investigations.
-      </p>
-
-      <div class="hero-meta-row">
-        <span><span class="hero-meta-dot"></span> Student: Pragadheesh Marimuthu</span>
-        <span><span class="hero-meta-dot"></span> Status: In Progress</span>
-        <span><span class="hero-meta-dot"></span> Focus: Law, Evidence, Investigation</span>
+      <div class="tag-pill">
+        <span class="tag-pill-dot"></span>
+        <span>In Progress ePortfolio</span>
       </div>
-
     </div>
-  </div>
+  </header>
 
-  <!-- QUICK NAV -->
-  <div class="quick-nav">
-    <a href="index.html" class="quick-link quick-link-home">
-      <span>🏠 Home</span>
-    </a>
+  <main>
+    <div>
+      <section id="overview">
+        <div class="hero-card">
+          <div class="hero-orbit"></div>
+          <div class="hero-fg-ring"></div>
+          <div class="hero-content">
+            <div class="hero-badge-row">
+              <span class="pill-soft pill">Module: Principles of Digital Forensics & Cyber Law</span>
+              <span class="pill-soft pill">Cohort: Apr 2026</span>
+            </div>
 
-    <div class="quick-nav-label">Jump to</div>
+            <h1 class="hero-title">
+              Digital Forensics & Cyber Law <span>ePortfolio</span>
+            </h1>
 
-    <a href="#units" class="quick-link quick-link-primary"><span>Units</span></a>
-    <a href="#unit-1" class="quick-link"><span>Unit 1</span></a>
-    <a href="#reflection" class="quick-link"><span>Reflection</span></a>
-  </div>
-</section>
+            <p class="hero-subtitle">
+              Ongoing learning journal documenting foundational concepts in law, cybercrime,
+              digital evidence, forensic investigation, and legal accountability.
+            </p>
 
-<!-- OVERVIEW -->
-<section>
-  <div class="section-heading">
-    <h2 class="section-title">Module Overview</h2>
-    <span class="section-kicker">Law meets cyber investigation</span>
-  </div>
-
-  <div class="card">
-    <div class="card-inner">
-      <div class="card-body">
-
-        <p>
-          This module introduces the intersection of <strong>digital forensics and legal systems</strong>,
-          focusing on how cyber incidents are investigated, analysed, and presented within legal frameworks.
-        </p>
-
-        <p>
-          Unlike purely technical cybersecurity modules, this course emphasises the importance of
-          <strong>legal interpretation, evidence handling, and accountability</strong> in cybercrime cases.
-        </p>
-
-        <div class="subheading">Core themes</div>
-        <ul>
-          <li>Legal systems and their role in defining cybercrime</li>
-          <li>Digital evidence collection and admissibility</li>
-          <li>Investigation processes and forensic methodologies</li>
-          <li>Challenges of cross-border cybercrime</li>
-        </ul>
-
-        <p>
-          The module shifts the perspective from prevention to
-          <strong>post-incident investigation and legal validation</strong>,
-          which is critical for real-world enforcement.
-        </p>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- UNITS -->
-<section id="units">
-  <div class="section-heading">
-    <h2 class="section-title">Units</h2>
-    <span class="section-kicker">Learning progression</span>
-  </div>
-
-  <!-- UNIT 1 -->
-  <section id="unit-1">
-    <div class="card">
-      <div class="card-inner">
-
-        <div class="card-header-row">
-          <h3 class="card-title">Unit 1: The Law and Legal Systems</h3>
-          <span class="pill-soft pill">Foundation</span>
+            <div class="hero-meta-row">
+              <span><span class="hero-meta-dot"></span> Student: Pragadheesh Marimuthu</span>
+              <span><span class="hero-meta-dot"></span> Status: In Progress</span>
+              <span><span class="hero-meta-dot"></span> Current progress: Unit 1 completed</span>
+            </div>
+          </div>
         </div>
 
-        <div class="unit-meta">
-          <span><span class="unit-meta-dot"></span> Focus: Legal systems & cybercrime context</span>
-          <span><span class="unit-meta-dot"></span> Mode: Lecturecast + reading</span>
+        <div class="quick-nav">
+          <a href="index.html" class="quick-link quick-link-home">
+            <span>🏠 Home</span>
+          </a>
+
+          <div class="quick-nav-label">Jump to</div>
+
+          <a href="#overview-card" class="quick-link quick-link-primary"><span>Overview</span></a>
+          <a href="#units" class="quick-link"><span>Units</span></a>
+          <a href="#unit-1" class="quick-link"><span>Unit 1</span></a>
+          <a href="#assessments" class="quick-link"><span>Assessments</span></a>
+          <a href="#reflection" class="quick-link"><span>Reflection</span></a>
+        </div>
+      </section>
+
+      <section id="overview-card">
+        <div class="section-heading">
+          <h2 class="section-title">Module Overview</h2>
+          <span class="section-kicker">Law meets cyber investigation</span>
         </div>
 
-        <div class="card-body">
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-body">
+              <p>
+                This module introduces the relationship between <strong>digital forensics and cyber law</strong>,
+                focusing on how cyber incidents are investigated, interpreted, and handled within legal systems.
+              </p>
 
+              <p>
+                Unlike modules that focus mainly on prevention or secure system design, this module shifts attention
+                to what happens after an incident: how evidence is identified, preserved, analysed, and presented
+                in a legally meaningful way.
+              </p>
+
+              <div class="subheading">Core themes</div>
+              <ul>
+                <li>Legal systems and how they define crime, responsibility, and enforcement.</li>
+                <li>Cybercrime as a legal and technical challenge.</li>
+                <li>Digital evidence handling, admissibility, and investigative reliability.</li>
+                <li>The difficulty of applying traditional legal concepts to fast-moving cyber environments.</li>
+              </ul>
+
+              <p>
+                The module is especially useful because it connects technical cybersecurity practice with
+                accountability, evidence, and legal reasoning.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="units">
+        <div class="section-heading">
+          <h2 class="section-title">Units</h2>
+          <span class="section-kicker">Learning progression</span>
+        </div>
+
+        <section id="unit-1">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-header-row">
+                <h3 class="card-title">Unit 1: The Law and Legal Systems</h3>
+                <span class="pill-soft pill">Completed</span>
+              </div>
+
+              <div class="unit-meta">
+                <span><span class="unit-meta-dot"></span> Focus: Law, legal systems, cybercrime foundations</span>
+                <span><span class="unit-meta-dot"></span> Mode: Lecturecast + reading</span>
+              </div>
+
+              <div class="card-body">
+                <p>
+                  Unit 1 introduced the basic idea of law and legal systems, asking what law is and why it matters
+                  in the context of cybercrime. The unit explained that law is not only a set of rules, but also a
+                  framework for defining rights, duties, responsibilities, offences, and enforcement.
+                </p>
+
+                <p>
+                  A key part of the unit was understanding that legal systems differ across jurisdictions. England
+                  and Wales are typically associated with a common law system, while many European countries follow
+                  civil law traditions. Some jurisdictions, such as South Africa, operate mixed systems influenced by
+                  both common law and civil law principles.
+                </p>
+
+                <div class="subheading">Legal systems introduced</div>
+                <ul>
+                  <li><strong>Common law</strong> – shaped strongly by judicial decisions and precedent.</li>
+                  <li><strong>Civil law</strong> – based mainly on codified statutes and legal codes.</li>
+                  <li><strong>Mixed legal systems</strong> – influenced by more than one legal tradition.</li>
+                </ul>
+
+                <p>
+                  The unit also introduced the concept of crime and laid the foundation for understanding cybercrime.
+                  This is important because cybercrime cannot be evaluated purely through technical evidence; it must
+                  also be interpreted through legal definitions, jurisdiction, intent, harm, and admissibility.
+                </p>
+
+                <div class="subheading">Key takeaways</div>
+                <ul>
+                  <li>Cybersecurity incidents become legally meaningful only when connected to legal definitions and evidence.</li>
+                  <li>Different legal systems may approach cybercrime, responsibility, and enforcement differently.</li>
+                  <li>Cyber law must respond to fast-changing technology, cross-border activity, and digital evidence challenges.</li>
+                  <li>Digital forensics acts as a bridge between technical investigation and legal accountability.</li>
+                </ul>
+
+                <div class="subheading">Reflection</div>
+                <p>
+                  This unit changed my perspective by showing that cybersecurity is not only about defending systems.
+                  It is also about understanding how incidents are investigated, documented, and assessed within legal
+                  systems. For a security professional, technical findings must be reliable, explainable, and suitable
+                  for legal or organisational decision-making.
+                </p>
+
+                <div class="subheading">Representative artefacts</div>
+                <ul>
+                  <li>Unit 1 learning notes on law, legal systems, and cybercrime foundations.</li>
+                  <li>Initial reflection on the relationship between cyber incidents, legal definitions, and evidence.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="upcoming-units">
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-header-row">
+                <h3 class="card-title">Upcoming Units</h3>
+                <span class="pill-soft pill">To be updated</span>
+              </div>
+
+              <div class="card-body">
+                <p>
+                  This module page will be updated progressively as each unit is completed. Future updates will add
+                  unit cards covering digital evidence, forensic investigation methods, forensic tools, legal processes,
+                  and cyber law applications.
+                </p>
+
+                <div class="subheading">Planned updates</div>
+                <ul>
+                  <li>Add Unit 2 after completion.</li>
+                  <li>Add assessment details once formally introduced.</li>
+                  <li>Add artefacts such as investigation notes, case analysis, forensic reflections, or submitted work.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section id="assessments">
+        <div class="section-heading">
+          <h2 class="section-title">Assessments</h2>
+          <span class="section-kicker">Pending module progression</span>
+        </div>
+
+        <article class="assessment-card">
+          <div class="assessment-header">
+            <div class="assessment-title">Assessment Section</div>
+            <div class="assessment-badges">
+              <span class="pill-accent pill">In progress</span>
+              <span class="pill-soft pill">To be updated</span>
+            </div>
+          </div>
+
+          <div class="assessment-meta">
+            <span><span class="unit-meta-dot"></span> Status: Awaiting later unit work</span>
+            <span><span class="unit-meta-dot"></span> Evidence: To be added</span>
+          </div>
+
+          <div class="assessment-body">
+            <p>
+              Assessment details and submitted artefacts will be added as the module progresses. This section will
+              later capture formal submissions, evidence of investigation work, and reflective notes connected to
+              digital forensics and cyber law.
+            </p>
+
+            <div class="subheading">Expected evidence areas</div>
+            <ul>
+              <li>Case-based cybercrime analysis.</li>
+              <li>Digital evidence handling and interpretation.</li>
+              <li>Forensic investigation reporting.</li>
+              <li>Legal and ethical evaluation of cyber incidents.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section id="reflection">
+        <div class="section-heading">
+          <h2 class="section-title">Early Module Reflection</h2>
+          <span class="section-kicker">Initial understanding</span>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-body">
+              <p>
+                At this early stage, the module has already expanded my understanding of cybersecurity beyond
+                prevention, detection, and technical controls. It shows that cyber incidents must also be viewed
+                through legal systems, evidence standards, and investigative processes.
+              </p>
+
+              <p>
+                Unit 1 helped me understand that legal context matters because cybercrime often crosses borders,
+                involves different jurisdictions, and depends on how evidence is collected and interpreted. A technical
+                finding is not enough on its own unless it can be documented and explained clearly.
+              </p>
+
+              <p>
+                This is relevant to my blue-team and SOC development because incident analysis often produces evidence
+                such as logs, alerts, IP addresses, timestamps, authentication records, and endpoint activity. Digital
+                forensics helps ensure that such evidence is handled carefully and remains useful for investigation,
+                escalation, and possible legal action.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <aside>
+      <div class="sidebar-card">
+        <div class="sidebar-title">How to use this page</div>
+
+        <div class="sidebar-body">
           <p>
-            Unit 1 established the foundational understanding of <strong>law as a system of rules</strong>
-            that governs behaviour, resolves disputes, and defines crime — including cybercrime.
+            This page tracks my ongoing work for <strong>Principles of Digital Forensics and Cyber Law</strong>.
+            It is currently set up as an in-progress ePortfolio page.
           </p>
 
-          <p>
-            A key focus was comparing different legal systems and understanding how they approach
-            enforcement and interpretation:
-          </p>
-
-          <ul>
-            <li><strong>Common Law</strong> – based on judicial precedents (e.g., UK)</li>
-            <li><strong>Civil Law</strong> – based on codified statutes (e.g., Europe)</li>
-            <li><strong>Mixed Systems</strong> – combination of both approaches</li>
+          <ul class="sidebar-list">
+            <li>Use the <strong>jump links</strong> to navigate between overview, units, assessments, and reflection.</li>
+            <li>Unit 1 has been completed and documented.</li>
+            <li>Future units and artefacts will be added as the module progresses.</li>
           </ul>
 
-          <p>
-            The unit also introduced the concept of <strong>cybercrime</strong> and the challenges
-            of applying traditional legal frameworks to digital environments.
+          <p class="mini-metadata">
+            Current status:
+            <br />
+            Unit 1 - The Law and Legal Systems: Completed
+            <br />
+            Unit 2 onwards: Pending update
+            <br />
+            Assessment artefacts: To be added
           </p>
 
-          <div class="subheading">Key takeaways</div>
-          <ul>
-            <li>Cybersecurity is not only technical — it is deeply tied to legal definitions and enforcement.</li>
-            <li>Jurisdiction plays a major role in how cybercrime is handled.</li>
-            <li>Legal systems often struggle to keep pace with evolving technology.</li>
-          </ul>
-
-          <div class="subheading">Critical insight</div>
-          <p>
-            One of the most important insights from this unit is that security failures are not
-            fully resolved unless they can be <strong>legally proven and prosecuted</strong>.
-            This highlights the importance of digital forensics as a bridge between
-            technical evidence and legal judgement.
+          <p class="footer-note">
+            This page will be updated progressively as new forensic, legal, and investigative artefacts are produced during the module.
           </p>
-
-          <div class="subheading">Reflection</div>
-          <p>
-            This unit shifted my understanding of cybersecurity by showing that detection and prevention
-            are only part of the lifecycle. The ability to <strong>investigate incidents and present evidence
-            in a legally acceptable manner</strong> is equally critical in real-world scenarios.
-          </p>
-
         </div>
       </div>
-    </div>
-  </section>
+    </aside>
+  </main>
+</div>
 
-  <!-- UPCOMING -->
-  <div class="card">
-    <div class="card-inner">
-      <div class="card-body">
-        <p>
-          Upcoming units will expand into digital evidence handling, forensic tools,
-          investigation procedures, and cyber law applications. This section will
-          be updated progressively as the module advances.
-        </p>
-      </div>
-    </div>
-  </div>
+<button id="scrollTopBtn" title="Go to top">↑</button>
 
-</section>
+<script>
+  const scrollBtn = document.getElementById("scrollTopBtn");
 
-<!-- ASSESSMENTS -->
-<section>
-  <div class="section-heading">
-    <h2 class="section-title">Assessments</h2>
-    <span class="section-kicker">To be updated</span>
-  </div>
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollBtn.style.opacity = "1";
+      scrollBtn.style.pointerEvents = "auto";
+    } else {
+      scrollBtn.style.opacity = "0";
+      scrollBtn.style.pointerEvents = "none";
+    }
+  });
 
-  <div class="card">
-    <div class="card-inner">
-      <div class="card-body">
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
 
-        <p>
-          Assessment details will be added as the module progresses. Based on the module structure,
-          expected components may include:
-        </p>
-
-        <ul>
-          <li>Case-based cybercrime analysis</li>
-          <li>Digital evidence evaluation</li>
-          <li>Forensic investigation reporting</li>
-        </ul>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REFLECTION -->
-<section id="reflection">
-  <div class="section-heading">
-    <h2 class="section-title">Early Reflection</h2>
-    <span class="section-kicker">Initial understanding</span>
-  </div>
-
-  <div class="card">
-    <div class="card-inner">
-      <div class="card-body">
-
-        <p>
-          At this early stage, the module highlights the importance of integrating
-          <strong>legal knowledge with technical cybersecurity skills</strong>.
-        </p>
-
-        <p>
-          It reinforces that cyber incidents must not only be identified but also
-          <strong>investigated, documented, and validated</strong> in a legally
-          acceptable way to support prosecution and accountability.
-        </p>
-
-        <p>
-          This introduces a new dimension to cybersecurity — moving beyond defence
-          into <strong>evidence-based investigation and legal reasoning</strong>.
-        </p>
-
-      </div>
-    </div>
-  </div>
-</section>
+</body>
+</html>
