@@ -2,60 +2,1164 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Network Security | Pragadheesh</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Security – ePortfolio (April 2025) | Pragadheesh Marimuthu</title>
+  <meta
+    name="description"
+    content="Network Security module summary, learning journey, assessments, and skills developed by Pragadheesh Marimuthu at the University of Essex Online."
+  >
+  <link rel="icon" href="favicon.ico">
+  <meta name="theme-color" content="#07101d">
+
   <style>
+    :root {
+      --bg: #07101d;
+      --bg-deep: #081321;
+      --surface: rgba(17, 31, 50, 0.94);
+      --surface-soft: rgba(15, 30, 49, 0.9);
+      --text: #f4f7fb;
+      --text-secondary: #d3deec;
+      --muted: #9eacbd;
+      --accent: #64d4ff;
+      --accent-soft: rgba(100, 212, 255, 0.12);
+      --purple: #aa8bff;
+      --green: #48d597;
+      --green-soft: rgba(72, 213, 151, 0.13);
+      --border: rgba(255, 255, 255, 0.1);
+      --radius-large: 30px;
+      --radius-medium: 22px;
+      --radius-small: 15px;
+      --container: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 104px;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      margin: 2rem;
-      background: #f4f4f4;
-      color: #333;
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(1100px 650px at 8% -5%, rgba(46, 183, 240, 0.22), transparent 62%),
+        radial-gradient(900px 600px at 94% 8%, rgba(170, 139, 255, 0.14), transparent 58%),
+        linear-gradient(180deg, var(--bg), var(--bg-deep) 48%, #091523 100%);
+      font-family:
+        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    header {
-      background: #34495e;
-      color: white;
-      padding: 1rem;
-      border-radius: 8px;
-    }
-    section {
-      background: white;
-      padding: 1rem;
-      margin-top: 1rem;
-      border-radius: 8px;
-    }
+
     a {
-      color: #2980b9;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 1000;
+      padding: 0.7rem 1rem;
+      color: #06101b;
+      background: var(--accent);
+      border-radius: 10px;
+      font-weight: 800;
+      transform: translateY(-150%);
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    main {
+      width: min(calc(100% - 40px), var(--container));
+      margin: 0 auto;
+      padding: 1.75rem 0 4.5rem;
+    }
+
+    .module-header {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(250px, 0.65fr);
+      align-items: center;
+      gap: 2rem;
+      padding: clamp(2rem, 5vw, 4rem);
+      background: linear-gradient(135deg, rgba(17, 31, 50, 0.97), rgba(10, 24, 40, 0.9));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-large);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.34);
+    }
+
+    .module-header::before {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      content: "";
+      background: linear-gradient(90deg, var(--accent), var(--purple), transparent 80%);
+    }
+
+    .module-header::after {
+      position: absolute;
+      top: -130px;
+      right: -100px;
+      width: 280px;
+      height: 280px;
+      content: "";
+      background: rgba(100, 212, 255, 0.09);
+      border-radius: 50%;
+      filter: blur(55px);
+      pointer-events: none;
+    }
+
+    .header-copy,
+    .module-summary {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin: 0 0 1rem;
+      color: #aab7c8;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 7px;
+      height: 7px;
+      content: "";
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(100, 212, 255, 0.12);
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 0;
+      color: var(--text);
+      font-size: clamp(2.35rem, 5vw, 4.35rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .header-description {
+      max-width: 66ch;
+      margin: 1.2rem 0 0;
+      color: var(--text-secondary);
+      font-size: clamp(1rem, 1.5vw, 1.1rem);
+      line-height: 1.7;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1.4rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.4rem 0.7rem;
+      color: #c8efff;
+      background: var(--accent-soft);
+      border: 1px solid rgba(100, 212, 255, 0.22);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .badge.completed {
+      color: #9af0c8;
+      background: var(--green-soft);
+      border-color: rgba(72, 213, 151, 0.28);
+    }
+
+    .module-summary {
+      display: grid;
+      gap: 0.7rem;
+      padding: 1.3rem;
+      background: rgba(8, 20, 35, 0.66);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .summary-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem 0.8rem;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 0.86rem;
+    }
+
+    .summary-item span {
+      color: var(--muted);
+    }
+
+    .summary-item strong {
+      color: var(--text);
+    }
+
+    .quick-nav-shell {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 0.75rem 0 1rem;
+      background: linear-gradient(to bottom, rgba(7, 16, 29, 0.97), rgba(7, 16, 29, 0.84), transparent);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .quick-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      overflow-x: auto;
+      padding: 0.6rem;
+      background: rgba(11, 23, 39, 0.94);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+      scrollbar-width: thin;
+    }
+
+    .quick-label {
+      flex: 0 0 auto;
+      padding-inline: 0.45rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .quick-link {
+      flex: 0 0 auto;
+      padding: 0.48rem 0.8rem;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid transparent;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 750;
+      transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .quick-link:hover,
+    .quick-link:focus-visible {
+      color: var(--text);
+      background: var(--accent-soft);
+      border-color: rgba(100, 212, 255, 0.22);
+      text-decoration: none;
+    }
+
+    .quick-link.home {
+      margin-left: auto;
+      color: var(--text);
+      border-color: rgba(148, 163, 184, 0.38);
+    }
+
+    section {
+      margin-bottom: 1.25rem;
+      scroll-margin-top: 104px;
+    }
+
+    .content-card {
+      padding: clamp(1.4rem, 3vw, 2.2rem);
+      background:
+        radial-gradient(circle at 0 0, rgba(100, 212, 255, 0.08), transparent 55%),
+        linear-gradient(145deg, var(--surface), rgba(11, 24, 40, 0.9));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      box-shadow: 0 20px 58px rgba(0, 0, 0, 0.25);
+    }
+
+    .section-header {
+      margin-bottom: 1.25rem;
+    }
+
+    .section-kicker {
+      margin: 0 0 0.35rem;
+      color: var(--accent);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--text);
+      font-size: clamp(1.45rem, 2.8vw, 1.9rem);
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+    }
+
+    .section-intro {
+      max-width: 76ch;
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .learning-grid,
+    .assessment-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .unit-grid,
+    .tool-grid,
+    .reflection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .learning-card,
+    .assessment-card,
+    .unit-card,
+    .tool-card,
+    .reflection-card {
+      height: 100%;
+      padding: 1.2rem;
+      background: linear-gradient(145deg, var(--surface-soft), rgba(10, 23, 39, 0.9));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .learning-card:hover,
+    .assessment-card:hover,
+    .unit-card:hover,
+    .tool-card:hover,
+    .reflection-card:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(145deg, rgba(18, 36, 59, 0.96), rgba(12, 27, 45, 0.94));
+      border-color: rgba(100, 212, 255, 0.3);
+    }
+
+    .unit-card,
+    .reflection-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .unit-label {
+      margin-bottom: 0.7rem;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .unit-card p,
+    .tool-card p,
+    .reflection-card p {
+      font-size: 0.92rem;
+    }
+
+    .tool-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 1rem;
+    }
+
+    .tool-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .tool-card h3::before {
+      width: 8px;
+      height: 8px;
+      flex: 0 0 auto;
+      content: "";
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(100, 212, 255, 0.08);
+    }
+
+    .finding-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .finding-card {
+      padding: 1.2rem;
+      background: rgba(11, 24, 40, 0.72);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+    }
+
+    .finding-card.critical {
+      border-left: 4px solid #ff7b86;
+    }
+
+    .finding-card.compliance {
+      border-left: 4px solid var(--green);
+    }
+
+    .finding-card ul {
+      margin-top: 0.7rem;
+    }
+
+    .key-point {
+      margin-top: 1rem;
+      padding: 1rem 1.1rem;
+      color: var(--text-secondary);
+      background: linear-gradient(135deg, rgba(100, 212, 255, 0.08), rgba(170, 139, 255, 0.06));
+      border: 1px solid rgba(100, 212, 255, 0.2);
+      border-left: 4px solid var(--accent);
+      border-radius: 14px;
+      line-height: 1.72;
+    }
+
+    .key-point strong {
+      color: var(--text);
+    }
+
+    .assessment-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+
+    .mini-badge {
+      padding: 0.25rem 0.55rem;
+      color: #c8efff;
+      background: var(--accent-soft);
+      border: 1px solid rgba(100, 212, 255, 0.2);
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .reflection-grid {
+      margin-top: 1rem;
+    }
+
+    .reflection-card h3 {
+      color: var(--accent);
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills-heading {
+      margin-top: 1.5rem;
+    }
+
+    .skills-list li {
+      margin: 0;
+      padding: 0.45rem 0.7rem;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .card-number {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 0.9rem;
+      color: #06101b;
+      background: linear-gradient(135deg, var(--accent), #b7efff);
+      border-radius: 11px;
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    h3 {
+      margin: 0 0 0.5rem;
+      color: #edf5ff;
+      font-size: 1.04rem;
+      line-height: 1.4;
+    }
+
+    p {
+      margin: 0.4rem 0;
+      color: var(--text-secondary);
+      line-height: 1.72;
+    }
+
+    ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.15rem;
+      color: var(--text-secondary);
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    li::marker {
+      color: var(--accent);
+    }
+
+    .assessment-card {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: start;
+      gap: 0.9rem;
+    }
+
+    .assessment-card .card-number {
+      margin: 0;
+      color: #072018;
+      background: linear-gradient(135deg, var(--green), #a7f3d0);
+    }
+
+    .reflection-box {
+      padding: 1rem 1.1rem;
+      color: var(--text-secondary);
+      background:
+        linear-gradient(135deg, rgba(100, 212, 255, 0.08), rgba(170, 139, 255, 0.06));
+      border: 1px solid rgba(100, 212, 255, 0.2);
+      border-left: 4px solid var(--accent);
+      border-radius: 14px;
+      line-height: 1.72;
+    }
+
+    footer {
+      padding: 1.7rem 1.25rem 2.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.86rem;
+    }
+
+    #backToTop {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 80;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      color: #06101b;
+      background: var(--accent);
+      border: 0;
+      border-radius: 14px;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    }
+
+    #backToTop.visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(100, 212, 255, 0.48);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 820px) {
+      .module-header,
+      .learning-grid,
+      .assessment-grid,
+      .finding-grid,
+      .tool-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .unit-grid,
+      .reflection-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .module-summary {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .summary-item {
+        display: grid;
+        gap: 0.25rem;
+      }
+    }
+
+    @media (max-width: 620px) {
+      main {
+        width: min(calc(100% - 24px), var(--container));
+        padding-top: 0.8rem;
+      }
+
+      .module-header {
+        padding: 2rem 1.35rem;
+        border-radius: 22px;
+      }
+
+      .module-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .unit-grid,
+      .reflection-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-label {
+        display: none;
+      }
+
+      .quick-link.home {
+        margin-left: 0;
+        order: -1;
+      }
+
+      .assessment-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>Network Security (April 2025)</h1>
-    <p>Module Summary | University of Essex Online</p>
-  </header>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <section>
-    <h2>My Learning Journey</h2>
-    <p>This module explored key areas in securing networks, including:</p>
-    <ul>
-      <li>Vulnerability assessments using tools like Nmap, Nikto, ZAP, and Burp Suite</li>
-      <li>OWASP Top 10 and mitigation strategies</li>
-      <li>GDPR compliance and secure network architecture</li>
-      <li>Report writing: Executive Summaries, Reflection, and Audit Planning</li>
-    </ul>
-  </section>
+  <main id="main-content">
+    <header class="module-header">
+      <div class="header-copy">
+        <p class="eyebrow">MSc Cybersecurity • University of Essex Online</p>
+        <h1>Network Security</h1>
+        <p class="header-description">
+          A completed six-unit module examining how network systems are attacked,
+          assessed, monitored, and strengthened. The portfolio connects
+          vulnerability testing with breach analysis, regulatory compliance,
+          ethical practice, and professional reporting.
+        </p>
 
-  <section>
-    <h2>Assessments</h2>
-    <ul>
-      <li>✔️ <strong>Assessment 1:</strong> Vulnerability Audit Baseline Report</li>
-      <li>✔️ <strong>Assessment 2:</strong> Executive Summary with Findings</li>
-      <li>✔️ <strong>Assessment 3:</strong> Individual Reflective Piece</li>
-    </ul>
-  </section>
+        <div class="meta-row" aria-label="Module details">
+          <span class="badge">April 2025</span>
+          <span class="badge">6 units</span>
+          <span class="badge">Module ePortfolio</span>
+          <span class="badge completed">Completed</span>
+        </div>
+      </div>
 
-  <section>
-    <a href="index.html">← Back to Homepage</a>
-  </section>
+      <aside class="module-summary" aria-label="Module completion summary">
+        <div class="summary-item">
+          <span>Status</span>
+          <strong>Completed</strong>
+        </div>
+        <div class="summary-item">
+          <span>Assessments</span>
+          <strong>3 completed</strong>
+        </div>
+        <div class="summary-item">
+          <span>Focus</span>
+          <strong>Vulnerability assessment</strong>
+        </div>
+      </aside>
+    </header>
+
+    <div class="quick-nav-shell">
+      <nav class="quick-nav" aria-label="Page sections">
+        <span class="quick-label">Jump to</span>
+        <a class="quick-link" href="#overview">Overview</a>
+        <a class="quick-link" href="#units">Units 1–6</a>
+        <a class="quick-link" href="#methodology">Methodology</a>
+        <a class="quick-link" href="#findings">Findings</a>
+        <a class="quick-link" href="#assessments">Assessments</a>
+        <a class="quick-link" href="#reflection">Reflection</a>
+        <a class="quick-link home" href="index.html">← Portfolio Home</a>
+      </nav>
+    </div>
+
+    <section id="overview">
+      <div class="content-card">
+        <header class="section-header">
+          <p class="section-kicker">Module overview</p>
+          <h2>Purpose and Learning Outcomes</h2>
+          <p class="section-intro">
+            The module focused on the impact of cybersecurity on network systems
+            and designs, with particular emphasis on the Vulnerability Assessment
+            Continuum and the disciplined use of scanning, evaluation, monitoring,
+            logging, and mitigation techniques.
+          </p>
+        </header>
+
+        <div class="learning-grid">
+          <article class="learning-card">
+            <div class="card-number" aria-hidden="true">01</div>
+            <h3>Threat and Vulnerability Analysis</h3>
+            <p>
+              Identify and analyse threats and vulnerabilities in network systems,
+              then select appropriate methodologies, tools, and techniques to
+              investigate or manage them.
+            </p>
+          </article>
+
+          <article class="learning-card">
+            <div class="card-number" aria-hidden="true">02</div>
+            <h3>Risk-Aware System Design</h3>
+            <p>
+              Critically appraise systems and technical solutions that support
+              security auditing, risk management, and responsible mitigation.
+            </p>
+          </article>
+
+          <article class="learning-card">
+            <div class="card-number" aria-hidden="true">03</div>
+            <h3>Evidence Synthesis</h3>
+            <p>
+              Gather and synthesise evidence from multiple sources, including
+              technical scans, tool documentation, standards, and security
+              advisories.
+            </p>
+          </article>
+
+          <article class="learning-card">
+            <div class="card-number" aria-hidden="true">04</div>
+            <h3>Professional Responsibility</h3>
+            <p>
+              Articulate the legal, social, ethical, and professional issues faced
+              by information security and risk practitioners.
+            </p>
+          </article>
+        </div>
+
+        <div class="key-point">
+          <strong>Core reading:</strong> Kaufman, Perlman and Speciner’s
+          <em>Network Security: Private Communications in a Public World</em>
+          supported the module’s treatment of network protocols, architectures,
+          security controls, and communications in exposed environments.
+        </div>
+      </div>
+    </section>
+
+    <section id="units">
+      <div class="content-card">
+        <header class="section-header">
+          <p class="section-kicker">Unit-by-unit development</p>
+          <h2>Units 1–6</h2>
+          <p class="section-intro">
+            Each unit advanced from foundational network-security concepts toward
+            practical assessment, breach response, monitoring, and emerging
+            technologies.
+          </p>
+        </header>
+
+        <div class="unit-grid">
+          <article class="unit-card" id="unit-1">
+            <span class="unit-label">Unit 1</span>
+            <h3>History of Network Security, Vulnerabilities and Approaches</h3>
+            <p>
+              This unit established how network security evolved alongside
+              increasingly connected systems. I considered how threats,
+              vulnerabilities, risk, and defence-in-depth relate to one another,
+              and why assessments must consider people, processes, protocols,
+              architecture, and technology rather than isolated flaws.
+            </p>
+          </article>
+
+          <article class="unit-card" id="unit-2">
+            <span class="unit-label">Unit 2</span>
+            <h3>Advanced Persistent Threats and the Cyber Kill Chain</h3>
+            <p>
+              Applying the Cyber Kill Chain to a case study helped me understand
+              the staged nature of advanced attacks—from reconnaissance and
+              weaponisation through delivery, exploitation, installation,
+              command and control, and actions on objectives. The model also
+              demonstrated where defensive controls can interrupt an intrusion.
+            </p>
+          </article>
+
+          <article class="unit-card" id="unit-3">
+            <span class="unit-label">Unit 3</span>
+            <h3>Vulnerability Assessments</h3>
+            <p>
+              I planned a scoped, remote, and non-destructive assessment of
+              demo.testfire.net. The baseline report documented likely security
+              challenges, applicable standards, selected tools, operational
+              impacts, assumptions, limitations, and a phased testing timeline.
+            </p>
+          </article>
+
+          <article class="unit-card" id="unit-4">
+            <span class="unit-label">Unit 4</span>
+            <h3>Breach Analysis and Mitigation</h3>
+            <p>
+              This unit shifted the focus from discovering weaknesses to
+              interpreting their possible consequences. I learned to connect
+              technical evidence with business impact, prioritise remediation,
+              and distinguish immediate controls from longer-term architectural
+              improvements.
+            </p>
+          </article>
+
+          <article class="unit-card" id="unit-5">
+            <span class="unit-label">Unit 5</span>
+            <h3>Logging, Forensics and Future Trends</h3>
+            <p>
+              I explored the importance of monitoring and logging for detecting
+              abnormal activity, reconstructing incidents, supporting forensic
+              investigation, and evidencing compliance. This also highlighted
+              the value of SIEM platforms and reliable audit trails.
+            </p>
+          </article>
+
+          <article class="unit-card" id="unit-6">
+            <span class="unit-label">Unit 6</span>
+            <h3>The Future of the Internet and Generative AI</h3>
+            <p>
+              The final unit considered how changing internet architectures and
+              generative AI affect both attackers and defenders. It reinforced
+              the need for continuous learning, careful validation of automated
+              outputs, and security controls that can adapt to rapidly evolving
+              technologies.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="methodology">
+      <div class="content-card">
+        <header class="section-header">
+          <p class="section-kicker">Practical investigation</p>
+          <h2>Assessment Methodology and Tools</h2>
+          <p class="section-intro">
+            Testing was conducted from Kali Linux in VMware Fusion Pro against
+            the deliberately vulnerable Altoro Mutual demonstration environment.
+            Automated discovery was combined with targeted manual validation.
+          </p>
+        </header>
+
+        <div class="tool-grid">
+          <article class="tool-card">
+            <h3>Nmap</h3>
+            <p>
+              Used for network mapping, service detection, open-port discovery,
+              OS fingerprinting, and traceroute analysis. It exposed web services
+              and atypical SMB ports that increased the visible attack surface.
+            </p>
+          </article>
+
+          <article class="tool-card">
+            <h3>Nikto</h3>
+            <p>
+              Used to identify web-server misconfiguration, outdated components,
+              missing HTTP security headers, and unsafe responses to malicious
+              input patterns.
+            </p>
+          </article>
+
+          <article class="tool-card">
+            <h3>OWASP ZAP</h3>
+            <p>
+              Provided dynamic application testing for reflected and DOM-based
+              XSS, missing CSRF protections, insecure cookie attributes, and
+              absent browser-security headers.
+            </p>
+          </article>
+
+          <article class="tool-card">
+            <h3>Burp Suite</h3>
+            <p>
+              Supported manual proxy-based testing of authentication, session
+              tokens, HTTP responses, input handling, and exposed application
+              endpoints.
+            </p>
+          </article>
+
+          <article class="tool-card">
+            <h3>SSLyze</h3>
+            <p>
+              Assessed TLS and certificate configuration, identifying deprecated
+              protocol support and certificate weaknesses that affected secure
+              transmission and compliance.
+            </p>
+          </article>
+
+          <article class="tool-card">
+            <h3>WHOIS and DIG</h3>
+            <p>
+              Supported target validation, ownership research, DNS resolution,
+              infrastructure awareness, scoping, and responsible reporting.
+            </p>
+          </article>
+        </div>
+
+        <div class="key-point">
+          <strong>Ethical boundaries:</strong> denial-of-service testing,
+          brute-force attacks, destructive payloads, deep role enumeration, and
+          privilege escalation were deliberately excluded. This preserved
+          availability and kept the work within the permitted assessment scope.
+        </div>
+      </div>
+    </section>
+
+    <section id="findings">
+      <div class="content-card">
+        <header class="section-header">
+          <p class="section-kicker">Evidence and interpretation</p>
+          <h2>Principal Findings and Compliance Mapping</h2>
+          <p class="section-intro">
+            The assessment moved beyond application-level OWASP issues to include
+            network exposure, encryption, DNS, authentication, session control,
+            logging, and regulatory risk.
+          </p>
+        </header>
+
+        <div class="finding-grid">
+          <article class="finding-card critical">
+            <h3>Technical Findings</h3>
+            <ul>
+              <li>Weak credentials without effective rate limiting.</li>
+              <li>Reflected and DOM-based cross-site scripting.</li>
+              <li>Missing CSRF tokens and weak session controls.</li>
+              <li>Missing CSP, X-Frame-Options, and other security headers.</li>
+              <li>Outdated Apache/Tomcat-related components.</li>
+              <li>Deprecated TLS support and certificate weaknesses.</li>
+              <li>Public exposure of SMB ports 139 and 445.</li>
+              <li>Missing DNS email-security protections such as SPF/DMARC.</li>
+            </ul>
+          </article>
+
+          <article class="finding-card compliance">
+            <h3>Standards and Business Relevance</h3>
+            <ul>
+              <li>GDPR Articles 25 and 32: secure design, encryption, integrity, and resilience.</li>
+              <li>PCI DSS Requirement 1: restricted and securely configured network exposure.</li>
+              <li>PCI DSS Requirements 4 and 6: protected transmission and secure development.</li>
+              <li>PCI DSS Requirement 8: strong authentication controls.</li>
+              <li>PCI DSS Requirement 10: effective logging, monitoring, and alerting.</li>
+              <li>OWASP Top 10: misconfiguration, outdated components, authentication failures, and insufficient logging.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="key-point">
+          <strong>Prioritised response:</strong> the executive summary recommended
+          immediate attention to CSRF protection, TLS configuration, server
+          patching, security headers, session handling, and unnecessary network
+          exposure. Medium- and lower-priority improvements were to follow within
+          a defined remediation window.
+        </div>
+      </div>
+    </section>
+
+    <section id="assessments">
+      <div class="content-card">
+        <header class="section-header">
+          <p class="section-kicker">Completed work</p>
+          <h2>Assessments</h2>
+          <p class="section-intro">
+            The assessed work progressed from planning and baseline analysis to
+            evidence-led executive reporting and structured professional
+            reflection.
+          </p>
+        </header>
+
+        <div class="assessment-grid">
+          <article class="assessment-card">
+            <div class="card-number" aria-hidden="true">A1</div>
+            <div>
+              <h3>Baseline Analysis and Plan</h3>
+              <p>
+                Produced at the end of Unit 3, this report established the
+                baseline for demo.testfire.net. It identified likely risks such
+                as insecure transport, injection, brute-force exposure, XSS,
+                weak sessions, and absent MFA, then justified a toolset,
+                methodology, testing timeline, assumptions, limitations, and
+                initial mitigations.
+              </p>
+              <div class="assessment-meta">
+                <span class="mini-badge">Unit 3</span>
+                <span class="mini-badge">Audit planning</span>
+                <span class="mini-badge">GDPR and OWASP</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="assessment-card">
+            <div class="card-number" aria-hidden="true">A2</div>
+            <div>
+              <h3>Results and Executive Summary</h3>
+              <p>
+                Completed at the end of Unit 6, this assessment synthesised
+                manual observations and results from Nmap, Nikto, ZAP, Burp
+                Suite, SSLyze, WHOIS, and DIG. It translated technical evidence
+                into non-technical business impact, mapped findings to GDPR and
+                PCI DSS, and prioritised justified remediation.
+              </p>
+              <div class="assessment-meta">
+                <span class="mini-badge">Unit 6</span>
+                <span class="mini-badge">Technical evidence</span>
+                <span class="mini-badge">Executive communication</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="assessment-card">
+            <div class="card-number" aria-hidden="true">A3</div>
+            <div>
+              <h3>Individual Reflective Piece</h3>
+              <p>
+                Used the “What? So What? Now What?” structure to evaluate the
+                change from a narrow checklist approach to a layered,
+                compliance-aware assessment method. The reflection addressed
+                tutor feedback, independent troubleshooting, peer learning,
+                ethical boundaries, time management, and a continuing
+                professional-development plan.
+              </p>
+              <div class="assessment-meta">
+                <span class="mini-badge">Rolfe model</span>
+                <span class="mini-badge">Professional development</span>
+                <span class="mini-badge">Ethical awareness</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="reflection">
+      <div class="content-card">
+        <header class="section-header">
+          <p class="section-kicker">Critical reflection</p>
+          <h2>What Changed Through the Module</h2>
+          <p class="section-intro">
+            The most significant development was learning that useful security
+            work depends on interpretation, context, prioritisation, and ethical
+            judgement—not simply running tools or listing scan results.
+          </p>
+        </header>
+
+        <div class="reflection-grid">
+          <article class="reflection-card">
+            <h3>What?</h3>
+            <p>
+              The first assessment concentrated heavily on OWASP application
+              issues. Tutor feedback identified the need to consider system,
+              middleware, network, and architectural weaknesses as well. The
+              later assessment therefore adopted a layered toolset and broader
+              compliance perspective.
+            </p>
+          </article>
+
+          <article class="reflection-card">
+            <h3>So What?</h3>
+            <p>
+              I learned that a missing header, deprecated TLS version, exposed
+              port, or weak session is meaningful only when its technical,
+              business, legal, ethical, and user-safety implications are
+              explained. This shifted my work from checklist reporting toward
+              professional risk analysis.
+            </p>
+          </article>
+
+          <article class="reflection-card">
+            <h3>Now What?</h3>
+            <p>
+              I plan to deepen my knowledge of TLS, certificate management,
+              enterprise encryption, SIEM platforms such as Splunk, threat
+              intelligence, and practical CTF exercises while continuing to
+              respect legal scope and responsible-testing boundaries.
+            </p>
+          </article>
+        </div>
+
+        <h3 class="skills-heading">Skills Evidenced</h3>
+        <ul class="skills-list" aria-label="Skills developed">
+          <li>Time management</li>
+          <li>Critical thinking</li>
+          <li>Digital literacy</li>
+          <li>Research</li>
+          <li>Problem-solving</li>
+          <li>Ethical awareness</li>
+          <li>Independent working</li>
+          <li>Professional communication</li>
+          <li>Compliance interpretation</li>
+        </ul>
+
+        <div class="reflection-box">
+          Completing Network Security transformed my approach from a
+          tool-centred checklist into a strategic, layered, and
+          compliance-aware assessment method. I became more confident operating
+          Kali Linux, configuring proxy-based testing, resolving tool issues,
+          analysing evidence independently, and communicating findings for both
+          technical and non-technical audiences.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Pragadheesh Marimuthu • Network Security ePortfolio
+  </footer>
+
+  <button id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script>
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("visible", window.scrollY > 350);
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
