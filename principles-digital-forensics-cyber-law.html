@@ -61,6 +61,10 @@
 
       --container-width: 1260px;
       --header-height: 74px;
+      --font-size-small: 0.875rem;
+      --font-size-body: 1rem;
+      --font-size-card-title: 1.05rem;
+      --font-size-section-title: clamp(1.5rem, 2.4vw, 1.95rem);
     }
 
     * {
@@ -70,7 +74,7 @@
     }
 
     html {
-      scroll-behaviour: smooth;
+      scroll-behavior: smooth;
       scroll-padding-top: 96px;
     }
 
@@ -103,8 +107,8 @@
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
+      font-size: var(--font-size-body);
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -212,14 +216,15 @@
     .header-inner {
       min-height: var(--header-height);
       display: flex;
-      align-items: centre;
+      align-items: center;
       justify-content: space-between;
       gap: 24px;
+      padding-block: 10px;
     }
 
     .brand {
       display: flex;
-      align-items: centre;
+      align-items: center;
       gap: 13px;
       min-width: 0;
     }
@@ -229,7 +234,7 @@
       height: 42px;
       flex: 0 0 auto;
       display: grid;
-      place-items: centre;
+      place-items: center;
       color: #06101b;
       background:
         linear-gradient(
@@ -272,7 +277,7 @@
 
     .header-actions {
       display: flex;
-      align-items: centre;
+      align-items: center;
       gap: 10px;
     }
 
@@ -374,7 +379,7 @@
     .hero-kicker {
       display: flex;
       flex-wrap: wrap;
-      align-items: centre;
+      align-items: center;
       gap: 10px;
       margin-bottom: 24px;
     }
@@ -382,7 +387,7 @@
     .status-badge,
     .category-badge {
       display: inline-flex;
-      align-items: centre;
+      align-items: center;
       gap: 8px;
       min-height: 34px;
       padding: 7px 12px;
@@ -417,10 +422,10 @@
     .hero-title {
       max-width: 900px;
       color: var(--text-primary);
-      font-size: clamp(2.35rem, 6vw, 5.25rem);
+      font-size: clamp(2.45rem, 5.2vw, 4.5rem);
       font-weight: 900;
-      line-height: 0.99;
-      letter-spacing: -0.055em;
+      line-height: 1.04;
+      letter-spacing: -0.045em;
     }
 
     .hero-title .accent-text {
@@ -442,7 +447,8 @@
       max-width: 760px;
       margin-top: 28px;
       color: var(--text-secondary);
-      font-size: clamp(1rem, 1.7vw, 1.17rem);
+      font-size: clamp(1rem, 1.5vw, 1.125rem);
+      line-height: 1.7;
     }
 
     .hero-actions {
@@ -455,8 +461,8 @@
     .button {
       min-height: 46px;
       display: inline-flex;
-      align-items: centre;
-      justify-content: centre;
+      align-items: center;
+      justify-content: center;
       gap: 9px;
       padding: 11px 17px;
       border: 1px solid var(--border);
@@ -526,7 +532,7 @@
       width: 170px;
       height: 170px;
       display: grid;
-      place-items: centre;
+      place-items: center;
       margin: 28px auto;
       background:
         conic-gradient(
@@ -543,8 +549,8 @@
       width: 132px;
       height: 132px;
       display: grid;
-      place-items: centre;
-      text-align: centre;
+      place-items: center;
+      text-align: center;
       background: #0c1929;
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 50%;
@@ -576,7 +582,7 @@
 
     .hero-stat {
       display: flex;
-      align-items: centre;
+      align-items: center;
       justify-content: space-between;
       gap: 16px;
       padding: 12px 14px;
@@ -600,7 +606,7 @@
 
     .quick-nav {
       display: flex;
-      align-items: centre;
+      align-items: center;
       gap: 9px;
       overflow-x: auto;
       padding: 11px;
@@ -671,6 +677,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-medium);
       box-shadow: var(--shadow-medium);
+      scroll-margin-top: 100px;
     }
 
     .content-section::after {
@@ -690,7 +697,7 @@
       position: relative;
       z-index: 1;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 16px;
       margin-bottom: 28px;
     }
@@ -700,7 +707,7 @@
       height: 46px;
       flex: 0 0 auto;
       display: grid;
-      place-items: centre;
+      place-items: center;
       color: #06101b;
       background:
         linear-gradient(
@@ -729,22 +736,25 @@
 
     .section-title {
       color: var(--text-primary);
-      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-size: var(--font-size-section-title);
       font-weight: 850;
-      line-height: 1.17;
+      line-height: 1.22;
       letter-spacing: -0.03em;
     }
 
     .section-intro {
       margin-top: 9px;
       color: var(--text-secondary);
-      font-size: 0.97rem;
+      font-size: var(--font-size-body);
+      line-height: 1.65;
     }
 
     .prose {
       position: relative;
       z-index: 1;
       color: var(--text-secondary);
+      font-size: var(--font-size-body);
+      line-height: 1.72;
     }
 
     .prose p + p {
@@ -755,8 +765,9 @@
       margin-top: 28px;
       margin-bottom: 12px;
       color: var(--text-primary);
-      font-size: 1.06rem;
+      font-size: 1.125rem;
       font-weight: 800;
+      line-height: 1.4;
     }
 
     .prose ul,
@@ -784,6 +795,7 @@
       z-index: 1;
       display: grid;
       gap: 16px;
+      align-items: stretch;
     }
 
     .overview-grid {
@@ -804,6 +816,7 @@
       background: rgba(255, 255, 255, 0.035);
       border: 1px solid var(--border);
       border-radius: 16px;
+      height: 100%;
       transition:
         transform 0.2s ease,
         border-color 0.2s ease,
@@ -826,11 +839,21 @@
       padding: 21px;
     }
 
+    .learning-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .learning-card > p[style] {
+      margin-top: auto !important;
+      padding-top: 16px;
+    }
+
     .card-icon {
       width: 42px;
       height: 42px;
       display: grid;
-      place-items: centre;
+      place-items: center;
       margin-bottom: 15px;
       color: var(--accent);
       background: var(--accent-soft);
@@ -844,7 +867,7 @@
     .learning-card h3,
     .skill-card h3 {
       color: var(--text-primary);
-      font-size: 0.97rem;
+      font-size: var(--font-size-card-title);
       font-weight: 800;
       line-height: 1.35;
     }
@@ -854,7 +877,8 @@
     .skill-card p {
       margin-top: 8px;
       color: var(--text-secondary);
-      font-size: 0.88rem;
+      font-size: var(--font-size-small);
+      line-height: 1.65;
     }
 
     .key-point {
@@ -899,7 +923,7 @@
 
     .meta-chip {
       display: inline-flex;
-      align-items: centre;
+      align-items: center;
       gap: 7px;
       padding: 7px 10px;
       color: var(--text-secondary);
@@ -940,7 +964,7 @@
     .sidebar-title {
       margin-bottom: 16px;
       color: var(--text-primary);
-      font-size: 0.91rem;
+      font-size: 1rem;
       font-weight: 850;
     }
 
@@ -956,7 +980,8 @@
       align-items: flex-start;
       gap: 10px;
       color: var(--text-secondary);
-      font-size: 0.81rem;
+      font-size: var(--font-size-small);
+      line-height: 1.5;
     }
 
     .status-icon {
@@ -964,7 +989,7 @@
       height: 20px;
       flex: 0 0 auto;
       display: grid;
-      place-items: centre;
+      place-items: center;
       color: #07101d;
       background: var(--green);
       border-radius: 50%;
@@ -974,7 +999,7 @@
 
     .sidebar-link {
       display: flex;
-      align-items: centre;
+      align-items: center;
       justify-content: space-between;
       gap: 10px;
       padding: 10px 11px;
@@ -982,7 +1007,7 @@
       background: rgba(255, 255, 255, 0.025);
       border: 1px solid transparent;
       border-radius: 10px;
-      font-size: 0.8rem;
+      font-size: var(--font-size-small);
       font-weight: 700;
       transition:
         color 0.2s ease,
@@ -1004,7 +1029,8 @@
     .skill-list {
       padding-left: 18px;
       color: var(--text-secondary);
-      font-size: 0.8rem;
+      font-size: var(--font-size-small);
+      line-height: 1.55;
     }
 
     .skill-list li::marker {
@@ -1020,7 +1046,7 @@
 
     .footer-inner {
       display: flex;
-      align-items: centre;
+      align-items: center;
       justify-content: space-between;
       gap: 20px;
     }
@@ -1049,7 +1075,7 @@
       width: 44px;
       height: 44px;
       display: grid;
-      place-items: centre;
+      place-items: center;
       color: #06101b;
       background: var(--accent);
       border: 0;
@@ -1089,7 +1115,7 @@
       .hero-panel {
         display: grid;
         grid-template-columns: auto minmax(0, 1fr);
-        align-items: centre;
+        align-items: center;
         gap: 28px;
       }
 
@@ -1214,13 +1240,13 @@
 
     @media (prefers-reduced-motion: reduce) {
       html {
-        scroll-behaviour: auto;
+        scroll-behavior: auto;
       }
 
       *,
       *::before,
       *::after {
-        scroll-behaviour: auto !important;
+        scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
@@ -1245,7 +1271,7 @@
 
       <nav class="header-actions" aria-label="Primary navigation">
         <a class="header-link" href="#module-overview">Overview</a>
-        <a class="header-link" href="#assessments">Assessments</a>
+        <a class="header-link" href="#assessment-one">Assessments</a>
         <a class="header-link primary" href="index.html">Portfolio Home</a>
       </nav>
     </div>
@@ -1334,8 +1360,8 @@
             <a href="#unit-11">Unit 11</a>
             <a href="#unit-12">Unit 12</a>
             <a href="#work-showcase">Work</a>
-            <a href="#assessments">Assessments</a>
-            <a href="#reflection">Reflection</a>
+            <a href="#assessment-one">Assessments</a>
+            <a href="#overall-reflection">Reflection</a>
           </nav>
         </div>
       </div>
