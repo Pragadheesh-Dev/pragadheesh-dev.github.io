@@ -1,1421 +1,4569 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Principles of Digital Forensics and Cyber Law - ePortfolio</title>
-  <meta name="description" content="Pragadheesh Marimuthu - Principles of Digital Forensics and Cyber Law ePortfolio, University of Essex Online." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Principles of Digital Forensics and Cyber Law | Pragadheesh Marimuthu</title>
+
+  <meta
+    name="description"
+    content="A completed MSc Cyber Security ePortfolio documenting learning, assessments, reflections, and professional development from the Principles of Digital Forensics and Cyber Law module."
+  >
+
+  <meta
+    name="keywords"
+    content="Digital Forensics, Cyber Law, Digital Evidence, Cybercrime, Expert Witness, Cybersecurity Portfolio, MSc Cyber Security, Pragadheesh Marimuthu"
+  >
+
+  <meta name="author" content="Pragadheesh Marimuthu">
+  <meta name="theme-color" content="#08111f">
 
   <style>
     :root {
-      --bg: #050816;
-      --bg-alt: #0b1120;
-      --card: #020617;
-      --card-soft: #08111f;
-      --border: rgba(148, 163, 184, 0.28);
-      --border-strong: rgba(34, 211, 238, 0.55);
-      --accent: #22d3ee;
-      --accent-strong: #06b6d4;
-      --accent-soft: rgba(34, 211, 238, 0.12);
-      --green: #22c55e;
-      --yellow: #facc15;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --soft: #6b7280;
-      --shadow: 0 18px 42px rgba(0, 0, 0, 0.45);
-      --radius: 20px;
-      --max: 1180px;
+      --bg-primary: #07101d;
+      --bg-secondary: #0b1626;
+      --bg-tertiary: #111f32;
+      --surface: rgba(17, 31, 50, 0.82);
+      --surface-strong: rgba(20, 38, 61, 0.96);
+      --surface-soft: rgba(255, 255, 255, 0.045);
+
+      --text-primary: #f4f7fb;
+      --text-secondary: #b9c5d4;
+      --text-muted: #8291a5;
+
+      --accent: #64d4ff;
+      --accent-strong: #2eb7f0;
+      --accent-soft: rgba(100, 212, 255, 0.12);
+
+      --purple: #aa8bff;
+      --purple-soft: rgba(170, 139, 255, 0.13);
+
+      --green: #48d597;
+      --green-soft: rgba(72, 213, 151, 0.13);
+
+      --amber: #ffc66d;
+      --amber-soft: rgba(255, 198, 109, 0.13);
+
+      --red: #ff7b86;
+      --red-soft: rgba(255, 123, 134, 0.13);
+
+      --border: rgba(255, 255, 255, 0.1);
+      --border-strong: rgba(100, 212, 255, 0.24);
+
+      --shadow-small: 0 10px 30px rgba(0, 0, 0, 0.18);
+      --shadow-medium: 0 20px 60px rgba(0, 0, 0, 0.26);
+      --shadow-large: 0 35px 90px rgba(0, 0, 0, 0.34);
+
+      --radius-small: 12px;
+      --radius-medium: 20px;
+      --radius-large: 30px;
+
+      --container-width: 1260px;
+      --header-height: 74px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     html {
-      scroll-behavior: smooth;
+      scroll-behaviour: smooth;
+      scroll-padding-top: 96px;
     }
 
     body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--text-primary);
       background:
-        radial-gradient(circle at 10% 0%, rgba(34, 211, 238, 0.15), transparent 28%),
-        radial-gradient(circle at 90% 0%, rgba(59, 130, 246, 0.18), transparent 30%),
-        linear-gradient(180deg, #050816 0%, #020617 55%, #020617 100%);
-      color: var(--text);
-      line-height: 1.65;
+        radial-gradient(
+          circle at 10% 5%,
+          rgba(46, 183, 240, 0.12),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 90% 14%,
+          rgba(170, 139, 255, 0.1),
+          transparent 32%
+        ),
+        linear-gradient(
+          180deg,
+          var(--bg-primary) 0%,
+          #081321 42%,
+          #091523 100%
+        );
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      content: "";
+      opacity: 0.2;
+      background-image:
+        linear-gradient(
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px
+        );
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+
+    ::selection {
+      color: #04101a;
+      background: var(--accent);
     }
 
     a {
-      color: var(--accent);
+      color: inherit;
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    ul,
+    ol {
+      list-style-position: outside;
+    }
+
+    strong {
+      color: var(--text-primary);
+    }
+
+    code {
+      padding: 0.15rem 0.4rem;
+      color: #d8f4ff;
+      background: rgba(100, 212, 255, 0.1);
+      border: 1px solid rgba(100, 212, 255, 0.15);
+      border-radius: 6px;
+      font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+      font-size: 0.9em;
+    }
+
+    .page-shell {
+      width: min(calc(100% - 36px), var(--container-width));
+      margin-inline: auto;
     }
 
     .skip-link {
-      position: absolute;
-      left: -999px;
-      top: 10px;
-      background: #020617;
-      color: #fff;
-      padding: 10px 12px;
-      border: 1px solid var(--accent);
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 9999;
+      padding: 10px 16px;
+      color: #04101a;
+      background: var(--accent);
       border-radius: 10px;
-      z-index: 100;
+      font-weight: 800;
+      transform: translateY(-150%);
+      transition: transform 0.2s ease;
     }
 
     .skip-link:focus {
-      left: 10px;
+      transform: translateY(0);
     }
 
-    .topbar {
+    .site-header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      border-bottom: 1px solid rgba(34, 211, 238, 0.25);
-      background: rgba(2, 6, 23, 0.86);
-      backdrop-filter: blur(16px);
+      z-index: 1000;
+      min-height: var(--header-height);
+      background: rgba(7, 16, 29, 0.76);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
     }
 
-    .topbar-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 12px 18px;
+    .header-inner {
+      min-height: var(--header-height);
       display: flex;
+      align-items: centre;
       justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
+      gap: 24px;
     }
 
     .brand {
       display: flex;
-      align-items: center;
-      gap: 12px;
+      align-items: centre;
+      gap: 13px;
+      min-width: 0;
     }
 
-    .brand-logo {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 1px solid rgba(34, 211, 238, 0.65);
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: centre;
+      color: #06101b;
       background:
-        radial-gradient(circle at 25% 25%, #e0f2fe 0%, transparent 42%),
-        radial-gradient(circle at 72% 72%, #22d3ee 0%, transparent 50%),
-        #020617;
-      box-shadow: 0 0 28px rgba(34, 211, 238, 0.55);
+        linear-gradient(
+          135deg,
+          var(--accent),
+          #9ee9ff
+        );
+      border-radius: 13px;
+      box-shadow: 0 10px 28px rgba(46, 183, 240, 0.25);
+      font-size: 0.92rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
     }
 
-    .brand-main {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      font-weight: 700;
+    .brand-copy {
+      min-width: 0;
     }
 
-    .brand-sub {
-      font-size: 0.82rem;
-      color: var(--soft);
-    }
-
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(34, 211, 238, 0.45);
-      background: rgba(34, 211, 238, 0.09);
-      color: #a5f3fc;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 700;
+    .brand-title {
+      display: block;
+      overflow: hidden;
+      color: var(--text-primary);
+      font-size: 0.97rem;
+      font-weight: 800;
+      line-height: 1.2;
+      text-overflow: ellipsis;
       white-space: nowrap;
     }
 
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.18);
+    .brand-subtitle {
+      display: block;
+      overflow: hidden;
+      margin-top: 3px;
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      line-height: 1.2;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
-    .layout {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 24px 18px 70px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 310px;
-      gap: 24px;
+    .header-actions {
+      display: flex;
+      align-items: centre;
+      gap: 10px;
     }
 
-    @media (max-width: 980px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
+    .header-link {
+      padding: 10px 14px;
+      color: var(--text-secondary);
+      border: 1px solid transparent;
+      border-radius: 11px;
+      font-size: 0.87rem;
+      font-weight: 700;
+      transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .header-link:hover,
+    .header-link:focus-visible {
+      color: var(--text-primary);
+      background: var(--surface-soft);
+      border-color: var(--border);
+      transform: translateY(-1px);
+    }
+
+    .header-link.primary {
+      color: #06101b;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .header-link.primary:hover,
+    .header-link.primary:focus-visible {
+      color: #06101b;
+      background: #92e6ff;
+      border-color: #92e6ff;
     }
 
     .hero {
       position: relative;
-      overflow: hidden;
-      border-radius: 30px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background:
-        radial-gradient(circle at 0 0, rgba(34, 211, 238, 0.22), transparent 45%),
-        radial-gradient(circle at 100% 0, rgba(59, 130, 246, 0.28), transparent 46%),
-        linear-gradient(135deg, rgba(8, 13, 30, 0.98), rgba(2, 6, 23, 0.98));
-      box-shadow: var(--shadow);
-      padding: 28px;
-      margin-bottom: 18px;
+      padding: 88px 0 56px;
     }
 
     .hero::after {
-      content: "";
       position: absolute;
-      width: 260px;
-      height: 260px;
-      right: -70px;
-      top: -80px;
-      border: 1px dashed rgba(34, 211, 238, 0.45);
+      top: 80px;
+      right: -160px;
+      z-index: -1;
+      width: 420px;
+      height: 420px;
+      content: "";
+      background: rgba(100, 212, 255, 0.08);
       border-radius: 50%;
-      box-shadow: 0 0 80px rgba(34, 211, 238, 0.38);
-      opacity: 0.8;
+      filter: blur(70px);
     }
 
-    .hero-content {
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.72fr);
+      align-items: stretch;
+      gap: 30px;
+    }
+
+    .hero-copy,
+    .hero-panel {
       position: relative;
-      z-index: 1;
-      max-width: 850px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow-large);
     }
 
-    .badge-row {
+    .hero-copy {
+      padding: clamp(34px, 5vw, 68px);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(17, 31, 50, 0.96),
+          rgba(10, 24, 40, 0.88)
+        );
+    }
+
+    .hero-copy::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      content: "";
+      background:
+        linear-gradient(
+          90deg,
+          var(--accent),
+          var(--purple),
+          transparent
+        );
+    }
+
+    .hero-kicker {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 12px;
+      align-items: centre;
+      gap: 10px;
+      margin-bottom: 24px;
     }
 
-    .badge {
+    .status-badge,
+    .category-badge {
       display: inline-flex;
-      align-items: center;
-      padding: 5px 10px;
+      align-items: centre;
+      gap: 8px;
+      min-height: 34px;
+      padding: 7px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.38);
-      background: rgba(15, 23, 42, 0.82);
-      color: var(--muted);
       font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      letter-spacing: 0.09em;
-      font-weight: 700;
     }
 
-    .badge.accent {
-      border-color: rgba(34, 211, 238, 0.6);
-      color: #a5f3fc;
-      background: rgba(34, 211, 238, 0.1);
+    .status-badge {
+      color: #9af0c8;
+      background: var(--green-soft);
+      border: 1px solid rgba(72, 213, 151, 0.27);
     }
 
-    h1 {
-      margin: 0 0 10px;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      line-height: 1.12;
-      letter-spacing: -0.03em;
+    .status-badge::before {
+      width: 8px;
+      height: 8px;
+      content: "";
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(72, 213, 151, 0.1);
     }
 
-    h1 span {
-      color: var(--accent);
+    .category-badge {
+      color: #c9efff;
+      background: var(--accent-soft);
+      border: 1px solid rgba(100, 212, 255, 0.22);
     }
 
-    .hero p {
-      margin: 0;
-      max-width: 76ch;
-      color: #cbd5e1;
-      font-size: 1rem;
+    .hero-title {
+      max-width: 900px;
+      color: var(--text-primary);
+      font-size: clamp(2.35rem, 6vw, 5.25rem);
+      font-weight: 900;
+      line-height: 0.99;
+      letter-spacing: -0.055em;
     }
 
-    .meta-grid {
-      margin-top: 18px;
+    .hero-title .accent-text {
+      display: block;
+      margin-top: 10px;
+      color: transparent;
+      background:
+        linear-gradient(
+          90deg,
+          var(--accent),
+          #b7edff 55%,
+          var(--purple)
+        );
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero-description {
+      max-width: 760px;
+      margin-top: 28px;
+      color: var(--text-secondary);
+      font-size: clamp(1rem, 1.7vw, 1.17rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: centre;
+      justify-content: centre;
+      gap: 9px;
+      padding: 11px 17px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      color: #06101b;
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 14px 30px rgba(46, 183, 240, 0.18);
+    }
+
+    .button.primary:hover,
+    .button.primary:focus-visible {
+      background: #97e8ff;
+      border-color: #97e8ff;
+      box-shadow: 0 18px 38px rgba(46, 183, 240, 0.25);
+    }
+
+    .button.secondary {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .button.secondary:hover,
+    .button.secondary:focus-visible {
+      background: rgba(255, 255, 255, 0.075);
+      border-color: rgba(100, 212, 255, 0.28);
+    }
+
+    .hero-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 30px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(15, 31, 50, 0.94),
+          rgba(11, 24, 40, 0.92)
+        );
+    }
+
+    .panel-heading {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .completion-ring {
+      width: 170px;
+      height: 170px;
       display: grid;
-      grid-template-columns: repeat(4, minmax(145px, 1fr));
+      place-items: centre;
+      margin: 28px auto;
+      background:
+        conic-gradient(
+          var(--green) 0deg 360deg,
+          rgba(255, 255, 255, 0.07) 360deg
+        );
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 12px rgba(72, 213, 151, 0.05),
+        0 20px 50px rgba(0, 0, 0, 0.24);
+    }
+
+    .completion-ring-inner {
+      width: 132px;
+      height: 132px;
+      display: grid;
+      place-items: centre;
+      text-align: centre;
+      background: #0c1929;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+    }
+
+    .completion-number {
+      display: block;
+      color: var(--text-primary);
+      font-size: 2.35rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .completion-label {
+      display: block;
+      margin-top: 6px;
+      color: var(--text-muted);
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .hero-stat-list {
+      display: grid;
       gap: 10px;
     }
 
-    @media (max-width: 780px) {
-      .meta-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+    .hero-stat {
+      display: flex;
+      align-items: centre;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid var(--border);
+      border-radius: 12px;
     }
 
-    @media (max-width: 520px) {
-      .meta-grid {
-        grid-template-columns: 1fr;
-      }
+    .hero-stat span {
+      color: var(--text-secondary);
+      font-size: 0.83rem;
     }
 
-    .meta-box {
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      background: rgba(15, 23, 42, 0.72);
-      border-radius: 16px;
-      padding: 12px;
+    .hero-stat strong {
+      font-size: 0.85rem;
     }
 
-    .meta-box strong {
-      display: block;
-      color: var(--text);
-      font-size: 0.92rem;
-    }
-
-    .meta-box span {
-      color: var(--muted);
-      font-size: 0.82rem;
+    .quick-nav-wrapper {
+      margin-top: 22px;
     }
 
     .quick-nav {
       display: flex;
-      gap: 7px;
-      flex-wrap: wrap;
-      align-items: center;
-      padding: 10px;
-      border-radius: 18px;
-      border: 1px solid rgba(148, 163, 184, 0.28);
-      background: rgba(2, 6, 23, 0.68);
-      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
-      margin-bottom: 24px;
+      align-items: centre;
+      gap: 9px;
+      overflow-x: auto;
+      padding: 11px;
+      background: rgba(11, 23, 39, 0.82);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow-small);
+      scrollbar-width: thin;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
 
-    .quick-label {
-      color: var(--soft);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      padding: 6px 8px;
+    .quick-nav-label {
+      flex: 0 0 auto;
+      padding-inline: 8px;
+      color: var(--text-muted);
+      font-size: 0.74rem;
       font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .quick-nav a {
-      border-radius: 999px;
-      padding: 7px 11px;
+      flex: 0 0 auto;
+      padding: 8px 12px;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.03);
       border: 1px solid transparent;
-      color: var(--muted);
-      background: rgba(15, 23, 42, 0.6);
-      font-size: 0.82rem;
-      font-weight: 650;
+      border-radius: 9px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
     }
 
-    .quick-nav a:hover {
-      text-decoration: none;
-      border-color: rgba(34, 211, 238, 0.45);
-      color: var(--text);
-      background: rgba(34, 211, 238, 0.08);
+    .quick-nav a:hover,
+    .quick-nav a:focus-visible {
+      color: var(--text-primary);
+      background: var(--accent-soft);
+      border-color: rgba(100, 212, 255, 0.22);
     }
 
-    .quick-nav .home {
-      border-color: rgba(34, 211, 238, 0.55);
-      color: #a5f3fc;
-      background: rgba(34, 211, 238, 0.1);
+    .content-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      align-items: start;
+      gap: 30px;
+      padding: 28px 0 90px;
     }
 
-    section {
-      scroll-margin-top: 96px;
+    .main-content {
+      min-width: 0;
+    }
+
+    .content-section {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 26px;
+      padding: clamp(26px, 4vw, 42px);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(17, 31, 50, 0.9),
+          rgba(11, 24, 40, 0.84)
+        );
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .content-section::after {
+      position: absolute;
+      top: -70px;
+      right: -70px;
+      width: 180px;
+      height: 180px;
+      content: "";
+      background: rgba(100, 212, 255, 0.045);
+      border-radius: 50%;
+      filter: blur(10px);
+      pointer-events: none;
     }
 
     .section-header {
-      margin: 30px 0 12px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 28px;
     }
 
-    .section-kicker {
-      color: var(--soft);
+    .section-number {
+      width: 46px;
+      height: 46px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: centre;
+      color: #06101b;
+      background:
+        linear-gradient(
+          135deg,
+          var(--accent),
+          #b7efff
+        );
+      border-radius: 14px;
+      box-shadow: 0 10px 26px rgba(46, 183, 240, 0.17);
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+
+    .section-heading-group {
+      min-width: 0;
+    }
+
+    .section-eyebrow {
+      margin-bottom: 5px;
+      color: var(--accent);
+      font-size: 0.73rem;
+      font-weight: 800;
+      letter-spacing: 0.11em;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.75rem;
+    }
+
+    .section-title {
+      color: var(--text-primary);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 850;
+      line-height: 1.17;
+      letter-spacing: -0.03em;
+    }
+
+    .section-intro {
+      margin-top: 9px;
+      color: var(--text-secondary);
+      font-size: 0.97rem;
+    }
+
+    .prose {
+      position: relative;
+      z-index: 1;
+      color: var(--text-secondary);
+    }
+
+    .prose p + p {
+      margin-top: 16px;
+    }
+
+    .prose h3 {
+      margin-top: 28px;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+      font-size: 1.06rem;
       font-weight: 800;
     }
 
-    h2 {
-      margin: 3px 0 0;
-      font-size: 1.22rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #dbeafe;
+    .prose ul,
+    .prose ol {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+      padding-left: 21px;
     }
 
-    h3 {
-      margin: 0;
-      color: #ecfeff;
-      font-size: 1.02rem;
+    .prose li {
+      padding-left: 5px;
     }
 
-    .card {
-      border-radius: var(--radius);
+    .prose li::marker {
+      color: var(--accent);
+    }
+
+    .overview-grid,
+    .learning-grid,
+    .evidence-grid,
+    .assessment-grid,
+    .skills-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 16px;
+    }
+
+    .overview-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 28px;
+    }
+
+    .learning-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 24px;
+    }
+
+    .overview-card,
+    .learning-card,
+    .evidence-card,
+    .assessment-card,
+    .skill-card {
+      background: rgba(255, 255, 255, 0.035);
       border: 1px solid var(--border);
-      background:
-        radial-gradient(circle at 0 0, rgba(30, 64, 175, 0.22), transparent 44%),
-        linear-gradient(160deg, rgba(8, 17, 31, 0.95), rgba(2, 6, 23, 0.97));
-      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.34);
-      padding: 18px;
-      margin-bottom: 16px;
+      border-radius: 16px;
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
     }
 
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: flex-start;
-      margin-bottom: 10px;
+    .overview-card:hover,
+    .learning-card:hover,
+    .evidence-card:hover,
+    .assessment-card:hover,
+    .skill-card:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.052);
+      border-color: var(--border-strong);
     }
 
-    .card-title-block p {
-      margin: 4px 0 0;
-      color: var(--soft);
+    .overview-card,
+    .learning-card,
+    .skill-card {
+      padding: 21px;
+    }
+
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: centre;
+      margin-bottom: 15px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid rgba(100, 212, 255, 0.18);
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 900;
+    }
+
+    .overview-card h3,
+    .learning-card h3,
+    .skill-card h3 {
+      color: var(--text-primary);
+      font-size: 0.97rem;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .overview-card p,
+    .learning-card p,
+    .skill-card p {
+      margin-top: 8px;
+      color: var(--text-secondary);
       font-size: 0.88rem;
     }
 
-    .complete {
-      color: #bbf7d0;
-      border-color: rgba(34, 197, 94, 0.55);
-      background: rgba(34, 197, 94, 0.09);
-    }
-
-    .pending {
-      color: #fde68a;
-      border-color: rgba(250, 204, 21, 0.5);
-      background: rgba(250, 204, 21, 0.08);
-    }
-
-    .subsection {
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px dashed rgba(148, 163, 184, 0.22);
-    }
-
-    .subsection-title {
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.13em;
-      color: var(--accent);
-      font-weight: 900;
-      margin-bottom: 5px;
-    }
-
-    p {
-      margin: 0 0 8px;
-      color: #cbd5e1;
-    }
-
-    ul {
-      margin: 7px 0 0 20px;
-      padding: 0;
-      color: #cbd5e1;
-    }
-
-    li {
-      margin-bottom: 5px;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    @media (max-width: 760px) {
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .mini-card {
-      border: 1px solid rgba(148, 163, 184, 0.22);
-      border-radius: 16px;
-      background: rgba(15, 23, 42, 0.58);
-      padding: 14px;
-    }
-
-    .mini-card strong {
-      color: #ecfeff;
-    }
-
-    .assessment-card {
-      border-radius: 24px;
-      border: 1px solid rgba(34, 211, 238, 0.42);
+    .key-point {
+      position: relative;
+      z-index: 1;
+      margin-top: 24px;
+      padding: 20px 22px;
       background:
-        radial-gradient(circle at 0 0, rgba(34, 211, 238, 0.22), transparent 42%),
-        linear-gradient(145deg, rgba(8, 17, 31, 0.96), rgba(2, 6, 23, 0.98));
-      box-shadow: var(--shadow);
-      padding: 18px;
-      margin-bottom: 16px;
+        linear-gradient(
+          135deg,
+          rgba(100, 212, 255, 0.09),
+          rgba(170, 139, 255, 0.07)
+        );
+      border: 1px solid rgba(100, 212, 255, 0.2);
+      border-left: 4px solid var(--accent);
+      border-radius: 14px;
     }
 
-    .button-row {
+    .key-point-label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .key-point p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+    }
+
+    .unit-meta {
+      position: relative;
+      z-index: 1;
       display: flex;
-      gap: 9px;
       flex-wrap: wrap;
-      margin-top: 12px;
+      gap: 9px;
+      margin-bottom: 24px;
     }
 
-    .btn {
+    .meta-chip {
       display: inline-flex;
+      align-items: centre;
+      gap: 7px;
+      padding: 7px 10px;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid var(--border);
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.44);
-      background: rgba(15, 23, 42, 0.85);
-      padding: 8px 13px;
-      color: var(--text);
-      font-size: 0.84rem;
-      font-weight: 750;
+      font-size: 0.74rem;
+      font-weight: 700;
     }
 
-    .btn.primary {
-      border-color: rgba(34, 211, 238, 0.7);
-      color: #a5f3fc;
-      background: rgba(34, 211, 238, 0.1);
+    .meta-chip.completed {
+      color: #96e9c1;
+      background: var(--green-soft);
+      border-color: rgba(72, 213, 151, 0.2);
     }
 
     .sidebar {
       position: sticky;
-      top: 92px;
-      align-self: start;
+      top: 96px;
+      display: grid;
+      gap: 18px;
     }
 
-    @media (max-width: 980px) {
-      .sidebar {
-        position: static;
-      }
-    }
-
-    .side-card {
-      border-radius: 24px;
-      border: 1px solid rgba(148, 163, 184, 0.28);
+    .sidebar-card {
+      overflow: hidden;
+      padding: 22px;
       background:
-        radial-gradient(circle at top, rgba(30, 64, 175, 0.34), transparent 48%),
-        rgba(2, 6, 23, 0.9);
-      box-shadow: var(--shadow);
-      padding: 16px;
+        linear-gradient(
+          150deg,
+          rgba(17, 31, 50, 0.93),
+          rgba(11, 24, 40, 0.9)
+        );
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow-small);
+    }
+
+    .sidebar-title {
       margin-bottom: 16px;
+      color: var(--text-primary);
+      font-size: 0.91rem;
+      font-weight: 850;
     }
 
-    .side-title {
-      color: var(--soft);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      font-size: 0.75rem;
-      font-weight: 900;
-      margin-bottom: 8px;
+    .status-list,
+    .sidebar-link-list,
+    .skill-list {
+      display: grid;
+      gap: 10px;
     }
 
-    .progress-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .progress-list li {
+    .status-item {
       display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--text-secondary);
+      font-size: 0.81rem;
+    }
+
+    .status-icon {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: centre;
+      color: #07101d;
+      background: var(--green);
+      border-radius: 50%;
+      font-size: 0.66rem;
+      font-weight: 900;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: centre;
       justify-content: space-between;
       gap: 10px;
-      padding: 8px 0;
-      border-bottom: 1px dashed rgba(148, 163, 184, 0.18);
-      color: #cbd5e1;
-      font-size: 0.9rem;
+      padding: 10px 11px;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid transparent;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
     }
 
-    .progress-list li:last-child {
-      border-bottom: 0;
+    .sidebar-link:hover,
+    .sidebar-link:focus-visible {
+      color: var(--text-primary);
+      background: var(--accent-soft);
+      border-color: rgba(100, 212, 255, 0.2);
     }
 
-    .small {
-      color: var(--soft);
-      font-size: 0.84rem;
+    .sidebar-link span:last-child {
+      color: var(--accent);
     }
 
-
-    .showcase-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 12px;
+    .skill-list {
+      padding-left: 18px;
+      color: var(--text-secondary);
+      font-size: 0.8rem;
     }
 
-    @media (max-width: 920px) {
-      .showcase-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+    .skill-list li::marker {
+      color: var(--accent);
     }
 
-    @media (max-width: 620px) {
-      .showcase-grid {
-        grid-template-columns: 1fr;
-      }
+    .footer {
+      padding: 32px 0 45px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem;
     }
 
-    .showcase-card {
-      border-radius: 20px;
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      background:
-        radial-gradient(circle at top left, rgba(34, 211, 238, 0.16), transparent 42%),
-        rgba(15, 23, 42, 0.72);
-      padding: 16px;
-      min-height: 220px;
+    .footer-inner {
       display: flex;
-      flex-direction: column;
+      align-items: centre;
       justify-content: space-between;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+      gap: 20px;
     }
 
-    .showcase-card h3 {
-      margin: 8px 0 6px;
-      font-size: 1rem;
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
     }
 
-    .showcase-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(34, 211, 238, 0.11);
-      border: 1px solid rgba(34, 211, 238, 0.35);
-      font-size: 1.35rem;
+    .footer a {
+      color: var(--text-secondary);
+      font-weight: 700;
     }
 
-    .showcase-card p {
-      color: #cbd5e1;
-      font-size: 0.9rem;
-      margin-bottom: 10px;
+    .footer a:hover,
+    .footer a:focus-visible {
+      color: var(--accent);
     }
 
-    .showcase-meta {
-      color: var(--soft);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .evidence-note {
-      border-left: 4px solid var(--accent);
-      background: rgba(34, 211, 238, 0.08);
-      padding: 12px 14px;
-      border-radius: 14px;
-      color: #cbd5e1;
-      margin-top: 12px;
-    }
-
-    footer {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 18px 32px;
-      color: var(--soft);
-      font-size: 0.85rem;
-      text-align: center;
-    }
-
-    #scrollTopBtn {
+    .back-to-top {
       position: fixed;
       right: 22px;
       bottom: 22px;
+      z-index: 800;
       width: 44px;
       height: 44px;
+      display: grid;
+      place-items: centre;
+      color: #06101b;
+      background: var(--accent);
       border: 0;
-      border-radius: 12px;
-      background: #111827;
-      color: white;
-      font-size: 20px;
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+      border-radius: 13px;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
       cursor: pointer;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.2s ease;
+      transform: translateY(12px);
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        background 0.2s ease;
     }
 
-    #scrollTopBtn.show {
+    .back-to-top.visible {
       opacity: 1;
       pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover,
+    .back-to-top:focus-visible {
+      background: #9deaff;
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(100, 212, 255, 0.45);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 1050px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-panel {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: centre;
+        gap: 28px;
+      }
+
+      .completion-ring {
+        margin: 10px auto;
+      }
+
+      .panel-heading {
+        grid-column: 1 / -1;
+      }
+
+      .content-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      :root {
+        --header-height: 68px;
+      }
+
+      .page-shell {
+        width: min(calc(100% - 24px), var(--container-width));
+      }
+
+      .header-actions .header-link:not(.primary) {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 52px;
+      }
+
+      .hero-copy,
+      .hero-panel {
+        border-radius: 22px;
+      }
+
+      .hero-copy {
+        padding: 30px 24px;
+      }
+
+      .hero-title {
+        font-size: clamp(2.25rem, 13vw, 3.9rem);
+      }
+
+      .hero-panel {
+        display: block;
+        padding: 24px;
+      }
+
+      .overview-grid,
+      .learning-grid,
+      .evidence-grid,
+      .assessment-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        grid-template-columns: 1fr;
+      }
+
+      .content-section {
+        padding: 25px 20px;
+        border-radius: 17px;
+      }
+
+      .section-header {
+        gap: 12px;
+      }
+
+      .section-number {
+        width: 41px;
+        height: 41px;
+        border-radius: 12px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand-subtitle {
+        display: none;
+      }
+
+      .header-link.primary {
+        padding-inline: 11px;
+        font-size: 0.8rem;
+      }
+
+      .hero-actions {
+        display: grid;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .completion-ring {
+        width: 150px;
+        height: 150px;
+      }
+
+      .completion-ring-inner {
+        width: 116px;
+        height: 116px;
+      }
+
+      .quick-nav-label {
+        display: none;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      * {
-        scroll-behavior: auto !important;
-        transition: none !important;
+      html {
+        scroll-behaviour: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behaviour: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
       }
     }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <div class="brand-logo" aria-hidden="true"></div>
-        <div>
-          <div class="brand-main">Principles of Digital Forensics & Cyber Law</div>
-          <div class="brand-sub">MSc Cyber Security - University of Essex Online</div>
-        </div>
-      </div>
-      <div class="status-pill">
-        <span class="status-dot"></span>
-        <span>Units 1-7 completed</span>
-      </div>
+  <header class="site-header">
+    <div class="page-shell header-inner">
+      <a class="brand" href="index.html" aria-label="Return to portfolio home">
+        <span class="brand-mark" aria-hidden="true">PM</span>
+
+        <span class="brand-copy">
+          <span class="brand-title">Pragadheesh Marimuthu</span>
+          <span class="brand-subtitle">MSc Cyber Security ePortfolio</span>
+        </span>
+      </a>
+
+      <nav class="header-actions" aria-label="Primary navigation">
+        <a class="header-link" href="#module-overview">Overview</a>
+        <a class="header-link" href="#assessments">Assessments</a>
+        <a class="header-link primary" href="index.html">Portfolio Home</a>
+      </nav>
     </div>
   </header>
 
-  <div class="layout">
-    <main id="main">
-      <section id="overview" class="hero">
-        <div class="hero-content">
-          <div class="badge-row">
-            <span class="badge accent">Module ePortfolio</span>
-            <span class="badge">April 2026 cohort</span>
-            <span class="badge">In progress</span>
+  <main id="main-content">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="page-shell">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="hero-kicker">
+              <span class="status-badge">Module completed</span>
+              <span class="category-badge">MSc Cyber Security</span>
+            </div>
+
+            <h1 class="hero-title" id="page-title">
+              Principles of Digital Forensics
+              <span class="accent-text">and Cyber Law</span>
+            </h1>
+
+            <p class="hero-description">
+              A completed academic and professional ePortfolio documenting my
+              learning across twelve units of digital forensics, cyber law,
+              evidence handling, investigative practice, cybercrime, digital
+              rights, expert testimony, and professional ethics.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button primary" href="#units">
+                Explore module learning
+                <span aria-hidden="true">↓</span>
+              </a>
+
+              <a class="button secondary" href="#work-showcase">
+                View portfolio evidence
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
 
-          <h1>Digital Forensics & Cyber Law <span>ePortfolio</span></h1>
+          <aside class="hero-panel" aria-label="Module completion summary">
+            <p class="panel-heading">Completion overview</p>
 
-          <p>
-            This ePortfolio records my learning, activities, artefacts, and reflections for the
-            <strong>Principles of Digital Forensics and Cyber Law</strong> module. It documents how my understanding has developed from basic legal foundations to digital evidence, forensic investigation, cyber-enabled organised crime, and the legal challenges of using technical evidence.
-          </p>
+            <div class="completion-ring" aria-label="100 per cent completed">
+              <div class="completion-ring-inner">
+                <div>
+                  <span class="completion-number">100%</span>
+                  <span class="completion-label">Completed</span>
+                </div>
+              </div>
+            </div>
 
-          <div class="meta-grid">
-            <div class="meta-box">
-              <strong>Student</strong>
-              <span>Pragadheesh Marimuthu</span>
+            <div class="hero-stat-list">
+              <div class="hero-stat">
+                <span>Learning units</span>
+                <strong>12 completed</strong>
+              </div>
+
+              <div class="hero-stat">
+                <span>Summative assessments</span>
+                <strong>3 completed</strong>
+              </div>
+
+              <div class="hero-stat">
+                <span>Module status</span>
+                <strong>Complete</strong>
+              </div>
             </div>
-            <div class="meta-box">
-              <strong>University</strong>
-              <span>University of Essex Online</span>
-            </div>
-            <div class="meta-box">
-              <strong>Progress</strong>
-              <span>Units 1-7 completed</span>
-            </div>
-            <div class="meta-box">
-              <strong>Main artefact</strong>
-              <span>EncroChat presentation</span>
+          </aside>
+        </div>
+
+        <div class="quick-nav-wrapper">
+          <nav class="quick-nav" aria-label="Page sections">
+            <span class="quick-nav-label">Jump to</span>
+            <a href="#module-overview">Overview</a>
+            <a href="#unit-1">Unit 1</a>
+            <a href="#unit-2">Unit 2</a>
+            <a href="#unit-3">Unit 3</a>
+            <a href="#unit-4">Unit 4</a>
+            <a href="#unit-5">Unit 5</a>
+            <a href="#unit-6">Unit 6</a>
+            <a href="#unit-7">Unit 7</a>
+            <a href="#unit-8">Unit 8</a>
+            <a href="#unit-9">Unit 9</a>
+            <a href="#unit-10">Unit 10</a>
+            <a href="#unit-11">Unit 11</a>
+            <a href="#unit-12">Unit 12</a>
+            <a href="#work-showcase">Work</a>
+            <a href="#assessments">Assessments</a>
+            <a href="#reflection">Reflection</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <div class="page-shell content-layout">
+      <div class="main-content">
+        <section
+          class="content-section"
+          id="module-overview"
+          aria-labelledby="module-overview-title"
+        >
+          <div class="section-header">
+            <div class="section-number" aria-hidden="true">01</div>
+
+            <div class="section-heading-group">
+              <p class="section-eyebrow">Module introduction</p>
+              <h2 class="section-title" id="module-overview-title">
+                Module Overview
+              </h2>
+              <p class="section-intro">
+                Connecting technical investigation with law, evidence,
+                professional judgement, and ethical responsibility.
+              </p>
             </div>
           </div>
-        </div>
-      </section>
 
-      <nav class="quick-nav" aria-label="Page navigation">
-        <a href="index.html" class="home">🏠 Home</a>
-        <span class="quick-label">Jump to</span>
-        <a href="#module-overview">Overview</a>
-        <a href="#unit-1">Unit 1</a>
-        <a href="#unit-2">Unit 2</a>
-        <a href="#unit-3">Unit 3</a>
-        <a href="#unit-4">Unit 4</a>
-        <a href="#unit-5">Unit 5</a>
-        <a href="#unit-6">Unit 6</a>
-        <a href="#unit-7">Unit 7</a>
-        <a href="#work-showcase">Work Showcase</a>
-        <a href="#assessments">Assessments</a>
-        <a href="#overall-reflection">Reflection</a>
-      </nav>
+          <div class="prose">
+            <p>
+              The Principles of Digital Forensics and Cyber Law module examined
+              how digital investigations operate within legal, evidential,
+              ethical, and social frameworks. It expanded my understanding of
+              cybersecurity beyond technical detection and response by
+              demonstrating that digital evidence must also be collected,
+              preserved, interpreted, and presented in a manner that can
+              withstand legal and professional scrutiny.
+            </p>
 
-      <section id="module-overview">
-        <div class="section-header">
-          <div class="section-kicker">Module overview</div>
-          <h2>Purpose of this ePortfolio</h2>
-        </div>
+            <p>
+              Across twelve units, I studied legal systems, standards of proof,
+              the meaning of evidence, continuity and reliability, cybercrime,
+              digital rights, online deviance, investigative pitfalls, digital
+              policing, expert testimony, and professional ethics. The module
+              encouraged me to consider not only what digital evidence reveals,
+              but also whether it is reliable, proportionate, lawfully obtained,
+              and communicated responsibly.
+            </p>
 
-        <div class="card">
-          <p>
-            This module connects technical cybersecurity practice with law, evidence, policing, and forensic investigation. Earlier modules focused more on prevention, secure development, risk management, and architecture. This module shifts attention to what happens after an incident: how an event is investigated, how evidence is collected and interpreted, and how technical findings become meaningful in legal or organisational decision-making.
-          </p>
-          <p>
-            My ePortfolio therefore records more than unit completion. It shows the activities I engaged with, the concepts I learned, the artefacts I produced, and how my thinking developed as I moved through the first seven units.
-          </p>
+            <p>
+              The module was completed through three summative assessments. The
+              first was a presentation submitted at the end of Unit 6, the
+              second was a blog post submitted at the end of Unit 9, and the
+              third was an expert report submitted at the end of Unit 12. These
+              assessments developed different forms of professional
+              communication, ranging from visual presentation and public-facing
+              writing to structured expert reporting.
+            </p>
+          </div>
 
-          <div class="two-col subsection">
-            <div class="mini-card">
-              <strong>Core learning themes</strong>
+          <div class="overview-grid">
+            <article class="overview-card">
+              <div class="card-icon" aria-hidden="true">12</div>
+              <h3>Twelve completed units</h3>
+              <p>
+                A structured progression from legal foundations and evidential
+                principles to expert testimony and ethics in digital practice.
+              </p>
+            </article>
+
+            <article class="overview-card">
+              <div class="card-icon" aria-hidden="true">3</div>
+              <h3>Three completed assessments</h3>
+              <p>
+                A presentation, blog post, and expert report demonstrating
+                academic research, critical analysis, and professional writing.
+              </p>
+            </article>
+
+            <article class="overview-card">
+              <div class="card-icon" aria-hidden="true">E</div>
+              <h3>Evidence-focused thinking</h3>
+              <p>
+                Consideration of authenticity, integrity, continuity,
+                reliability, admissibility, and the interpretation of digital
+                material.
+              </p>
+            </article>
+
+            <article class="overview-card">
+              <div class="card-icon" aria-hidden="true">P</div>
+              <h3>Professional development</h3>
+              <p>
+                Skills relevant to forensic investigation, incident response,
+                SOC analysis, cyber risk, governance, and legal compliance.
+              </p>
+            </article>
+          </div>
+
+          <div class="key-point">
+            <span class="key-point-label">Central learning outcome</span>
+            <p>
+              Digital evidence is not valuable merely because it exists. Its
+              value depends on how it was identified, collected, preserved,
+              analysed, contextualised, and communicated.
+            </p>
+          </div>
+        </section>
+
+        <div id="units">
+          <section
+            class="content-section"
+            id="unit-1"
+            aria-labelledby="unit-1-title"
+          >
+            <div class="section-header">
+              <div class="section-number" aria-hidden="true">U1</div>
+
+              <div class="section-heading-group">
+                <p class="section-eyebrow">Unit 1</p>
+                <h2 class="section-title" id="unit-1-title">
+                  The Law and Legal Systems
+                </h2>
+                <p class="section-intro">
+                  Understanding the structures and principles that shape legal
+                  decision-making.
+                </p>
+              </div>
+            </div>
+
+            <div class="unit-meta">
+              <span class="meta-chip completed">Completed</span>
+              <span class="meta-chip">Legal foundations</span>
+              <span class="meta-chip">Rule of law</span>
+              <span class="meta-chip">Legal systems</span>
+            </div>
+
+            <div class="prose">
+              <p>
+                Unit 1 introduced the role of law in society and the structures
+                through which legal rules are created, interpreted, and
+                enforced. It established a necessary foundation for the rest of
+                the module because digital investigations and cybercrime cannot
+                be understood in isolation from the legal systems in which they
+                operate.
+              </p>
+
+              <p>
+                I examined the rule of law, separation of powers, parliamentary
+                sovereignty, and the distinctions between common law, civil
+                law, and mixed legal systems. This demonstrated that legal
+                responses to cybercrime may differ between jurisdictions even
+                when investigators are dealing with similar technologies,
+                offences, or forms of evidence.
+              </p>
+
+              <p>
+                The unit also encouraged critical consideration of the purpose
+                of law. Law may prohibit harmful conduct, define enforcement
+                powers, protect rights, establish procedures, and provide
+                remedies. However, the borderless and rapidly changing nature
+                of cyberspace can expose limitations in laws designed around
+                geographical territories and comparatively slower legislative
+                processes.
+              </p>
+
+              <h3>Key areas of learning</h3>
+
               <ul>
-                <li>Law, legal systems, and cybercrime.</li>
-                <li>Evidence, proof, and admissibility.</li>
-                <li>Digital evidence identification and preservation.</li>
-                <li>Computer forensic investigation process.</li>
-                <li>Privacy, surveillance, and legal accountability.</li>
+                <li>
+                  The rule of law and the need for public authorities to act
+                  through established legal powers.
+                </li>
+                <li>
+                  Separation of powers between legislative, executive, and
+                  judicial institutions.
+                </li>
+                <li>
+                  Parliamentary sovereignty within the United Kingdom legal
+                  context.
+                </li>
+                <li>
+                  Differences between common law, civil law, and mixed legal
+                  traditions.
+                </li>
+                <li>
+                  The challenges of applying territorial law to transnational
+                  digital conduct.
+                </li>
+                <li>
+                  The balance between crime prevention, enforcement authority,
+                  individual rights, and procedural fairness.
+                </li>
               </ul>
             </div>
 
-            <div class="mini-card">
-              <strong>Portfolio evidence</strong>
+            <div class="learning-grid">
+              <article class="learning-card">
+                <div class="card-icon" aria-hidden="true">L</div>
+                <h3>Legal context matters</h3>
+                <p>
+                  A technical action may have different legal consequences
+                  depending on the jurisdiction, authority, purpose, and method
+                  involved.
+                </p>
+              </article>
+
+              <article class="learning-card">
+                <div class="card-icon" aria-hidden="true">J</div>
+                <h3>Jurisdiction creates complexity</h3>
+                <p>
+                  Cybercrime may involve suspects, victims, infrastructure, and
+                  evidence located across several countries.
+                </p>
+              </article>
+            </div>
+
+            <div class="key-point">
+              <span class="key-point-label">My reflection</span>
+              <p>
+                This unit shifted my perspective from seeing law as a fixed set
+                of rules to understanding it as a system of institutions,
+                powers, procedures, interpretations, and safeguards. For a
+                cybersecurity professional, knowing that an action is
+                technically possible is not enough. It is also necessary to
+                understand whether that action is authorised, proportionate,
+                and legally defensible.
+              </p>
+            </div>
+          </section>
+
+          <section
+            class="content-section"
+            id="unit-2"
+            aria-labelledby="unit-2-title"
+          >
+            <div class="section-header">
+              <div class="section-number" aria-hidden="true">U2</div>
+
+              <div class="section-heading-group">
+                <p class="section-eyebrow">Unit 2</p>
+                <h2 class="section-title" id="unit-2-title">
+                  Principles of Evidence and Proof
+                </h2>
+                <p class="section-intro">
+                  Exploring how facts are established and contested through
+                  legal processes.
+                </p>
+              </div>
+            </div>
+
+            <div class="unit-meta">
+              <span class="meta-chip completed">Completed</span>
+              <span class="meta-chip">Burden of proof</span>
+              <span class="meta-chip">Standards of proof</span>
+              <span class="meta-chip">Digital evidence</span>
+            </div>
+
+            <div class="prose">
+              <p>
+                Unit 2 examined the principles used to establish facts in legal
+                proceedings. A central distinction was made between the burden
+                of proof and the standard of proof. The burden identifies which
+                party must establish a claim, while the standard determines how
+                convincingly that claim must be demonstrated.
+              </p>
+
+              <p>
+                In criminal proceedings, the prosecution generally carries the
+                burden of proving the case beyond reasonable doubt. Civil
+                proceedings commonly apply the balance of probabilities. These
+                standards have important implications for digital evidence
+                because technical findings must be interpreted within the
+                evidential threshold required by the relevant proceedings.
+              </p>
+
+              <p>
+                The unit highlighted that digital evidence can appear highly
+                objective while still being open to uncertainty. A device,
+                account, address, log entry, or file may be associated with an
+                individual, but that association does not automatically prove
+                who performed an action, what their intention was, or whether
+                the evidence has been interpreted correctly.
+              </p>
+
+              <h3>Key areas of learning</h3>
+
               <ul>
-                <li>Unit learning notes and reflections.</li>
-                <li>Collaborative discussion contributions.</li>
-                <li>Seminar preparation and follow-up notes.</li>
-                <li>Presentation artefact on EncroChat.</li>
-                <li>Ongoing reflective development for later assessments.</li>
+                <li>
+                  The distinction between the burden of proof and the standard
+                  of proof.
+                </li>
+                <li>
+                  The prosecution's responsibility to establish criminal
+                  allegations beyond reasonable doubt.
+                </li>
+                <li>
+                  The balance of probabilities as the usual civil standard.
+                </li>
+                <li>
+                  The possibility that particular evidential burdens may shift
+                  in limited circumstances.
+                </li>
+                <li>
+                  The difference between technical association and proof of
+                  personal responsibility.
+                </li>
+                <li>
+                  The need to recognise alternative explanations, limitations,
+                  and uncertainty in forensic interpretation.
+                </li>
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section id="unit-1">
-        <div class="section-header">
-          <div class="section-kicker">Unit 1</div>
-          <h2>The Law and Legal Systems</h2>
-        </div>
+            <div class="learning-grid">
+              <article class="learning-card">
+                <div class="card-icon" aria-hidden="true">B</div>
+                <h3>Burden of proof</h3>
+                <p>
+                  Identifies the party responsible for establishing a disputed
+                  allegation or legal claim.
+                </p>
+              </article>
 
-        <article class="card">
-          <div class="card-header">
-            <div class="card-title-block">
-              <h3>Foundations of law and cybercrime</h3>
-              <p>Focus: legal systems, purpose of law, crime, and the legal context of cyber incidents.</p>
+              <article class="learning-card">
+                <div class="card-icon" aria-hidden="true">S</div>
+                <h3>Standard of proof</h3>
+                <p>
+                  Determines the level of certainty required before a court may
+                  accept that an allegation has been established.
+                </p>
+              </article>
             </div>
-            <span class="badge complete">Completed</span>
-          </div>
 
-          <div class="subsection">
-            <div class="subsection-title">Activities completed</div>
-            <ul>
-              <li>Completed the Unit 1 lecturecast on law, legal systems, and cybercrime foundations.</li>
-              <li>Reviewed the introductory material on common law, civil law, and mixed legal systems.</li>
-              <li>Reflected on what law is, why societies need legal systems, and how law defines responsibility.</li>
-              <li>Prepared notes on how legal systems influence the investigation and prosecution of cybercrime.</li>
-            </ul>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">What I learned</div>
-            <p>
-              I learned that law is not simply a list of rules. It is a framework that defines rights, duties, prohibited conduct, procedures, enforcement powers, and accountability. This matters in cybersecurity because a technical event only becomes legally relevant when it can be connected to a legal definition, a responsible actor, a victim, harm, intent, and admissible evidence.
-            </p>
-            <p>
-              The unit also helped me understand that legal systems differ between jurisdictions. Common law systems rely heavily on precedent and judicial decisions, while civil law systems rely more on codified rules. Mixed systems combine more than one tradition. This is important because cybercrime often crosses borders, but laws and enforcement powers remain tied to national legal systems.
-            </p>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Reflection</div>
-            <p>
-              Before this unit, I mainly viewed cybersecurity as a technical discipline. Unit 1 helped me recognise that cybersecurity professionals also need legal awareness. Technical findings must be documented clearly and explained in a way that supports organisational, regulatory, or legal decisions. This changed my perspective because it showed that investigation is not only about finding what happened, but also about showing why the finding is reliable and legally meaningful.
-            </p>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Artefacts and evidence</div>
-            <ul>
-              <li>Unit 1 learning notes on legal systems and cybercrime foundations.</li>
-              <li>Initial reflection on the relationship between law, cyber incidents, and evidence.</li>
-              <li>Seminar preparation notes for early module discussion.</li>
-            </ul>
-          </div>
-        </article>
-      </section>
-
-      <section id="unit-2">
-        <div class="section-header">
-          <div class="section-kicker">Unit 2</div>
-          <h2>Principles of Evidence and Proof</h2>
-        </div>
-
-        <article class="card">
-          <div class="card-header">
-            <div class="card-title-block">
-              <h3>Evidence, burden of proof, and legal standards</h3>
-              <p>Focus: how evidence supports legal claims and how proof differs between legal contexts.</p>
-            </div>
-            <span class="badge complete">Completed</span>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Activities completed</div>
-            <ul>
-              <li>Studied the lecture material on evidence, burden of proof, and standards of proof.</li>
-              <li>Reviewed how criminal and civil contexts apply different evidential thresholds.</li>
-              <li>Considered how cyber evidence can create challenges for investigators and courts.</li>
-              <li>Started engagement with the formative discussion topic on cybercrime and organised crime.</li>
-            </ul>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">What I learned</div>
-            <p>
-              This unit helped me understand that evidence must do more than exist. It must be relevant, reliable, and capable of supporting a claim. I learned that the burden of proof refers to who must prove a claim, while the standard of proof refers to how convincing the evidence must be.
-            </p>
-            <p>
-              I also learned that digital evidence creates specific difficulties. Logs, timestamps, IP addresses, messages, device artefacts, and metadata can be useful, but they can also be incomplete, misunderstood, altered, or challenged. This means investigators must handle digital evidence carefully and explain it clearly.
-            </p>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Reflection</div>
-            <p>
-              The most important learning point for me was that digital evidence does not automatically prove responsibility. A login record, IP address, or recovered file may suggest activity, but investigators still need to connect the evidence to a person, action, time, and context. This is especially relevant to SOC and blue-team work because alerts and logs may begin an investigation, but they are not always enough to reach a defensible conclusion.
-            </p>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Artefacts and evidence</div>
-            <ul>
-              <li>Notes on burden of proof and standards of proof.</li>
-              <li>Discussion preparation on cybercrime and organised crime.</li>
-              <li>Reflection on how digital evidence supports investigation and escalation.</li>
-            </ul>
-          </div>
-        </article>
-      </section>
-
-      <section id="unit-3">
-        <div class="section-header">
-          <div class="section-kicker">Unit 3</div>
-          <h2>What is Evidence Anyway?</h2>
-        </div>
-
-        <article class="card">
-          <div class="card-header">
-            <div class="card-title-block">
-              <h3>Digital evidence and investigative meaning</h3>
-              <p>Focus: identifying evidence, linking evidence to events, and maintaining continuity.</p>
-            </div>
-            <span class="badge complete">Completed</span>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Activities completed</div>
-            <ul>
-              <li>Completed the Unit 3 lecturecast on the meaning and role of evidence.</li>
-              <li>Reviewed guidance on identifying digital evidence and linking suspects to actions.</li>
-              <li>Worked on Activity 2: Computer Forensics - The Investigative Process.</li>
-              <li>Reflected on Walden's argument and considered the connection between law and policing through evidence.</li>
-              <li>Engaged with Bryant and Kennedy to consider how investigative processes have changed.</li>
-            </ul>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">What I learned</div>
-            <p>
-              Unit 3 helped me understand that evidence is not only information collected during an investigation. It becomes evidence when it is relevant to a question being investigated and can support or challenge a claim. In digital forensics, this can include device data, logs, communications, metadata, file activity, cloud records, and other digital traces.
-            </p>
-            <p>
-              I also learned that evidence must be placed into an investigative narrative. It is not enough to say that something was found on a device. The investigator must explain how it was found, why it matters, how it was preserved, and how it links to an action, person, or event.
-            </p>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Reflection</div>
-            <p>
-              This unit made me think more carefully about the phrase "digital footprint". In everyday use, it sounds simple, but in a forensic context each trace must be interpreted carefully. A digital trace may indicate activity, but it may not automatically prove who performed it or whether the action was intentional. This helped me appreciate why continuity of evidence, documentation, and tool reliability are central to forensic investigation.
-            </p>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Artefacts and evidence</div>
-            <ul>
-              <li>Activity 2 reflection notes on computer forensics and the investigative process.</li>
-              <li>Reading notes on Walden, Bryant, and Kennedy.</li>
-              <li>Reflection comparing investigative process changes with my own country context.</li>
-            </ul>
-          </div>
-        </article>
-      </section>
-
-      <section id="unit-4">
-        <div class="section-header">
-          <div class="section-kicker">Unit 4</div>
-          <h2>Computer Forensics and the Investigative Process</h2>
-        </div>
-
-        <article class="card">
-          <div class="card-header">
-            <div class="card-title-block">
-              <h3>Investigation, policing, and evidence handling</h3>
-              <p>Focus: structured forensic process and the relationship between law, policing, and evidence.</p>
-            </div>
-            <span class="badge complete">Completed</span>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Activities completed</div>
-            <ul>
-              <li>Prepared to discuss Activity 2 findings in Seminar 2.</li>
-              <li>Reviewed the role of investigative models in digital forensics.</li>
-              <li>Continued the collaborative discussion on cybercrime and organised crime.</li>
-              <li>Responded to peer contributions and considered different country perspectives.</li>
-            </ul>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">What I learned</div>
-            <p>
-              This unit strengthened my understanding of digital forensics as a process rather than a single technical task. Investigators must identify, preserve, collect, examine, analyse, and present evidence in a way that maintains integrity and can be reviewed later.
-            </p>
-            <p>
-              I learned that law and policing are connected through evidence. Police powers, investigative procedures, search and seizure rules, and evidential standards all influence what investigators can do and how their findings can be used. In cybercrime cases, this connection becomes more complicated because data may be stored across devices, services, and jurisdictions.
-            </p>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Reflection</div>
-            <p>
-              This unit was useful because it made the investigative process feel more structured. In cybersecurity practice, it can be tempting to focus only on technical discovery, such as identifying malware, suspicious logins, or network traffic. However, forensic investigation requires a disciplined approach where every action can be explained. I realised that poor documentation or weak handling can reduce the value of otherwise useful evidence.
-            </p>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Artefacts and evidence</div>
-            <ul>
-              <li>Seminar preparation notes.</li>
-              <li>Collaborative discussion contribution on organised cybercrime.</li>
-              <li>Peer responses to posts by Saheed Oyewo, Tenny Akindulureni, and Miriam Mahabiersing.</li>
-            </ul>
-          </div>
-        </article>
-      </section>
-
-      <section id="unit-5">
-        <div class="section-header">
-          <div class="section-kicker">Unit 5</div>
-          <h2>Digital Evidence, Cybercrime, and Organised Crime</h2>
-        </div>
-
-        <article class="card">
-          <div class="card-header">
-            <div class="card-title-block">
-              <h3>Cyber-enabled crime and investigative challenges</h3>
-              <p>Focus: organised crime, transnational activity, digital traces, and policing challenges.</p>
-            </div>
-            <span class="badge complete">Completed</span>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Activities completed</div>
-            <ul>
-              <li>Developed the formative discussion work on cybercrime and organised crime.</li>
-              <li>Analysed how organised criminal groups use digital tools to expand traditional crime.</li>
-              <li>Considered policing challenges created by encryption, anonymity, international cooperation, and fast-moving technologies.</li>
-              <li>Began shaping the EncroChat presentation topic around cyber-enabled organised drug trafficking in the United Kingdom.</li>
-            </ul>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">What I learned</div>
-            <p>
-              This unit helped me understand that not all cyber-related crime is purely cybercrime. Some offences, such as drug trafficking, remain traditional crimes, but they can become cyber-enabled when offenders use encrypted communication, digital payment methods, online coordination, or technical tools to organise activity.
-            </p>
-            <p>
-              I learned that organised criminal groups can use technology to increase scale, reduce visibility, coordinate across borders, and frustrate law enforcement. This creates a need for investigators who understand both criminal behaviour and digital evidence.
-            </p>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Reflection</div>
-            <p>
-              This unit directly influenced my presentation topic. I realised that EncroChat was a strong example because the underlying offence was not simply hacking or computer misuse. It involved the use of digital forensic methods and legal cooperation to investigate cyber-enabled organised drug trafficking. This helped me frame the topic more critically instead of treating all technology-related offending as the same type of cybercrime.
-            </p>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Artefacts and evidence</div>
-            <ul>
-              <li>Collaborative discussion initial post and peer replies.</li>
-              <li>Topic development notes for the EncroChat presentation.</li>
-              <li>Reflection on cyber-enabled organised crime and policing challenges.</li>
-            </ul>
-          </div>
-        </article>
-      </section>
-
-      <section id="unit-6">
-        <div class="section-header">
-          <div class="section-kicker">Unit 6</div>
-          <h2>Mid-Module Assignment 1: Presentation</h2>
-        </div>
-
-        <article class="assessment-card">
-          <div class="card-header">
-            <div class="card-title-block">
-              <h3>EncroChat hacking and UK organised drug trafficking investigations</h3>
-              <p>Summative artefact: presentation for Mid-Module Assignment 1.</p>
-            </div>
-            <span class="badge complete">Completed</span>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Assessment focus</div>
-            <p>
-              For the Unit 6 assessment, I prepared a presentation titled <strong>EncroChat Hacking and its Impact on Investigating Cyber-Enabled Organised Drug Trafficking in the United Kingdom</strong>. The presentation examined how the infiltration of EncroChat supported law enforcement investigations, especially the UK response through Operation Venetic.
-            </p>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Activities completed</div>
-            <ul>
-              <li>Selected and refined the presentation topic.</li>
-              <li>Researched EncroChat, Europol cooperation, the UK National Crime Agency, and Operation Venetic.</li>
-              <li>Prepared a structured slide deck covering background, investigation, legal debate, court treatment, public perception, and critical evaluation.</li>
-              <li>Developed a teleprompter-style speaking script for recording.</li>
-              <li>Connected the topic to digital evidence, admissibility, privacy, surveillance, and cyber-enabled organised crime.</li>
-            </ul>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">What I learned</div>
-            <p>
-              This assessment helped me understand how a digital forensic investigation can have major operational and legal consequences. EncroChat showed how encrypted communication platforms can be used by organised criminal groups, but it also raised important questions about hacking by law enforcement, evidence collection, privacy, and admissibility.
-            </p>
-            <p>
-              I also learned the importance of careful framing. Drug trafficking itself is not normally a cybercrime, but the use of encrypted communication made it a cyber-enabled organised crime issue. This distinction helped me present the topic more accurately.
-            </p>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Reflection</div>
-            <p>
-              Preparing this presentation improved my ability to connect technical investigation with legal analysis. I had to avoid treating the case as only a technical success story. A balanced view also required considering privacy, proportionality, human rights, and the risk of normalising intrusive investigative techniques. This helped me develop a more critical approach to digital forensics and cyber law.
-            </p>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Artefacts and evidence</div>
-            <ul>
-              <li>Final presentation slide deck.</li>
-              <li>Teleprompter speaking script.</li>
-              <li>Research notes on EncroChat, Operation Venetic, evidence admissibility, and privacy debate.</li>
-              <li>Visual slide planning notes and references slide preparation.</li>
-            </ul>
-
-            <div class="button-row">
-              <a href="assets/digital-forensics-cyber-law/encrochat-presentation.pdf" class="btn primary" target="_blank" rel="noopener">View presentation</a>
-              <a href="assets/digital-forensics-cyber-law/encrochat-speaking-script.pdf" class="btn" target="_blank" rel="noopener">View speaking script</a>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <section id="unit-7">
-        <div class="section-header">
-          <div class="section-kicker">Unit 7</div>
-          <h2>Post-Presentation Development and Legal Reflection</h2>
-        </div>
-
-        <article class="card">
-          <div class="card-header">
-            <div class="card-title-block">
-              <h3>Consolidating digital forensics, law, and evidence</h3>
-              <p>Focus: continuing reflection after the first summative assessment and preparing for later portfolio work.</p>
-            </div>
-            <span class="badge complete">Completed</span>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Activities completed</div>
-            <ul>
-              <li>Reviewed the learning gained from the EncroChat presentation.</li>
-              <li>Continued building the ePortfolio page to record module progress and evidence of learning.</li>
-              <li>Prepared to move towards later work involving blog-style reflection and expert report development.</li>
-              <li>Reflected on how legal, ethical, and evidential issues affect forensic investigation outcomes.</li>
-            </ul>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">What I learned</div>
-            <p>
-              Unit 7 helped me consolidate the first half of the module. I learned that digital forensic work sits between technical investigation and legal interpretation. The technical side may identify artefacts, patterns, or activity, but the legal side asks whether the evidence is reliable, admissible, proportionate, and connected to the issue being investigated.
-            </p>
-            <p>
-              I also learned that cyber law requires a balance between public safety and individual rights. Investigative success does not automatically remove the need to question legality, privacy, proportionality, and oversight.
-            </p>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Reflection</div>
-            <p>
-              By this stage of the module, my understanding has moved beyond simple definitions of law and evidence. I now see digital forensics as a disciplined process that must protect both investigative value and legal fairness. This is especially important for my future cybersecurity career because SOC and incident response work can generate evidence that may later support internal investigations, regulatory reporting, or law enforcement involvement.
-            </p>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">Artefacts and evidence</div>
-            <ul>
-              <li>Updated module ePortfolio up to Unit 7.</li>
-              <li>Post-presentation reflection notes.</li>
-              <li>Preparation notes for future blog post and expert report work.</li>
-            </ul>
-          </div>
-        </article>
-      </section>
-
-
-      <section id="work-showcase">
-        <div class="section-header">
-          <div class="section-kicker">Work showcase</div>
-          <h2>Evidence of work and portfolio artefacts</h2>
-        </div>
-
-        <div class="card">
-          <p>
-            This section is designed for both university review and professional portfolio viewing. It provides clear access to the work I completed during this module, including learning activities, reflections, discussion contributions, and assessment artefacts. The buttons below can be linked to PDF files, HTML pages, GitHub files, or uploaded documents in this repository.
-          </p>
-
-          <div class="evidence-note">
-    <strong>About this section:</strong> The artefacts below provide evidence of my engagement with module activities, assessments, discussions, and reflective learning. Together, they demonstrate both academic progress and the development of practical knowledge in digital forensics and cyber law.
-</div>
-
-        <div class="showcase-grid">
-          <article class="showcase-card">
-            <div>
-              <div class="showcase-icon">📘</div>
-              <div class="showcase-meta">Units 1-3</div>
-              <h3>Foundational Learning Notes</h3>
+            <div class="key-point">
+              <span class="key-point-label">My reflection</span>
               <p>
-                Notes and reflections on law, legal systems, evidence, proof, digital evidence, and early forensic investigation concepts.
+                This unit reinforced the need to avoid overstating technical
+                conclusions. For example, evidence that an account or device
+                was involved in an event may support an investigation, but it
+                does not automatically establish the identity, intention, or
+                knowledge of the person responsible. A reliable analyst must
+                distinguish clearly between observed facts, supported
+                inferences, assumptions, and unresolved uncertainty.
               </p>
             </div>
-            <div class="button-row">
-              <a class="btn primary" href="assets/digital-forensics-cyber-law/units-1-3-learning-notes.pdf" target="_blank" rel="noopener">View notes</a>
-            </div>
-          </article>
+          </section>
+                    <section
+            class="content-section"
+            id="unit-3"
+            aria-labelledby="unit-3-title"
+          >
+            <div class="section-header">
+              <div class="section-number" aria-hidden="true">U3</div>
 
-          <article class="showcase-card">
-            <div>
-              <div class="showcase-icon">🧾</div>
-              <div class="showcase-meta">Unit 3 activity</div>
-              <h3>Computer Forensics Activity</h3>
+              <div class="section-heading-group">
+                <p class="section-eyebrow">Unit 3</p>
+
+                <h2 class="section-title" id="unit-3-title">
+                  What is 'Evidence' Anyway?
+                </h2>
+
+                <p class="section-intro">
+                  Understanding the nature, value, interpretation, and limitations
+                  of evidence within digital investigations.
+                </p>
+              </div>
+            </div>
+
+            <div class="unit-meta">
+              <span class="meta-chip completed">Completed</span>
+              <span class="meta-chip">Evidence Identification</span>
+              <span class="meta-chip">Digital Footprints</span>
+              <span class="meta-chip">Investigation</span>
+            </div>
+
+            <div class="prose">
+
               <p>
-                Activity work on Walden, Bryant and Kennedy, including reflection on investigative process, law, policing, and evidence.
+                Building upon the legal principles explored in the previous unit,
+                Unit 3 focused on the meaning of evidence itself. Rather than
+                treating evidence simply as information collected during an
+                investigation, this unit demonstrated that evidence is only
+                meaningful when it can establish or refute facts within a
+                particular investigative or legal context.
               </p>
-            </div>
-            <div class="button-row">
-              <a class="btn primary" href="assets/digital-forensics-cyber-law/unit-3-computer-forensics-activity.pdf" target="_blank" rel="noopener">View activity</a>
-            </div>
-          </article>
 
-          <article class="showcase-card">
-            <div>
-              <div class="showcase-icon">💬</div>
-              <div class="showcase-meta">Collaborative discussion</div>
-              <h3>Cybercrime and Organised Crime Discussion</h3>
               <p>
-                Initial post and peer responses on organised crime, cyber-enabled offending, policing challenges, and transnational issues.
+                I explored the distinction between information and evidence,
+                recognising that not every digital artefact automatically becomes
+                evidence. Its value depends upon relevance, authenticity,
+                reliability, context and its ability to support investigative
+                hypotheses. Digital evidence often consists of numerous fragments
+                which individually may appear insignificant but collectively build
+                a coherent reconstruction of events.
               </p>
-            </div>
-            <div class="button-row">
-              <a class="btn primary" href="assets/digital-forensics-cyber-law/cybercrime-organised-crime-discussion.pdf" target="_blank" rel="noopener">View discussion</a>
-            </div>
-          </article>
 
-          <article class="showcase-card">
-            <div>
-              <div class="showcase-icon">🎞️</div>
-              <div class="showcase-meta">Assessment 1</div>
-              <h3>EncroChat Presentation</h3>
               <p>
-                Final presentation on EncroChat hacking and its impact on cyber-enabled organised drug trafficking investigations in the United Kingdom.
+                A significant area of learning involved understanding digital
+                footprints. Every interaction with digital systems generates
+                traces including network logs, browser histories, timestamps,
+                metadata, authentication records and device artefacts. Whilst
+                these traces provide investigators with valuable insight, they
+                rarely provide absolute certainty without careful interpretation.
               </p>
-            </div>
-            <div class="button-row">
-              <a class="btn primary" href="assets/digital-forensics-cyber-law/encrochat-presentation.pdf" target="_blank" rel="noopener">View presentation</a>
-            </div>
-          </article>
 
-          <article class="showcase-card">
-            <div>
-              <div class="showcase-icon">🎙️</div>
-              <div class="showcase-meta">Presentation support</div>
-              <h3>Speaking Script / Transcript</h3>
               <p>
-                Teleprompter-style script prepared for the recorded presentation, showing planning, structure, and communication of the topic.
+                The unit also introduced investigative models used within digital
+                forensics. Rather than approaching evidence collection in an
+                unstructured manner, forensic investigations require systematic
+                methodologies to ensure that evidence remains reliable,
+                repeatable and legally defensible.
               </p>
-            </div>
-            <div class="button-row">
-              <a class="btn primary" href="assets/digital-forensics-cyber-law/encrochat-speaking-script.pdf" target="_blank" rel="noopener">View script</a>
-            </div>
-          </article>
 
-          <article class="showcase-card">
-            <div>
-              <div class="showcase-icon">🧠</div>
-              <div class="showcase-meta">Reflection</div>
-              <h3>Reflective Learning Log</h3>
+              <h3>Key areas of learning</h3>
+
+              <ul>
+                <li>Understanding the distinction between information and evidence.</li>
+
+                <li>Recognising the importance of relevance and context.</li>
+
+                <li>Identifying various forms of digital evidence including logs,
+                metadata, browser artefacts and authentication records.</li>
+
+                <li>Using digital footprints to reconstruct investigative
+                timelines.</li>
+
+                <li>Understanding forensic investigation models and structured
+                investigative processes.</li>
+
+                <li>Recognising that evidence supports hypotheses rather than
+                automatically proving conclusions.</li>
+              </ul>
+
+            </div>
+
+            <div class="learning-grid">
+
+              <article class="learning-card">
+                <div class="card-icon">DF</div>
+
+                <h3>Digital Footprints</h3>
+
+                <p>
+                  Every interaction with digital technology leaves traces that may
+                  become valuable evidence when properly identified and interpreted.
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+                <div class="card-icon">EV</div>
+
+                <h3>Evidence Requires Context</h3>
+
+                <p>
+                  Evidence has little meaning in isolation. Its significance comes
+                  from how multiple artefacts relate to one another within an
+                  investigation.
+                </p>
+
+              </article>
+
+            </div>
+
+            <div class="key-point">
+              <span class="key-point-label">
+                My Reflection
+              </span>
+
               <p>
-                Consolidated reflection showing how my understanding developed across Units 1-7, from legal foundations to forensic evidence.
+                Before studying this unit, I often viewed evidence as individual
+                files or logs collected during an investigation. I now understand
+                that evidence is far broader than individual artefacts. Effective
+                investigators identify relationships between multiple pieces of
+                evidence to construct an accurate and defensible narrative while
+                avoiding unsupported assumptions.
               </p>
-            </div>
-            <div class="button-row">
-              <a class="btn primary" href="assets/digital-forensics-cyber-law/units-1-7-reflective-log.pdf" target="_blank" rel="noopener">View reflection</a>
-            </div>
-          </article>
 
-          <article class="showcase-card">
-            <div>
-              <div class="showcase-icon">✍️</div>
-              <div class="showcase-meta">Assessment 2</div>
-              <h3>Blog Post</h3>
+            </div>
+
+          </section>
+
+          <section
+            class="content-section"
+            id="unit-4"
+            aria-labelledby="unit-4-title"
+          >
+
+            <div class="section-header">
+
+              <div class="section-number" aria-hidden="true">
+                U4
+              </div>
+
+              <div class="section-heading-group">
+
+                <p class="section-eyebrow">
+                  Unit 4
+                </p>
+
+                <h2
+                  class="section-title"
+                  id="unit-4-title"
+                >
+                  Continuity and Reliability
+                </h2>
+
+                <p class="section-intro">
+                  Preserving evidence integrity through proper forensic handling,
+                  documentation and chain of custody.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="unit-meta">
+
+              <span class="meta-chip completed">
+                Completed
+              </span>
+
+              <span class="meta-chip">
+                Chain of Custody
+              </span>
+
+              <span class="meta-chip">
+                Integrity
+              </span>
+
+              <span class="meta-chip">
+                Reliability
+              </span>
+
+            </div>
+
+            <div class="prose">
+
               <p>
-                Placeholder for the Unit 9 blog post artefact. This will be linked once the assessment is completed and uploaded.
+                Unit 4 explored one of the most important principles in digital
+                forensics: evidence is only valuable if its integrity can be
+                demonstrated. Regardless of how significant digital evidence may
+                appear, it can quickly lose credibility if investigators cannot
+                prove that it has remained authentic, complete and unaltered
+                throughout the investigation.
               </p>
-            </div>
-            <div class="button-row">
-              <a class="btn" href="assets/digital-forensics-cyber-law/blog-post.pdf" target="_blank" rel="noopener">Add later</a>
-            </div>
-          </article>
 
-          <article class="showcase-card">
-            <div>
-              <div class="showcase-icon">⚖️</div>
-              <div class="showcase-meta">Final assessment</div>
-              <h3>Expert Report</h3>
               <p>
-                Placeholder for the final expert report artefact. This will demonstrate forensic reporting, evidence reasoning, and legal evaluation.
+                I studied the concept of continuity of evidence, commonly referred
+                to as the chain of custody. This documents every stage of evidence
+                handling, from initial identification and seizure through storage,
+                examination, analysis and eventual presentation. Each transfer of
+                responsibility must be recorded to ensure accountability and
+                transparency.
               </p>
-            </div>
-            <div class="button-row">
-              <a class="btn" href="assets/digital-forensics-cyber-law/expert-report.pdf" target="_blank" rel="noopener">Add later</a>
-            </div>
-          </article>
 
-          <article class="showcase-card">
-            <div>
-              <div class="showcase-icon">📁</div>
-              <div class="showcase-meta">Complete archive</div>
-              <h3>Module Evidence Folder</h3>
               <p>
-                A single repository folder containing submitted work, notes, activities, reflections, and supporting evidence for this module.
+                The unit also examined methods used to verify evidence integrity,
+                including cryptographic hash values, forensic imaging, write
+                blockers and comprehensive documentation. These procedures allow
+                investigators to demonstrate that digital evidence has not been
+                modified during acquisition or examination.
               </p>
+
+              <p>
+                Reliability extends beyond technical integrity. Investigators must
+                also demonstrate that forensic methods are scientifically accepted,
+                repeatable and appropriately applied. Documentation therefore
+                becomes just as important as technical competence.
+              </p>
+
+              <h3>Key areas of learning</h3>
+
+              <ul>
+
+                <li>
+                  Chain of custody and continuity of evidence.
+                </li>
+
+                <li>
+                  Maintaining integrity through forensic acquisition.
+                </li>
+
+                <li>
+                  Hashing and verification techniques.
+                </li>
+
+                <li>
+                  Write blockers and forensic imaging.
+                </li>
+
+                <li>
+                  Documentation throughout the investigative lifecycle.
+                </li>
+
+                <li>
+                  Reliability, repeatability and evidential credibility.
+                </li>
+
+              </ul>
+
             </div>
-            <div class="button-row">
-              <a class="btn primary" href="assets/digital-forensics-cyber-law/" target="_blank" rel="noopener">Open folder</a>
+
+            <div class="learning-grid">
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  HC
+                </div>
+
+                <h3>
+                  Evidence Integrity
+                </h3>
+
+                <p>
+                  Maintaining evidence integrity is essential to ensure forensic
+                  findings remain legally admissible and professionally credible.
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  CC
+                </div>
+
+                <h3>
+                  Chain of Custody
+                </h3>
+
+                <p>
+                  Every transfer, examination and storage activity must be
+                  documented to demonstrate accountability throughout the entire
+                  investigative process.
+                </p>
+
+              </article>
+
             </div>
-          </article>
-        </div>
-      </section>
 
+            <div class="key-point">
 
-      <section id="assessments">
-        <div class="section-header">
-          <div class="section-kicker">Assessments</div>
-          <h2>Summative and developing artefacts</h2>
-        </div>
+              <span class="key-point-label">
+                My Reflection
+              </span>
 
-        <div class="two-col">
-          <div class="mini-card">
-            <span class="badge complete">Completed</span>
-            <h3 style="margin-top:10px;">Assessment 1: Presentation</h3>
+              <p>
+                This unit fundamentally changed how I view forensic work.
+                Previously I focused primarily on identifying evidence. I now
+                appreciate that preserving integrity is equally important. A
+                technically accurate investigation can still fail if evidence
+                continuity cannot be demonstrated. Professional documentation,
+                repeatable methodology and careful handling are therefore as
+                important as technical analysis itself.
+              </p>
+
+            </div>
+
+          </section>
+                    <section
+            class="content-section"
+            id="unit-5"
+            aria-labelledby="unit-5-title"
+          >
+
+            <div class="section-header">
+
+              <div class="section-number" aria-hidden="true">
+                U5
+              </div>
+
+              <div class="section-heading-group">
+
+                <p class="section-eyebrow">
+                  Unit 5
+                </p>
+
+                <h2
+                  class="section-title"
+                  id="unit-5-title"
+                >
+                  Virtual Crimes and Tangible Harms
+                </h2>
+
+                <p class="section-intro">
+                  Examining the real-world consequences of offences committed within digital environments.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="unit-meta">
+
+              <span class="meta-chip completed">
+                Completed
+              </span>
+
+              <span class="meta-chip">
+                Cybercrime
+              </span>
+
+              <span class="meta-chip">
+                Victimisation
+              </span>
+
+              <span class="meta-chip">
+                Digital Harm
+              </span>
+
+            </div>
+
+            <div class="prose">
+
+              <p>
+                Unit 5 challenged the misconception that cybercrime exists only within virtual environments and therefore causes limited real-world impact. Through academic literature and practical examples, I examined how offences committed in cyberspace can produce significant financial, psychological, emotional, reputational and even physical consequences for individuals, organisations and governments.
+              </p>
+
+              <p>
+                Cyber-enabled offences such as fraud, ransomware, identity theft, cyberstalking and online harassment frequently extend beyond the digital environment, affecting victims' personal wellbeing, employment, finances and trust in digital services. The unit demonstrated that although the offence may originate through computers or networks, its consequences are experienced in everyday life.
+              </p>
+
+              <p>
+                I also explored the evolving nature of cybercrime, recognising that technological advancements continuously introduce new opportunities for criminal behaviour. Digital platforms enable offenders to operate across geographical boundaries while reaching a far greater number of victims than many traditional crimes.
+              </p>
+
+              <p>
+                Importantly, this unit highlighted that the perception of cybercrime as a "victimless" offence is fundamentally incorrect. Effective cybersecurity therefore requires understanding both the technical mechanisms of attacks and the broader societal harm they create.
+              </p>
+
+              <h3>Key areas of learning</h3>
+
+              <ul>
+
+                <li>
+                  Understanding cybercrime as a source of real-world harm.
+                </li>
+
+                <li>
+                  Financial, psychological and reputational impacts on victims.
+                </li>
+
+                <li>
+                  Cross-border characteristics of cyber-enabled offences.
+                </li>
+
+                <li>
+                  Technology as both an enabler of innovation and criminal activity.
+                </li>
+
+                <li>
+                  Victim-centred approaches to digital investigations.
+                </li>
+
+                <li>
+                  The growing societal dependence on digital technologies.
+                </li>
+
+              </ul>
+
+            </div>
+
+            <div class="learning-grid">
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  VH
+                </div>
+
+                <h3>
+                  Virtual Actions Create Real Harm
+                </h3>
+
+                <p>
+                  Digital offences frequently produce tangible consequences including financial losses, emotional distress, damaged reputations and disruption of essential services.
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  VC
+                </div>
+
+                <h3>
+                  Victim-Centred Thinking
+                </h3>
+
+                <p>
+                  Understanding victims' experiences is just as important as understanding the technical characteristics of cyber attacks.
+                </p>
+
+              </article>
+
+            </div>
+
+            <div class="key-point">
+
+              <span class="key-point-label">
+                My Reflection
+              </span>
+
+              <p>
+                This unit reminded me that cybersecurity is ultimately about protecting people rather than simply protecting technology. Behind every compromised account, ransomware incident or identity theft case is an individual or organisation experiencing genuine consequences. As a future cybersecurity professional, understanding these human impacts is essential when making investigative and security decisions.
+              </p>
+
+            </div>
+
+          </section>
+
+          <section
+            class="content-section"
+            id="unit-6"
+            aria-labelledby="unit-6-title"
+          >
+
+            <div class="section-header">
+
+              <div class="section-number">
+                U6
+              </div>
+
+              <div class="section-heading-group">
+
+                <p class="section-eyebrow">
+                  Unit 6
+                </p>
+
+                <h2
+                  class="section-title"
+                  id="unit-6-title"
+                >
+                  Cybercrime and Social Perception
+                </h2>
+
+                <p class="section-intro">
+                  Understanding how public perception, media narratives and policy influence responses to cybercrime.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="unit-meta">
+
+              <span class="meta-chip completed">
+                Completed
+              </span>
+
+              <span class="meta-chip">
+                Public Perception
+              </span>
+
+              <span class="meta-chip">
+                Media
+              </span>
+
+              <span class="meta-chip">
+                Policy
+              </span>
+
+            </div>
+
+            <div class="prose">
+
+              <p>
+                Unit 6 explored the relationship between cybercrime, media representation and public understanding. Whilst cyber incidents are often discussed in technical terms, public perception frequently shapes political priorities, organisational investment and legislative responses.
+              </p>
+
+              <p>
+                I examined how media reporting can influence public fear, confidence and awareness. Sensational reporting may exaggerate certain threats whilst underreporting others, creating misconceptions regarding both the scale and nature of cybercrime. This reinforces the importance of evidence-based communication when presenting technical information to non-specialist audiences.
+              </p>
+
+              <p>
+                The unit also considered the social construction of cybercrime. People's understanding of digital offending is influenced not only by personal experience but also by education, culture, government messaging and media coverage. Consequently, cybersecurity professionals must communicate findings responsibly without creating unnecessary alarm or misunderstanding.
+              </p>
+
+              <p>
+                A major component of this unit was preparing and delivering the first summative assessment. My presentation examined the EncroChat investigation and evaluated its impact on investigating organised drug trafficking within the United Kingdom. This assessment strengthened my ability to translate complex legal and technical issues into an engaging presentation supported by academic research.
+              </p>
+
+              <h3>Key areas of learning</h3>
+
+              <ul>
+
+                <li>
+                  The influence of media on perceptions of cybercrime.
+                </li>
+
+                <li>
+                  Responsible communication of cybersecurity issues.
+                </li>
+
+                <li>
+                  Public confidence and digital trust.
+                </li>
+
+                <li>
+                  Social responses to emerging technologies.
+                </li>
+
+                <li>
+                  Evidence-based communication for technical audiences and the general public.
+                </li>
+
+                <li>
+                  Critical analysis of the EncroChat investigation.
+                </li>
+
+              </ul>
+
+            </div>
+
+            <div class="learning-grid">
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  CP
+                </div>
+
+                <h3>
+                  Communication Matters
+                </h3>
+
+                <p>
+                  Cybersecurity professionals must present complex investigations accurately whilst remaining understandable to technical and non-technical audiences alike.
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  EC
+                </div>
+
+                <h3>
+                  EncroChat Case Study
+                </h3>
+
+                <p>
+                  The EncroChat investigation demonstrated how digital evidence, international cooperation and legal considerations combine during large-scale cyber-enabled investigations.
+                </p>
+
+              </article>
+
+            </div>
+
+            <div class="key-point">
+
+              <span class="key-point-label">
+                My Reflection
+              </span>
+
+              <p>
+                Preparing the EncroChat presentation significantly improved my research, academic writing and presentation skills. Beyond understanding the investigation itself, I learned how to critically evaluate legal decisions, investigative methods and societal implications while presenting complex topics in a structured and accessible manner.
+              </p>
+
+            </div>
+
+          </section>
+
+          <section
+            class="content-section"
+            id="assessment-one"
+            aria-labelledby="assessment-one-title"
+          >
+
+            <div class="section-header">
+
+              <div class="section-number">
+                A1
+              </div>
+
+              <div class="section-heading-group">
+
+                <p class="section-eyebrow">
+                  Summative Assessment
+                </p>
+
+                <h2
+                  class="section-title"
+                  id="assessment-one-title"
+                >
+                  Assessment One – Academic Presentation
+                </h2>
+
+                <p class="section-intro">
+                  Completed at the end of Unit 6.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="prose">
+
+              <p>
+                The first summative assessment required the creation and delivery of an academic presentation examining a significant issue within digital forensics and cyber law. My chosen topic was:
+              </p>
+
+              <div class="key-point">
+
+                <span class="key-point-label">
+                  Presentation Topic
+                </span>
+
+                <p>
+                  <strong>
+                  EncroChat Hacking and its Impact on Investigating Cyber-Enabled Organised Drug Trafficking in the United Kingdom
+                  </strong>
+                </p>
+
+              </div>
+
+              <p>
+                The presentation critically analysed the EncroChat investigation, explaining how encrypted criminal communication platforms were infiltrated through international law enforcement cooperation. It evaluated the investigative techniques used, the legal debates surrounding admissibility of evidence, operational successes, privacy concerns and the wider impact on organised crime investigations.
+              </p>
+
+              <p>
+                Preparing this assessment strengthened my ability to conduct independent academic research, evaluate legal judgments, interpret complex investigations and communicate findings effectively through professional presentation techniques.
+              </p>
+
+            </div>
+
+            <div class="learning-grid">
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  📄
+                </div>
+
+                <h3>
+                  Presentation Slides
+                </h3>
+
+                <p>
+                  Complete presentation with academic references and supporting visuals.
+                </p>
+
+                <p style="margin-top:15px;">
+                  <a class="button secondary"
+                  href="assets/digital-forensics-cyber-law/encrochat-presentation.pdf"
+                  target="_blank">
+                  View Presentation →
+                  </a>
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  🎤
+                </div>
+
+                <h3>
+                  Speaker Notes
+                </h3>
+
+                <p>
+                  Full presentation script prepared for the recorded submission.
+                </p>
+
+                <p style="margin-top:15px;">
+                  <a class="button secondary"
+                  href="assets/digital-forensics-cyber-law/encrochat-script.pdf"
+                  target="_blank">
+                  View Script →
+                  </a>
+                </p>
+
+              </article>
+
+            </div>
+
+          </section>
+                    <section
+            class="content-section"
+            id="unit-7"
+            aria-labelledby="unit-7-title"
+          >
+
+            <div class="section-header">
+
+              <div class="section-number" aria-hidden="true">
+                U7
+              </div>
+
+              <div class="section-heading-group">
+
+                <p class="section-eyebrow">
+                  Unit 7
+                </p>
+
+                <h2
+                  class="section-title"
+                  id="unit-7-title"
+                >
+                  Rights in Cyberspace
+                </h2>
+
+                <p class="section-intro">
+                  Balancing privacy, security, freedom of expression and state
+                  powers within an increasingly digital society.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="unit-meta">
+
+              <span class="meta-chip completed">
+                Completed
+              </span>
+
+              <span class="meta-chip">
+                Human Rights
+              </span>
+
+              <span class="meta-chip">
+                Privacy
+              </span>
+
+              <span class="meta-chip">
+                Digital Rights
+              </span>
+
+            </div>
+
+            <div class="prose">
+
+              <p>
+                Unit 7 explored one of the most challenging aspects of modern
+                cybersecurity: protecting society from cybercrime whilst
+                simultaneously respecting the rights and freedoms of individuals.
+                As technology becomes increasingly integrated into everyday life,
+                governments, organisations and investigators possess greater
+                capabilities to monitor, collect and analyse digital information.
+                These powers must therefore be exercised responsibly and within
+                appropriate legal limits.
+              </p>
+
+              <p>
+                Throughout the unit I examined how rights such as privacy,
+                freedom of expression, access to information and due process can
+                be affected by digital investigations and surveillance.
+                Legislation designed to enhance public safety may also introduce
+                tensions regarding proportionality, necessity and accountability.
+                Cybersecurity professionals must therefore understand that
+                protecting digital systems should never disregard fundamental
+                human rights.
+              </p>
+
+              <p>
+                The unit reinforced that legal authority alone is not sufficient
+                justification for intrusive investigative practices.
+                Investigators must always consider whether an action is
+                proportionate to the threat being addressed and whether less
+                intrusive alternatives are available.
+              </p>
+
+              <h3>Key Areas of Learning</h3>
+
+              <ul>
+
+                <li>
+                  Privacy as a fundamental right within digital environments.
+                </li>
+
+                <li>
+                  Freedom of expression in online communities.
+                </li>
+
+                <li>
+                  Government surveillance and lawful investigative powers.
+                </li>
+
+                <li>
+                  Proportionality and necessity within digital investigations.
+                </li>
+
+                <li>
+                  Ethical responsibilities of cybersecurity professionals.
+                </li>
+
+                <li>
+                  Balancing public safety with individual liberties.
+                </li>
+
+              </ul>
+
+            </div>
+
+            <div class="learning-grid">
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  ⚖
+                </div>
+
+                <h3>
+                  Rights Require Balance
+                </h3>
+
+                <p>
+                  Cybersecurity professionals must balance effective
+                  investigations with respect for privacy, fairness and
+                  fundamental human rights.
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  🔒
+                </div>
+
+                <h3>
+                  Privacy by Design
+                </h3>
+
+                <p>
+                  Security measures should be implemented in ways that minimise
+                  unnecessary intrusion whilst maintaining effective protection.
+                </p>
+
+              </article>
+
+            </div>
+
+            <div class="key-point">
+
+              <span class="key-point-label">
+                My Reflection
+              </span>
+
+              <p>
+                This unit reminded me that cybersecurity is ultimately about
+                protecting people rather than simply collecting data.
+                Technical capability should always be accompanied by legal,
+                ethical and professional responsibility.
+              </p>
+
+            </div>
+
+          </section>
+
+          <section
+            class="content-section"
+            id="unit-8"
+            aria-labelledby="unit-8-title"
+          >
+
+            <div class="section-header">
+
+              <div class="section-number">
+                U8
+              </div>
+
+              <div class="section-heading-group">
+
+                <p class="section-eyebrow">
+                  Unit 8
+                </p>
+
+                <h2
+                  class="section-title"
+                  id="unit-8-title"
+                >
+                  Digital Deviance
+                </h2>
+
+                <p class="section-intro">
+                  Understanding why individuals engage in harmful or criminal
+                  behaviour within digital environments.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="unit-meta">
+
+              <span class="meta-chip completed">
+                Completed
+              </span>
+
+              <span class="meta-chip">
+                Behaviour
+              </span>
+
+              <span class="meta-chip">
+                Criminology
+              </span>
+
+              <span class="meta-chip">
+                Motivation
+              </span>
+
+            </div>
+
+            <div class="prose">
+
+              <p>
+                Unit 8 shifted the focus from technological systems towards the
+                behaviour of individuals operating within cyberspace. Rather than
+                viewing cybercrime purely as a technical issue, the unit examined
+                why offenders engage in deviant online behaviour and how
+                criminological theories can help explain these actions.
+              </p>
+
+              <p>
+                I explored factors including anonymity, opportunity, perceived
+                low risk, financial motivation, ideological beliefs and social
+                influence. The internet can reduce traditional barriers to crime,
+                allowing offenders to target victims across jurisdictions with
+                comparatively little physical risk.
+              </p>
+
+              <p>
+                Understanding offender behaviour is valuable because effective
+                cybersecurity extends beyond technical controls. Knowledge of
+                human motivation assists organisations in designing preventive
+                strategies, improving awareness programmes and strengthening
+                investigative approaches.
+              </p>
+
+              <p>
+                The unit also highlighted that digital deviance exists across a
+                spectrum, ranging from minor policy violations to sophisticated
+                organised cybercrime. Recognising this diversity prevents
+                investigators from applying overly simplistic assumptions to
+                complex incidents.
+              </p>
+
+              <h3>Key Areas of Learning</h3>
+
+              <ul>
+
+                <li>
+                  Criminological explanations for cyber offending.
+                </li>
+
+                <li>
+                  Human behaviour within online environments.
+                </li>
+
+                <li>
+                  Motivation, opportunity and perceived anonymity.
+                </li>
+
+                <li>
+                  Organised cybercrime and individual offenders.
+                </li>
+
+                <li>
+                  Preventative approaches through behavioural understanding.
+                </li>
+
+                <li>
+                  The relationship between technology and human decision making.
+                </li>
+
+              </ul>
+
+            </div>
+
+            <div class="learning-grid">
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  👤
+                </div>
+
+                <h3>
+                  Human Behaviour Matters
+                </h3>
+
+                <p>
+                  Cybersecurity incidents often originate from human decisions
+                  rather than technological weaknesses alone.
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  🧠
+                </div>
+
+                <h3>
+                  Understanding Motivation
+                </h3>
+
+                <p>
+                  Recognising offender motivations assists investigators in
+                  predicting behaviour and improving defensive strategies.
+                </p>
+
+              </article>
+
+            </div>
+
+            <div class="key-point">
+
+              <span class="key-point-label">
+                My Reflection
+              </span>
+
+              <p>
+                This unit broadened my understanding of cybersecurity by showing
+                that technical knowledge alone is insufficient.
+                Successful investigations also require an appreciation of human
+                behaviour, psychology and criminology.
+                Understanding why attacks occur can be just as valuable as
+                understanding how they occur.
+              </p>
+
+            </div>
+
+          </section>
+                    <section
+            class="content-section"
+            id="unit-9"
+            aria-labelledby="unit-9-title"
+          >
+
+            <div class="section-header">
+
+              <div class="section-number">
+                U9
+              </div>
+
+              <div class="section-heading-group">
+
+                <p class="section-eyebrow">
+                  Unit 9
+                </p>
+
+                <h2
+                  class="section-title"
+                  id="unit-9-title"
+                >
+                  The Investigative Context and Investigative Pitfalls
+                </h2>
+
+                <p class="section-intro">
+                  Understanding the complexities, limitations and common mistakes
+                  encountered during digital investigations.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="unit-meta">
+
+              <span class="meta-chip completed">
+                Completed
+              </span>
+
+              <span class="meta-chip">
+                Investigation
+              </span>
+
+              <span class="meta-chip">
+                Critical Thinking
+              </span>
+
+              <span class="meta-chip">
+                Digital Forensics
+              </span>
+
+            </div>
+
+            <div class="prose">
+
+              <p>
+                Unit 9 focused on the practical realities of digital
+                investigations and the numerous pitfalls that may affect the
+                quality, reliability and fairness of investigative outcomes.
+                Whilst digital evidence can be extremely powerful, investigators
+                must avoid assumptions, confirmation bias and over-reliance on
+                technology when interpreting evidence.
+              </p>
+
+              <p>
+                The unit emphasised that investigations rarely follow a perfectly
+                linear process. Investigators frequently encounter incomplete
+                evidence, conflicting information, multiple hypotheses and
+                technical uncertainty. Sound professional judgement therefore
+                becomes essential throughout every stage of an investigation.
+              </p>
+
+              <p>
+                Particular attention was given to investigative bias and the
+                importance of remaining objective. Digital evidence should support
+                conclusions rather than investigators searching only for evidence
+                that confirms existing beliefs. Maintaining neutrality protects
+                both the integrity of investigations and the rights of those
+                involved.
+              </p>
+
+              <p>
+                This unit concluded with the submission of the second summative
+                assessment, an academic blog post, requiring complex legal and
+                forensic concepts to be communicated in a clear, engaging and
+                accessible format suitable for a wider audience.
+              </p>
+
+              <h3>Key Areas of Learning</h3>
+
+              <ul>
+
+                <li>
+                  Investigative reasoning and structured decision making.
+                </li>
+
+                <li>
+                  Recognising investigative bias.
+                </li>
+
+                <li>
+                  Confirmation bias and cognitive errors.
+                </li>
+
+                <li>
+                  Critical evaluation of digital evidence.
+                </li>
+
+                <li>
+                  Managing uncertainty during investigations.
+                </li>
+
+                <li>
+                  Communicating forensic findings objectively.
+                </li>
+
+              </ul>
+
+            </div>
+
+            <div class="learning-grid">
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  🔍
+                </div>
+
+                <h3>
+                  Think Before Concluding
+                </h3>
+
+                <p>
+                  Digital evidence should support investigative conclusions rather
+                  than investigators attempting to fit evidence around existing
+                  assumptions.
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  🧩
+                </div>
+
+                <h3>
+                  Multiple Possibilities
+                </h3>
+
+                <p>
+                  Professional investigators consider alternative explanations
+                  before reaching final conclusions.
+                </p>
+
+              </article>
+
+            </div>
+
+            <div class="key-point">
+
+              <span class="key-point-label">
+                My Reflection
+              </span>
+
+              <p>
+                This unit strengthened my analytical thinking. It reinforced that
+                successful investigators must remain objective, evidence-led and
+                willing to challenge their own assumptions throughout an
+                investigation.
+              </p>
+
+            </div>
+
+          </section>
+
+          <section
+            class="content-section"
+            id="assessment-two"
+            aria-labelledby="assessment-two-title"
+          >
+
+            <div class="section-header">
+
+              <div class="section-number">
+                A2
+              </div>
+
+              <div class="section-heading-group">
+
+                <p class="section-eyebrow">
+                  Summative Assessment
+                </p>
+
+                <h2
+                  class="section-title"
+                  id="assessment-two-title"
+                >
+                  Assessment Two – Academic Blog Post
+                </h2>
+
+                <p class="section-intro">
+                  Completed at the end of Unit 9.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="prose">
+
+              <p>
+                The second assessment required the production of an academic blog
+                post translating complex legal and forensic concepts into content
+                suitable for a wider audience whilst maintaining academic accuracy.
+              </p>
+
+              <p>
+                Unlike traditional academic reports, the blog required concise
+                communication, logical structure and accessible language. This
+                assessment developed my ability to communicate cybersecurity
+                concepts beyond technical audiences, an essential skill when
+                engaging with management, clients and the general public.
+              </p>
+
+              <p>
+                Producing this assessment improved my research, referencing,
+                critical evaluation and professional writing skills whilst
+                encouraging me to present evidence-based arguments in an engaging
+                and reader-friendly format.
+              </p>
+
+            </div>
+
+            <div class="learning-grid">
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  📝
+                </div>
+
+                <h3>
+                  Academic Blog
+                </h3>
+
+                <p>
+                  Public-facing academic writing supported by research and
+                  critical analysis.
+                </p>
+
+                <p style="margin-top:16px;">
+
+                  <a
+                    class="button secondary"
+                    href="assets/digital-forensics-cyber-law/blog-post.pdf"
+                    target="_blank"
+                  >
+                    View Blog Post →
+                  </a>
+
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  💡
+                </div>
+
+                <h3>
+                  Skills Developed
+                </h3>
+
+                <p>
+
+                  • Academic communication<br>
+                  • Research synthesis<br>
+                  • Professional writing<br>
+                  • Public engagement
+
+                </p>
+
+              </article>
+
+            </div>
+
+          </section>
+
+          <section
+            class="content-section"
+            id="unit-10"
+            aria-labelledby="unit-10-title"
+          >
+
+            <div class="section-header">
+
+              <div class="section-number">
+                U10
+              </div>
+
+              <div class="section-heading-group">
+
+                <p class="section-eyebrow">
+                  Unit 10
+                </p>
+
+                <h2
+                  class="section-title"
+                  id="unit-10-title"
+                >
+                  Policing in a Digital Landscape
+                </h2>
+
+                <p class="section-intro">
+                  Exploring the challenges faced by law enforcement within an
+                  increasingly interconnected digital world.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="unit-meta">
+
+              <span class="meta-chip completed">
+                Completed
+              </span>
+
+              <span class="meta-chip">
+                Digital Policing
+              </span>
+
+              <span class="meta-chip">
+                International Cooperation
+              </span>
+
+              <span class="meta-chip">
+                Cyber Investigations
+              </span>
+
+            </div>
+
+            <div class="prose">
+
+              <p>
+                Unit 10 examined how policing has evolved to address cybercrime
+                within an increasingly digital society. Traditional investigative
+                methods remain important but must now be complemented by digital
+                forensic capabilities, international cooperation and specialist
+                technical expertise.
+              </p>
+
+              <p>
+                The borderless nature of cyberspace presents significant
+                challenges for law enforcement agencies. Cyber incidents often
+                involve multiple jurisdictions, cloud infrastructure, encrypted
+                communications and rapidly changing technologies. Consequently,
+                successful investigations frequently depend upon collaboration
+                between domestic agencies, international partners and private
+                organisations.
+              </p>
+
+              <p>
+                The unit also considered the importance of digital evidence,
+                intelligence sharing and proactive policing strategies.
+                Organisations increasingly rely upon threat intelligence,
+                incident response teams and digital forensic specialists working
+                together to identify, investigate and disrupt cyber-enabled
+                criminal activity.
+              </p>
+
+              <h3>Key Areas of Learning</h3>
+
+              <ul>
+
+                <li>
+                  Modern policing within digital environments.
+                </li>
+
+                <li>
+                  International collaboration.
+                </li>
+
+                <li>
+                  Cross-border investigations.
+                </li>
+
+                <li>
+                  Intelligence-led policing.
+                </li>
+
+                <li>
+                  Public-private partnerships.
+                </li>
+
+                <li>
+                  Future challenges for cyber law enforcement.
+                </li>
+
+              </ul>
+
+            </div>
+
+            <div class="learning-grid">
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  🌍
+                </div>
+
+                <h3>
+                  Global Cooperation
+                </h3>
+
+                <p>
+                  Cybercrime investigations increasingly depend upon cooperation
+                  between multiple jurisdictions and international organisations.
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  🚔
+                </div>
+
+                <h3>
+                  Modern Policing
+                </h3>
+
+                <p>
+                  Digital investigations combine technical expertise, legal
+                  authority and collaborative intelligence to combat cybercrime.
+                </p>
+
+              </article>
+
+            </div>
+
+            <div class="key-point">
+
+              <span class="key-point-label">
+                My Reflection
+              </span>
+
+              <p>
+                This unit highlighted that cybersecurity is not solely an
+                organisational responsibility. Effective policing now requires
+                technical capability, international collaboration, legal
+                frameworks and continuous adaptation to emerging technologies.
+              </p>
+
+            </div>
+
+          </section>
+                    <section
+            class="content-section"
+            id="unit-11"
+            aria-labelledby="unit-11-title"
+          >
+
+            <div class="section-header">
+
+              <div class="section-number">
+                U11
+              </div>
+
+              <div class="section-heading-group">
+
+                <p class="section-eyebrow">
+                  Unit 11
+                </p>
+
+                <h2
+                  class="section-title"
+                  id="unit-11-title"
+                >
+                  The Expert Witness
+                </h2>
+
+                <p class="section-intro">
+                  Understanding the responsibilities, ethics and courtroom role
+                  of digital forensic experts.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="unit-meta">
+
+              <span class="meta-chip completed">
+                Completed
+              </span>
+
+              <span class="meta-chip">
+                Expert Witness
+              </span>
+
+              <span class="meta-chip">
+                Courtroom
+              </span>
+
+              <span class="meta-chip">
+                Evidence
+              </span>
+
+            </div>
+
+            <div class="prose">
+
+              <p>
+                Unit 11 explored the role of the expert witness within legal
+                proceedings and examined the responsibilities placed upon
+                professionals who present digital forensic evidence before the
+                courts. Unlike ordinary witnesses, expert witnesses provide
+                specialised knowledge that assists judges and juries in
+                understanding complex technical evidence.
+              </p>
+
+              <p>
+                The unit emphasised that an expert witness has a duty to the
+                court rather than to the party instructing them. Their opinions
+                must remain objective, impartial and supported by verifiable
+                evidence. Any findings should be based upon recognised forensic
+                methodologies and capable of being independently reproduced by
+                another competent examiner.
+              </p>
+
+              <p>
+                I also examined the importance of clear report writing.
+                Technical terminology should be explained carefully so that
+                individuals without specialist knowledge are able to understand
+                the evidence being presented. Effective communication is
+                therefore just as important as technical competence.
+              </p>
+
+              <p>
+                Throughout the unit I gained a greater appreciation of the high
+                professional standards expected from digital forensic experts.
+                Their credibility depends upon integrity, transparency and
+                adherence to recognised forensic procedures.
+              </p>
+
+              <h3>Key Areas of Learning</h3>
+
+              <ul>
+
+                <li>
+                  Duties and responsibilities of expert witnesses.
+                </li>
+
+                <li>
+                  Objectivity and impartiality.
+                </li>
+
+                <li>
+                  Courtroom presentation of digital evidence.
+                </li>
+
+                <li>
+                  Professional report writing.
+                </li>
+
+                <li>
+                  Explaining technical evidence to non-technical audiences.
+                </li>
+
+                <li>
+                  Maintaining credibility through recognised methodologies.
+                </li>
+
+              </ul>
+
+            </div>
+
+            <div class="learning-grid">
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  ⚖
+                </div>
+
+                <h3>
+                  Duty to the Court
+                </h3>
+
+                <p>
+                  Expert witnesses remain impartial and provide independent
+                  opinions supported solely by evidence.
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  📑
+                </div>
+
+                <h3>
+                  Professional Reporting
+                </h3>
+
+                <p>
+                  Clear documentation enables complex forensic findings to be
+                  understood by judges, juries and legal practitioners.
+                </p>
+
+              </article>
+
+            </div>
+
+            <div class="key-point">
+
+              <span class="key-point-label">
+                My Reflection
+              </span>
+
+              <p>
+                This unit demonstrated that technical knowledge alone does not
+                make an effective forensic practitioner. Professional integrity,
+                impartiality and the ability to communicate clearly are equally
+                important when presenting evidence within legal proceedings.
+              </p>
+
+            </div>
+
+          </section>
+
+          <section
+            class="content-section"
+            id="unit-12"
+            aria-labelledby="unit-12-title"
+          >
+
+            <div class="section-header">
+
+              <div class="section-number">
+                U12
+              </div>
+
+              <div class="section-heading-group">
+
+                <p class="section-eyebrow">
+                  Unit 12
+                </p>
+
+                <h2
+                  class="section-title"
+                  id="unit-12-title"
+                >
+                  Ethics in the Digital Landscape
+                </h2>
+
+                <p class="section-intro">
+                  Bringing together the legal, ethical and professional
+                  responsibilities of cybersecurity and digital forensic
+                  practitioners.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="unit-meta">
+
+              <span class="meta-chip completed">
+                Completed
+              </span>
+
+              <span class="meta-chip">
+                Ethics
+              </span>
+
+              <span class="meta-chip">
+                Professional Practice
+              </span>
+
+              <span class="meta-chip">
+                Responsibility
+              </span>
+
+            </div>
+
+            <div class="prose">
+
+              <p>
+                The final unit consolidated the themes explored throughout the
+                module by examining ethics within digital investigations,
+                cybersecurity and the wider technology sector. Whilst legislation
+                establishes what professionals are legally permitted to do,
+                ethics considers what they should do when faced with difficult
+                professional decisions.
+              </p>
+
+              <p>
+                Ethical dilemmas frequently arise during digital investigations,
+                particularly when balancing privacy, organisational interests,
+                public safety and the rights of individuals. The unit reinforced
+                that responsible cybersecurity requires more than technical
+                expertise or legal compliance. Ethical judgement must underpin
+                every professional decision.
+              </p>
+
+              <p>
+                I also reflected upon the importance of accountability,
+                transparency, confidentiality and continuous professional
+                development. As technology evolves rapidly, cybersecurity
+                professionals must remain committed to lifelong learning whilst
+                maintaining high ethical standards throughout their careers.
+              </p>
+
+              <p>
+                This unit effectively concluded the module by demonstrating how
+                law, ethics, digital forensics and cybersecurity intersect to
+                support fair, responsible and trustworthy investigations.
+              </p>
+
+              <h3>Key Areas of Learning</h3>
+
+              <ul>
+
+                <li>Professional ethics in cybersecurity.</li>
+                <li>Ethical decision making.</li>
+                <li>Privacy and confidentiality.</li>
+                <li>Professional accountability.</li>
+                <li>Responsible use of digital evidence.</li>
+                <li>Continuous professional development.</li>
+
+              </ul>
+
+            </div>
+
+            <div class="learning-grid">
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  🛡
+                </div>
+
+                <h3>
+                  Ethical Practice
+                </h3>
+
+                <p>
+                  Professional judgement should always balance legal authority,
+                  ethical responsibility and public trust.
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  🌍
+                </div>
+
+                <h3>
+                  Lifelong Learning
+                </h3>
+
+                <p>
+                  Cybersecurity professionals must continuously develop their
+                  knowledge as technologies, threats and legislation evolve.
+                </p>
+
+              </article>
+
+            </div>
+
+            <div class="key-point">
+
+              <span class="key-point-label">
+                Module Reflection
+              </span>
+
+              <p>
+                Completing this module significantly broadened my understanding
+                of digital forensics beyond technical investigation alone. I now
+                appreciate the equally important roles played by law, ethics,
+                human rights and professional conduct. These principles will
+                directly influence my future career as a cybersecurity
+                professional and strengthen my ability to perform investigations
+                responsibly, ethically and in accordance with recognised legal
+                frameworks.
+              </p>
+
+            </div>
+
+          </section>
+                    <section
+            class="content-section"
+            id="assessment-three"
+            aria-labelledby="assessment-three-title"
+          >
+
+            <div class="section-header">
+
+              <div class="section-number">
+                A3
+              </div>
+
+              <div class="section-heading-group">
+
+                <p class="section-eyebrow">
+                  Summative Assessment
+                </p>
+
+                <h2
+                  class="section-title"
+                  id="assessment-three-title"
+                >
+                  Assessment Three – Expert Report
+                </h2>
+
+                <p class="section-intro">
+                  Completed at the end of Unit 12.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="prose">
+
+              <p>
+                The final summative assessment required the preparation of a
+                professional expert report based upon a digital forensic and
+                cyber law scenario. The task brought together the knowledge
+                developed throughout the module, including evidence handling,
+                continuity, reliability, investigative reasoning, legal
+                principles, ethics and expert witness responsibilities.
+              </p>
+
+              <p>
+                The report required findings to be presented in a structured,
+                impartial and professionally appropriate format. Rather than
+                simply describing technical information, I had to explain the
+                significance of the evidence, distinguish factual observations
+                from expert opinion and remain within the limits of the available
+                material.
+              </p>
+
+              <p>
+                Completing this assessment strengthened my ability to produce
+                evidence-led conclusions without overstating certainty. It also
+                reinforced the importance of transparency, reproducibility and
+                clear communication when technical findings may influence legal
+                or organisational decisions.
+              </p>
+
+              <p>
+                This assessment represented the culmination of the module because
+                it required both technical understanding and professional
+                judgement. It demonstrated how digital forensic practitioners
+                must combine methodological discipline with legal awareness and
+                ethical responsibility.
+              </p>
+
+            </div>
+
+            <div class="learning-grid">
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  📋
+                </div>
+
+                <h3>
+                  Expert Report
+                </h3>
+
+                <p>
+                  The completed professional report presenting forensic findings,
+                  analysis and evidence-based conclusions.
+                </p>
+
+                <p style="margin-top:16px;">
+
+                  <a
+                    class="button secondary"
+                    href="assets/digital-forensics-cyber-law/expert-report.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Expert Report →
+                  </a>
+
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  ⚖
+                </div>
+
+                <h3>
+                  Professional Competencies
+                </h3>
+
+                <p>
+                  Objective analysis, formal reporting, legal awareness,
+                  professional judgement and responsible presentation of digital
+                  evidence.
+                </p>
+
+              </article>
+
+            </div>
+
+            <div class="key-point">
+
+              <span class="key-point-label">
+                Assessment Reflection
+              </span>
+
+              <p>
+                The expert report was the most professionally focused assessment
+                in the module. It required me to write with precision, avoid
+                unsupported assumptions and communicate technical findings in a
+                manner suitable for legal and non-technical readers.
+              </p>
+
+            </div>
+
+          </section>
+
+          <section
+            class="content-section"
+            id="work-showcase"
+            aria-labelledby="work-showcase-title"
+          >
+
+            <div class="section-header">
+
+              <div class="section-number">
+                03
+              </div>
+
+              <div class="section-heading-group">
+
+                <p class="section-eyebrow">
+                  Portfolio Evidence
+                </p>
+
+                <h2
+                  class="section-title"
+                  id="work-showcase-title"
+                >
+                  Professional Work Showcase
+                </h2>
+
+                <p class="section-intro">
+                  A curated collection of the principal academic and professional
+                  outputs completed during the module.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="prose">
+
+              <p>
+                The artefacts below demonstrate the progression of my learning
+                across presentation, public-facing academic communication and
+                formal expert reporting. Together, they provide evidence of my
+                ability to research, analyse, evaluate and communicate complex
+                digital forensic and cyber law issues for different audiences.
+              </p>
+
+            </div>
+
+            <div class="learning-grid">
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  01
+                </div>
+
+                <p class="section-eyebrow">
+                  Assessment One
+                </p>
+
+                <h3>
+                  EncroChat Academic Presentation
+                </h3>
+
+                <p>
+                  A critical presentation examining the impact of the EncroChat
+                  operation on investigations into cyber-enabled organised drug
+                  trafficking in the United Kingdom.
+                </p>
+
+                <p style="margin-top:16px;">
+
+                  <a
+                    class="button secondary"
+                    href="assets/digital-forensics-cyber-law/encrochat-presentation.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Presentation →
+                  </a>
+
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  02
+                </div>
+
+                <p class="section-eyebrow">
+                  Assessment Two
+                </p>
+
+                <h3>
+                  Academic Blog Post
+                </h3>
+
+                <p>
+                  A research-informed blog translating complex legal and forensic
+                  issues into an accessible format for a wider audience.
+                </p>
+
+                <p style="margin-top:16px;">
+
+                  <a
+                    class="button secondary"
+                    href="assets/digital-forensics-cyber-law/blog-post.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Blog Post →
+                  </a>
+
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  03
+                </div>
+
+                <p class="section-eyebrow">
+                  Assessment Three
+                </p>
+
+                <h3>
+                  Digital Forensic Expert Report
+                </h3>
+
+                <p>
+                  A formally structured expert report presenting digital forensic
+                  findings, analysis and impartial professional conclusions.
+                </p>
+
+                <p style="margin-top:16px;">
+
+                  <a
+                    class="button secondary"
+                    href="assets/digital-forensics-cyber-law/expert-report.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Expert Report →
+                  </a>
+
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  04
+                </div>
+
+                <p class="section-eyebrow">
+                  Supporting Evidence
+                </p>
+
+                <h3>
+                  EncroChat Speaker Script
+                </h3>
+
+                <p>
+                  The full narration and speaker notes developed to support the
+                  recorded academic presentation.
+                </p>
+
+                <p style="margin-top:16px;">
+
+                  <a
+                    class="button secondary"
+                    href="assets/digital-forensics-cyber-law/encrochat-script.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Speaker Script →
+                  </a>
+
+                </p>
+
+              </article>
+
+            </div>
+
+            <div class="key-point">
+
+              <span class="key-point-label">
+                Repository Note
+              </span>
+
+              <p>
+                The buttons above assume that the evidence files are stored in
+                <code>assets/digital-forensics-cyber-law/</code>. Ensure that
+                the PDF filenames in the repository match the links used in this
+                page exactly.
+              </p>
+
+            </div>
+
+          </section>
+
+          <section
+            class="content-section"
+            id="skills-developed"
+            aria-labelledby="skills-developed-title"
+          >
+
+            <div class="section-header">
+
+              <div class="section-number">
+                04
+              </div>
+
+              <div class="section-heading-group">
+
+                <p class="section-eyebrow">
+                  Professional Development
+                </p>
+
+                <h2
+                  class="section-title"
+                  id="skills-developed-title"
+                >
+                  Skills Developed
+                </h2>
+
+                <p class="section-intro">
+                  Transferable capabilities developed through the academic,
+                  investigative and reflective activities completed throughout
+                  the module.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="learning-grid">
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  DF
+                </div>
+
+                <h3>
+                  Digital Forensic Reasoning
+                </h3>
+
+                <p>
+                  Identifying, interpreting and evaluating digital evidence while
+                  considering context, reliability, continuity and alternative
+                  explanations.
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  LR
+                </div>
+
+                <h3>
+                  Legal Research
+                </h3>
+
+                <p>
+                  Locating and evaluating legislation, legal principles,
+                  judgments and scholarly sources relevant to cybercrime and
+                  digital investigations.
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  CR
+                </div>
+
+                <h3>
+                  Critical Analysis
+                </h3>
+
+                <p>
+                  Challenging assumptions, comparing competing perspectives and
+                  forming balanced conclusions supported by available evidence.
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  EC
+                </div>
+
+                <h3>
+                  Evidence Communication
+                </h3>
+
+                <p>
+                  Explaining complex forensic and legal material clearly to
+                  technical, academic, managerial and non-specialist audiences.
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  PR
+                </div>
+
+                <h3>
+                  Professional Reporting
+                </h3>
+
+                <p>
+                  Structuring formal reports, separating fact from opinion and
+                  communicating conclusions without exceeding the available
+                  evidence.
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  EP
+                </div>
+
+                <h3>
+                  Ethical Practice
+                </h3>
+
+                <p>
+                  Applying principles of privacy, fairness, proportionality,
+                  confidentiality, impartiality and professional accountability.
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  CO
+                </div>
+
+                <h3>
+                  Cross-Border Awareness
+                </h3>
+
+                <p>
+                  Understanding the jurisdictional and collaborative challenges
+                  involved when cybercrime spans countries, agencies and service
+                  providers.
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <div class="card-icon">
+                  PC
+                </div>
+
+                <h3>
+                  Public Communication
+                </h3>
+
+                <p>
+                  Adapting specialist content into engaging and accessible
+                  presentations and public-facing academic writing.
+                </p>
+
+              </article>
+
+            </div>
+
+            <div class="prose">
+
+              <h3>Evidence of Development</h3>
+
+              <p>
+                The EncroChat presentation developed my ability to synthesise
+                legal, investigative and social perspectives into a coherent
+                spoken narrative. The academic blog strengthened my ability to
+                communicate specialist issues to a broader audience, while the
+                expert report required greater precision, neutrality and formal
+                professional judgement.
+              </p>
+
+              <p>
+                Across all three assessments, I improved my independent research,
+                source evaluation, academic referencing and time-management
+                skills. I also became more confident in recognising the limits of
+                evidence and avoiding claims that cannot be adequately supported.
+              </p>
+
+            </div>
+
+            <div class="key-point">
+
+              <span class="key-point-label">
+                Career Relevance
+              </span>
+
+              <p>
+                These capabilities are directly relevant to roles in security
+                analysis, incident response, governance, risk and compliance,
+                digital investigations and cyber threat intelligence, where
+                professionals must interpret evidence and communicate findings
+                responsibly.
+              </p>
+
+            </div>
+
+          </section>
+
+          <section
+            class="content-section"
+            id="evidence-repository"
+            aria-labelledby="evidence-repository-title"
+          >
+
+            <div class="section-header">
+
+              <div class="section-number">
+                05
+              </div>
+
+              <div class="section-heading-group">
+
+                <p class="section-eyebrow">
+                  Supporting Material
+                </p>
+
+                <h2
+                  class="section-title"
+                  id="evidence-repository-title"
+                >
+                  Evidence Repository
+                </h2>
+
+                <p class="section-intro">
+                  Direct access to the principal evidence files associated with
+                  this completed module.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="learning-grid">
+
+              <article class="learning-card">
+
+                <h3>
+                  Assessment One
+                </h3>
+
+                <p>
+                  EncroChat academic presentation.
+                </p>
+
+                <p style="margin-top:16px;">
+
+                  <a
+                    class="button primary"
+                    href="assets/digital-forensics-cyber-law/encrochat-presentation.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open PDF
+                  </a>
+
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <h3>
+                  Presentation Script
+                </h3>
+
+                <p>
+                  Supporting narration and speaker notes.
+                </p>
+
+                <p style="margin-top:16px;">
+
+                  <a
+                    class="button primary"
+                    href="assets/digital-forensics-cyber-law/encrochat-script.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open PDF
+                  </a>
+
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <h3>
+                  Assessment Two
+                </h3>
+
+                <p>
+                  Completed academic blog post.
+                </p>
+
+                <p style="margin-top:16px;">
+
+                  <a
+                    class="button primary"
+                    href="assets/digital-forensics-cyber-law/blog-post.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open PDF
+                  </a>
+
+                </p>
+
+              </article>
+
+              <article class="learning-card">
+
+                <h3>
+                  Assessment Three
+                </h3>
+
+                <p>
+                  Completed digital forensic expert report.
+                </p>
+
+                <p style="margin-top:16px;">
+
+                  <a
+                    class="button primary"
+                    href="assets/digital-forensics-cyber-law/expert-report.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open PDF
+                  </a>
+
+                </p>
+
+              </article>
+
+            </div>
+
+          </section>
+                    <section
+            class="content-section"
+            id="overall-reflection"
+            aria-labelledby="overall-reflection-title"
+          >
+
+            <div class="section-header">
+
+              <div class="section-number">
+                06
+              </div>
+
+              <div class="section-heading-group">
+
+                <p class="section-eyebrow">
+                  Final Reflection
+                </p>
+
+                <h2
+                  class="section-title"
+                  id="overall-reflection-title"
+                >
+                  Overall Module Reflection
+                </h2>
+
+                <p class="section-intro">
+                  Reflecting upon the knowledge, professional growth and skills
+                  gained throughout Principles of Digital Forensics and Cyber Law.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="prose">
+
+              <p>
+                Completing this module fundamentally changed the way I view
+                digital forensics. Prior to studying the module, I largely
+                associated digital investigations with technical activities such
+                as recovering evidence from computers or analysing logs.
+                Throughout the twelve units I developed a much broader
+                understanding of how digital investigations intersect with law,
+                ethics, criminology, policing and human rights.
+              </p>
+
+              <p>
+                One of the most valuable lessons was recognising that digital
+                evidence rarely speaks for itself. Evidence must be collected,
+                preserved, interpreted and presented using recognised forensic
+                procedures whilst remaining objective and legally defensible.
+                Professional judgement therefore becomes just as important as
+                technical capability.
+              </p>
+
+              <p>
+                The three assessments provided opportunities to communicate
+                forensic findings through different professional formats.
+                Preparing the EncroChat presentation strengthened my research
+                and presentation skills. Writing the academic blog improved my
+                ability to explain specialist topics clearly, whilst the expert
+                report developed my professional writing and analytical
+                capabilities.
+              </p>
+
+              <p>
+                Overall, this module has provided a strong foundation for my
+                future career within cybersecurity. Whether working in digital
+                forensics, incident response, governance, risk, compliance or
+                security operations, the legal and ethical principles studied
+                throughout this module will influence the way I investigate,
+                communicate and make professional decisions.
+              </p>
+
+            </div>
+
+            <div class="key-point">
+
+              <span class="key-point-label">
+                Looking Ahead
+              </span>
+
+              <p>
+                I intend to continue building upon the knowledge gained during
+                this module by developing practical digital forensic skills,
+                strengthening my understanding of cyber law and applying these
+                principles throughout my professional career in cybersecurity.
+              </p>
+
+            </div>
+
+          </section>
+
+        </main>
+
+        <aside class="sidebar">
+
+          <div class="sidebar-card">
+
+            <h3>
+              Module Status
+            </h3>
+
             <p>
-              Completed presentation on EncroChat hacking and its impact on cyber-enabled organised drug trafficking investigations in the United Kingdom.
+              <strong>Completed</strong>
             </p>
+
+            <p>
+              12 / 12 Units
+            </p>
+
+            <p>
+              3 / 3 Assessments
+            </p>
+
           </div>
 
-          <div class="mini-card">
-            <span class="badge pending">To be added</span>
-            <h3 style="margin-top:10px;">Assessment 2: Blog Post</h3>
-            <p>
-              This section will be updated when the blog post is developed and submitted later in the module.
-            </p>
+          <div class="sidebar-card">
+
+            <h3>
+              Assessments
+            </h3>
+
+            <ul class="sidebar-list">
+
+              <li>
+                ✓ Academic Presentation
+              </li>
+
+              <li>
+                ✓ Academic Blog Post
+              </li>
+
+              <li>
+                ✓ Expert Report
+              </li>
+
+            </ul>
+
           </div>
 
-          <div class="mini-card">
-            <span class="badge pending">To be added</span>
-            <h3 style="margin-top:10px;">Final Assessment: Expert Report</h3>
-            <p>
-              The expert report artefact and reflection will be added once the final assessment work is completed.
-            </p>
+          <div class="sidebar-card">
+
+            <h3>
+              Core Topics
+            </h3>
+
+            <ul class="sidebar-list">
+
+              <li>Digital Evidence</li>
+              <li>Cyber Law</li>
+              <li>Digital Forensics</li>
+              <li>Expert Witness</li>
+              <li>Human Rights</li>
+              <li>Cybercrime</li>
+              <li>Ethics</li>
+
+            </ul>
+
           </div>
 
-          <div class="mini-card">
-            <span class="badge pending">Ongoing</span>
-            <h3 style="margin-top:10px;">ePortfolio Development</h3>
-            <p>
-              This page will continue to collect unit reflections, activities, notes, and evidence of learning as the module progresses.
-            </p>
+          <div class="sidebar-card">
+
+            <h3>
+              Professional Skills
+            </h3>
+
+            <ul class="sidebar-list">
+
+              <li>Legal Research</li>
+              <li>Critical Analysis</li>
+              <li>Evidence Evaluation</li>
+              <li>Academic Writing</li>
+              <li>Professional Reporting</li>
+              <li>Presentation Skills</li>
+              <li>Ethical Decision Making</li>
+
+            </ul>
+
           </div>
-        </div>
-      </section>
 
-      <section id="overall-reflection">
-        <div class="section-header">
-          <div class="section-kicker">Overall reflection</div>
-          <h2>Learning development up to Unit 7</h2>
-        </div>
+          <div class="sidebar-card">
 
-        <div class="card">
-          <p>
-            Completing Units 1-7 has changed how I understand the relationship between cybersecurity, law, and investigation. Earlier in my cybersecurity learning, I focused more on tools, attacks, systems, and controls. This module has shown me that investigation also depends on legal definitions, evidence handling, documentation, admissibility, and the ability to explain technical findings clearly.
-          </p>
+            <h3>
+              Repository
+            </h3>
 
-          <p>
-            The most important development in my thinking is that digital evidence must be treated carefully from the beginning. If evidence is not preserved properly, documented accurately, or interpreted cautiously, it may lose value even if it appears technically useful. This applies not only to criminal investigations, but also to SOC analysis, incident response, internal investigations, compliance reporting, and organisational decision-making.
-          </p>
+            <p>
+              Supporting evidence and assessment artefacts are available within
+              the repository's
+              <code>
+                assets/digital-forensics-cyber-law/
+              </code>
+              directory.
+            </p>
 
-          <p>
-            The EncroChat presentation helped me connect theory to a real-world case. It showed that cyber-enabled organised crime creates serious policing challenges, but it also raised questions about privacy, surveillance, proportionality, and fairness. This balance is central to cyber law because effective investigation must still remain accountable.
-          </p>
+          </div>
 
-          <p>
-            Going forward, I want to continue developing the ability to write clearly about forensic findings, legal issues, and investigative reasoning. This will help me prepare for the blog post and final expert report, while also supporting my wider career goal of moving into defensive cybersecurity and SOC-related work.
-          </p>
-        </div>
-      </section>
-    </main>
+        </aside>
 
-    <aside class="sidebar" aria-label="Portfolio sidebar">
-      <div class="side-card">
-        <div class="side-title">Current status</div>
-        <ul class="progress-list">
-          <li><span>Units 1-7</span><strong>Completed</strong></li>
-          <li><span>Units 8-12</span><strong>Pending</strong></li>
-          <li><span>Assessment 1</span><strong>Completed</strong></li>
-          <li><span>Assessment 2</span><strong>Pending</strong></li>
-          <li><span>Final report</span><strong>Pending</strong></li>
-        </ul>
       </div>
 
-      <div class="side-card">
-        <div class="side-title">How to use this page</div>
-        <p class="small">
-          This page is organised as an academic ePortfolio. Each completed unit includes activities completed, what I learned, reflection, and artefacts or evidence.
-        </p>
-        <div class="button-row">
-          <a class="btn primary" href="#work-showcase">View work showcase</a>
-        </div>
-      </div>
+    </div>
 
-      <div class="side-card">
-        <div class="side-title">Key module skills</div>
-        <ul>
-          <li>Digital evidence awareness.</li>
-          <li>Continuity and reliability of evidence.</li>
-          <li>Forensic process thinking.</li>
-          <li>Legal and ethical evaluation.</li>
-          <li>Clear investigative communication.</li>
-        </ul>
-      </div>
-    </aside>
   </div>
 
-  <footer>
-    © <span id="year"></span> Pragadheesh Marimuthu - Principles of Digital Forensics and Cyber Law ePortfolio
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <p>
+
+        © 2026 Pragadheesh Marimuthu
+
+      </p>
+
+      <p>
+
+        MSc Cyber Security • University of Essex Online
+
+      </p>
+
+      <p>
+
+        Principles of Digital Forensics and Cyber Law Portfolio
+
+      </p>
+
+    </div>
+
   </footer>
 
-  <button id="scrollTopBtn" aria-label="Back to top">↑</button>
+  <button
+    id="backToTop"
+    class="back-to-top"
+    aria-label="Back to top"
+    title="Back to top"
+  >
+    ↑
+  </button>
 
   <script>
-    const scrollBtn = document.getElementById("scrollTopBtn");
+
+    const backToTop = document.getElementById("backToTop");
 
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        scrollBtn.classList.add("show");
+
+      if (window.scrollY > 400) {
+
+        backToTop.classList.add("show");
+
       } else {
-        scrollBtn.classList.remove("show");
+
+        backToTop.classList.remove("show");
+
       }
+
     });
 
-    scrollBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    backToTop.addEventListener("click", () => {
+
+      window.scrollTo({
+
+        top: 0,
+        behavior: "smooth"
+
+      });
+
     });
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+      anchor.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if (target) {
+
+          target.scrollIntoView({
+
+            behavior: "smooth",
+            block: "start"
+
+          });
+
+        }
+
+      });
+
+    });
+
   </script>
+
 </body>
+
 </html>
