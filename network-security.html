@@ -464,6 +464,89 @@
       font-weight: 800;
     }
 
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .showcase-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 1.25rem;
+      background: linear-gradient(145deg, var(--surface-soft), rgba(10, 23, 39, 0.9));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-small);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .showcase-card:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(145deg, rgba(18, 36, 59, 0.96), rgba(12, 27, 45, 0.94));
+      border-color: rgba(100, 212, 255, 0.3);
+    }
+
+    .showcase-type {
+      margin-bottom: 0.6rem;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .showcase-card p {
+      font-size: 0.91rem;
+    }
+
+    .evidence-list {
+      margin: 0.75rem 0 1rem;
+      font-size: 0.86rem;
+    }
+
+    .evidence-action {
+      margin-top: auto;
+      padding-top: 0.5rem;
+    }
+
+    .evidence-button {
+      min-height: 43px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.62rem 0.85rem;
+      color: #06101b;
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 11px;
+      font-size: 0.84rem;
+      font-weight: 850;
+      box-shadow: 0 12px 28px rgba(46, 183, 240, 0.18);
+      transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .evidence-button:hover,
+    .evidence-button:focus-visible {
+      color: #06101b;
+      background: #9ceaff;
+      text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(46, 183, 240, 0.25);
+    }
+
+    .repository-note {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      color: var(--muted);
+      background: rgba(11, 24, 40, 0.7);
+      border: 1px dashed rgba(148, 163, 184, 0.38);
+      border-radius: 12px;
+      font-size: 0.86rem;
+    }
+
     .reflection-grid {
       margin-top: 1rem;
     }
@@ -606,7 +689,8 @@
       .learning-grid,
       .assessment-grid,
       .finding-grid,
-      .tool-grid {
+      .tool-grid,
+      .showcase-grid {
         grid-template-columns: 1fr;
       }
 
@@ -719,6 +803,7 @@
         <a class="quick-link" href="#methodology">Methodology</a>
         <a class="quick-link" href="#findings">Findings</a>
         <a class="quick-link" href="#assessments">Assessments</a>
+        <a class="quick-link" href="#work-showcase">Work Showcase</a>
         <a class="quick-link" href="#reflection">Reflection</a>
         <a class="quick-link home" href="index.html">← Portfolio Home</a>
       </nav>
@@ -1069,6 +1154,111 @@
               </div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work-showcase">
+      <div class="content-card">
+        <header class="section-header">
+          <p class="section-kicker">Submitted evidence</p>
+          <h2>Work Showcase</h2>
+          <p class="section-intro">
+            These submitted artefacts demonstrate the full vulnerability
+            assessment lifecycle: defining a defensible plan, gathering and
+            interpreting technical evidence, communicating risk to business
+            stakeholders, and reflecting critically on professional development.
+          </p>
+        </header>
+
+        <div class="showcase-grid">
+          <article class="showcase-card">
+            <span class="showcase-type">Assessment 1 • Unit 3</span>
+            <h3>Baseline Analysis and Plan</h3>
+            <p>
+              The opening assessment established a structured baseline for
+              demo.testfire.net before detailed scanning. It documented the
+              expected threat areas, relevant standards, selected tools,
+              operational considerations, ethical constraints, and the planned
+              sequence of testing activities.
+            </p>
+            <ul class="evidence-list">
+              <li>Initial security challenges and likely business impact.</li>
+              <li>GDPR and OWASP relevance.</li>
+              <li>Tool-selection rationale and methodology.</li>
+              <li>Testing timeline, assumptions, and limitations.</li>
+              <li>Prioritised preliminary mitigations.</li>
+            </ul>
+            <div class="evidence-action">
+              <a
+                class="evidence-button"
+                href="assets/network-security/baseline-analysis-and-plan.pdf"
+                download
+              >
+                Download baseline report
+              </a>
+            </div>
+          </article>
+
+          <article class="showcase-card">
+            <span class="showcase-type">Assessment 2 • Unit 6</span>
+            <h3>Results and Executive Summary</h3>
+            <p>
+              This report brought together manual inspection and layered
+              tool-based testing. It translated findings from the application,
+              server, network, TLS, and DNS layers into clear business risk,
+              compliance exposure, and an ordered remediation programme.
+            </p>
+            <ul class="evidence-list">
+              <li>Nmap, Nikto, ZAP, Burp Suite, SSLyze, WHOIS, and DIG evidence.</li>
+              <li>OWASP and non-OWASP vulnerability analysis.</li>
+              <li>GDPR and PCI DSS mapping.</li>
+              <li>Non-technical findings for decision-makers.</li>
+              <li>Risk-based conclusions and recommendations.</li>
+            </ul>
+            <div class="evidence-action">
+              <a
+                class="evidence-button"
+                href="assets/network-security/results-and-executive-summary.pdf"
+                download
+              >
+                Download executive summary
+              </a>
+            </div>
+          </article>
+
+          <article class="showcase-card">
+            <span class="showcase-type">Assessment 3 • Unit 6</span>
+            <h3>Individual Reflective Piece</h3>
+            <p>
+              The reflective submission used the “What? So What? Now What?”
+              framework to evaluate how tutor feedback, technical challenges,
+              independent troubleshooting, peer learning, and ethical
+              responsibility changed my approach to vulnerability assessment.
+            </p>
+            <ul class="evidence-list">
+              <li>Response to tutor feedback and identified knowledge gaps.</li>
+              <li>Development from checklist testing to layered analysis.</li>
+              <li>Technical, business, legal, and ethical interpretation.</li>
+              <li>Skills matrix and professional development priorities.</li>
+              <li>Future learning in TLS, SIEM, CTFs, and threat intelligence.</li>
+            </ul>
+            <div class="evidence-action">
+              <a
+                class="evidence-button"
+                href="assets/network-security/individual-reflective-piece.pdf"
+                download
+              >
+                Download reflective piece
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div class="repository-note">
+          <strong>Repository structure:</strong> keep this HTML file alongside
+          the <code>assets/network-security/</code> folder so all three download
+          buttons continue to work after publishing through GitHub Pages.
         </div>
       </div>
     </section>
